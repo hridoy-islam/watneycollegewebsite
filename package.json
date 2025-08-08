@@ -1,0 +1,53 @@
+{
+  "name": "watney",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "lint": "next lint",
+    "email": "email dev"
+  },
+  "dependencies": {
+    "@nextui-org/navbar": "^2.0.27",
+    "@nextui-org/react": "^2.6.11",
+    "@radix-ui/react-avatar": "^1.1.3",
+    "@radix-ui/react-label": "^2.1.2",
+    "@radix-ui/react-radio-group": "^1.2.3",
+    "@radix-ui/react-select": "^2.1.6",
+    "@radix-ui/react-slot": "^1.1.2",
+    "@react-email/components": "0.0.14",
+    "@react-pdf/renderer": "^3.3.4",
+    "@react-three/drei": "^10.0.3",
+    "@react-three/fiber": "^9.0.0-alpha.8",
+    "axios": "^1.6.5",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.4.7",
+    "lucide-react": "^0.476.0",
+    "motion": "^12.4.7",
+    "next": "^15.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-email": "^1.2.0",
+    "react-hook-form": "^7.50.0",
+    "react-icons": "^5.0.1",
+    "resend": "^3.1.0",
+    "swiper": "^11.0.5",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.174.0",
+    "three-globe": "^2.41.12"
+  },
+  "devDependencies": {
+    "@iconify/react": "^4.1.1",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}
