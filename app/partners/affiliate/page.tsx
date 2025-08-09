@@ -59,6 +59,47 @@ const iconVariants = {
   },
 };
 
+
+const affiliates = [
+  {
+    name: "SMS",
+    service: "Student Support Services",
+    email: "sms@watneycollege.com",
+    logo: "/logos/sms.png",
+    link: "/affiliates/sms"
+  },
+  {
+    name: "Icare",
+    service: "Healthcare Consultations",
+    email: "icare@watneycollege.com",
+    logo: "/logos/icare.png",
+    link: "/affiliates/icare"
+  },
+  {
+    name: "Care Square",
+    service: "Community Outreach Programs",
+    email: "caresquare@watneycollege.com",
+    logo: "/logos/caresquare.png",
+    link: "/affiliates/caresquare"
+  },
+  {
+    name: "Medicare Link",
+    service: "Medical Insurance Coordination",
+    email: "medicarelink@watneycollege.com",
+    logo: "/logos/medicare.png",
+    link: "/affiliates/medicare-link"
+  },
+  {
+    name: "Everycare Romford",
+    service: "Local Healthcare Services",
+    email: "everycareromford@watneycollege.com",
+    logo: "/logos/everycare.png",
+    link: "/affiliates/everycare-romford"
+  }
+];
+
+
+
 export default function AffiliatePage() {
   return (
     <div className="min-h-screen bg-white">
@@ -93,160 +134,92 @@ export default function AffiliatePage() {
         </div>
       </section>
 
-      {/* Affiliate List */}
-      <section id="affiliates" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="max-w-4xl mx-auto text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Badge className="mb-6 bg-primary/15 text-primary">Our Affiliates</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Trusted Partners in Education & Healthcare
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Watney College collaborates with leading organizations to provide comprehensive support to our students.
-            </p>
-          </motion.div>
+     <section id="affiliates" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <motion.div
+          className=" mx-auto text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Badge className="mb-6 bg-primary/15 text-primary">
+            Our Affiliates
+          </Badge>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            Trusted Partners in Education & Healthcare
+          </h2>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Watney College collaborates with leading organizations to provide
+            comprehensive support to our students.
+          </p>
+        </motion.div>
 
-          {/* Table Layout */}
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead className="bg-primary text-white">
-                <tr>
-                  <th className="px-4 py-3 font-bold uppercase">Affiliate Name</th>
-                  <th className="px-4 py-3 font-bold uppercase">Services Provided</th>
-                  <th className="px-4 py-3 font-bold uppercase">Contact</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Affiliate 1 */}
-                <motion.tr
-                  variants={itemVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                  className="border-b border-gray-200"
-                >
-                  <td className="px-4 py-3">SMS</td>
-                  <td className="px-4 py-3">Student Support Services</td>
-                  <td className="px-4 py-3">
-                    <a
-                      href="mailto:sms@watneycollege.com"
-                      className="text-primary hover:underline"
-                    >
-                      sms@watneycollege.com
-                    </a>
-                  </td>
-                </motion.tr>
+        {/* Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {affiliates.map((affiliate, index) => (
+            <motion.div
+              key={affiliate.name}
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+            >
+              <Link href={affiliate.link}>
+                <div className="bg-white shadow-md hover:shadow-lg rounded-xl p-6 cursor-pointer transition-all h-full flex flex-col items-center text-center">
+                  {/* Logo */}
+                  <div className="w-20 h-20 mb-4 relative">
+                    <Image
+                      src={affiliate.logo}
+                      alt={`${affiliate.name} logo`}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
 
-                {/* Affiliate 2 */}
-                <motion.tr
-                  variants={itemVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                  className="border-b border-gray-200"
-                >
-                  <td className="px-4 py-3">Icare</td>
-                  <td className="px-4 py-3">Healthcare Consultations</td>
-                  <td className="px-4 py-3">
-                    <a
-                      href="mailto:icare@watneycollege.com"
-                      className="text-primary hover:underline"
-                    >
-                      icare@watneycollege.com
-                    </a>
-                  </td>
-                </motion.tr>
+                  {/* Name */}
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    {affiliate.name}
+                  </h3>
 
-                {/* Affiliate 3 */}
-                <motion.tr
-                  variants={itemVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                  className="border-b border-gray-200"
-                >
-                  <td className="px-4 py-3">Care Square</td>
-                  <td className="px-4 py-3">Community Outreach Programs</td>
-                  <td className="px-4 py-3">
-                    <a
-                      href="mailto:caresquare@watneycollege.com"
-                      className="text-primary hover:underline"
-                    >
-                      caresquare@watneycollege.com
-                    </a>
-                  </td>
-                </motion.tr>
+                  {/* Service */}
+                  <p className="text-gray-600 mb-3">{affiliate.service}</p>
 
-                {/* Affiliate 4 */}
-                <motion.tr
-                  variants={itemVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                  className="border-b border-gray-200"
-                >
-                  <td className="px-4 py-3">Medicare Link</td>
-                  <td className="px-4 py-3">Medical Insurance Coordination</td>
-                  <td className="px-4 py-3">
-                    <a
-                      href="mailto:medicarelink@watneycollege.com"
-                      className="text-primary hover:underline"
-                    >
-                      medicarelink@watneycollege.com
-                    </a>
-                  </td>
-                </motion.tr>
-
-                {/* Affiliate 5 */}
-                <motion.tr
-                  variants={itemVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                  className="border-b border-gray-200"
-                >
-                  <td className="px-4 py-3">Everycare Romford</td>
-                  <td className="px-4 py-3">Local Healthcare Services</td>
-                  <td className="px-4 py-3">
-                    <a
-                      href="mailto:everycareromford@watneycollege.com"
-                      className="text-primary hover:underline"
-                    >
-                      everycareromford@watneycollege.com
-                    </a>
-                  </td>
-                </motion.tr>
-              </tbody>
-            </table>
-          </div>
+                  {/* Contact */}
+                  <a
+                    href={`mailto:${affiliate.email}`}
+                    className="text-primary hover:underline text-sm"
+                  >
+                    {affiliate.email}
+                  </a>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-white text-center">
+      <section className="py-20 bg-foreground-100 text-white text-center">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-4xl text-primary font-bold mb-6">
               Become an Affiliate Today!
             </h2>
-            <p className="text-xl mb-8 text-purple-100 max-w-2xl mx-auto">
+            <p className="text-xl mb-8 text-primary  ">
               Partner with Watney College to reach a growing community of students and professionals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
                 asChild
-                className="bg-white text-primary hover:bg-gray-100"
+                className="bg-primary  text-primary hover:bg-primary/90"
               >
                 <Link href="/become-an-affiliate">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />

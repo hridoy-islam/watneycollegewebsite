@@ -76,7 +76,7 @@ export default function Header() {
        
       ],
     },
-    { name: "Services", path: "/services" },
+    // { name: "Services", path: "/services" },
     { name: "About Us", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];

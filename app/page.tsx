@@ -217,281 +217,289 @@ export default function page() {
 
   return (
     <main className="min-h-screen">
-      <section className="bg-primary py-20 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
+     <section className="bg-gradient-to-r from-primary/80 to-primary/40 py-16 overflow-hidden">
+      <div className="container mx-auto ">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-white space-y-8"
+          >
+            {/* Badge / Trust Label */}
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-white"
-            >
-              <motion.h1
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-5xl lg:text-6xl font-bold mb-6"
-              >
-                Shape Your Future With{" "}
-                <span className="text-pink-300">Watney College</span>
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-xl mb-8 text-purple-100"
-              >
-                Discover world-class education programs designed to unlock your
-                potential and accelerate your career growth in today's
-                competitive landscape.
-              </motion.p>
-
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { delayChildren: 0.6, staggerChildren: 0.2 },
-                  },
-                }}
-                className="flex flex-col sm:flex-row gap-4 mb-12"
-              >
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                >
-                  <Button
-                    size="lg"
-                    className="bg-white text-primary hover:bg-gray-100"
-                  >
-                    Start Learning Today
-                  </Button>
-                </motion.div>
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                >
-                  <Button
-                    size="lg"
-                    variant="default"
-                    className="border-white text-primary bg-white hover:bg-white/90"
-                  >
-                    Explore Courses
-                  </Button>
-                </motion.div>
-              </motion.div>
-
-              {/* Stats with counting animation */}
-              <div className="flex gap-8">
-                <Counter target={10000} label="Active Students" />
-                <Counter target={5000} label="Graduates" />
-                <Counter target={98} suffix="%" label="Success Rate" />
-              </div>
-            </motion.div>
-
-            {/* Right Image + Floating Cards */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="relative"
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium"
             >
-              <div className="relative">
-                <Image
-                  src="/home.jpg"
-                  alt="Student with educational materials"
-                  width={500}
-                  height={600}
-                  className="w-full h-auto rounded-lg shadow-lg"
-                />
-              </div>
-
-              {/* Floating 1 */}
-              <motion.div
-                animate={{
-                  y: [0, -10, 0], // floating motion
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 3,
-                  ease: "easeInOut",
-                }}
-                className="absolute top-10 right-10 bg-white rounded-lg p-3 shadow-lg"
-              >
-                <div className="flex items-center gap-2 text-black">
-                  <div className="w-3 h-3 bg-black rounded-full"></div>
-                  <span className="text-sm font-medium">Live Classes</span>
-                </div>
-              </motion.div>
-
-              {/* Floating 2 */}
-              <motion.div
-                animate={{
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 3,
-                  ease: "easeInOut",
-                  delay: 1.5,
-                }}
-                className="absolute bottom-20 left-10 bg-white rounded-lg p-3 shadow-lg"
-              >
-                <div className="flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-black" />
-                  <span className="text-sm font-medium text-black">
-                    250+ Courses
-                  </span>
-                </div>
-              </motion.div>
+              <Star className="w-4 h-4 text-yellow-300 fill-yellow-300" />
+              Accredited & Industry-Recognized Programs
             </motion.div>
-          </div>
+
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+            >
+              Shape Your Future With{" "}
+              <span className="text-pink-300">Watney College</span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="text-lg md:text-xl text-purple-100 leading-relaxed max-w-xl"
+            >
+              Join a globally recognized institution offering career-focused education designed for success in today’s competitive world.
+            </motion.p>
+
+            {/* Call to Action */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+            >
+              <Button
+                size="lg"
+                className="bg-white text-primary hover:text-white hover:scale-105 hover:shadow-xl transition-all duration-300 text-lg font-semibold py-7 px-10"
+              >
+                🚀 Apply Now – Secure Your Spot
+              </Button>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0, duration: 0.6 }}
+              className="flex flex-wrap gap-6 pt-4"
+            >
+              <Counter target={10000} label="Active Students" />
+              <Counter target={5000} label="Graduates" />
+              <Counter target={98} suffix="%" label="Success Rate" />
+            </motion.div>
+          </motion.div>
+
+          {/* Right Image + Floating Cards */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="relative"
+          >
+            <div className="relative">
+              <Image
+                src="/home.jpg"
+                alt="Student studying with laptop and books"
+                width={600}
+                height={720}
+                className="w-full h-auto rounded-xl shadow-2xl"
+              />
+            </div>
+
+            {/* Floating Badge 1 */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                repeat: Infinity,
+                duration: 3,
+                ease: "easeInOut",
+              }}
+              className="absolute -top-6 -right-6 bg-white text-primary rounded-full px-4 py-2 shadow-lg text-sm font-bold whitespace-nowrap"
+            >
+              Limited Seats
+            </motion.div>
+
+            {/* Floating Card 1 */}
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{
+                repeat: Infinity,
+                duration: 3.5,
+                ease: "easeInOut",
+              }}
+              className="absolute top-12 right-8 bg-white rounded-xl p-4 shadow-xl"
+            >
+              <div className="flex items-center gap-2 text-gray-800">
+                <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+                <span className="text-sm font-semibold">Live Online</span>
+              </div>
+            </motion.div>
+
+            {/* Floating Card 2 */}
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{
+                repeat: Infinity,
+                duration: 3.5,
+                ease: "easeInOut",
+                delay: 1.2,
+              }}
+              className="absolute bottom-16 left-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-xl"
+            >
+              <div className="flex items-center gap-2 text-gray-800">
+                <BookOpen className="w-5 h-5 text-primary" />
+                <span className="text-sm font-semibold">250+ Career-Focused Courses</span>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+
+      {/* Essential Resources Section */}
+      <section className="py-20 bg-primary/5">
+        <div className="container mx-auto px-4">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <Badge className="bg-primary/15 hover:bg-primary/15 text-primary mb-4">
+              Student Support
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Essential <span className="text-primary">Resources</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Everything you need to succeed — from housing and funding to
+              career support and course guides.
+            </p>
+          </motion.div>
+
+          {/* Cards Grid */}
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.15,
+                  delayChildren: 0.2,
+                },
+              },
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            {[
+              {
+                title: "Accommodation",
+                description:
+                  "Secure safe, affordable, and convenient housing near campus with our trusted partners.",
+                icon: <MapPin className="w-6 h-6" />,
+                href: "/accommodation",
+
+                delay: 0,
+              },
+              {
+                title: "Student Finance",
+                description:
+                  "Comprehensive guidance on tuition, scholarships, loans, and budget planning.",
+                icon: <Banknote className="w-6 h-6" />,
+                href: "/student-finance",
+                gradient: "from-green-500 to-emerald-600",
+                delay: 0.1,
+              },
+              {
+                title: "Career & Employability",
+                description:
+                  "Boost your employability with CV reviews, mock interviews, and job placements.",
+                icon: <Briefcase className="w-6 h-6" />,
+                href: "/career-employability",
+                gradient: "from-purple-500 to-violet-600",
+                delay: 0.2,
+              },
+              {
+                title: "Request a Prospectus",
+                description:
+                  "Get a free, detailed course guide delivered to your inbox or by post.",
+                icon: <BookOpen className="w-6 h-6" />,
+                href: "/prospectus",
+                gradient: "from-pink-500 to-rose-600",
+                delay: 0.3,
+              },
+            ].map((card, index) => (
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ delay: card.delay, duration: 0.5 }}
+              >
+                <Link href={card.href}>
+                  <motion.div
+                    className="group relative bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 h-full flex flex-col"
+                    whileHover={{ y: -10 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {/* Icon Circle with Gradient */}
+                    <div
+                      className={`w-14 h-14 bg-gradient-to-tr from-primary to-primary/60 rounded-xl flex items-center justify-center mb-5 text-white shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}
+                    >
+                      {card.icon}
+                    </div>
+
+                    {/* Content */}
+                    <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
+                      {card.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed flex-grow text-sm">
+                      {card.description}
+                    </p>
+
+                    {/* CTA Arrow */}
+                    <div className="flex items-center mt-5 text-primary text-sm font-medium">
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0" />
+                    </div>
+                  </motion.div>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-{/* Essential Resources Section */}
-<section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-  <div className="container mx-auto px-4">
-    {/* Header */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="text-center mb-16"
-    >
-      <Badge className="bg-primary/15 hover:bg-primary/15 text-primary mb-4">Student Support</Badge>
-      <h2 className="text-4xl md:text-5xl font-bold mb-6">
-        Essential <span className="text-primary">Resources</span>
-      </h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        Everything you need to succeed — from housing and funding to career support and course guides.
-      </p>
-    </motion.div>
-
-    {/* Cards Grid */}
-    <motion.div
-      className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-      variants={{
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: {
-            staggerChildren: 0.15,
-            delayChildren: 0.2,
-          },
-        },
-      }}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-    >
-      {[
-        {
-          title: "Accommodation",
-          description: "Secure safe, affordable, and convenient housing near campus with our trusted partners.",
-          icon: <MapPin className="w-6 h-6" />,
-          href: "/accommodation",
-         
-          delay: 0,
-        },
-        {
-          title: "Student Finance",
-          description: "Comprehensive guidance on tuition, scholarships, loans, and budget planning.",
-          icon: <Banknote className="w-6 h-6" />,
-          href: "/student-finance",
-          gradient: "from-green-500 to-emerald-600",
-          delay: 0.1,
-        },
-        {
-          title: "Career & Employability",
-          description: "Boost your employability with CV reviews, mock interviews, and job placements.",
-          icon: <Briefcase className="w-6 h-6" />,
-          href: "/career-employability",
-          gradient: "from-purple-500 to-violet-600",
-          delay: 0.2,
-        },
-        {
-          title: "Request a Prospectus",
-          description: "Get a free, detailed course guide delivered to your inbox or by post.",
-          icon: <BookOpen className="w-6 h-6" />,
-          href: "/prospectus",
-          gradient: "from-pink-500 to-rose-600",
-          delay: 0.3,
-        },
-      ].map((card, index) => (
-        <motion.div
-          key={index}
-          variants={{
-            hidden: { opacity: 0, y: 30 },
-            visible: { opacity: 1, y: 0 },
-          }}
-          transition={{ delay: card.delay, duration: 0.5 }}
-        >
-          <Link href={card.href}>
-            <motion.div
-              className="group relative bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 h-full flex flex-col"
-              whileHover={{ y: -10 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {/* Icon Circle with Gradient */}
-              <div
-                className={`w-14 h-14 bg-primary rounded-xl flex items-center justify-center mb-5 text-white shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}
-              >
-                {card.icon}
-              </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
-                {card.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed flex-grow text-sm">
-                {card.description}
-              </p>
-
-              {/* CTA Arrow */}
-              <div className="flex items-center mt-5 text-primary text-sm font-medium">
-                Learn More
-                <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0" />
-              </div>
-            </motion.div>
-          </Link>
-        </motion.div>
-      ))}
-    </motion.div>
-  </div>
-</section>
-
       {/* Services Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
               Services We <span className="text-primary">Proudly Offer</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We provide comprehensive educational services designed to empower students and professionals with the knowledge, skills, and opportunities needed for success in today's dynamic global marketplace.
+              We provide comprehensive educational services designed to empower
+              students and professionals with the knowledge, skills, and
+              opportunities needed for success in today's dynamic global
+              marketplace.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="border-2 border-primary/20  hover:border-primary transition-colors">
               <CardHeader>
                 <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <BookOpen className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-xl">Academic Excellence Program</CardTitle>
+                <CardTitle className="text-xl">
+                  Academic Excellence Program
+                </CardTitle>
                 <CardDescription>
-                  Top-tier curriculum content covering diverse fields with international standards and cutting-edge methodologies.
+                  Top-tier curriculum content covering diverse fields with
+                  international standards and cutting-edge methodologies.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -508,9 +516,12 @@ export default function page() {
                 <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <Users className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-xl">Student Success Support</CardTitle>
+                <CardTitle className="text-xl">
+                  Student Success Support
+                </CardTitle>
                 <CardDescription>
-                  Comprehensive 24/7 guidance through personalized mentoring and professional development programs.
+                  Comprehensive 24/7 guidance through personalized mentoring and
+                  professional development programs.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -527,9 +538,12 @@ export default function page() {
                 <div className="w-16 h-16 bg-primary/10  rounded-lg flex items-center justify-center mb-4">
                   <Globe className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-xl">Global Education Network</CardTitle>
+                <CardTitle className="text-xl">
+                  Global Education Network
+                </CardTitle>
                 <CardDescription>
-                  Connecting students with worldwide opportunities through partnerships and international programs.
+                  Connecting students with worldwide opportunities through
+                  partnerships and international programs.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -546,9 +560,12 @@ export default function page() {
                 <div className="w-16 h-16 bg-primary/10  rounded-lg flex items-center justify-center mb-4">
                   <Award className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-xl">Professional Certification Hub</CardTitle>
+                <CardTitle className="text-xl">
+                  Professional Certification Hub
+                </CardTitle>
                 <CardDescription>
-                  Industry-recognized certifications and professional development programs for career advancement.
+                  Industry-recognized certifications and professional
+                  development programs for career advancement.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -565,9 +582,12 @@ export default function page() {
                 <div className="w-16 h-16 bg-primary/10  rounded-lg flex items-center justify-center mb-4">
                   <GraduationCap className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-xl">Skills Development Lab</CardTitle>
+                <CardTitle className="text-xl">
+                  Skills Development Lab
+                </CardTitle>
                 <CardDescription>
-                  Hands-on learning experiences with cutting-edge technology and practical skill development.
+                  Hands-on learning experiences with cutting-edge technology and
+                  practical skill development.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -584,9 +604,12 @@ export default function page() {
                 <div className="w-16 h-16 bg-primary/10  rounded-lg flex items-center justify-center mb-4">
                   <Lightbulb className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-xl">Innovation & Research Center</CardTitle>
+                <CardTitle className="text-xl">
+                  Innovation & Research Center
+                </CardTitle>
                 <CardDescription>
-                  Fostering creativity and innovation through research projects and collaborative learning environments.
+                  Fostering creativity and innovation through research projects
+                  and collaborative learning environments.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -602,13 +625,13 @@ export default function page() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary">
+      <section className="py-20 bg-gradient-to-br from-primary to-primary/80">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Start Your{" "}
             <span className="text-white">Educational Journey?</span>
           </h2>
-          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
             Join thousands of successful students who have transformed their
             careers through our comprehensive programs.
           </p>
@@ -631,7 +654,7 @@ export default function page() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
           {/* Header */}
           <motion.div
@@ -696,13 +719,13 @@ export default function page() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-primary">
+      <section className="py-20 bg-gradient-to-br from-primary to-primary/80">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Experience the{" "}
             <span className="text-pink-200">Watney Difference?</span>
           </h2>
-          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
             Join thousands of students who have transformed their careers
             through our innovative education programs.
           </p>
@@ -725,7 +748,7 @@ export default function page() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4">Student Success Stories</Badge>

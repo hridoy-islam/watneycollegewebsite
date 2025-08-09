@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ChevronDown, Mail, MapPin, Phone } from "lucide-react";
+import { ChevronDown, GraduationCap, Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
@@ -63,7 +63,7 @@ export default function ContactPage() {
       },
     },
   };
- const fadeIn = {
+  const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -74,36 +74,26 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen ">
-      <section className="relative bg-primary text-secondary">
-        <div className="absolute inset-0 opacity-40">
-          <Image
-            src="/pattern.png"
-            alt="Investment Partnership Background"
-            fill
-            className="object-cover"
-          />
+      <section className="bg-primary text-white py-24">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <GraduationCap className="w-8 h-8" />
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Contact Us
+            </h1>
+            <p className="text-lg md:text-xl  mx-auto leading-relaxed text-purple-100">
+              A progressive institution in the heart of London, dedicated to
+              empowering students through exceptional education and practical
+              career-focused training.
+            </p>
+          </motion.div>
         </div>
-        <section className="relative bg-primary text-secondary">
-          <div className="absolute inset-0 opacity-40">
-            <Image
-              src="/pattern.png"
-              alt="Investment Partnership Background"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="container mx-auto py-16  relative z-10">
-            <motion.div   initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            className="text-start ">
-              <h1 className="text-secondary font-bold mb-4">Contact Us</h1>
-              <h3 className="text-secondary font-normal ">
-                Have a question or ready to move forward? MRST Consultancy is here to help with expert guidance and personalized support. Contact us today!
-              </h3>
-            </motion.div>
-          </div>
-        </section>
       </section>
 
       <div className="container flex flex-col items-center   py-12 ">
@@ -123,8 +113,8 @@ export default function ContactPage() {
             </motion.h1>
 
             <motion.p className="text-black mb-8" variants={itemVariants}>
-              Email, call, or complete the form to learn how MRST Consultancy
-              can assist you with your needs.
+              Email, call, or complete the form to learn how Watney College can
+              assist you with your needs.
             </motion.p>
 
             <motion.div
@@ -133,10 +123,10 @@ export default function ContactPage() {
             >
               <Mail className="h-5 w-5 text-black" />
               <a
-                href="mailto:info@mrstconsultancy.com"
+                href="mailto:info@watneycollege.co.uk"
                 className="text-gray-700 hover:text-primary transition-colors"
               >
-                mijan@smsonline.org.uk
+                info@watneycollege.co.uk
               </a>
             </motion.div>
 
@@ -146,10 +136,10 @@ export default function ContactPage() {
             >
               <Phone className="h-5 w-5 text-gray-500" />
               <a
-                href="tel:+9714XXXXXXX"
+                href="tel:+44 (0) 2080046463"
                 className="text-gray-700 hover:text-primary transition-colors"
               >
-                +9714 563204619
+                +44 (0) 2080046463
               </a>
             </motion.div>
 
@@ -165,9 +155,8 @@ export default function ContactPage() {
               variants={itemVariants}
             >
               <MapPin className="h-5 w-5 mt-2 text-primary  text-start mr-2" />
-              MRST CONSULTANCY L.L.C-FZ <br />
-              Meydan Grandstand, 6th Floor, Meydan Road, <br /> Nad Al Sheba,
-              Dubai, United Arab Emirates
+              Watney College <br />
+              80-82 Nelson St, London E1 2DY, UK
             </motion.p>
 
             {/* <div className="flex flex-col gap-6 mb-8">

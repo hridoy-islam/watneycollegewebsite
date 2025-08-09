@@ -31,6 +31,8 @@ import {
   GraduationCap,
   ArrowRight,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { courses } from "./data/courseData";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -56,99 +58,7 @@ const itemVariants = {
 export default function CoursesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const courses = [
-    {
-      id: 1,
-      title: "Business Management & Leadership",
-      description:
-        "Comprehensive program covering modern business practices and leadership skills.",
-      category: "Business",
-      level: "Intermediate",
-      duration: "12 weeks",
-      students: "1,250 students",
-      rating: 4.8,
-      price: "£2,499",
-      image: "/e1.jpg",
-      tags: ["Live Sessions", "Case Studies", "Certification"],
-      instructor: "Dr. Sarah Johnson",
-    },
-    {
-      id: 2,
-      title: "Data Science & Analytics",
-      description:
-        "Master data analysis, machine learning, and statistical modeling techniques.",
-      category: "Technology",
-      level: "Advanced",
-      duration: "16 weeks",
-      students: "2,100 students",
-      rating: 4.9,
-      price: "£3,299",
-      image: "/e2.jpg",
-      tags: ["Hands-on Projects", "Industry Tools", "Mentoring"],
-      instructor: "Prof. Michael Chen",
-    },
-    {
-      id: 3,
-      title: "Digital Marketing Mastery",
-      description:
-        "Learn modern digital marketing strategies and tools for business growth.",
-      category: "Marketing",
-      level: "Beginner",
-      duration: "10 weeks",
-      students: "3,200 students",
-      rating: 4.7,
-      price: "£1,899",
-      image: "/c3.jpg",
-      tags: ["Real Campaigns", "Analytics Tools", "Social Media"],
-      instructor: "Emma Rodriguez",
-    },
-    {
-      id: 4,
-      title: "Healthcare Administration",
-      description:
-        "Comprehensive training in healthcare management and administration.",
-      category: "Healthcare",
-      level: "Intermediate",
-      duration: "14 weeks",
-      students: "1,650 students",
-      rating: 4.6,
-      price: "£2,799",
-      image: "/e3.jpg",
-      tags: ["Healthcare Systems", "Compliance", "Leadership"],
-      instructor: "Dr. James Wilson",
-    },
-    {
-      id: 5,
-      title: "Software Engineering Bootcamp",
-      description:
-        "Intensive program to become a full-stack software developer.",
-      category: "Technology",
-      level: "Beginner",
-      duration: "20 weeks",
-      students: "1,900 students",
-      rating: 4.8,
-      price: "£4,999",
-      image: "/b2.jpg",
-      tags: ["Full-Stack Development", "Portfolio Projects", "Code Reviews"],
-      instructor: "Alex Thompson",
-    },
-    {
-      id: 6,
-      title: "Educational Leadership",
-      description:
-        "Develop leadership skills for educational institutions and organizations.",
-      category: "Education",
-      level: "Advanced",
-      duration: "12 weeks",
-      students: "1,420 students",
-      rating: 4.9,
-      price: "£2,999",
-      image: "/b3.jpg",
-      tags: ["Leadership Theory", "Change Management", "Policy Development"],
-      instructor: "Dr. Lisa Parker",
-    },
-  ];
+const router = useRouter();
 
   const categories = [
     "all",
@@ -315,8 +225,8 @@ export default function CoursesPage() {
                         <strong>Instructor:</strong> {course.instructor}
                       </div>
 
-                      <Button className="w-full group-hover:bg-primary group-hover:text-white/80 transition-colors">
-                        Enroll Now
+                      <Button onClick={()=> router.push(`courses/${course.id}`)} className="w-full group-hover:bg-primary group-hover:text-white/80 transition-colors">
+                        Apply Now
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                     </div>
@@ -345,7 +255,7 @@ export default function CoursesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-black/5 to-secondary">
+      <section className="py-20 bg-foreground-100">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -353,27 +263,27 @@ export default function CoursesPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="w-16 h-16 bg-white/40 rounded-full flex items-center justify-center mx-auto mb-6">
-              <GraduationCap className="w-8 h-8 text-white" />
+            <div className="w-16 h-16 bg-primary/40 rounded-full flex items-center justify-center mx-auto mb-6">
+              <GraduationCap className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-primary mb-6">
               Start Your Learning Journey Today
             </h2>
-            <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-primary mb-8 mx-auto">
               Join thousands of students who have transformed their careers with
               our expert-led courses.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-white text-primary hover:bg-gray-100"
+                className="bg-primary text-primary hover:bg-gray-100"
               >
                 Get Free Consultation
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-primary hover:bg-white hover:text-primary"
+                className="border-primary text-primary hover:bg-primary hover:text-white"
               >
                 View All Programs
               </Button>
