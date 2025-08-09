@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} light`}>
       <head>
         <title>Watney College</title>
-        <link rel="icon" href="/public/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="relative">
         <Header />
