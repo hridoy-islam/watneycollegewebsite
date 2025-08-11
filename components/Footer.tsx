@@ -14,26 +14,25 @@ import Image from "next/image";
 
 export default function Footer() {
   const academicLinks = [
-    { name: "Undergraduate", href: "/academics/undergraduate" },
-    { name: "Postgraduate", href: "/academics/postgraduate" },
-    { name: "Research Programs", href: "/research" },
-    { name: "Departments", href: "/academics/departments" },
-    { name: "Library", href: "/library" },
+    { name: "Home", href: "/" },
+    { name: "Courses", href: "/courses" },
+    { name: "About Us", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const campusLinks = [
-    { name: "Student Finance", href: "/student-life" },
+    { name: "Student Finance", href: "/student-finance" },
     { name: "Accommodation", href: "/accommodation" },
-    { name: "Sports & Societies", href: "/campus-life/sports-societies" },
-    { name: "Student Support", href: "/campus-life/student-support" },
-    { name: "Events Calendar", href: "/events" },
+    { name: "Career & Employablity", href: "/career-employability" },
+    { name: "Request a prospectus", href: "/prospectus" },
+   
   ];
 
   const aboutLinks = [
     { name: "About Watney College", href: "/about" },
     { name: "Our History", href: "/about/history" },
     { name: "Leadership", href: "/about/leadership" },
-    { name: "Careers at Watney", href: "/careers" },
+    { name: "Careers at Watney", href: "/career" },
     { name: "Contact Us", href: "/contact" },
   ];
 
@@ -66,7 +65,7 @@ export default function Footer() {
 
           {/* Academic Links */}
           <div>
-            <h3 className="text-lg font-bold text-gray-900 mb-6">Academics</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">Quick Links</h3>
             <ul className="space-y-3">
               {academicLinks.map((link) => (
                 <li key={link.name}>

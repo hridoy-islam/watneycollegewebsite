@@ -31,6 +31,7 @@ import {
   GraduationCap,
   ArrowRight,
   Mail,
+  Tag,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { courses } from "./data/courseData";
@@ -61,14 +62,7 @@ export default function CoursesPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const router = useRouter();
 
-  const categories = [
-    "all",
-    "Business",
-    "Technology",
-    "Marketing",
-    "Healthcare",
-    "Education",
-  ];
+  const categories = ["all", "Business", "English", "Healthcare"];
 
   const filteredCourses = courses.filter((course) => {
     const matchesSearch =
@@ -185,7 +179,8 @@ export default function CoursesPage() {
                       {course.title}
                     </CardTitle>
                     <CardDescription className="text-gray-600">
-                      {course.description}
+                      {course.description.split(" ").slice(0, 20).join(" ")}
+                      {course.description.split(" ").length > 20 ? "…" : ""}
                     </CardDescription>
                   </CardHeader>
 
@@ -193,30 +188,10 @@ export default function CoursesPage() {
                     <div className="space-y-4">
                       <div className="flex items-center justify-between text-sm text-gray-500">
                         <div className="flex items-center">
-                          <Clock className="w-4 h-4 mr-1" />
-                          {course.duration}
-                        </div>
-                        <div className="flex items-center">
-                          <Users className="w-4 h-4 mr-1" />
-                          {course.students}
+                          <Tag className="w-4 h-4 mr-1" />
+                          {course.category}
                         </div>
                       </div>
-
-                      {/* <div className="flex flex-wrap gap-2">
-                        {course.tags.map((tag, idx) => (
-                          <Badge
-                            key={idx}
-                            variant="secondary"
-                            className="text-xs"
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div> */}
-
-                      {/* <div className="text-sm text-gray-600">
-                        <strong>Instructor:</strong> {course.instructor}
-                      </div> */}
 
                       <Button
                         onClick={() => router.push(`courses/${course.id}`)}

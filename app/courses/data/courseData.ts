@@ -99,7 +99,7 @@
     title: "English Speaking Board Skills for Life (ESOL) - All Levels",
     description:
       "Comprehensive ESOL qualification designed to develop speaking, listening, reading, and writing skills for learners at various proficiency levels. Ideal for those aiming to improve everyday communication, access education, or progress in the workplace.",
-    category: "English Language",
+    category: "English",
     level: "Entry 1 to Level 2",
     duration: "Varies by level",
     students: "N/A",
@@ -121,7 +121,7 @@
     title: "IELTS & ESB Exam Preparation",
     description:
       "Focused preparation courses for IELTS and ESB exams, covering test strategies, timed practice, and personalised feedback to maximise scores. Suitable for academic, general, and professional purposes.",
-    category: "English Language",
+    category: "English",
     level: "Intermediate to Advanced",
     duration: "Flexible",
     students: "N/A",
@@ -143,7 +143,7 @@
     title: "Business English Classes",
     description:
       "Specialised English classes for business and workplace communication. Covers meetings, presentations, negotiations, and professional writing to help learners excel in global corporate environments.",
-    category: "English for Specific Purposes",
+    category: "English",
     level: "Intermediate to Advanced",
     duration: "Flexible",
     students: "N/A",
@@ -209,7 +209,7 @@
     title: "Level 3 Diploma in Adult Care (RQF)",
     description:
       "Designed for experienced care professionals in supervisory roles, such as lead adult care workers or lead personal assistants. Covers essential skills in leadership, person-centred care, and safeguarding, with progression routes to Level 4 and 5 qualifications.",
-    category: "Health & Social Care",
+    category: "Healthcare",
     level: "Level 3",
     duration: "580 Total Qualification Hours (302 Guided Learning Hours)",
     students: "N/A",

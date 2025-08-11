@@ -363,7 +363,7 @@ export default function page() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="hover:border-2 shadow-sm border-primary/20  hover:border-primary transition-colors">
+            <Card className=" ">
               <CardHeader>
                 <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <BookOpen className="w-8 h-8 text-primary" />
@@ -385,7 +385,7 @@ export default function page() {
               </CardContent>
             </Card>
 
-            <Card className="hover:border-2 shadow-sm border-primary/20  hover:border-primary transition-colors">
+            <Card className="">
               <CardHeader>
                 <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <Users className="w-8 h-8 text-primary" />
@@ -407,7 +407,7 @@ export default function page() {
               </CardContent>
             </Card>
 
-            <Card className="hover:border-2 shadow-sm border-primary/20  hover:border-primary transition-colors">
+            <Card className="">
               <CardHeader>
                 <div className="w-16 h-16 bg-primary/10  rounded-lg flex items-center justify-center mb-4">
                   <Globe className="w-8 h-8 text-primary" />
@@ -429,7 +429,7 @@ export default function page() {
               </CardContent>
             </Card>
 
-            <Card className="hover:border-2 shadow-sm border-primary/20  hover:border-primary transition-colors">
+            <Card className="">
               <CardHeader>
                 <div className="w-16 h-16 bg-primary/10  rounded-lg flex items-center justify-center mb-4">
                   <Award className="w-8 h-8 text-primary" />
@@ -451,7 +451,7 @@ export default function page() {
               </CardContent>
             </Card>
 
-            <Card className="hover:border-2 shadow-sm border-primary/20  hover:border-primary transition-colors">
+            <Card className="">
               <CardHeader>
                 <div className="w-16 h-16 bg-primary/10  rounded-lg flex items-center justify-center mb-4">
                   <GraduationCap className="w-8 h-8 text-primary" />
@@ -473,7 +473,7 @@ export default function page() {
               </CardContent>
             </Card>
 
-            <Card className="hover:border-2 shadow-sm border-primary/20  hover:border-primary transition-colors">
+            <Card className="">
               <CardHeader>
                 <div className="w-16 h-16 bg-primary/10  rounded-lg flex items-center justify-center mb-4">
                   <Lightbulb className="w-8 h-8 text-primary" />
@@ -548,7 +548,7 @@ export default function page() {
             </motion.div>
             <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-4">
               Why Choose{" "}
-              <span className="text-gradient-watney">Watney Education?</span>
+              <span className="text-gradient-watney">Watney College?</span>
             </h2>
             <p className="text-lg text-gray-600  mx-auto leading-relaxed">
               There are many reasons to choose us as your education partner.
@@ -558,7 +558,7 @@ export default function page() {
 
           {/* Feature Cards Grid */}
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-24"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -569,7 +569,7 @@ export default function page() {
                 key={index}
                 variants={cardVariants}
                 whileHover="hover"
-                className="group text-center"
+                className="group text-center gap-4"
               >
                 {/* Icon Circle */}
                 <motion.div
@@ -602,7 +602,7 @@ export default function page() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <motion.div
+            {/* <motion.div
               initial={{ scale: 0.8 }}
               whileInView={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -610,7 +610,7 @@ export default function page() {
               <span className="inline-block px-4 py-1.5 bg-primary/15 text-primary rounded-full text-sm font-medium tracking-wide">
                 Excellence & Innovation
               </span>
-            </motion.div>
+            </motion.div> */}
             <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-4">
               Building <span className="text-gradient-watney">Connections</span>{" "}
               & Advancing{" "}
@@ -780,7 +780,7 @@ export default function page() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <motion.div
+            {/* <motion.div
               initial={{ scale: 0.8 }}
               whileInView={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -788,7 +788,7 @@ export default function page() {
               <span className="inline-block px-4 py-1.5 bg-primary/15 text-primary rounded-full text-sm font-medium tracking-wide">
                 Student Life & Engagement
               </span>
-            </motion.div>
+            </motion.div> */}
             <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-4">
               Beyond the <span className="text-gradient-watney">Classroom</span>
             </h2>
@@ -937,7 +937,7 @@ export default function page() {
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4">Student Success Stories</Badge>
+            {/* <Badge className="mb-4">Student Success Stories</Badge> */}
             <h2 className="text-4xl font-bold mb-4">
               What Our{" "}
               <span className="text-gradient-watney">Students Say</span>
