@@ -20,8 +20,8 @@
     "@radix-ui/react-tabs": "^1.1.12",
     "@react-email/components": "0.0.14",
     "@react-pdf/renderer": "^3.3.4",
-    "@react-three/drei": "^10.0.3",
-    "@react-three/fiber": "^9.0.0-alpha.8",
+    "@react-three/drei": "^9.97.4",
+    "@react-three/fiber": "^8.18.0",
     "axios": "^1.6.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -38,7 +38,7 @@
     "swiper": "^11.0.5",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.174.0",
+    "three": "^0.160.1",
     "three-globe": "^2.41.12"
   },
   "devDependencies": {
