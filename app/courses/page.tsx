@@ -88,7 +88,7 @@ export default function CoursesPage() {
             Explore Our{" "}
             <span className="text-watney-blue-primary">Courses</span>
           </h1>
-          <p className="text-xl mb-12 md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          <p className=" mb-12 text-lg text-gray-600 leading-relaxed mx-auto">
             Discover world-class programs designed to advance your career and
             unlock new opportunities.
           </p>
@@ -251,7 +251,7 @@ export default function CoursesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-foreground-100">
+      {/* <section className="py-20 bg-foreground-100">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -286,7 +286,7 @@ export default function CoursesPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

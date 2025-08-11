@@ -21,6 +21,7 @@ import {
   ExternalLink,
   ArrowRight,
   Info,
+  Handshake,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -62,7 +63,7 @@ export default function AccreditationPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Section */}
-      <section className="bg-primary py-20 text-white">
+      <section className="bg-ocean-breeze py-20 text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -70,23 +71,16 @@ export default function AccreditationPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-           
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Handshake className="w-8 h-8 text-watney-blue-primary" />
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-watney-blue-primary">
               Accreditations & Partnerships
             </h1>
-            <p className="text-xl mb-8 text-purple-100 leading-relaxed">
+            <p className="text-lg mb-8 text-gray-600 leading-relaxed">
               Watney College is proud to be accredited by leading organizations,
               ensuring the quality and recognition of our programs.
             </p>
-            <Button
-              size="lg"
-              asChild
-              className="bg-white text-primary hover:bg-gray-100"
-            >
-              <Link href="#accreditations">
-                Explore Our Accreditations <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </Button>
           </motion.div>
         </div>
       </section>
@@ -105,18 +99,18 @@ export default function AccreditationPage() {
               variants={itemVariants}
               initial="hidden"
               animate="visible"
-                            className="border border-gray-200 rounded-lg p-6 bg-white shadow-md hover:shadow-xl"
-
+              className="border border-gray-200 rounded-lg p-6 bg-white shadow-md hover:shadow-xl"
             >
               <CardHeader>
-                <CardTitle className="flex items-center">
+                <CardTitle className="flex items-center text-xl text-watney-blue-primary">
                   <Award className="w-6 h-6 mr-2" /> Klaspad
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
-                  Klaspad is a leading accreditation body that ensures educational
-                  institutions meet high standards of quality and excellence.
+                <CardDescription className="text-lg">
+                  Klaspad is a leading accreditation body that ensures
+                  educational institutions meet high standards of quality and
+                  excellence.
                 </CardDescription>
               </CardContent>
             </motion.div>
@@ -126,19 +120,18 @@ export default function AccreditationPage() {
               variants={itemVariants}
               initial="hidden"
               animate="visible"
-                            className="border border-gray-200 rounded-lg p-6 bg-white shadow-md hover:shadow-xl"
-
+              className="border border-gray-200 rounded-lg p-6 bg-white shadow-md hover:shadow-xl"
             >
               <CardHeader>
-                <CardTitle className="flex items-center">
+                <CardTitle className="flex items-center text-xl text-watney-blue-primary">
                   <Star className="w-6 h-6 mr-2" /> ASIC
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
-                  ASIC (Australian Securities and Investments Commission) ensures
-                  compliance with financial regulations, providing trust and
-                  security to students and professionals.
+                <CardDescription className="text-lg">
+                  ASIC (Australian Securities and Investments Commission)
+                  ensures compliance with financial regulations, providing trust
+                  and security to students and professionals.
                 </CardDescription>
               </CardContent>
             </motion.div>
@@ -148,18 +141,17 @@ export default function AccreditationPage() {
               variants={itemVariants}
               initial="hidden"
               animate="visible"
-                            className="border border-gray-200 rounded-lg p-6 bg-white shadow-md hover:shadow-xl"
-
+              className="border border-gray-200 rounded-lg p-6 bg-white shadow-md hover:shadow-xl"
             >
               <CardHeader>
-                <CardTitle className="flex items-center">
+                <CardTitle className="flex items-center text-xl text-watney-blue-primary">
                   <CheckCircle className="w-6 h-6 mr-2" /> ESB
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
-                  ESB (European Skills Body) recognizes institutions that provide
-                  industry-relevant skills and qualifications.
+                <CardDescription className="text-lg">
+                  ESB (European Skills Body) recognizes institutions that
+                  provide industry-relevant skills and qualifications.
                 </CardDescription>
               </CardContent>
             </motion.div>
@@ -172,12 +164,12 @@ export default function AccreditationPage() {
               className="border border-gray-200 rounded-lg p-6 bg-white shadow-md hover:shadow-xl"
             >
               <CardHeader>
-                <CardTitle className="flex items-center">
+                <CardTitle className="flex items-center text-xl text-watney-blue-primary">
                   <BookOpen className="w-6 h-6 mr-2" /> Focus Award
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
+                <CardDescription className="text-lg">
                   Focus Award is a prestigious recognition for institutions that
                   excel in student support and career readiness.
                 </CardDescription>
@@ -188,7 +180,7 @@ export default function AccreditationPage() {
       </section>
 
       {/* Footer or CTA Section */}
-      <section className="py-20 bg-foreground-100 text-primary text-center">
+      <section className="py-20  bg-soft-sky text-black text-center">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -198,16 +190,15 @@ export default function AccreditationPage() {
             <h2 className="text-4xl font-bold mb-6">
               Why Choose Watney College?
             </h2>
-            <p className="text-xl mb-8 text-purple-100">
-              With our strong partnerships and accreditations, you can trust that
-              you are receiving a world-class education.
+            <p className="text-xl mb-8 text-gray-600">
+              With our strong partnerships and accreditations, you can trust
+              that you are receiving a world-class education.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              
               <Button
                 size="lg"
                 variant="default"
-                className="border-white bg-primary hover:bg-primary/90 text-white "
+                className="border-white bg-watney-blue-primary hover:bg-watney-blue-primary/90 text-white "
                 asChild
               >
                 <Link href="/contact">

@@ -22,8 +22,8 @@ export default function Footer() {
   ];
 
   const campusLinks = [
-    { name: "Student Life", href: "/campus-life" },
-    { name: "Accommodation", href: "/campus-life/accommodation" },
+    { name: "Student Finance", href: "/student-life" },
+    { name: "Accommodation", href: "/accommodation" },
     { name: "Sports & Societies", href: "/campus-life/sports-societies" },
     { name: "Student Support", href: "/campus-life/student-support" },
     { name: "Events Calendar", href: "/events" },
@@ -160,24 +160,24 @@ export default function Footer() {
               © {new Date().getFullYear()} Watney College. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <Link
+              {/* <Link
                 href="/privacy-policy"
                 className="text-gray-500 hover:text-watney-blue-primary transition-colors"
               >
                 Privacy Policy
-              </Link>
+              </Link> */}
               <Link
                 href="/terms-of-service"
                 className="text-gray-500 hover:text-watney-blue-primary transition-colors"
               >
                 Terms of Service
               </Link>
-              <Link
+              {/* <Link
                 href="/cookie-policy"
                 className="text-gray-500 hover:text-watney-blue-primary transition-colors"
               >
                 Cookie Policy
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

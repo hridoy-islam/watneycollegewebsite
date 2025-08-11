@@ -3,12 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
-
+const submenuTimeout = useRef<NodeJS.Timeout | null>(null);
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Courses", path: "/courses" },
@@ -42,12 +42,37 @@ export default function Header() {
         <nav className="hidden lg:flex items-center space-x-8">
           {navLinks.map((link) =>
             link.subItems ? (
-              <div key={link.name} className="relative group">
-                <button className="text-gray-700 hover:text-watney-blue-primary font-medium transition-colors duration-200 flex items-center gap-1">
+              <div
+                key={link.name}
+                className="relative group"
+                onMouseEnter={() => {
+                  if (submenuTimeout.current) clearTimeout(submenuTimeout.current);
+                  setOpenSubMenu(link.name);
+                }}
+                onMouseLeave={() => {
+                  submenuTimeout.current = setTimeout(() => setOpenSubMenu(null), 200);
+                }}
+              >
+                <button
+                  className="text-gray-700 hover:text-watney-blue-primary font-medium transition-colors duration-200 flex items-center gap-1"
+                  aria-haspopup="true"
+                  aria-expanded={openSubMenu === link.name}
+                  onClick={() => setOpenSubMenu(openSubMenu === link.name ? null : link.name)}
+                >
                   {link.name}
                   <ChevronDown className="w-4 h-4" />
                 </button>
-                <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity">
+                <div
+                  className={`absolute left-0 top-full mt-2 bg-white shadow-lg rounded-lg transition-opacity duration-200 ${
+                    openSubMenu === link.name ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                  }`}
+                  onMouseEnter={() => {
+                    if (submenuTimeout.current) clearTimeout(submenuTimeout.current);
+                  }}
+                  onMouseLeave={() => {
+                    submenuTimeout.current = setTimeout(() => setOpenSubMenu(null), 200);
+                  }}
+                >
                   <ul className="py-2 w-48">
                     {link.subItems.map((sub) => (
                       <li key={sub.name}>

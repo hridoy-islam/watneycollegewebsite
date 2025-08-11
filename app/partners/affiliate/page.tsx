@@ -104,7 +104,7 @@ export default function AffiliatePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-primary py-20 text-white">
+      <section className="bg-ocean-breeze py-20 text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -113,23 +113,15 @@ export default function AffiliatePage() {
             className="text-center"
           >
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Users className="w-8 h-8" />
+              <Users className="w-8 h-8 text-watney-blue-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Partner with <span className="text-pink-200">Watney College</span>
+            <h1 className="text-4xl text-black md:text-5xl lg:text-6xl font-bold mb-6">
+              Partner with <span className="text-watney-blue-primary">Watney College</span>
             </h1>
-            <p className="text-xl mb-8 text-purple-100  mx-auto leading-relaxed">
+            <p className="text-lg mb-8 text-gray-600  mx-auto leading-relaxed">
               Join our network of trusted partners and help us empower students across London and beyond.
             </p>
-            <Button
-              size="lg"
-              asChild
-              className="bg-white text-primary hover:bg-gray-100"
-            >
-              <Link href="#affiliates">
-                Explore Our Affiliates <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </Button>
+            
           </motion.div>
         </div>
       </section>
@@ -143,11 +135,9 @@ export default function AffiliatePage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Badge className="mb-6 bg-primary/15 text-primary">
-            Our Affiliates
-          </Badge>
+          
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            Trusted Partners in Education & Healthcare
+            Trusted Partners in <span className="text-gradient-watney">Education & Healthcare</span>
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
             Watney College collaborates with leading organizations to provide
@@ -179,7 +169,7 @@ export default function AffiliatePage() {
                   </div>
 
                   {/* Name */}
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  <h3 className="text-xl font-bold text-watney-blue-primary mb-2">
                     {affiliate.name}
                   </h3>
 
@@ -202,24 +192,24 @@ export default function AffiliatePage() {
     </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-foreground-100 text-white text-center">
+      <section className="py-20 bg-soft-sky text-white text-center">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl text-primary font-bold mb-6">
+            <h2 className="text-4xl text-black font-bold mb-6">
               Become an Affiliate Today!
             </h2>
-            <p className="text-xl mb-8 text-primary  ">
+            <p className="text-xl mb-8 text-gray-600  ">
               Partner with Watney College to reach a growing community of students and professionals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
                 asChild
-                className="bg-primary  text-primary hover:bg-primary/90"
+                className="bg-watney-blue-primary text-white hover:bg-watney-blue-primary/90"
               >
                 <Link href="/become-an-affiliate">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
@@ -228,7 +218,7 @@ export default function AffiliatePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-primary hover:bg-white"
+                className="border-primary text-primary hover:bg-primary hover:text-white"
                 asChild
               >
                 <Link href="/contact">

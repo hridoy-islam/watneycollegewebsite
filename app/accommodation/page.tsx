@@ -61,7 +61,7 @@ export default function AccommodationPage() {
       
 
       {/* Hero Section */}
-      <section className="bg-primary py-20">
+      <section className="bg-ocean-breeze py-20">
         <div className="container ">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -70,18 +70,15 @@ export default function AccommodationPage() {
             className="text-center text-white"
           >
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Home className="w-8 h-8 text-white" />
+              <Home className="w-8 h-8 text-watney-blue-primary" />
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              Find Your Perfect <span className="text-white">Home</span>
+            <h1 className="text-5xl lg:text-6xl text-black font-bold mb-6">
+              Find Your <span className="text-watney-blue-primary">Perfect Home</span>
             </h1>
-            <p className="text-xl mb-8 text-purple-100  mx-auto">
+            <p className="text-lg mb-8 text-gray-600  mx-auto">
               We want you to be happy in every aspect of your life at college, and that includes finding a home which is friendly, comfortable and safe. While Watney College does not offer on-campus accommodation, we work closely with trusted local providers to help students secure safe, affordable, and convenient housing near our London campus.
             </p>
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
-              Get Accommodation Support
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+            
           </motion.div>
         </div>
       </section>
@@ -96,10 +93,10 @@ export default function AccommodationPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4 text-primary">
-              We Offer Support With
+            <h2 className="text-4xl font-bold mb-4 text-black">
+              We Offer <span className="text-gradient-watney">Support With</span>
             </h2>
-            <p className="text-xl text-primary max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 mx-auto">
               Our dedicated team provides comprehensive support to help you find and secure accommodation near our London campus.
             </p>
           </motion.div>
@@ -132,7 +129,7 @@ export default function AccommodationPage() {
 
      
       {/* Contact Section */}
-      <section className="py-20 bg-foreground-100">
+      <section className="py-20 bg-soft-sky">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -141,26 +138,26 @@ export default function AccommodationPage() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-4xl font-bold text-primary mb-6">
+            <h2 className="text-4xl font-bold text-black mb-6">
               Need Accommodation Support?
             </h2>
-            <p className="text-xl text-primary mb-8  mx-auto">
+            <p className="text-xl text-gray-600 mb-8  mx-auto">
               Our team is ready to help you find the perfect accommodation for your studies at Watney College.
             </p>
             
             <div className="bg-primary/10 backdrop-blur-sm rounded-lg p-8 max-w-md mx-auto mb-8">
               <div className="flex items-center justify-center mb-4">
-                <Mail className="w-6 h-6 text-white mr-2" />
-                <span className="text-primary font-semibold">Contact Us</span>
+                <Mail className="w-6 h-6 text-primary mr-2" />
+                <span className="text-black font-semibold">Contact Us</span>
               </div>
-              <p className="text-primary text-lg">student.support@watneycollege.co.uk</p>
+              <p className="text-black text-lg">student.support@watneycollege.co.uk</p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
+              <Button size="lg" className="bg-watney-blue-primary text-white hover:bg-watney-blue-primary/90">
                 Get Accommodation Help
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white hover:text-primary">
+              <Button size="lg" variant="outline" className="btn-outline-watney flex items-center justify-center bg-transparent">
                 Contact Support Team
               </Button>
             </div>

@@ -26,13 +26,13 @@ export default function ProspectusPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-primary py-24 text-white">
+      <section className="bg-ocean-breeze py-24 text-white">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Request Your <span className="text-pink-200">Watney College</span>{" "}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">
+            Request Your <span className="text-watney-blue-primary">Watney College</span>{" "}
             Prospectus
           </h1>
-          <p className="text-xl mb-8 text-white mx-auto leading-relaxed">
+          <p className="text-lg mb-8 text-gray-600 leading-relaxed">
             Discover our range of courses, campus life, student support, and
             career opportunities. Download or request a physical copy of our
             official prospectus today.
@@ -47,10 +47,10 @@ export default function ProspectusPage() {
             {/* Digital Prospectus Options */}
             <Card className="border-l-4 border-primary shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
-                <CardTitle className="text-2xl text-primary">
+                <CardTitle className="text-2xl text-watney-blue-primary">
                   Watney College Prospectuses
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-lg">
                   Explore our programs in Business, Technology, Healthcare, and
                   Education.
                 </CardDescription>
@@ -61,7 +61,7 @@ export default function ProspectusPage() {
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-primary hover:underline"
+                      className="text-gray-700 hover:text-primary text-lg hover:underline"
                     >
                       Download Undergraduate Prospectus (PDF)
                     </a>
@@ -70,7 +70,7 @@ export default function ProspectusPage() {
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-primary hover:underline"
+                      className="text-gray-700 hover:text-primary text-lg hover:underline"
                     >
                       Download Postgraduate Prospectus (PDF)
                     </a>
@@ -79,7 +79,7 @@ export default function ProspectusPage() {
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-primary hover:underline"
+                      className="text-gray-700 hover:text-primary text-lg hover:underline"
                     >
                       International Student Guide
                     </a>
@@ -88,7 +88,7 @@ export default function ProspectusPage() {
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-primary hover:underline"
+                      className="text-gray-700 hover:text-primary text-lg hover:underline"
                     >
                       View Campus Virtual Tour
                     </a>
@@ -103,13 +103,13 @@ export default function ProspectusPage() {
                 <CardTitle className="text-2xl">
                   Request a Physical Copy
                 </CardTitle>
-                <CardDescription className="text-purple-100">
+                <CardDescription className="text-white text-lg">
                   Prefer a printed prospectus? Fill out the form and we’ll mail
                   it to you.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="mb-6 text-sm text-purple-100">
+                <p className="mb-6  text-white text-lg">
                   Ideal for parents, counselors, and students who want a
                   tangible overview of Watney College.
                 </p>
@@ -127,7 +127,7 @@ export default function ProspectusPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-soft-sky">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Have Questions?

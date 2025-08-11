@@ -46,7 +46,7 @@ export default function ContactPage() {
           <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
             Get In <span className="text-watney-blue-primary">Touch</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-lg  text-gray-600 leading-relaxed  mx-auto">
             We're here to help! Contact Watney College for any inquiries,
             support, or information.
           </p>

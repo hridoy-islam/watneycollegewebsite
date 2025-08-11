@@ -175,9 +175,9 @@ export default function CareerEmployabilityPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-primary">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-primary py-20">
+      <section className="bg-ocean-breeze py-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -186,24 +186,24 @@ export default function CareerEmployabilityPage() {
             className="text-center text-white"
           >
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Briefcase className="w-8 h-8 text-white" />
+              <Briefcase className="w-8 h-8 text-watney-blue-primary" />
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              Career & <span className="text-pink-300">Employability</span>
+            <h1 className="text-5xl lg:text-6xl text-black font-bold mb-6">
+              Career & <span className="text-watney-blue-primary">Employability</span>
             </h1>
-            <p className="text-xl mb-8 text-purple-100 mx-auto">
+            <p className="text-lg mb-8 text-gray-600 mx-auto">
               At Watney College, we are proud to provide not only high-quality
               education but also real career outcomes, especially in the health
               and social care sector. We are committed to supporting every
               learner in becoming career-ready and confident.
             </p>
-            <Button
+            {/* <Button
               size="lg"
               className="bg-white text-primary hover:bg-gray-100"
             >
               Explore Career Support
               <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+            </Button> */}
           </motion.div>
         </div>
       </section>
@@ -218,13 +218,11 @@ export default function CareerEmployabilityPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge className="mb-4 bg-primary text-primary">
-              Proven Results
-            </Badge>
-            <h2 className="text-4xl font-bold mb-4 text-primary">
-              Our Success Story
+          
+            <h2 className="text-4xl font-bold mb-4 text-black">
+              Our Success <span className="text-gradient-watney">Story</span>
             </h2>
-            <p className="text-xl text-primary max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 mx-auto">
               Our Level 3 Diploma in Adult Care has been successfully delivered
               with all students achieving certification and progressing directly
               into employment.
@@ -250,7 +248,7 @@ export default function CareerEmployabilityPage() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-primary">{outcome.description}</p>
+                    <p className="text-black text-lg">{outcome.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -269,10 +267,10 @@ export default function CareerEmployabilityPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">
-              Strong Industry Partnerships
+            <h2 className="text-4xl text-black font-bold mb-4">
+              Strong Industry <span className="text-gradient-watney">Partnerships</span>
             </h2>
-            <p className="text-xl text-white max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 mx-auto">
               Watney College is affiliated with a network of trusted care
               providers and recruitment agencies, ensuring our students have
               direct pathways to employment.
@@ -290,10 +288,10 @@ export default function CareerEmployabilityPage() {
               <motion.div key={index} variants={itemVariants}>
                 <Card className="h-full hover:shadow-lg transition-shadow">
                   <CardHeader>
-                    <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4">
-                      <Building className="w-6 h-6 text-primary" />
+                    <div className="w-12 h-12 bg-watney-blue-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <Building className="w-6 h-6 text-watney-blue-primary" />
                     </div>
-                    <CardTitle className="text-xl">{partner.name}</CardTitle>
+                    <CardTitle className="text-xl text-watney-blue-primary">{partner.name}</CardTitle>
                     <CardDescription className="text-gray-600">
                       {partner.description}
                     </CardDescription>
@@ -313,44 +311,7 @@ export default function CareerEmployabilityPage() {
             ))}
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="mt-12 text-center"
-          >
-            <div className="bg-foreground-100/10 rounded-lg p-8 max-w-4xl mx-auto shadow-sm">
-              <h3 className="text-2xl font-bold mb-4">Partnership Benefits</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="flex items-start">
-                  <div>
-                    <h4 className="font-bold">Workplace Opportunities</h4>
-                    <p className="text-sm text-gray-600">
-                      Secure placements for health and social care students
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div>
-                    <h4 className="font-bold">Real-Life Experience</h4>
-                    <p className="text-sm text-gray-600">
-                      Hands-on experience in care home and domiciliary settings
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div>
-                    <h4 className="font-bold">Job Placement Support</h4>
-                    <p className="text-sm text-gray-600">
-                      Direct job placements and references after course
-                      completion
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+        
         </div>
       </section>
 
@@ -364,10 +325,10 @@ export default function CareerEmployabilityPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl text-primary font-bold mb-4">
-              Career Focused Support
+            <h2 className="text-4xl text-black font-bold mb-4">
+              Career Focused <span className="text-gradient-watney">Support</span>
             </h2>
-            <p className="text-xl text-primary max-w-6xl mx-auto">
+            <p className="text-lg text-gray-600  mx-auto">
               Our comprehensive career support services are designed to prepare
               you for success in the healthcare industry.
             </p>
@@ -394,7 +355,7 @@ export default function CareerEmployabilityPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-primary">{support.description}</p>
+                    <p className="text-black text-lg">{support.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -403,77 +364,10 @@ export default function CareerEmployabilityPage() {
         </div>
       </section>
 
-      {/* Career Paths */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4">Career Pathways</h2>
-            <p className="text-xl text-gray-600  mx-auto">
-              Explore the various career paths available to our graduates in the
-              health and social care sector.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8"
-          >
-            {careerPaths.map((path, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="h-full hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center mb-4">
-                      <Target className="w-8 h-8 text-primary" />
-                    </div>
-                    <CardTitle className="text-xl">{path.title}</CardTitle>
-                    <CardDescription className="text-gray-600">
-                      {path.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold mb-2">Requirements:</h4>
-                        <ul className="space-y-1">
-                          {path.requirements.map((req, idx) => (
-                            <li
-                              key={idx}
-                              className="text-sm text-gray-600 flex items-center"
-                            >
-                              <CheckCircle className="w-3 h-3 text-green-500 mr-2" />
-                              {req}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold mb-2">
-                          Progression Route:
-                        </h4>
-                        <p className="text-sm text-gray-600">
-                          {path.progression}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+ 
 
       {/* Contact Section */}
-      <section className="py-20 bg-foreground-100">
+      <section className="py-20 bg-soft-sky">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -482,10 +376,10 @@ export default function CareerEmployabilityPage() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-4xl font-bold text-primary mb-6">
+            <h2 className="text-4xl font-bold text-black mb-6">
               Ready to Start Your Career Journey?
             </h2>
-            <p className="text-xl text-primary mb-8  mx-auto">
+            <p className="text-lg text-gray-600 mb-8  mx-auto">
               We continue to support former students with career guidance and
               progression routes. Let us help you achieve your career goals in
               the health and social care sector.
@@ -494,11 +388,11 @@ export default function CareerEmployabilityPage() {
             <div className="bg-primary/10 backdrop-blur-sm rounded-lg p-8 max-w-md mx-auto mb-8">
               <div className="flex items-center justify-center mb-4">
                 <Mail className="w-6 h-6 text-primary mr-2" />
-                <span className="text-primary font-semibold">
+                <span className="text-black font-semibold">
                   Career Support
                 </span>
               </div>
-              <p className="text-primary text-lg">
+              <p className="text-black text-lg">
                 careers@watneycollege.co.uk
               </p>
             </div>
@@ -506,14 +400,14 @@ export default function CareerEmployabilityPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-primary text-primary hover:bg-gray-100"
+                className="bg-watney-blue-primary text-white hover:bg-watney-blue-primary/90"
               >
                 Get Career Support
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-white"
+                className="btn-outline-watney flex items-center justify-center bg-transparent"
               >
                 View Job Opportunities
               </Button>

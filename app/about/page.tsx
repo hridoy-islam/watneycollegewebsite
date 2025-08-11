@@ -71,7 +71,7 @@ export default function AboutPage() {
             About{" "}
             <span className="text-watney-blue-primary">Watney College</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 leading-relaxed  mx-auto">
             A progressive institution in the heart of London, dedicated to
             empowering students through exceptional education and practical
             career-focused training.
@@ -95,7 +95,7 @@ export default function AboutPage() {
               <Badge className="mb-6 bg-primary/15 text-primary hover:bg-primary/10">
                 Who We Are
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-watney-blue-primary mb-6">
                 Empowering Futures Through Education
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
@@ -140,9 +140,9 @@ export default function AboutPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Recognized <span className="text-primary">Accreditations</span>
+              Recognized <span className="text-gradient-watney">Accreditations</span>
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 text-lg mx-auto">
               Our programs are accredited by respected awarding bodies, ensuring
               quality and global recognition.
             </p>
@@ -175,7 +175,7 @@ export default function AboutPage() {
                     <CardTitle className="text-xl">
                       {accreditation.name}
                     </CardTitle>
-                    <CardDescription>{accreditation.desc}</CardDescription>
+                    <CardDescription className="text-lg">{accreditation.desc}</CardDescription>
                   </CardHeader>
                 </Card>
               </motion.div>
@@ -185,7 +185,7 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 bg-gradient-to-tr from-primary to-primary/60 text-primary">
+      <section className="py-20 bg-ocean-breeze text-primary">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Vision */}
@@ -202,7 +202,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-2xl font-bold text-primary">Our Vision</h3>
               </div>
-              <p className="text-primary leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 We aspire to become a leading higher education provider in
                 London, recognized for our student-centered approach and
                 innovative teaching methods. Through partnerships with reputable
@@ -226,7 +226,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-2xl font-bold text-primary">Our Mission</h3>
               </div>
-              <p className="text-primary leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 At Watney College, we believe that education is the key to
                 unlocking potential. Our mission is to empower individuals by
                 delivering high-quality, accessible education that nurtures
@@ -287,7 +287,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-gradient-to-tr from-primary to-primary/80">
+      <section className="py-20 ">
         <div className="container text-white ">
           <motion.div
             className="text-center mb-16"
@@ -295,10 +295,8 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Badge className="bg-foreground-200/20 text-white mb-4">
-              Why Choose Us
-            </Badge>
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+           
+            <h2 className="text-4xl font-bold text-watney-blue-primary mb-4">
               What Sets Us Apart?
             </h2>
             <p className="text-xl text-gray-600 mx-auto">
@@ -349,13 +347,13 @@ export default function AboutPage() {
               >
                 <Card className="group hover:shadow-lg transition-all duration-300 border-white/20 hover:border-white h-full">
                   <CardHeader>
-                    <div className="w-12 h-12 bg-white/10 text-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 bg-primary/10 text-watney-blue-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       {feature.icon}
                     </div>
-                    <CardTitle className="text-xl">{feature.title}</CardTitle>
+                    <CardTitle className="text-xl text-watney-blue-primary">{feature.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600">{feature.desc}</p>
+                    <p className="text-gray-600 text-lg">{feature.desc}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -365,7 +363,7 @@ export default function AboutPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-foreground-100 text-primary text-center">
+      <section className="py-20 bg-soft-sky text-center">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -375,7 +373,7 @@ export default function AboutPage() {
             <h2 className="text-4xl font-bold mb-6">
               Ready to Begin Your Journey?
             </h2>
-            <p className="text-xl mb-8 text-purple-100 max-w-2xl mx-auto">
+            <p className="text-xl mb-8 text-gray-600 mx-auto">
               Join a growing community of learners transforming their futures
               with Watney College.
             </p>
@@ -383,7 +381,7 @@ export default function AboutPage() {
               <Button
                 size="lg"
                 asChild
-                className="bg-white text-primary hover:bg-gray-100"
+                className="btn-watney-primary flex items-center justify-center"
               >
                 <Link href="/courses">
                   Explore Our Courses <ArrowRight className="w-4 h-4 ml-2" />
@@ -392,7 +390,7 @@ export default function AboutPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white  hover:bg-white text-primary"
+                className="btn-outline-watney flex items-center justify-center bg-transparent"
                 asChild
               >
                 <Link href="/contact">

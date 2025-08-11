@@ -106,10 +106,10 @@ export default function StudentFinancePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-primary">
+    <div className="min-h-screen ">
      
       {/* Hero Section */}
-      <section className="bg-primary py-20">
+      <section className="bg-ocean-breeze py-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -118,18 +118,18 @@ export default function StudentFinancePage() {
             className="text-center text-white"
           >
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Pound className="w-8 h-8 text-white" />
+              <Pound className="w-8 h-8 text-watney-blue-primary" />
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              Student <span className="text-pink-300">Finance</span>
+            <h1 className="text-5xl lg:text-6xl text-black font-bold mb-6">
+              Student <span className="text-watney-blue-primary">Finance</span>
             </h1>
-            <p className="text-xl mb-8 text-purple-100  mx-auto">
+            <p className="text-lg mb-8 text-gray-600 mx-auto">
               If you are facing financial difficulties and are a British citizen or hold Indefinite Leave to Remain (ILR), you may be eligible to apply for funding to cover course fees and maintenance support.
             </p>
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
+            {/* <Button size="lg" className="btn-watney-primary  text-white hover:bg-watney-blue-primary/90">
               Check Your Eligibility
               <ExternalLink className="w-4 h-4 ml-2" />
-            </Button>
+            </Button> */}
           </motion.div>
         </div>
       </section>
@@ -137,7 +137,7 @@ export default function StudentFinancePage() {
      
 
       {/* Eligibility Criteria */}
-      <section className="py-20 bg-foreground-100">
+      <section className="py-20 ">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -146,10 +146,10 @@ export default function StudentFinancePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl text-primary font-bold mb-4">
-              Check Funding Eligibility
+            <h2 className="text-4xl text-black font-bold mb-4">
+              Check Funding <span className="text-gradient-watney">Eligibility</span>
             </h2>
-            <p className="text-xl text-primary   mx-auto">
+            <p className="text-lg text-black   mx-auto">
               Understanding the key eligibility criteria for student finance support in the UK.
             </p>
           </motion.div>
@@ -167,13 +167,13 @@ export default function StudentFinancePage() {
                   <CardHeader>
                     <div className="flex items-center mb-4">
                       <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
-                        <criteria.icon className={`w-6 h-6 ${criteria.color}`} />
+                        <criteria.icon className={`w-6 h-6 text-white`} />
                       </div>
                       <CardTitle className="text-xl  text-primary">{criteria.title}</CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-black">{criteria.description}</p>
+                    <p className="text-black text-lg">{criteria.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -192,10 +192,10 @@ export default function StudentFinancePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl text-primary font-bold mb-4">
-              Types of Financial Support
+            <h2 className="text-4xl text-black font-bold mb-4">
+              Types of <span className="text-gradient-watney">Financial Support</span>
             </h2>
-            <p className="text-xl text-primary  mx-auto">
+            <p className="text-lg text-gray-600  mx-auto">
               Explore the different types of financial support available to help fund your education.
             </p>
           </motion.div>
@@ -215,15 +215,15 @@ export default function StudentFinancePage() {
                       <Pound className="w-8 h-8 text-primary" />
                     </div>
                     <CardTitle className="text-xl mb-2 text-primary">{support.title}</CardTitle>
-                    <CardDescription className="text-black mb-4">
+                    <CardDescription className="text-black text-lg mb-4">
                       {support.description}
                     </CardDescription>
-                    <div className="text-2xl font-bold text-primary">{support.amount}</div>
+                    {/* <div className="text-2xl font-bold text-primary">{support.amount}</div> */}
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
                       {support.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center text-sm text-black">
+                        <div key={idx} className="flex items-center text-lg text-black">
                           <CheckCircle className="w-4 h-4 text-primary/80 mr-2" />
                           {feature}
                         </div>
@@ -247,10 +247,10 @@ export default function StudentFinancePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl text-gradient-watney font-bold mb-4">
               Application Process
             </h2>
-            <p className="text-xl text-white mx-auto">
+            <p className="text-lg text-gray-600 mx-auto">
               Follow these steps to apply for student finance and secure funding for your studies.
             </p>
           </motion.div>
@@ -269,7 +269,7 @@ export default function StudentFinancePage() {
                     {step.step}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                    <h3 className="text-xl text-watney-blue-primary font-semibold mb-2">{step.title}</h3>
                     <p className="text-gray-600">{step.description}</p>
                   </div>
                 </div>
@@ -283,7 +283,7 @@ export default function StudentFinancePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-foreground-100">
+      <section className="py-20 bg-soft-sky">
         <div className="container mx-auto ">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -295,12 +295,12 @@ export default function StudentFinancePage() {
             <h2 className="text-4xl font-bold text-primary mb-6">
               Ready to Apply for Student Finance?
             </h2>
-            <p className="text-xl text-primary mb-8  mx-auto">
+            <p className="text-lg text-primary mb-8  mx-auto">
               Don't let financial concerns hold you back from achieving your educational goals. Get the support you need to succeed.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary text-primary hover:bg-gray-100">
+              <Button size="lg" className="bg-watney-blue-primary text-white hover:bg-watney-blue-primary/90">
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Apply on Gov.UK
               </Button>
