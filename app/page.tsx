@@ -35,6 +35,7 @@ import {
 } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import Hero from "@/components/hero";
 
 export default function page() {
   function Counter({
@@ -216,263 +217,8 @@ export default function page() {
   ];
 
   return (
-    <main className="min-h-screen">
-     <section className="bg-gradient-to-r from-primary/80 to-primary/40 py-16 overflow-hidden">
-      <div className="container mx-auto ">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white space-y-8"
-          >
-            {/* Badge / Trust Label */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium"
-            >
-              <Star className="w-4 h-4 text-yellow-300 fill-yellow-300" />
-              Accredited & Industry-Recognized Programs
-            </motion.div>
-
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-            >
-              Shape Your Future With{" "}
-              <span className="text-pink-300">Watney College</span>
-            </motion.h1>
-
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-lg md:text-xl text-purple-100 leading-relaxed max-w-xl"
-            >
-              Join a globally recognized institution offering career-focused education designed for success in today’s competitive world.
-            </motion.p>
-
-            {/* Call to Action */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            >
-              <Button
-                size="lg"
-                className="bg-white text-primary hover:text-white hover:scale-105 hover:shadow-xl transition-all duration-300 text-lg font-semibold py-7 px-10"
-              >
-                🚀 Apply Now – Secure Your Spot
-              </Button>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.0, duration: 0.6 }}
-              className="flex flex-wrap gap-6 pt-4"
-            >
-              <Counter target={10000} label="Active Students" />
-              <Counter target={5000} label="Graduates" />
-              <Counter target={98} suffix="%" label="Success Rate" />
-            </motion.div>
-          </motion.div>
-
-          {/* Right Image + Floating Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="relative"
-          >
-            <div className="relative">
-              <Image
-                src="/home.jpg"
-                alt="Student studying with laptop and books"
-                width={600}
-                height={720}
-                className="w-full h-auto rounded-xl shadow-2xl"
-              />
-            </div>
-
-            {/* Floating Badge 1 */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 3,
-                ease: "easeInOut",
-              }}
-              className="absolute -top-6 -right-6 bg-white text-primary rounded-full px-4 py-2 shadow-lg text-sm font-bold whitespace-nowrap"
-            >
-              Limited Seats
-            </motion.div>
-
-            {/* Floating Card 1 */}
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 3.5,
-                ease: "easeInOut",
-              }}
-              className="absolute top-12 right-8 bg-white rounded-xl p-4 shadow-xl"
-            >
-              <div className="flex items-center gap-2 text-gray-800">
-                <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-sm font-semibold">Live Online</span>
-              </div>
-            </motion.div>
-
-            {/* Floating Card 2 */}
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 3.5,
-                ease: "easeInOut",
-                delay: 1.2,
-              }}
-              className="absolute bottom-16 left-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-xl"
-            >
-              <div className="flex items-center gap-2 text-gray-800">
-                <BookOpen className="w-5 h-5 text-primary" />
-                <span className="text-sm font-semibold">250+ Career-Focused Courses</span>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-
-      {/* Essential Resources Section */}
-      <section className="py-20 bg-primary/5">
-        <div className="container mx-auto px-4">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <Badge className="bg-primary/15 hover:bg-primary/15 text-primary mb-4">
-              Student Support
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Essential <span className="text-primary">Resources</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Everything you need to succeed — from housing and funding to
-              career support and course guides.
-            </p>
-          </motion.div>
-
-          {/* Cards Grid */}
-          <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.15,
-                  delayChildren: 0.2,
-                },
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            {[
-              {
-                title: "Accommodation",
-                description:
-                  "Secure safe, affordable, and convenient housing near campus with our trusted partners.",
-                icon: <MapPin className="w-6 h-6" />,
-                href: "/accommodation",
-
-                delay: 0,
-              },
-              {
-                title: "Student Finance",
-                description:
-                  "Comprehensive guidance on tuition, scholarships, loans, and budget planning.",
-                icon: <Banknote className="w-6 h-6" />,
-                href: "/student-finance",
-                gradient: "from-green-500 to-emerald-600",
-                delay: 0.1,
-              },
-              {
-                title: "Career & Employability",
-                description:
-                  "Boost your employability with CV reviews, mock interviews, and job placements.",
-                icon: <Briefcase className="w-6 h-6" />,
-                href: "/career-employability",
-                gradient: "from-purple-500 to-violet-600",
-                delay: 0.2,
-              },
-              {
-                title: "Request a Prospectus",
-                description:
-                  "Get a free, detailed course guide delivered to your inbox or by post.",
-                icon: <BookOpen className="w-6 h-6" />,
-                href: "/prospectus",
-                gradient: "from-pink-500 to-rose-600",
-                delay: 0.3,
-              },
-            ].map((card, index) => (
-              <motion.div
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ delay: card.delay, duration: 0.5 }}
-              >
-                <Link href={card.href}>
-                  <motion.div
-                    className="group relative bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 h-full flex flex-col"
-                    whileHover={{ y: -10 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {/* Icon Circle with Gradient */}
-                    <div
-                      className={`w-14 h-14 bg-gradient-to-tr from-primary to-primary/60 rounded-xl flex items-center justify-center mb-5 text-white shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}
-                    >
-                      {card.icon}
-                    </div>
-
-                    {/* Content */}
-                    <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
-                      {card.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed flex-grow text-sm">
-                      {card.description}
-                    </p>
-
-                    {/* CTA Arrow */}
-                    <div className="flex items-center mt-5 text-primary text-sm font-medium">
-                      Learn More
-                      <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0" />
-                    </div>
-                  </motion.div>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
+    <div>
+      <Hero />
       {/* Services Section */}
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
@@ -623,15 +369,15 @@ export default function page() {
           </div>
         </div>
       </section>
-
+      {/* /ridoy */}
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primary/80">
+      <section className="py-20 bg-soft-sky">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-bold text-black mb-6">
             Ready to Start Your{" "}
-            <span className="text-white">Educational Journey?</span>
+            <span className="text-gradient-watney">Educational Journey?</span>
           </h2>
-          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-black mb-8 max-w-2xl mx-auto">
             Join thousands of successful students who have transformed their
             careers through our comprehensive programs.
           </p>
@@ -652,7 +398,6 @@ export default function page() {
           </div>
         </div>
       </section>
-
       {/* Why Choose Us Section */}
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
@@ -717,7 +462,6 @@ export default function page() {
           </motion.div>
         </div>
       </section>
-
       {/* Final CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary to-primary/80">
         <div className="container mx-auto px-4 text-center">
@@ -746,7 +490,6 @@ export default function page() {
           </div>
         </div>
       </section>
-
       {/* Testimonials Section */}
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
@@ -853,6 +596,6 @@ export default function page() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

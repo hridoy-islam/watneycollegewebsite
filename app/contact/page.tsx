@@ -1,320 +1,232 @@
 "use client";
-import Image from "next/image";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Input } from "@/components/ui/input";
+
+import type React from "react";
+
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { ChevronDown, GraduationCap, Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactPage() {
-  const [formState, setFormState] = useState({
-    firstName: "",
-    lastName: "",
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
     email: "",
-    phone: "",
+    subject: "",
     message: "",
   });
-
-  const [countryCode, setCountryCode] = useState("+62");
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormState((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formState);
-    // Reset form or show success message
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { type: "spring", stiffness: 100 },
-    },
-  };
-
-  const formVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        delay: 0.3,
-      },
-    },
-  };
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
+    setIsLoading(true);
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setIsSubmitted(true);
+    setIsLoading(false);
+    // Optionally reset form
+    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   return (
-    <div className="min-h-screen ">
-      <section className="bg-primary text-white py-24">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <GraduationCap className="w-8 h-8" />
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Contact Us
-            </h1>
-            <p className="text-lg md:text-xl  mx-auto leading-relaxed text-purple-100">
-              A progressive institution in the heart of London, dedicated to
-              empowering students through exceptional education and practical
-              career-focused training.
-            </p>
-          </motion.div>
+    <div className="bg-white">
+      <section className="relative py-20 bg-ocean-breeze overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <Mail className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
+          <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+            Get In <span className="text-watney-blue-primary">Touch</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            We're here to help! Contact Watney College for any inquiries,
+            support, or information.
+          </p>
         </div>
       </section>
 
-      <div className="container flex flex-col items-center   py-12 ">
-        <div className="w-full  grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
-          {/* Left Column */}
-          <motion.div
-            className="lg:col-span-2 flex flex-col justify-center"
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-          >
-            <motion.h1
-              className="font-bold mb-4 text-primary"
-              variants={itemVariants}
-            >
-              Contact Us
-            </motion.h1>
-
-            <motion.p className="text-black mb-8" variants={itemVariants}>
-              Email, call, or complete the form to learn how Watney College can
-              assist you with your needs.
-            </motion.p>
-
-            <motion.div
-              className="flex items-center gap-2 mb-2"
-              variants={itemVariants}
-            >
-              <Mail className="h-5 w-5 text-black" />
-              <a
-                href="mailto:info@watneycollege.co.uk"
-                className="text-gray-700 hover:text-primary transition-colors"
-              >
-                info@watneycollege.co.uk
-              </a>
-            </motion.div>
-
-            <motion.div
-              className="flex items-center gap-2 mb-8"
-              variants={itemVariants}
-            >
-              <Phone className="h-5 w-5 text-gray-500" />
-              <a
-                href="tel:+44 (0) 2080046463"
-                className="text-gray-700 hover:text-primary transition-colors"
-              >
-                +44 (0) 2080046463
-              </a>
-            </motion.div>
-
-            <motion.h3
-              className="text-lg font-semibold mb-4 text-primary"
-              variants={itemVariants}
-            >
-              Our Location
-            </motion.h3>
-
-            <motion.p
-              className="text-black  flex items-start"
-              variants={itemVariants}
-            >
-              <MapPin className="h-5 w-5 mt-2 text-primary  text-start mr-2" />
-              Watney College <br />
-              80-82 Nelson St, London E1 2DY, UK
-            </motion.p>
-
-            {/* <div className="flex flex-col gap-6 mb-8">
-    <motion.div 
-      className="bg-white p-5 rounded-lg shadow-sm"
-      variants={itemVariants}
-      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-    >
-      <h4 className="font-semibold mb-2 text-gray-800">Customer Support</h4>
-      <p className="text-sm text-gray-600">
-        Our support team is available around the clock to address any concerns or queries you may have.
-      </p>
-    </motion.div>
-    
-    <motion.div 
-      className="bg-white p-5 rounded-lg shadow-sm"
-      variants={itemVariants}
-      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-    >
-      <h4 className="font-semibold mb-2 text-gray-800">Feedback and Suggestions</h4>
-      <p className="text-sm text-gray-600">
-        We value your feedback and are continuously working to improve our services. Your input is crucial.
-      </p>
-    </motion.div>
-    
-    <motion.div 
-      className="bg-white p-5 rounded-lg shadow-sm"
-      variants={itemVariants}
-      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-    >
-      <h4 className="font-semibold mb-2 text-gray-800">Media Inquiries</h4>
-      <p className="text-sm text-gray-600">
-        For media-related questions or press inquiries, please contact us at media@mrstconsultancy.com.
-      </p>
-    </motion.div>
-  </div> */}
-          </motion.div>
-
-          {/* Right Column - Contact Form */}
-          <motion.div
-            className="lg:col-span-3 bg-white rounded-2xl shadow-lg overflow-hidden"
-            initial="hidden"
-            animate="visible"
-            variants={formVariants}
-          >
-            <div className="p-6 md:p-8">
-              <h2 className="text-2xl font-bold mb-2 text-gray-900">
-                Get in Touch
+      <section className="section-padding bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <div className="space-y-8">
+              <h2 className="text-4xl font-black text-gray-900 mb-6">
+                Contact{" "}
+                <span className="text-gradient-watney">Information</span>
               </h2>
-              <p className="text-gray-600 mb-6">You can reach us anytime</p>
-
-              <form onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <label htmlFor="firstName" className="sr-only">
-                      First name
-                    </label>
-                    <input
-                      id="firstName"
-                      name="firstName"
-                      type="text"
-                      placeholder="First name"
-                      value={formState.firstName}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                      required
-                    />
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-watney-blue-light rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-watney-blue-primary" />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="sr-only">
-                      Last name
-                    </label>
-                    <input
-                      id="lastName"
-                      name="lastName"
-                      type="text"
-                      placeholder="Last name"
-                      value={formState.lastName}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                      required
-                    />
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      Our Location
+                    </h3>
+                    <p className="text-gray-600">
+                      Watney College, University Square, London, WC1E 7HU, U.K
+                    </p>
                   </div>
                 </div>
-
-                <div className="mb-4">
-                  <label htmlFor="email" className="sr-only">
-                    Your email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Your email"
-                    value={formState.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                    required
-                  />
-                </div>
-
-                <div className="mb-4 relative">
-                  <label htmlFor="phone" className="sr-only">
-                    Phone number
-                  </label>
-                  <div className="flex">
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="Phone number"
-                      value={formState.phone}
-                      onChange={handleInputChange}
-                      className="flex-1 px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                    />
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-watney-blue-light rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-watney-blue-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      Phone Support
+                    </h3>
+                    <p className="text-gray-600">+44 (0) 20 1234 5678</p>
+                    <p className="text-gray-500 text-sm">
+                      Available Mon-Fri, 9AM-5PM
+                    </p>
                   </div>
                 </div>
-
-                <div className="mb-6">
-                  <label htmlFor="message" className="sr-only">
-                    How can we help?
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    placeholder="How can we help?"
-                    value={formState.message}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
-                    required
-                  />
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-watney-blue-light rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-watney-blue-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      Email Us
+                    </h3>
+                    <a
+                      href="mailto:info@watneycollege.ac.uk"
+                      className="text-watney-blue-primary hover:underline"
+                    >
+                      info@watneycollege.ac.uk
+                    </a>
+                    <p className="text-gray-500 text-sm">
+                      We aim to respond within 24 hours
+                    </p>
+                  </div>
                 </div>
-
-                <motion.button
-                  type="submit"
-                  className="w-full bg-primary text-white font-medium py-3 px-6 rounded-lg hover:bg-primary/90 transition-all"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Submit
-                </motion.button>
-
-                {/* <p className="text-xs text-center text-gray-500 mt-4">
-                  By contacting us, you agree to our{" "}
-                  <Link href="#" className="text-primary hover:underline">
-                    Terms of service
-                  </Link>{" "}
-                  and{" "}
-                  <Link href="#" className="text-primary hover:underline">
-                    Privacy Policy
-                  </Link>
-                </p> */}
-              </form>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-watney-blue-light rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-watney-blue-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      Office Hours
+                    </h3>
+                    <p className="text-gray-600">Mon-Fri: 9AM - 5PM</p>
+                    <p className="text-gray-600">Sat: 10AM - 1PM</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </motion.div>
+
+            {/* Contact Form */}
+            <div className="bg-watney-blue-light rounded-3xl p-8 shadow-xl border border-watney-blue-accent">
+              <h2 className="text-3xl font-black text-gray-900 mb-6 text-center">
+                Send Us a Message
+              </h2>
+              {isSubmitted ? (
+                <div className="text-center py-12">
+                  <Mail className="w-20 h-20 text-watney-blue-primary mx-auto mb-6" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Thank You for Your Message!
+                  </h3>
+                  <p className="text-gray-600">
+                    We have received your inquiry and will get back to you
+                    shortly.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-gray-900 font-medium mb-2"
+                    >
+                      Your Name
+                    </label>
+                    <Input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="John Doe"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-watney-blue-primary focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-gray-900 font-medium mb-2"
+                    >
+                      Your Email
+                    </label>
+                    <Input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="john.doe@example.com"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-watney-blue-primary focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="subject"
+                      className="block text-gray-900 font-medium mb-2"
+                    >
+                      Subject
+                    </label>
+                    <Input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      placeholder="Inquiry about admissions"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-watney-blue-primary focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-gray-900 font-medium mb-2"
+                    >
+                      Your Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows={5}
+                      placeholder="Type your message here..."
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-watney-blue-primary focus:border-transparent resize-y"
+                    ></textarea>
+                  </div>
+                  <Button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full btn-watney-primary"
+                  >
+                    {isLoading ? "Sending..." : "Send Message"}
+                  </Button>
+                </form>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

@@ -2,240 +2,309 @@
 @tailwind components;
 @tailwind utilities;
 
-
-:root {
-
-  --background-primary: 25, 60, 109;
-  --background-secondery: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-html {
-  font-family: var(--font-inter);
-}
-
-.bg-primary{
-  background: rgb(var( --background-primary));
-  color:white
-}
-.border-primary{
-  border-color: rgb(var( --background-primary));
-
-}
-
-body {
-  color: rgb(var(--background-start-rgb));
-  background: rgb(var(--background-secondery));
-}
-.roboinput {
-  @apply border border-primary p-1.5 my-2 rounded-lg;
-}
-.btn-basic {
-  @apply bg-primary text-white;
-}
 @layer base {
-  h2 {
-    @apply font-bold text-4xl;
-  }
-
-  p{
-    @apply text-base leading-8
-  }
-  
-  h1{
-    @apply font-bold text-6xl
-  }
-  h3{
-    @apply font-bold text-xl
-  }
-  /* ... */
   :root {
+    /* Watney College Blue Palette */
+    --watney-blue-primary: 210 90% 40%; /* A strong blue */
+    --watney-blue-secondary: 200 80% 55%; /* A slightly lighter, vibrant blue */
+    --watney-blue-accent: 200 90% 70%; /* A light, bright blue for accents */
+    --watney-blue-light: 200 90% 95%; /* Very light blue for backgrounds */
+    --watney-blue-light-secondary: 200 90% 90%; /* Slightly darker light blue */
 
-    --background: 0 0% 100%;
+    --background: 0 0% 100%; /* White */
+    --foreground: 222.2 47.4% 11.2%; /* Dark text */
 
-    --foreground: 0 0% 3.9%;
+    --primary: var(--watney-blue-primary);
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.6% 91.4%;
+    --input: 214.3 31.6% 91.4%;
+    --ring: var(--watney-blue-primary);
 
     --card: 0 0% 100%;
-
-    --card-foreground: 0 0% 3.9%;
-
+    --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
-
-    --popover-foreground: 0 0% 3.9%;
-
-    --primary: 215, 62.69%, 26.27%;
-
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 0 0% 96.1%;
-
-    --secondary-foreground: 0 0% 9%;
-
-    --muted: 0 0% 96.1%;
-
-    --muted-foreground: 0 0% 45.1%;
-
-    --accent: 0 0% 96.1%;
-
-    --accent-foreground: 0 0% 9%;
-
-    --destructive: 0 84.2% 60.2%;
-
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 89.8%;
-
-    --input: 0 0% 89.8%;
-
-    --ring: 0 0% 3.9%;
-
-    --chart-1: 12 76% 61%;
-
-    --chart-2: 173 58% 39%;
-
-    --chart-3: 197 37% 24%;
-
-    --chart-4: 43 74% 66%;
-
-    --chart-5: 27 87% 67%;
+    --popover-foreground: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
   }
+
   .dark {
-
-    --background: 0 0% 3.9%;
-
-    --foreground: 0 0% 98%;
-
-    --card: 0 0% 3.9%;
-
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 3.9%;
-
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 215, 62.69%, 26.27%;
-
-    --primary-foreground: 0 0% 9%;
-
-    --secondary: 0 0% 14.9%;
-
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 14.9%;
-
-    --muted-foreground: 0 0% 63.9%;
-
-    --accent: 0 0% 14.9%;
-
-    --accent-foreground: 0 0% 98%;
-
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
 
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 14.9%;
-
-    --input: 0 0% 14.9%;
-
-    --ring: 0 0% 83.1%;
-
-    --chart-1: 220 70% 50%;
-
-    --chart-2: 160 60% 45%;
-
-    --chart-3: 30 80% 55%;
-
-    --chart-4: 280 65% 60%;
-
-    --chart-5: 340 75% 55%;
+    /* Watney College Custom Blues for Dark Mode (adjust as needed) */
+    --watney-blue-primary: 210 90% 60%;
+    --watney-blue-secondary: 200 80% 70%;
+    --watney-blue-accent: 200 90% 80%;
+    --watney-blue-light: 200 90% 15%;
+    --watney-blue-light-secondary: 200 90% 20%;
   }
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 40px white inset !important;
+@layer components {
+  .btn-watney-primary {
+    @apply bg-watney-blue-primary text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:bg-watney-blue-secondary shadow-md;
+  }
+
+  .btn-watney-secondary {
+    @apply bg-watney-blue-secondary text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:bg-watney-blue-primary shadow-md;
+  }
+
+  .btn-outline-watney {
+    @apply border-2 border-watney-blue-primary text-watney-blue-primary hover:bg-watney-blue-primary hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .text-gradient-watney {
+    @apply bg-gradient-to-r from-watney-blue-primary to-watney-blue-secondary bg-clip-text text-transparent;
+  }
 }
 
-th {
-  @apply p-1 border-b border-stroke;
-}
-td {
-  @apply p-2;
-}
-tr {
-  @apply last:border-b-0 border-b border-stroke;
-}
-.tableHeader {
-  @apply flex justify-between border-b border-stroke;
-}
-
-.productview tr {
-  @apply border-0 !important;
+@layer base {
+  html,
+  body {
+    height: 100%; /* Ensure html and body take full viewport height */
+    width: 100%; /* Ensure html and body take full viewport width */
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-
-
-.relative.w-full.inline-flex.tap-highlight-transparent.shadow-sm.px-3.border-medium.border-default-200.data-\[hover\=true\]\:border-default-400.group-data-\[focus\=true\]\:border-default-foreground.min-h-unit-10.rounded-medium.flex-col.items-start.justify-center.gap-0.transition-background.\!duration-150.transition-colors.motion-reduce\:transition-none.h-14.py-2 {
-  border-width: 0px;
-  box-shadow: none;
-}
-.swiper-pagination {
-  position: initial !important;
-  margin-top: 20px;
-}
-.swiper-container {
-  margin-top: 50px;
-  position: relative;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-button.absolute.appearance-none.select-none.top-1.right-1.p-2.text-foreground-500.rounded-full.hover\:bg-primary.active\:bg-default-200.tap-highlight-transparent.outline-none.data-\[focus-visible\=true\]\:z-10.data-\[focus-visible\=true\]\:outline-2.data-\[focus-visible\=true\]\:outline-focus.data-\[focus-visible\=true\]\:outline-offset-2 {
-  display: none;
-}
-.navbar-menu-toggle-icon svg {
-  color: black;
-}
-.homepagebg {
-  /* background-image: url("../public/headerbg.jpeg"); */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.footerbg {
-  background-image: url("../public/footerbg.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.liveResultBg {
-  background-image: url("../public/liveresult.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.feature-list {
-  margin: 0;
-  padding-left: 16px;
-  list-style: disc;
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
 }
 
-.feature-list li {
-  margin-bottom: 0.75rem; /* Adjust spacing here (e.g., 12px) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--watney-blue-primary)),
+    hsl(var(--watney-blue-secondary))
+  );
+  border-radius: 4px;
 }
 
-.feature-list li:last-child {
-  margin-bottom: 0;
-}html {
-  scroll-padding-top: 80px; /* Match your header height */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--watney-blue-accent)),
+    hsl(var(--watney-blue-secondary))
+  );
+}
+
+/* Smooth scrolling */
+html {
   scroll-behavior: smooth;
+}
+
+/* Container */
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes float-light {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-light {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-expand {
+  animation: expand 1s ease-out forwards;
+}
+
+.animate-float-light {
+  animation: float-light 3s ease-in-out infinite;
+}
+
+.animate-pulse-light {
+  animation: pulse-light 2s ease-in-out infinite;
+}
+
+/* Delay classes for staggered animations */
+.delay-200 {
+  animation-delay: 200ms;
+}
+.delay-400 {
+  animation-delay: 400ms;
+}
+.delay-500 {
+  animation-delay: 500ms;
+}
+.delay-600 {
+  animation-delay: 600ms;
+}
+.delay-700 {
+  animation-delay: 700ms;
+}
+.delay-800 {
+  animation-delay: 800ms;
+}
+.delay-1000 {
+  animation-delay: 1000ms;
+}
+.delay-1200 {
+  animation-delay: 1200ms;
+}
+.delay-1400 {
+  animation-delay: 1400ms;
+}
+.delay-1500 {
+  animation-delay: 1500ms;
+}
+.delay-1600 {
+  animation-delay: 1600ms;
+}
+
+/* Custom gradient background classes */
+.bg-soft-sky {
+  background: linear-gradient(
+    to bottom right,
+    hsl(0 0% 100%),
+    hsl(200 100% 94%)
+  );
+}
+.bg-glacier-mist {
+  background: linear-gradient(
+    to top right,
+    hsl(0 0% 100%),
+    hsl(210 100% 90%),
+    hsl(208 100% 80%)
+  );
+}
+.bg-modern-corporate {
+  background: linear-gradient(
+    to bottom,
+    hsl(0 0% 100%),
+    hsl(208 100% 96%),
+    hsl(210 100% 85%)
+  );
+}
+.bg-ocean-breeze {
+  background: linear-gradient(
+    to top right,
+    hsl(0 0% 100%),
+    hsl(200 100% 85%),
+    hsl(200 100% 70%)
+  );
+}
+.bg-frosted-blue-glass {
+  background: linear-gradient(
+    to bottom left,
+    hsl(0 0% 100%),
+    hsl(200 100% 97%),
+    hsl(200 100% 90%)
+  );
+}
+
+/* Custom button styles */
+.btn-watney-gradient {
+  background: linear-gradient(
+    to right,
+    hsl(var(--watney-blue-primary)),
+    hsl(var(--watney-blue-secondary))
+  );
+  @apply text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative overflow-hidden;
+}
+.btn-watney-gradient:hover::before {
+  content: "";
+  @apply absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity;
 }

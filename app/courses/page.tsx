@@ -30,6 +30,7 @@ import {
   Filter,
   GraduationCap,
   ArrowRight,
+  Mail,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { courses } from "./data/courseData";
@@ -58,7 +59,7 @@ const itemVariants = {
 export default function CoursesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
-const router = useRouter();
+  const router = useRouter();
 
   const categories = [
     "all",
@@ -80,54 +81,46 @@ const router = useRouter();
 
   return (
     <div className="min-h-screen bg-primary">
-      {/* Hero Section */}
-      <section className="bg-primary py-20">
-        <div className="container ">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center text-white"
-          >
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              Explore Our <span className="text-white">Courses</span>
-            </h1>
-            <p className="text-xl mb-12 text-white  mx-auto">
-              Discover world-class programs designed to advance your career and
-              unlock new opportunities.
-            </p>
-
-            {/* Search and Filter */}
-            <div className="max-w-4xl mx-auto bg-white rounded-lg p-6 shadow-lg">
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1 relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <Input
-                    placeholder="Search courses..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 h-12"
-                  />
-                </div>
-                <Select
-                  value={selectedCategory}
-                  onValueChange={setSelectedCategory}
-                >
-                  <SelectTrigger className="w-full md:w-48 h-12 text-black">
-                    <Filter className="w-4 h-4 mr-2" />
-                    <SelectValue placeholder="All Categories" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {categories.map((category) => (
-                      <SelectItem key={category} value={category}>
-                        {category === "all" ? "All Categories" : category}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+      <section className="relative py-20 bg-ocean-breeze overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <Mail className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
+          <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+            Explore Our{" "}
+            <span className="text-watney-blue-primary">Courses</span>
+          </h1>
+          <p className="text-xl mb-12 md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            Discover world-class programs designed to advance your career and
+            unlock new opportunities.
+          </p>
+          <div className="max-w-4xl mx-auto bg-white rounded-lg p-6 shadow-lg">
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex-1 relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Input
+                  placeholder="Search courses..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10 h-12"
+                />
               </div>
+              <Select
+                value={selectedCategory}
+                onValueChange={setSelectedCategory}
+              >
+                <SelectTrigger className="w-full md:w-48 h-12 text-black">
+                  <Filter className="w-4 h-4 mr-2" />
+                  <SelectValue placeholder="All Categories" />
+                </SelectTrigger>
+                <SelectContent>
+                  {categories.map((category) => (
+                    <SelectItem key={category} value={category}>
+                      {category === "all" ? "All Categories" : category}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -151,7 +144,7 @@ const router = useRouter();
                       height={200}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <Badge
+                    {/* <Badge
                       className={`absolute top-4 left-4 ${
                         course.level === "Beginner"
                           ? "bg-white border-none hover:bg-white"
@@ -164,7 +157,7 @@ const router = useRouter();
                     </Badge>
                     <Badge className="absolute top-4 right-4 bg-white border-none hover:bg-white ">
                       {course.category}
-                    </Badge>
+                    </Badge> */}
                   </div>
 
                   <CardHeader>
@@ -184,9 +177,9 @@ const router = useRouter();
                           {course.rating}
                         </span>
                       </div>
-                      <span className="text-2xl font-bold text-primary">
+                      {/* <span className="text-2xl font-bold text-primary">
                         {course.price}
-                      </span>
+                      </span> */}
                     </div>
                     <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors">
                       {course.title}
@@ -209,7 +202,7 @@ const router = useRouter();
                         </div>
                       </div>
 
-                      <div className="flex flex-wrap gap-2">
+                      {/* <div className="flex flex-wrap gap-2">
                         {course.tags.map((tag, idx) => (
                           <Badge
                             key={idx}
@@ -219,14 +212,17 @@ const router = useRouter();
                             {tag}
                           </Badge>
                         ))}
-                      </div>
+                      </div> */}
 
-                      <div className="text-sm text-gray-600">
+                      {/* <div className="text-sm text-gray-600">
                         <strong>Instructor:</strong> {course.instructor}
-                      </div>
+                      </div> */}
 
-                      <Button onClick={()=> router.push(`courses/${course.id}`)} className="w-full group-hover:bg-primary group-hover:text-white/80 transition-colors">
-                        Apply Now
+                      <Button
+                        onClick={() => router.push(`courses/${course.id}`)}
+                        className="w-full group-hover:bg-primary group-hover:text-white/80 transition-colors"
+                      >
+                        View Details
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                     </div>

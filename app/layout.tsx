@@ -22,8 +22,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Watney College",
-  description:
-    "",
+  description: "",
 };
 
 export default function RootLayout({
@@ -39,7 +38,7 @@ export default function RootLayout({
       </head>
       <body className="relative">
         <Header />
-        <div className="pt-[66px]">
+        <div>
           <Providers>{children}</Providers>
         </div>
         <Footer />

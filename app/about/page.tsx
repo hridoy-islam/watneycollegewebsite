@@ -24,6 +24,7 @@ import {
   ExternalLink,
   ArrowRight,
   Info,
+  Mail,
 } from "lucide-react";
 
 // Animation variants
@@ -63,26 +64,18 @@ const iconVariants = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-primary text-white py-24">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <GraduationCap className="w-8 h-8" />
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              About <span className="text-pink-200">Watney College</span>
-            </h1>
-            <p className="text-lg md:text-xl  mx-auto leading-relaxed text-purple-100">
-              A progressive institution in the heart of London, dedicated to
-              empowering students through exceptional education and practical
-              career-focused training.
-            </p>
-          </motion.div>
+      <section className="relative py-20 bg-ocean-breeze overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <Mail className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
+          <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+            About{" "}
+            <span className="text-watney-blue-primary">Watney College</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            A progressive institution in the heart of London, dedicated to
+            empowering students through exceptional education and practical
+            career-focused training.
+          </p>
         </div>
       </section>
 

@@ -1,139 +1,187 @@
 "use client";
-import React from "react";
-import Link from "next/link";
-import { Icon } from "@iconify/react";
-import Image from "next/image";
 import {
-  GraduationCap,
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  MapPin,
-  Phone,
   Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Users,
+  GraduationCap,
+  BookOpen,
+  Facebook,
 } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
+  const academicLinks = [
+    { name: "Undergraduate", href: "/academics/undergraduate" },
+    { name: "Postgraduate", href: "/academics/postgraduate" },
+    { name: "Research Programs", href: "/research" },
+    { name: "Departments", href: "/academics/departments" },
+    { name: "Library", href: "/library" },
+  ];
+
+  const campusLinks = [
+    { name: "Student Life", href: "/campus-life" },
+    { name: "Accommodation", href: "/campus-life/accommodation" },
+    { name: "Sports & Societies", href: "/campus-life/sports-societies" },
+    { name: "Student Support", href: "/campus-life/student-support" },
+    { name: "Events Calendar", href: "/events" },
+  ];
+
+  const aboutLinks = [
+    { name: "About Watney College", href: "/about" },
+    { name: "Our History", href: "/about/history" },
+    { name: "Leadership", href: "/about/leadership" },
+    { name: "Careers at Watney", href: "/careers" },
+    { name: "Contact Us", href: "/contact" },
+  ];
+
   return (
-    <div className="bg-gradient-to-t from-primary to-primary/80 w-full text-secondary relative">
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-20 h-18 bg-primary rounded-full flex items-center justify-center">
-                  <Image
-                    src="/watney-white.png" // Replace with your logo image path
-                    alt="Watney College Logo"
-                    width={80} // Adjust the width as needed
-                    height={80} // Adjust the height as needed
-                    className="object-contain"
-                  />
-                </div>
-                <span className="text-xl font-bold">WATNEY COLLEGE</span>
-              </div>
-              <p className="text-gray-400 mb-4">
-                Empowering students to achieve their educational dreams through
-                innovative programs and personalized support.
-              </p>
-              <div className="flex space-x-4">
-                <Facebook className="w-5 h-5 text-gray-400 hover:text-white/70 cursor-pointer" />
-                <Twitter className="w-5 h-5 text-gray-400 hover:text-white/70 cursor-pointer" />
-                <Instagram className="w-5 h-5 text-gray-400 hover:text-white/70 cursor-pointer" />
-                <Linkedin className="w-5 h-5 text-gray-400 hover:text-white/70 cursor-pointer" />
-              </div>
+    <footer className="bg-gray-50 border-t border-gray-200">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+          {/* College Info */}
+          <div className="lg:col-span-1">
+            <div className="mb-6">
+              <Image
+                src="/watney.png"
+                alt="Watney College Logo"
+                width={200}
+                height={60}
+                className="h-12 w-auto mb-4"
+              />
             </div>
 
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Featured Links</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="#" className="hover:text-white/70">
-                    Admissions
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white/70">
-                    Academic Programs
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white/70">
-                    Student Life
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white/70">
-                    Career Services
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white/70">
-                    Alumni Network
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Watney College is a leading institution in UK higher education,
+              committed to academic excellence and student success.
+            </p>
 
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="#" className="hover:text-white/70">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white/70">
-                    Faculty & Staff
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white/70">
-                    Campus Tours
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white/70">
-                    Financial Aid
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white/70">
-                    International Students
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Get In Touch</h3>
-              <div className="space-y-3 text-gray-400">
-                <div className="flex items-center">
-                  <MapPin className="w-5 h-5 mr-2" />
-                  <span>
-                    80-82 Nelson Street Whitechapel, <br />London, E1 2DY, United
-                    Kingdom
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <Phone className="w-5 h-5 mr-2" />
-                  <span>+44 (0) 2080046463</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail className="w-5 h-5 mr-2" />
-                  <span>info@watneycollege.co.uk</span>
-                </div>
-              </div>
+            {/* Quick Stats */}
+            <div className="grid grid-cols-3 gap-4 mb-6">
+              <Facebook className="text-2xl text-watney-blue-primary mb-1" />
             </div>
           </div>
 
-          <div className=" border-gray-800 mt-8 pt-4 text-center text-gray-400">
-            <p>&copy; 2025 Watney College. All Rights Reserved.</p>
+          {/* Academic Links */}
+          <div>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">Academics</h3>
+            <ul className="space-y-3">
+              {academicLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-600 hover:text-watney-blue-primary transition-colors duration-200"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Campus Life Links */}
+          <div>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">
+              Campus Life
+            </h3>
+            <ul className="space-y-3">
+              {campusLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-600 hover:text-watney-blue-primary transition-colors duration-200"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Information */}
+          <div>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">
+              Get In Touch
+            </h3>
+
+            <div className="space-y-4">
+              {/* Address */}
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-5 h-5 text-watney-blue-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Watney College, University Square
+                    <br />
+                    London, WC1E 7HU, U.K
+                  </p>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="flex items-center space-x-3">
+                <Phone className="w-5 h-5 text-watney-blue-primary flex-shrink-0" />
+                <a
+                  href="tel:+442012345678"
+                  className="text-gray-600 hover:text-watney-blue-primary transition-colors text-sm"
+                >
+                  +44 (0) 20 1234 5678
+                </a>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-center space-x-3">
+                <Mail className="w-5 h-5 text-watney-blue-primary flex-shrink-0" />
+                <a
+                  href="mailto:info@watneycollege.ac.uk"
+                  className="text-gray-600 hover:text-watney-blue-primary transition-colors text-sm"
+                >
+                  info@watneycollege.ac.uk
+                </a>
+              </div>
+
+              {/* Office Hours */}
+              <div className="flex items-start space-x-3">
+                <Clock className="w-5 h-5 text-watney-blue-primary mt-1 flex-shrink-0" />
+                <div className="text-gray-600 text-sm">
+                  <div>Mon-Fri: 9AM-5PM</div>
+                  <div>Sat: 10AM-1PM</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </footer>
-    </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-200 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-500 text-sm">
+              © {new Date().getFullYear()} Watney College. All rights reserved.
+            </p>
+            <div className="flex space-x-6 text-sm">
+              <Link
+                href="/privacy-policy"
+                className="text-gray-500 hover:text-watney-blue-primary transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms-of-service"
+                className="text-gray-500 hover:text-watney-blue-primary transition-colors"
+              >
+                Terms of Service
+              </Link>
+              <Link
+                href="/cookie-policy"
+                className="text-gray-500 hover:text-watney-blue-primary transition-colors"
+              >
+                Cookie Policy
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }

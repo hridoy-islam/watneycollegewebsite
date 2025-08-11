@@ -1,113 +1,129 @@
 "use client";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { Star, GraduationCap, BookOpen, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-primary text-primary w-full min-h-screen flex items-center z-0">
-      {/* Full-screen grid background */}
-      <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full"
-          viewBox="0 0 1000 1000"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <pattern
-              id="grid"
-              width="20"
-              height="20"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 20 0 L 0 0 0 20"
-                fill="none"
-                stroke="white"
-                strokeWidth="1"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden bg-soft-sky py-20 md:py-0">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0">
+        {/* Large Blue Orb */}
+        <div className="absolute right-0 top-0 translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-watney-blue-secondary rounded-full blur-3xl opacity-80 animate-pulse-light"></div>
+        {/* Smaller Accents */}
+        <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-watney-blue-primary/10 rounded-full blur-3xl animate-float-light delay-500"></div>
+        <div className="absolute bottom-10 left-1/3 w-24 h-24 bg-watney-blue-accent/10 rounded-full blur-3xl animate-float-light delay-1000"></div>
       </div>
 
-      <div className="container relative z-10  lg:py-32">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col justify-center"
-          >
-            <h1 className="font-bold tracking-tight">
-              Your Gateway to Global Opportunities
-            </h1>
-            <p className="mt-6 ">
-              At MRST Consultancy L.L.C-FZ, we bridge international markets,
-              facilitate cross-border investments, and guide students toward
-              educational excellence worldwide.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="bg-secondary text-primary"
-              >
-                <Link href="/contact">Schedule a Consultation</Link>
-              </Button>
-              {/* <Button asChild variant="outline" size="lg" className="bg-secondary text-primary">
-                <Link href="#services">Our Services</Link>
-              </Button> */}
-            </div>
-          </motion.div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
+          <div className="space-y-8 animate-fade-in-up">
+            {/* Main Headline */}
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight text-gray-900">
+                <span className="block">Build Your Future,</span>
+                <span className="block text-watney-blue-primary">
+                  Choose Your Course
+                </span>
+              </h1>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative hidden lg:block"
-          >
-            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-secondary/30 blur-3xl"></div>
-            <div className="absolute -bottom-10 -left-10 h-64 w-64 rounded-full bg-secondary/20 blur-3xl"></div>
-            <div className="relative rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
-              <div className="aspect-[4/3] overflow-hidden rounded-lg">
-                <Image
-                  src="/dubai.jpg" // Corrected path
-                  alt="Dubai skyline"
-                  className="object-cover"
-                  width={1200}
-                  height={800}
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl animate-fade-in delay-200">
+                At Watney College, we empower you with the knowledge and skills
+                to thrive in tomorrow's world.
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-fade-in delay-400">
+              <Button className="btn-watney-primary flex items-center justify-center">
+                <Link href="/admissions" className="flex items-center">
+                  Apply Now <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                className="btn-outline-watney flex items-center justify-center bg-transparent"
+              >
+                <Link href="/academics" className="flex items-center">
+                  Explore Courses <BookOpen className="w-5 h-5 ml-2" />
+                </Link>
+              </Button>
+            </div>
+
+            {/* Partner Logos
+            <div className="flex items-center gap-8 pt-8 animate-fade-in delay-600">
+              <span className="text-gray-500 font-semibold">Trusted By:</span>
+              <div className="flex items-center space-x-6">
+                <img
+                  src="/placeholder.svg?height=40&width=120&text=University+A"
+                  alt="University A Logo"
+                  className="h-8 opacity-70"
+                />
+                <img
+                  src="/placeholder.svg?height=40&width=120&text=University+B"
+                  alt="University B Logo"
+                  className="h-8 opacity-70"
+                />
+                <img
+                  src="/placeholder.svg?height=40&width=120&text=University+C"
+                  alt="University C Logo"
+                  className="h-8 opacity-70"
                 />
               </div>
-              <div className="mt-4 flex items-center justify-between rounded-lg bg-gradient-to-r from-primary/70 to-primary/40 p-4 ">
-                <div>
-                  <p className="font-medium">Headquartered in Dubai</p>
-                  <p className="text-sm opacity-80">Meydan Grandstand, UAE</p>
+            </div> */}
+          </div>
+
+          {/* Right Content - Illustration */}
+          <div className="relative flex justify-center items-center animate-fade-in delay-500">
+            <div className="relative w-full max-w-lg">
+              {/* Main Student Image */}
+              <img
+                src="./hero.png"
+                alt="Happy College Student"
+                className="w-full h-auto object-contain rounded-full shadow-2xl"
+              />
+
+              {/* Floating elements */}
+              <div className="absolute top-[20%] left-0 transform -translate-x-1/2 bg-white rounded-full p-3 shadow-lg animate-float-light">
+                <GraduationCap className="w-10 h-10 text-watney-blue-primary" />
+              </div>
+              <div className="absolute top-[40%] right-0 transform translate-x-1/2 bg-white rounded-full p-3 shadow-lg animate-float-light delay-300">
+                <BookOpen className="w-10 h-10 text-watney-blue-secondary" />
+              </div>
+
+              {/* Review Card */}
+              <div className="absolute bottom-[10%] left-0 transform -translate-x-1/4 bg-white rounded-xl p-4 shadow-lg animate-fade-in-up delay-700">
+                <div className="flex items-center space-x-2">
+                  <div className="flex -space-x-2">
+                    <img
+                      src="https://randomuser.me/api/portraits/men/23.jpg"
+                      alt="Avatar 1"
+                      className="w-8 h-8 rounded-full border-2 border-white"
+                    />
+                    <img
+                      src="https://randomuser.me/api/portraits/women/32.jpg"
+                      alt="Avatar 2"
+                      className="w-8 h-8 rounded-full border-2 border-white"
+                    />
+                    <img
+                      src="https://randomuser.me/api/portraits/men/92.jpg"
+                      alt="Avatar 3"
+                      className="w-8 h-8 rounded-full border-2 border-white"
+                    />
+                  </div>
+                  <div className="flex items-center text-watney-blue-primary">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
                 </div>
-                <div className="rounded-full bg-primary p-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                </div>
+                <p className="text-xs text-gray-600 mt-2">
+                  {" (10k+ Reviews)"}
+                </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

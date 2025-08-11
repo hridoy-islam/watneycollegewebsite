@@ -1,126 +1,117 @@
-const { nextui } = require("@nextui-org/react");
-//import type { Config } from "tailwindcss";
-
-const config: any = {
+const config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+    "*.{js,ts,jsx,tsx,mdx}",
   ],
+  prefix: "",
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-      fontFamily: {
-        hebbo: ["var(--font-heebo)"],
-      },
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: "0.5rem", // reduced padding for default
-        },
-        margin: {
-          default: "0.5rem",
-        },
-      },
-
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
       colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        // primary: {
-        //   DEFAULT: "hsl(var(--primary))",
-        //   foreground: "hsl(var(--primary-foreground))",
-        // },
-        // secondary: {
-        //   DEFAULT: "hsl(var(--secondary))",
-        //   foreground: "hsl(var(--secondary-foreground))",
-        // },
-        // destructive: {
-        //   DEFAULT: "hsl(var(--destructive))",
-        //   foreground: "hsl(var(--destructive-foreground))",
-        // },
-        // muted: {
-        //   DEFAULT: "hsl(var(--muted))",
-        //   foreground: "hsl(var(--muted-foreground))",
-        // },
-        // accent: {
-        //   DEFAULT: "hsl(var(--accent))",
-        //   foreground: "hsl(var(--accent-foreground))",
-        // },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
         card: {
-          //   DEFAULT: "hsl(var(--card))",
-          //   foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
-        // border: 'hsl(var(--border))',
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        chart: {
-          "1": "hsl(var(--chart-1))",
-          "2": "hsl(var(--chart-2))",
-          "3": "hsl(var(--chart-3))",
-          "4": "hsl(var(--chart-4))",
-          "5": "hsl(var(--chart-5))",
+        "watney-blue-primary": "hsl(var(--watney-blue-primary))",
+        "watney-blue-secondary": "hsl(var(--watney-blue-secondary))",
+        "watney-blue-accent": "hsl(var(--watney-blue-accent))",
+        "watney-blue-light": "hsl(var(--watney-blue-light))",
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "pulse-light": {
+          "0%, 100%": { opacity: "0.8" },
+          "50%": { opacity: "0.6" },
+        },
+        "float-light": {
+          "0%, 100%": { transform: "translateY(0) translateX(0)" },
+          "25%": { transform: "translateY(-5px) translateX(5px)" },
+          "50%": { transform: "translateY(0) translateX(0)" },
+          "75%": { transform: "translateY(5px) translateX(-5px)" },
         },
       },
-    },
-    colors: {
-      primary: "#0472B2",
-      secondary: "#ffffff",
-      white: "#fff",
-      red: "#D00000",
-      stroke: "#EBEBEB",
-    },
-    screens: {
-      xs: "500px",
-      sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
-      max: "1920px",
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in-up": "fade-in-up 0.6s ease-out forwards",
+        "fade-in": "fade-in 0.8s ease-out forwards",
+        "pulse-light": "pulse-light 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "float-light": "float-light 6s ease-in-out infinite",
+      },
+      backgroundImage: {
+        "soft-sky":
+          "linear-gradient(to bottom right, hsl(var(--background)), hsl(var(--watney-blue-light)))",
+        "glacier-mist":
+          "linear-gradient(to top right, hsl(var(--background)), hsl(var(--watney-blue-light-secondary)), hsl(var(--watney-blue-accent)))",
+        "modern-corporate":
+          "linear-gradient(to bottom, hsl(var(--background)), hsl(var(--watney-blue-light-secondary)), hsl(var(--watney-blue-accent)))",
+        "ocean-breeze":
+          "linear-gradient(to top right, hsl(var(--background)), hsl(var(--watney-blue-light-secondary)), hsl(var(--watney-blue-primary)))",
+        "frosted-blue-glass":
+          "linear-gradient(to bottom left, hsl(var(--background)), hsl(var(--watney-blue-light-secondary)), hsl(var(--watney-blue-accent)))",
+      },
     },
   },
-  plugins: [
-    nextui({
-      themes: {
-        light: {
-          colors: {
-            primary: "#193c6d",
-            secondary: "#ffffff",
-            gray: "#F5F5F7",
-            lightbg: "#F5F5FE",
-            white: "#ffffff",
-            red: "#D00000",
-            stroke: "#EBEBEB",
-            primaryLight: "#e3eeef",
-            textlight: "#6B7280",
-            lightYellow: "#FFF7E9",
-            green: "#70B944",
-            blue: "#4A8CDA",
-            orange: "#EC8153",
-            purple: "#6647BF",
-            black: "#181818",
-            yellow: "#FFAB1F",
-            headertop: "#252525",
-          },
-        },
-      },
-    }),
-    require("tailwindcss-animate"),
-  ],
+  plugins: [require("tailwindcss-animate")],
 };
+
 export default config;
