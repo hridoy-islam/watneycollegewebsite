@@ -166,10 +166,10 @@ export default function Footer() {
                 Privacy Policy
               </Link> */}
               <Link
-                href="/terms-of-service"
+                href="/terms-and-conditions"
                 className="text-gray-500 hover:text-watney-blue-primary transition-colors"
               >
-                Terms of Service
+                Terms & Conditions
               </Link>
               {/* <Link
                 href="/cookie-policy"

@@ -157,7 +157,7 @@ export default function AffiliatePage() {
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
               <Link href={affiliate.link}>
-                <div className="bg-white shadow-md hover:shadow-lg rounded-xl p-6 cursor-pointer transition-all h-full flex flex-col items-center text-center">
+                <div className="bg-white  hover:shadow-sm rounded-xl p-6 cursor-pointer transition-all h-full flex flex-col items-center text-center">
                   {/* Logo */}
                   <div className="w-20 h-20 mb-4 relative">
                     <Image

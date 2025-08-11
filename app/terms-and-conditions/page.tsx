@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Mail, ShieldEllipsis } from "lucide-react";
 import React from "react";
 
 function TermsPage() {
@@ -6,9 +6,9 @@ function TermsPage() {
     <div className="bg-white min-h-screen">
       <section className="relative py-20 bg-ocean-breeze overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <Mail className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
+          <ShieldEllipsis className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
           <h1 className="text-5xl md:text-6xl font-black text-watney-blue-primary mb-6 text-gray-900">
-            Terms Of Services
+            Terms And Conditions
           </h1>
         </div>
       </section>

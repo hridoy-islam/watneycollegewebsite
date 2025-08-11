@@ -66,7 +66,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-white">
       <section className="relative py-20 bg-ocean-breeze overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <Mail className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
+          <BookOpen  className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
           <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
             About{" "}
             <span className="text-watney-blue-primary">Watney College</span>

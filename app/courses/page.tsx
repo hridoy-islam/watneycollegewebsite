@@ -77,7 +77,7 @@ export default function CoursesPage() {
     <div className="min-h-screen bg-primary">
       <section className="relative py-20 bg-ocean-breeze overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <Mail className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
+          <GraduationCap  className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
           <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
             Explore Our{" "}
             <span className="text-watney-blue-primary">Courses</span>
@@ -129,7 +129,7 @@ export default function CoursesPage() {
           >
             {filteredCourses.map((course, index) => (
               <motion.div key={course.id} variants={itemVariants}>
-                <Card className="h-full border-primary/30 hover:shadow-lg  transition-all duration-300 group overflow-hidden">
+                <Card className="h-full flex flex-col border-primary/30 hover:shadow-lg transition-all duration-300 group overflow-hidden">
                   <div className="relative overflow-hidden">
                     <Image
                       src={course.image || "/placeholder.svg"}
@@ -138,42 +138,13 @@ export default function CoursesPage() {
                       height={200}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    {/* <Badge
-                      className={`absolute top-4 left-4 ${
-                        course.level === "Beginner"
-                          ? "bg-white border-none hover:bg-white"
-                          : course.level === "Intermediate"
-                          ? "bg-white border-none hover:bg-white"
-                          : "bg-white border-none hover:bg-white"
-                      }`}
-                    >
-                      {course.level}
-                    </Badge>
-                    <Badge className="absolute top-4 right-4 bg-white border-none hover:bg-white ">
-                      {course.category}
-                    </Badge> */}
+                    {/* ...badges... */}
                   </div>
 
-                  <CardHeader>
+                  <CardHeader className="flex-grow">
+                    {/* ...title, description, etc... */}
                     <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`w-4 h-4 ${
-                              i < Math.floor(course.rating)
-                                ? "fill-yellow-400 text-yellow-400"
-                                : "text-gray-300"
-                            }`}
-                          />
-                        ))}
-                        <span className="ml-2 text-sm text-gray-600">
-                          {course.rating}
-                        </span>
-                      </div>
-                      {/* <span className="text-2xl font-bold text-primary">
-                        {course.price}
-                      </span> */}
+                      {/* ...rating, price... */}
                     </div>
                     <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors">
                       {course.title}
@@ -192,9 +163,8 @@ export default function CoursesPage() {
                           {course.category}
                         </div>
                       </div>
-
                       <Button
-                        onClick={() => router.push(`courses/${course.id}`)}
+                        onClick={() => router.push(`courses/${course.slug}`)}
                         className="w-full group-hover:bg-primary group-hover:text-white/80 transition-colors"
                       >
                         View Details

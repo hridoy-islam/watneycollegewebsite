@@ -15,22 +15,23 @@ import {
   Book,
   Phone,
   ExternalLink,
+  Tag,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { courses } from "@/app/courses/data/courseData";
 
 export default function CourseDetailPage() {
-  const router = useRouter();
   const searchParams = useSearchParams();
-  const paramId = searchParams.get("id"); // Optional: for query param style
-  const routeId = useRouteId(); // Custom hook to get dynamic segment
-  const id = parseInt(routeId || paramId || "0");
+  const router = useRouter();
+  const params = useParams();
+  const slug = params?.slug as string; 
 
-  const course = courses.find((c) => c.id === id);
+  // Now you can use 'slug' to find your course:
+  const course = courses.find((c) => c.slug === slug);
 
   const [activeTab, setActiveTab] = useState("overview");
 
@@ -105,20 +106,20 @@ export default function CourseDetailPage() {
                   London, UK
                 </div>
                 <div className="flex items-center">
-                  <Clock className="w-4 h-4 mr-1" />
-                  {course.duration}
+                  <Tag className="w-4 h-4 mr-1" />
+                  {course.category}
                 </div>
-                <div className="flex items-center">
+                {/* <div className="flex items-center">
                   <Users className="w-4 h-4 mr-1" />
                   {course.students}
-                </div>
-                <div className="flex items-center">
+                </div> */}
+                {/* <div className="flex items-center">
                   {renderStars(course.rating)}
                   <span className="ml-1">
                     {course.rating} ({course.id === 1 ? 156 : course.id})
                     reviews
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -293,8 +294,7 @@ export default function CourseDetailPage() {
             {/* Price Card */}
             <Card className="bg-gradient-to-br from-primary to-primary/80 text-white border-0 shadow-lg">
               <CardContent className="p-6">
-                <div className="text-3xl font-bold mb-2">{course.price}</div>
-                <div className="text-purple-100 mb-6">One-time Program Fee</div>
+                <div className="text-3xl font-bold mb-2">Enroll Now</div>
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="text-center">
@@ -319,17 +319,6 @@ export default function CourseDetailPage() {
                 >
                   🚀 Apply Now
                 </a>
-
-                <div className="flex justify-center space-x-4 mt-4">
-                  <button className="flex items-center space-x-1 text-purple-200 hover:text-white">
-                    <Heart className="w-4 h-4" />
-                    <span className="text-sm">Save</span>
-                  </button>
-                  <button className="flex items-center space-x-1 text-purple-200 hover:text-white">
-                    <Share className="w-4 h-4" />
-                    <span className="text-sm">Share</span>
-                  </button>
-                </div>
 
                 <div className="text-center mt-4">
                   <span className="text-sm text-purple-200">Need help? </span>
@@ -381,13 +370,16 @@ export default function CourseDetailPage() {
                       <div
                         key={related.id}
                         className="border-b pb-3 last:border-b-0 cursor-pointer hover:bg-gray-50 p-2 rounded"
-                        onClick={() => router.push(`/course/${related.id}`)}
+                        onClick={() => router.push(`/courses/${related.slug}`)}
                       >
                         <h5 className="font-medium text-gray-900">
                           {related.title}
                         </h5>
-                        <p className="text-sm text-gray-500">
-                          {related.duration} • {related.price}
+                        <p className=" text-gray-700 text-sm">
+                          {course.description.split(" ").slice(0, 10).join(" ")}
+                          {related.description.split(" ").length > 10
+                            ? "…"
+                            : ""}
                         </p>
                       </div>
                     ))}

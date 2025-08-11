@@ -99,7 +99,7 @@ export default function AccreditationPage() {
               variants={itemVariants}
               initial="hidden"
               animate="visible"
-              className="border border-gray-200 rounded-lg p-6 bg-white shadow-md hover:shadow-xl"
+              className="border border-gray-100 rounded-lg p-6 bg-white hover:shadow-sm"
             >
               <CardHeader>
                 <CardTitle className="flex items-center text-xl text-watney-blue-primary">
@@ -120,7 +120,7 @@ export default function AccreditationPage() {
               variants={itemVariants}
               initial="hidden"
               animate="visible"
-              className="border border-gray-200 rounded-lg p-6 bg-white shadow-md hover:shadow-xl"
+              className="border border-gray-100 rounded-lg p-6 bg-white hover:shadow-sm"
             >
               <CardHeader>
                 <CardTitle className="flex items-center text-xl text-watney-blue-primary">
@@ -141,7 +141,7 @@ export default function AccreditationPage() {
               variants={itemVariants}
               initial="hidden"
               animate="visible"
-              className="border border-gray-200 rounded-lg p-6 bg-white shadow-md hover:shadow-xl"
+              className="border border-gray-100 rounded-lg p-6 bg-white hover:shadow-sm"
             >
               <CardHeader>
                 <CardTitle className="flex items-center text-xl text-watney-blue-primary">
@@ -161,7 +161,7 @@ export default function AccreditationPage() {
               variants={itemVariants}
               initial="hidden"
               animate="visible"
-              className="border border-gray-200 rounded-lg p-6 bg-white shadow-md hover:shadow-xl"
+              className="border border-gray-100 rounded-lg p-6 bg-white hover:shadow-sm"
             >
               <CardHeader>
                 <CardTitle className="flex items-center text-xl text-watney-blue-primary">

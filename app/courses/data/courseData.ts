@@ -1,101 +1,7 @@
-//  export const courses = [
-//     {
-//       id: 1,
-//       title: "Business Management & Leadership",
-//       description:
-//         "Comprehensive program covering modern business practices and leadership skills.",
-//       category: "Business",
-//       level: "Intermediate",
-//       duration: "12 weeks",
-//       students: "1,250 students",
-//       rating: 4.8,
-//       price: "£2,499",
-//       image: "/e1.jpg",
-//       tags: ["Live Sessions", "Case Studies", "Certification"],
-//       instructor: "Dr. Sarah Johnson",
-//     },
-//     {
-//       id: 2,
-//       title: "Data Science & Analytics",
-//       description:
-//         "Master data analysis, machine learning, and statistical modeling techniques.",
-//       category: "Technology",
-//       level: "Advanced",
-//       duration: "16 weeks",
-//       students: "2,100 students",
-//       rating: 4.9,
-//       price: "£3,299",
-//       image: "/e2.jpg",
-//       tags: ["Hands-on Projects", "Industry Tools", "Mentoring"],
-//       instructor: "Prof. Michael Chen",
-//     },
-//     {
-//       id: 3,
-//       title: "Digital Marketing Mastery",
-//       description:
-//         "Learn modern digital marketing strategies and tools for business growth.",
-//       category: "Marketing",
-//       level: "Beginner",
-//       duration: "10 weeks",
-//       students: "3,200 students",
-//       rating: 4.7,
-//       price: "£1,899",
-//       image: "/c3.jpg",
-//       tags: ["Real Campaigns", "Analytics Tools", "Social Media"],
-//       instructor: "Emma Rodriguez",
-//     },
-//     {
-//       id: 4,
-//       title: "Healthcare Administration",
-//       description:
-//         "Comprehensive training in healthcare management and administration.",
-//       category: "Healthcare",
-//       level: "Intermediate",
-//       duration: "14 weeks",
-//       students: "1,650 students",
-//       rating: 4.6,
-//       price: "£2,799",
-//       image: "/e3.jpg",
-//       tags: ["Healthcare Systems", "Compliance", "Leadership"],
-//       instructor: "Dr. James Wilson",
-//     },
-//     {
-//       id: 5,
-//       title: "Software Engineering Bootcamp",
-//       description:
-//         "Intensive program to become a full-stack software developer.",
-//       category: "Technology",
-//       level: "Beginner",
-//       duration: "20 weeks",
-//       students: "1,900 students",
-//       rating: 4.8,
-//       price: "£4,999",
-//       image: "/b2.jpg",
-//       tags: ["Full-Stack Development", "Portfolio Projects", "Code Reviews"],
-//       instructor: "Alex Thompson",
-//     },
-//     {
-//       id: 6,
-//       title: "Educational Leadership",
-//       description:
-//         "Develop leadership skills for educational institutions and organizations.",
-//       category: "Education",
-//       level: "Advanced",
-//       duration: "12 weeks",
-//       students: "1,420 students",
-//       rating: 4.9,
-//       price: "£2,999",
-//       image: "/b3.jpg",
-//       tags: ["Leadership Theory", "Change Management", "Policy Development"],
-//       instructor: "Dr. Lisa Parker",
-//     },
-//   ];
-
-
-
-   export const courses = [
+export const courses = [
   {
     id: 1,
+    slug: "english-speaking-board-skills-for-life-esol-all-levels",
     title: "English Speaking Board Skills for Life (ESOL) - All Levels",
     description:
       "Comprehensive ESOL qualification designed to develop speaking, listening, reading, and writing skills for learners at various proficiency levels. Ideal for those aiming to improve everyday communication, access education, or progress in the workplace.",
@@ -118,6 +24,7 @@
   },
   {
     id: 2,
+    slug: "ielts-esb-exam-preparation",
     title: "IELTS & ESB Exam Preparation",
     description:
       "Focused preparation courses for IELTS and ESB exams, covering test strategies, timed practice, and personalised feedback to maximise scores. Suitable for academic, general, and professional purposes.",
@@ -140,6 +47,7 @@
   },
   {
     id: 3,
+    slug: "business-english-classes",
     title: "Business English Classes",
     description:
       "Specialised English classes for business and workplace communication. Covers meetings, presentations, negotiations, and professional writing to help learners excel in global corporate environments.",
@@ -162,6 +70,7 @@
   },
   {
     id: 4,
+    slug: "level-3-diploma-in-business-administration-rqf",
     title: "Level 3 Diploma in Business Administration (RQF)",
     description:
       "Comprehensive qualification for learners in administrative roles, including team environments, PA positions, and supervisory posts. Covers business communication, administration principles, negotiation, HR, marketing, and performance improvement.",
@@ -184,6 +93,7 @@
   },
   {
     id: 5,
+    slug: "level-4-nvq-diploma-in-business-administration-rqf",
     title: "Level 4 NVQ Diploma in Business Administration (RQF)",
     description:
       "Advanced qualification for learners in administrative, supervisory, or customer-facing roles. Covers leadership, business performance, negotiation, HR, marketing, and advanced administration systems.",
@@ -206,6 +116,7 @@
   },
   {
     id: 6,
+    slug: "level-3-diploma-in-adult-care-rqf",
     title: "Level 3 Diploma in Adult Care (RQF)",
     description:
       "Designed for experienced care professionals in supervisory roles, such as lead adult care workers or lead personal assistants. Covers essential skills in leadership, person-centred care, and safeguarding, with progression routes to Level 4 and 5 qualifications.",
@@ -225,5 +136,5 @@
     ],
     instructor: "Focus Awards",
     link: "https://app.watneycollege.co.uk/courses/apply/68712a9975b500d8c2796b2d"
-  }
+  }
 ]
