@@ -185,23 +185,50 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-   <section className="py-20 text-primary">
+<section className="py-20 text-primary">
   <div className="container mx-auto px-4">
-    {/* Vision */}
-    <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-      <motion.div
-        variants={itemVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="bg-white p-8 items-center  h-full"
-      >
-        <div className="flex items-center mb-5">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
-            <Star className="w-5 h-5 text-white" />
-          </div>
-          <h3 className="text-2xl font-bold text-black">Our Vision</h3>
+    {/* Mission Section */}
+    <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+      {/* Mission Images - Left */}
+      <div className="relative">
+        {/* Main large image */}
+        <div className="relative">
+          <img
+            src="/mission.jpg"
+            alt="Education in action"
+            className="w-full h-80 object-cover rounded-2xl shadow-lg"
+          />
         </div>
+        {/* Overlapping smaller image */}
+        <div className="absolute -bottom-6 -right-6 w-48 h-32">
+          <img
+            src="/mission1.jpg"
+            alt="Students collaborating"
+            className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white"
+          />
+        </div>
+      </div>
+
+      {/* Mission Content - Right */}
+      <div className="space-y-6">
+        <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
+        <p className="text-gray-600 leading-relaxed">
+          At Watney College, we believe that education is the key to
+          unlocking potential. Our mission is to empower individuals by
+          delivering high-quality, accessible education that nurtures
+          personal growth, cultivates critical thinking, and fosters
+          lifelong learning.
+        </p>
+
+       
+      </div>
+    </div>
+
+    {/* Vision Section */}
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* Vision Content - Left */}
+      <div className="space-y-6">
+        <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Vision</h2>
         <p className="text-gray-600 leading-relaxed">
           We aspire to become a leading higher education provider in
           London, recognized for our student-centered approach and
@@ -210,64 +237,33 @@ export default function AboutPage() {
           advanced professional qualifications that prepare our students
           for success in a competitive global economy.
         </p>
-      </motion.div>
-      <motion.div
-        initial={{ scale: 0.95, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        className="rounded-xl overflow-hidden shadow-xl"
-      >
-        <Image
-          src="/vision.jpg"
-          alt="Vision of Watney College"
-          width={600}
-          height={400}
-          className="w-full h-auto object-cover"
-        />
-      </motion.div>
-    </div>
-    {/* Mission */}
-    <div className="grid lg:grid-cols-2 gap-12 items-center lg:flex-row-reverse">
-      <motion.div
-        initial={{ scale: 0.95, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        className=""
-      >
-        <Image
-          src="/mission.jpg"
-          alt="Mission of Watney College"
-          width={600}
-          height={400}
-          className="w-full h-auto object-cover"
-        />
-      </motion.div>
-      <motion.div
-        variants={itemVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="bg-white p-8 rounded-xl shadow-md h-full"
-      >
-        <div className="flex items-center mb-5">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
-            <Users className="w-5 h-5 text-white" />
-          </div>
-          <h3 className="text-2xl font-bold text-black">Our Mission</h3>
+
+        
+      </div>
+
+      {/* Vision Images - Right */}
+      <div className="relative">
+        {/* Main large image */}
+        <div className="relative">
+          <img
+            src="/vision.jpg"
+            alt="Graduation celebration"
+            className="w-full h-80 object-cover rounded-2xl shadow-lg"
+          />
         </div>
-        <p className="text-gray-600 leading-relaxed">
-          At Watney College, we believe that education is the key to
-          unlocking potential. Our mission is to empower individuals by
-          delivering high-quality, accessible education that nurtures
-          personal growth, cultivates critical thinking, and fosters
-          lifelong learning.
-        </p>
-      </motion.div>
+        {/* Overlapping smaller image */}
+        <div className="absolute -bottom-6 -left-6 w-48 h-32">
+          <img
+            src="/vision1.jpg"
+            alt="Students in discussion"
+            className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
       {/* Principal's Message */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">

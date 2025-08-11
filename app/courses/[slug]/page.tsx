@@ -28,7 +28,7 @@ export default function CourseDetailPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const params = useParams();
-  const slug = params?.slug as string; 
+  const slug = params?.slug as string;
 
   // Now you can use 'slug' to find your course:
   const course = courses.find((c) => c.slug === slug);
@@ -102,10 +102,6 @@ export default function CourseDetailPage() {
 
               <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500">
                 <div className="flex items-center">
-                  <MapPin className="w-4 h-4 mr-1" />
-                  London, UK
-                </div>
-                <div className="flex items-center">
                   <Tag className="w-4 h-4 mr-1" />
                   {course.category}
                 </div>
@@ -128,9 +124,7 @@ export default function CourseDetailPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 to-blue-900/80"></div>
               <div className="relative p-8 lg:p-12 flex items-center">
                 <div className="flex-1">
-                  <div className="text-6xl lg:text-8xl font-bold text-white opacity-50 mb-4">
-                    {course.category[0].toUpperCase()}
-                  </div>
+                  
                   <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
                     {course.title}
                   </h2>
@@ -181,16 +175,13 @@ export default function CourseDetailPage() {
                 </TabsList>
 
                 <div className="p-6 lg:p-8">
+                  {/* === Overview Tab === */}
                   <TabsContent value="overview" className="space-y-6">
                     <h3 className="text-2xl font-bold text-gray-900">
                       Course Overview
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {course.description} This program is ideal for
-                      professionals looking to advance their careers in{" "}
-                      <strong>{course.category}</strong>. With expert
-                      instruction and real-world projects, you’ll gain the
-                      skills needed to succeed.
+                    <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+                      {course.overview}
                     </p>
 
                     <div>
@@ -204,82 +195,58 @@ export default function CourseDetailPage() {
                             <span className="text-gray-600">{tag}</span>
                           </div>
                         ))}
-                        <div className="flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                          <span className="text-gray-600">
-                            Instructor: {course.instructor}
-                          </span>
-                        </div>
-                        <div className="flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                          <span className="text-gray-600">
-                            Duration: {course.duration}
-                          </span>
-                        </div>
                       </div>
                     </div>
                   </TabsContent>
 
+                  {/* === Curriculum Tab === */}
                   <TabsContent value="curriculum" className="space-y-6">
                     <h3 className="text-2xl font-bold text-gray-900">
-                      Suggested Curriculum
+                      Curriculum
                     </h3>
                     <p className="text-gray-600">
-                      This course includes hands-on learning, projects, and
-                      assessments.
+                      This course includes the following units and assessments:
                     </p>
-                    <div className="space-y-3 mt-4">
-                      {[
-                        "Introduction",
-                        "Core Concepts",
-                        "Advanced Topics",
-                        "Final Project",
-                      ].map((topic, i) => (
-                        <div key={i} className="bg-gray-50 p-4 rounded-lg">
-                          <h4 className="font-semibold text-gray-900">
-                            {topic}
-                          </h4>
-                          <p className="text-sm text-gray-500">
-                            Week {i * 3 + 1} - {i * 3 + 3}
-                          </p>
-                        </div>
+                    <ul className="space-y-3 mt-4">
+                      {course.curriculum.map((item, index) => (
+                        <li key={index} className="bg-gray-50 p-4 rounded-lg">
+                          <p className="text-gray-800">{item}</p>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </TabsContent>
 
+                  {/* === Requirements Tab === */}
                   <TabsContent value="requirements" className="space-y-6">
                     <h3 className="text-2xl font-bold text-gray-900">
                       Requirements
                     </h3>
                     <ul className="space-y-2 text-gray-600">
-                      <li>• Laptop with internet access</li>
-                      <li>• Basic understanding of {course.category}</li>
-                      <li>• Willingness to learn and participate</li>
-                      {course.level === "Advanced" && (
-                        <li>• Prior experience recommended</li>
-                      )}
+                      {course.requirements.map((req, index) => (
+                        <li key={index} className="flex items-start space-x-2">
+                          <span className="text-primary ">•</span>
+                          <span>{req}</span>
+                        </li>
+                      ))}
                     </ul>
                   </TabsContent>
 
+                  {/* === Career Tab === */}
                   <TabsContent value="career" className="space-y-6">
                     <h3 className="text-2xl font-bold text-gray-900">
-                      Career Outcomes
+                      Career Pathways
                     </h3>
-                    <p className="text-gray-600">
-                      Graduates of this program go on to roles such as:
+                    <p className="text-gray-700 leading-relaxed">
+                      Successful graduates are well-prepared for a variety of
+                      professional roles, including:
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                      {[
-                        "Project Manager",
-                        "Team Lead",
-                        "Consultant",
-                        "Specialist",
-                      ].map((role, i) => (
+                      {course.career.map((role, index) => (
                         <div
-                          key={i}
-                          className="bg-gray-50 p-3 rounded text-center"
+                          key={index}
+                          className="bg-white shadow-sm border border-gray-200 p-4 rounded-lg text-center hover:shadow-md transition"
                         >
-                          <p className="font-medium text-gray-800">{role}</p>
+                          <p className="font-semibold text-gray-800">{role}</p>
                         </div>
                       ))}
                     </div>
@@ -295,21 +262,6 @@ export default function CourseDetailPage() {
             <Card className="bg-gradient-to-br from-primary to-primary/80 text-white border-0 shadow-lg">
               <CardContent className="p-6">
                 <div className="text-3xl font-bold mb-2">Enroll Now</div>
-
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="text-center">
-                    <Users className="w-6 h-6 mx-auto mb-2 text-purple-200" />
-                    <div className="text-2xl font-bold">
-                      {course.students.split(" ")[0]}
-                    </div>
-                    <div className="text-sm text-purple-200">Students</div>
-                  </div>
-                  <div className="text-center">
-                    <Award className="w-6 h-6 mx-auto mb-2 text-purple-200" />
-                    <div className="text-2xl font-bold">Certified</div>
-                    <div className="text-sm text-purple-200">Program</div>
-                  </div>
-                </div>
 
                 <a
                   href={course.link}
@@ -375,7 +327,7 @@ export default function CourseDetailPage() {
                         <h5 className="font-medium text-gray-900">
                           {related.title}
                         </h5>
-                        <p className=" text-gray-700 text-sm">
+                        <p className=" text-gray-700 text-xs">
                           {course.description.split(" ").slice(0, 10).join(" ")}
                           {related.description.split(" ").length > 10
                             ? "…"
