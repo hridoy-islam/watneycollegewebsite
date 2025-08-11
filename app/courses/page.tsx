@@ -77,7 +77,7 @@ export default function CoursesPage() {
     <div className="min-h-screen bg-primary">
       <section className="relative py-20 bg-ocean-breeze overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <GraduationCap  className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
+          <GraduationCap className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
           <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
             Explore Our{" "}
             <span className="text-watney-blue-primary">Courses</span>
@@ -163,13 +163,15 @@ export default function CoursesPage() {
                           {course.category}
                         </div>
                       </div>
-                      <Button
-                        onClick={() => router.push(`courses/${course.slug}`)}
-                        className="w-full group-hover:bg-primary group-hover:text-white/80 transition-colors"
+                      <Link
+                        href={`/courses/${course.slug}`}
+                        className="w-full block"
                       >
-                        View Details
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
+                        <Button className="w-full group-hover:bg-primary group-hover:text-white/80 transition-colors">
+                          View Details
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>

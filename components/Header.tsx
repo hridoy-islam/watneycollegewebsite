@@ -101,11 +101,11 @@ const submenuTimeout = useRef<NodeJS.Timeout | null>(null);
         </nav>
 
         {/* "Apply Now" Button for Desktop */}
-        {/* <div className="hidden lg:block">
-          <Link href="/admissions">
+        <div className="hidden lg:block">
+          <Link href="#">
             <Button className="btn-watney-primary">Apply Now</Button>
           </Link>
-        </div> */}
+        </div>
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden">

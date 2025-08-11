@@ -96,7 +96,7 @@ export default function AboutPage() {
                 Who We Are
               </Badge>
               <h2 className="text-4xl  font-bold mb-6">
-                Empowering Futures Through <span className="text-gradient-watney">Education</span>
+                Empowering Futures <span className="text-gradient-watney">Through Education</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Watney College is a progressive institution dedicated to
@@ -185,58 +185,89 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 bg-ocean-breeze text-primary">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Vision */}
-            <motion.div
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              className="bg-white p-8 rounded-xl shadow-md h-full" // ← Added h-full
-            >
-              <div className="flex items-center mb-5">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
-                  <Star className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-black">Our Vision</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                We aspire to become a leading higher education provider in
-                London, recognized for our student-centered approach and
-                innovative teaching methods. Through partnerships with reputable
-                universities, we aim to offer accredited degree pathways and
-                advanced professional qualifications that prepare our students
-                for success in a competitive global economy.
-              </p>
-            </motion.div>
-
-            {/* Mission */}
-            <motion.div
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              className="bg-white p-8 rounded-xl shadow-md h-full" // ← Added h-full
-            >
-              <div className="flex items-center mb-5">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
-                  <Users className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-black">Our Mission</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                At Watney College, we believe that education is the key to
-                unlocking potential. Our mission is to empower individuals by
-                delivering high-quality, accessible education that nurtures
-                personal growth, cultivates critical thinking, and fosters
-                lifelong learning.
-              </p>
-            </motion.div>
+   <section className="py-20 text-primary">
+  <div className="container mx-auto px-4">
+    {/* Vision */}
+    <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      <motion.div
+        variants={itemVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="bg-white p-8 items-center  h-full"
+      >
+        <div className="flex items-center mb-5">
+          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
+            <Star className="w-5 h-5 text-white" />
           </div>
+          <h3 className="text-2xl font-bold text-black">Our Vision</h3>
         </div>
-      </section>
+        <p className="text-gray-600 leading-relaxed">
+          We aspire to become a leading higher education provider in
+          London, recognized for our student-centered approach and
+          innovative teaching methods. Through partnerships with reputable
+          universities, we aim to offer accredited degree pathways and
+          advanced professional qualifications that prepare our students
+          for success in a competitive global economy.
+        </p>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        className="rounded-xl overflow-hidden shadow-xl"
+      >
+        <Image
+          src="/vision.jpg"
+          alt="Vision of Watney College"
+          width={600}
+          height={400}
+          className="w-full h-auto object-cover"
+        />
+      </motion.div>
+    </div>
+    {/* Mission */}
+    <div className="grid lg:grid-cols-2 gap-12 items-center lg:flex-row-reverse">
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        className=""
+      >
+        <Image
+          src="/mission.jpg"
+          alt="Mission of Watney College"
+          width={600}
+          height={400}
+          className="w-full h-auto object-cover"
+        />
+      </motion.div>
+      <motion.div
+        variants={itemVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="bg-white p-8 rounded-xl shadow-md h-full"
+      >
+        <div className="flex items-center mb-5">
+          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
+            <Users className="w-5 h-5 text-white" />
+          </div>
+          <h3 className="text-2xl font-bold text-black">Our Mission</h3>
+        </div>
+        <p className="text-gray-600 leading-relaxed">
+          At Watney College, we believe that education is the key to
+          unlocking potential. Our mission is to empower individuals by
+          delivering high-quality, accessible education that nurtures
+          personal growth, cultivates critical thinking, and fosters
+          lifelong learning.
+        </p>
+      </motion.div>
+    </div>
+  </div>
+</section>
       {/* Principal's Message */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
