@@ -95,8 +95,8 @@ export default function AboutPage() {
               <Badge className="mb-6 bg-primary/15 text-primary hover:bg-primary/10">
                 Who We Are
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-watney-blue-primary mb-6">
-                Empowering Futures Through Education
+              <h2 className="text-4xl  font-bold mb-6">
+                Empowering Futures Through <span className="text-gradient-watney">Education</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Watney College is a progressive institution dedicated to
@@ -200,7 +200,7 @@ export default function AboutPage() {
                 <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
                   <Star className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-primary">Our Vision</h3>
+                <h3 className="text-2xl font-bold text-black">Our Vision</h3>
               </div>
               <p className="text-gray-600 leading-relaxed">
                 We aspire to become a leading higher education provider in
@@ -224,7 +224,7 @@ export default function AboutPage() {
                 <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
                   <Users className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-primary">Our Mission</h3>
+                <h3 className="text-2xl font-bold text-black">Our Mission</h3>
               </div>
               <p className="text-gray-600 leading-relaxed">
                 At Watney College, we believe that education is the key to
@@ -296,8 +296,8 @@ export default function AboutPage() {
             viewport={{ once: true }}
           >
            
-            <h2 className="text-4xl font-bold text-watney-blue-primary mb-4">
-              What Sets Us Apart?
+            <h2 className="text-4xl font-bold text-black mb-4">
+              What Sets Us <span className="text-gradient-watney">Apart?</span>
             </h2>
             <p className="text-xl text-gray-600 mx-auto">
               We combine academic excellence with real-world readiness to ensure
@@ -350,7 +350,7 @@ export default function AboutPage() {
                     <div className="w-12 h-12 bg-primary/10 text-watney-blue-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       {feature.icon}
                     </div>
-                    <CardTitle className="text-xl text-watney-blue-primary">{feature.title}</CardTitle>
+                    <CardTitle className="text-xl text-black group-hover:text-watney-blue-primary">{feature.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-600 text-lg">{feature.desc}</p>
@@ -370,7 +370,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-4xl  font-bold mb-6">
               Ready to Begin Your Journey?
             </h2>
             <p className="text-xl mb-8 text-gray-600 mx-auto">
