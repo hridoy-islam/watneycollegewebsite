@@ -355,10 +355,8 @@ export default function page() {
               <span className="text-gradient-watney">Proudly Offer</span>
             </h2>
             <p className="text-xl text-gray-600 ">
-              We provide comprehensive educational services designed to empower
-              students and professionals with the knowledge, skills, and
-              opportunities needed for success in today's dynamic global
-              marketplace.
+              We deliver transformative education to meet the demands of an
+              evolving world.
             </p>
           </div>
 
@@ -379,7 +377,7 @@ export default function page() {
               <CardContent>
                 <div className="space-y-2 text-lg text-gray-600">
                   <div>• Certified Programs</div>
-                  <div>• Expert Instructors</div>
+                  <div>• Expert Delivery Team</div>
                   <div>• Flexible Scheduling</div>
                 </div>
               </CardContent>
@@ -394,7 +392,7 @@ export default function page() {
                   Student Success Support
                 </CardTitle>
                 <CardDescription className="text-lg">
-                  Comprehensive 24/7 guidance through personalized mentoring and
+                  Comprehensive guidance through personalized mentoring and
                   professional development programs.
                 </CardDescription>
               </CardHeader>
@@ -479,18 +477,18 @@ export default function page() {
                   <Lightbulb className="w-8 h-8 text-primary" />
                 </div>
                 <CardTitle className="text-xl text-watney-blue-primary">
-                  Innovation & Research Center
+                  Work Placement (Healthcare)
                 </CardTitle>
                 <CardDescription className="text-lg">
-                  Fostering creativity and innovation through research projects
-                  and collaborative learning environments.
+                  Connecting students with real-world opportunities to apply
+                  their skills and gain industry experience.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2 text-lg text-gray-600">
-                  <div>• Research Projects</div>
-                  <div>• Innovation Labs</div>
-                  <div>• Collaboration Spaces</div>
+                  <div>• Internships</div>
+                  <div>• Industry Projects</div>
+                  <div>• Professional Networking</div>
                 </div>
               </CardContent>
             </Card>
@@ -510,19 +508,23 @@ export default function page() {
             careers through our comprehensive programs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="btn-watney-primary flex items-center justify-center"
-            >
-              Get Started Today
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="btn-outline-watney flex items-center text-watney-blue-primary justify-center bg-transparent"
-            >
-              Schedule Consultation
-            </Button>
+            <Link href={"/courses"}>
+              <Button
+                size="lg"
+                className="btn-watney-primary flex items-center justify-center"
+              >
+                Get Started Today
+              </Button>
+            </Link>
+            <Link href={"/contact"}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="btn-outline-watney flex items-center text-watney-blue-primary justify-center bg-transparent"
+              >
+                Schedule Consultation
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

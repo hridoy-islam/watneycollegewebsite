@@ -22,22 +22,22 @@ export default function Hero() {
             {/* Main Headline */}
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight text-gray-900">
-                <span className="block">Build Your Future,</span>
+                <span className="block">Education. Empowerment,</span>
                 <span className="block text-watney-blue-primary">
-                  Choose Your Course
+                  Opportunity. Success..
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl animate-fade-in delay-200">
+              {/* <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl animate-fade-in delay-200">
                 At Watney College, we empower you with the knowledge and skills
                 to thrive in tomorrow's world.
-              </p>
+              </p> */}
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-fade-in delay-400">
               <Button className="btn-watney-primary flex items-center justify-center">
-                <Link href="/admissions" className="flex items-center">
+                <Link href="/contact" className="flex items-center">
                   Apply Now <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
@@ -45,7 +45,7 @@ export default function Hero() {
                 variant="outline"
                 className="btn-outline-watney flex items-center justify-center bg-transparent"
               >
-                <Link href="/academics" className="flex items-center">
+                <Link href="/courses" className="flex items-center">
                   Explore Courses <BookOpen className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
