@@ -24,6 +24,7 @@ import {
   Handshake,
 } from "lucide-react";
 import Link from "next/link";
+import GeometricBgPattern from "@/components/geometric-bg-pattern";
 
 // Animation variants
 const containerVariants = {
@@ -62,8 +63,10 @@ const iconVariants = {
 export default function AccreditationPage() {
   return (
     <div className="min-h-screen bg-white">
+      <div className="relative">
+              <GeometricBgPattern />
       {/* Header Section */}
-      <section className="bg-ocean-breeze py-20 text-white">
+      <section className="relative bg-ocean-breeze py-20 text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -209,6 +212,7 @@ export default function AccreditationPage() {
           </motion.div>
         </div>
       </section>
+      </div>
     </div>
   );
 }

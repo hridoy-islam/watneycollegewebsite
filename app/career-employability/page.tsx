@@ -26,6 +26,7 @@ import {
   UserCheck,
   Building,
 } from "lucide-react";
+import GeometricBgPattern from "../../components/geometric-bg-pattern";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -177,244 +178,248 @@ export default function CareerEmployabilityPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-ocean-breeze py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center text-white"
-          >
-            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Briefcase className="w-8 h-8 text-watney-blue-primary" />
-            </div>
-            <h1 className="text-5xl lg:text-6xl text-black font-bold mb-6">
-              Career & <span className="text-watney-blue-primary">Employability</span>
-            </h1>
-            <p className="text-lg mb-8 text-gray-600 mx-auto">
-              At Watney College, we are proud to provide not only high-quality
-              education but also real career outcomes, especially in the health
-              and social care sector. We are committed to supporting every
-              learner in becoming career-ready and confident.
-            </p>
-            {/* <Button
+      <div className="relative">
+        {" "}
+        <GeometricBgPattern />
+        <section className="relative bg-ocean-breeze py-20">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center text-white"
+            >
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Briefcase className="w-8 h-8 text-watney-blue-primary" />
+              </div>
+              <h1 className="text-5xl lg:text-6xl text-black font-bold mb-6">
+                Career &{" "}
+                <span className="text-watney-blue-primary">Employability</span>
+              </h1>
+              <p className="text-lg mb-8 text-gray-600 mx-auto">
+                At Watney College, we are proud to provide not only high-quality
+                education but also real career outcomes, especially in the
+                health and social care sector. We are committed to supporting
+                every learner in becoming career-ready and confident.
+              </p>
+              {/* <Button
               size="lg"
               className="bg-white text-primary hover:bg-gray-100"
             >
               Explore Career Support
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button> */}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Proven Outcomes */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-          
-            <h2 className="text-4xl font-bold mb-4 text-black">
-              Our Success <span className="text-gradient-watney">Story</span>
-            </h2>
-            <p className="text-lg text-gray-600 mx-auto">
-              Our Level 3 Diploma in Adult Care has been successfully delivered
-              with all students achieving certification and progressing directly
-              into employment.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {outcomes.map((outcome, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="text-center h-full border-2 hover:border-primary transition-colors">
-                  <CardHeader>
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <outcome.icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <div className="text-4xl font-bold text-primary mb-2">
-                      {outcome.stat}
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-black text-lg">{outcome.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Industry Partnerships */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl text-black font-bold mb-4">
-              Strong Industry <span className="text-gradient-watney">Partnerships</span>
-            </h2>
-            <p className="text-lg text-gray-600 mx-auto">
-              Watney College is affiliated with a network of trusted care
-              providers and recruitment agencies, ensuring our students have
-              direct pathways to employment.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {industryPartners.map((partner, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="h-full hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-watney-blue-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <Building className="w-6 h-6 text-watney-blue-primary" />
-                    </div>
-                    <CardTitle className="text-xl text-watney-blue-primary">{partner.name}</CardTitle>
-                    <CardDescription className="text-gray-600">
-                      {partner.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="bg-foreground-50/10 rounded-lg p-4">
-                      <h4 className="font-semibold text-sm text-gray-700 mb-2">
-                        Opportunities:
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        {partner.opportunities}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-
-        
-        </div>
-      </section>
-
-      {/* Career Support Services */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl text-black font-bold mb-4">
-              Career Focused <span className="text-gradient-watney">Support</span>
-            </h2>
-            <p className="text-lg text-gray-600  mx-auto">
-              Our comprehensive career support services are designed to prepare
-              you for success in the healthcare industry.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {careerSupport.map((support, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="h-full border-2 hover:border-primary transition-all duration-300 hover:shadow-lg group">
-                  <CardHeader>
-                    <div
-                      className={`w-16 h-16 ${support.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <support.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <CardTitle className="text-lg text-primary">
-                      {support.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-black text-lg">{support.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
- 
-
-      {/* Contact Section */}
-      <section className="py-20 bg-soft-sky">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <h2 className="text-4xl font-bold text-black mb-6">
-              Ready to Start Your Career Journey?
-            </h2>
-            <p className="text-lg text-gray-600 mb-8  mx-auto">
-              We continue to support former students with career guidance and
-              progression routes. Let us help you achieve your career goals in
-              the health and social care sector.
-            </p>
-
-            <div className="bg-primary/10 backdrop-blur-sm rounded-lg p-8 max-w-md mx-auto mb-8">
-              <div className="flex items-center justify-center mb-4">
-                <Mail className="w-6 h-6 text-primary mr-2" />
-                <span className="text-black font-semibold">
-                  Career Support
-                </span>
-              </div>
-              <p className="text-black text-lg">
-                careers@watneycollege.co.uk
+            </motion.div>
+          </div>
+        </section>
+        {/* Proven Outcomes */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl font-bold mb-4 text-black">
+                Our Success <span className="text-gradient-watney">Story</span>
+              </h2>
+              <p className="text-lg text-gray-600 mx-auto">
+                Our Level 3 Diploma in Adult Care has been successfully
+                delivered with all students achieving certification and
+                progressing directly into employment.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-watney-blue-primary text-white hover:bg-watney-blue-primary/90"
-              >
-                Get Career Support
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="btn-outline-watney flex items-center justify-center bg-transparent"
-              >
-                View Job Opportunities
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            >
+              {outcomes.map((outcome, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <Card className="text-center h-full border-2 hover:border-primary transition-colors">
+                    <CardHeader>
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <outcome.icon className="w-8 h-8 text-primary" />
+                      </div>
+                      <div className="text-4xl font-bold text-primary mb-2">
+                        {outcome.stat}
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-black text-lg">
+                        {outcome.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+        {/* Industry Partnerships */}
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl text-black font-bold mb-4">
+                Strong Industry{" "}
+                <span className="text-gradient-watney">Partnerships</span>
+              </h2>
+              <p className="text-lg text-gray-600 mx-auto">
+                Watney College is affiliated with a network of trusted care
+                providers and recruitment agencies, ensuring our students have
+                direct pathways to employment.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {industryPartners.map((partner, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <Card className="h-full hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <div className="w-12 h-12 bg-watney-blue-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <Building className="w-6 h-6 text-watney-blue-primary" />
+                      </div>
+                      <CardTitle className="text-xl text-watney-blue-primary">
+                        {partner.name}
+                      </CardTitle>
+                      <CardDescription className="text-gray-600">
+                        {partner.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="bg-foreground-50/10 rounded-lg p-4">
+                        <h4 className="font-semibold text-sm text-gray-700 mb-2">
+                          Opportunities:
+                        </h4>
+                        <p className="text-sm text-gray-600">
+                          {partner.opportunities}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+        {/* Career Support Services */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl text-black font-bold mb-4">
+                Career Focused{" "}
+                <span className="text-gradient-watney">Support</span>
+              </h2>
+              <p className="text-lg text-gray-600  mx-auto">
+                Our comprehensive career support services are designed to
+                prepare you for success in the healthcare industry.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            >
+              {careerSupport.map((support, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <Card className="h-full border-2 hover:border-primary transition-all duration-300 hover:shadow-lg group">
+                    <CardHeader>
+                      <div
+                        className={`w-16 h-16 ${support.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        <support.icon className="w-8 h-8 text-white" />
+                      </div>
+                      <CardTitle className="text-lg text-primary">
+                        {support.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-black text-lg">
+                        {support.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+        {/* Contact Section */}
+        <section className="py-20 bg-soft-sky">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <h2 className="text-4xl font-bold text-black mb-6">
+                Ready to Start Your Career Journey?
+              </h2>
+              <p className="text-lg text-gray-600 mb-8  mx-auto">
+                We continue to support former students with career guidance and
+                progression routes. Let us help you achieve your career goals in
+                the health and social care sector.
+              </p>
+
+              <div className="bg-primary/10 backdrop-blur-sm rounded-lg p-8 max-w-md mx-auto mb-8">
+                <div className="flex items-center justify-center mb-4">
+                  <Mail className="w-6 h-6 text-primary mr-2" />
+                  <span className="text-black font-semibold">
+                    Career Support
+                  </span>
+                </div>
+                <p className="text-black text-lg">
+                  careers@watneycollege.co.uk
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="lg"
+                  className="bg-watney-blue-primary text-white hover:bg-watney-blue-primary/90"
+                >
+                  Get Career Support
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="btn-outline-watney flex items-center justify-center bg-transparent"
+                >
+                  View Job Opportunities
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

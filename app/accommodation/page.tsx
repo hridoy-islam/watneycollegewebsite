@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Home, MapPin, Shield, Users, Train, Mail, CheckCircle, ArrowRight, GraduationCap, FileText } from 'lucide-react'
+import GeometricBgPattern from "../../components/geometric-bg-pattern"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -59,9 +60,10 @@ export default function AccommodationPage() {
   return (
     <div className="min-h-screen bg-primary">
       
-
+<div className="relative">
+        <GeometricBgPattern />
       {/* Hero Section */}
-      <section className="bg-ocean-breeze py-20">
+      <section className="relative bg-ocean-breeze py-20">
         <div className="container ">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -164,6 +166,7 @@ export default function AccommodationPage() {
           </motion.div>
         </div>
       </section>
+      </div>
     </div>
   )
 }

@@ -42,6 +42,7 @@ import {
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Hero from "@/components/hero";
+import GeometricBgPattern from "../components/geometric-bg-pattern";
 
 export default function page() {
   function Counter({
@@ -225,7 +226,9 @@ export default function page() {
   return (
     <div>
       <Hero />
+<div className="relative">
 
+<GeometricBgPattern />
       {/* Essential Resources Section */}
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
@@ -347,7 +350,7 @@ export default function page() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-primary/5">
+      <section className="py-20 bg-primary/5 ">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -360,7 +363,7 @@ export default function page() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className=" ">
               <CardHeader>
                 <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
@@ -529,7 +532,7 @@ export default function page() {
         </div>
       </section>
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-primary/5">
+      <section className="py-20 bg-primary/5 z-[10000]">
         <div className="container mx-auto px-4">
           {/* Header */}
           <motion.div
@@ -1033,6 +1036,7 @@ export default function page() {
           </div>
         </div>
       </section>
+      </div>
     </div>
   );
 }

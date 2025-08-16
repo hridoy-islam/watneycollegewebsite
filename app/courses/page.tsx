@@ -35,6 +35,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { courses } from "./data/courseData";
+import GeometricBgPattern from "../../components/geometric-bg-pattern";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -75,6 +76,9 @@ export default function CoursesPage() {
 
   return (
     <div className="min-h-screen bg-primary">
+      <div className="relative">
+      
+      <GeometricBgPattern />
       <section className="relative py-20 bg-ocean-breeze overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center">
           <GraduationCap className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
@@ -234,6 +238,7 @@ export default function CoursesPage() {
           </motion.div>
         </div>
       </section> */}
+      </div>
     </div>
   );
 }
