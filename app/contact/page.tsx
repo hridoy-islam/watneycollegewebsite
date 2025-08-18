@@ -75,7 +75,8 @@ export default function ContactPage() {
                         Our Location
                       </h3>
                       <p className="text-gray-600">
-                        Watney College, University Square, London, WC1E 7HU, U.K
+                        80-82 Nelson Street Whitechapel, London, E1 2DY, United
+                        Kingdom
                       </p>
                     </div>
                   </div>
@@ -87,10 +88,7 @@ export default function ContactPage() {
                       <h3 className="text-lg font-bold text-gray-900 mb-1">
                         Phone Support
                       </h3>
-                      <p className="text-gray-600">+44 (0) 20 1234 5678</p>
-                      <p className="text-gray-500 text-sm">
-                        Available Mon-Fri, 9AM-5PM
-                      </p>
+                      <p className="text-gray-600">+44 (0) 2080046463</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
