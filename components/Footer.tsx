@@ -47,7 +47,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-watney-blue-primary  ">
+    <footer className="relative bg-primary  ">
       <div className="container mx-auto px-4 py-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
           {/* College Info */}

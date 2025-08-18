@@ -201,7 +201,7 @@ export default function AccreditationPage() {
               <Button
                 size="lg"
                 variant="default"
-                className="border-white bg-watney-blue-primary hover:bg-watney-blue-primary/90 text-white "
+                className="border-white bg-primary hover:bg-primary/90 text-white "
                 asChild
               >
                 <Link href="/contact">

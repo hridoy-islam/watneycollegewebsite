@@ -51,6 +51,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "watney": "hsl(var(--watney))",
         "watney-blue-primary": "hsl(var(--watney-blue-primary))",
         "watney-blue-secondary": "hsl(var(--watney-blue-secondary))",
         "watney-blue-accent": "hsl(var(--watney-blue-accent))",

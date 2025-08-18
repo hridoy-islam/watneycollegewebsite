@@ -432,7 +432,7 @@ export default function AboutPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="btn-outline-watney flex items-center justify-center bg-transparent"
+                  className="btn-outline-watney flex items-center justify-center bg-transparent text-primary"
                   asChild
                 >
                   <Link href="/contact">

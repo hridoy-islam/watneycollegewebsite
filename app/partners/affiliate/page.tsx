@@ -214,7 +214,7 @@ export default function AffiliatePage() {
               <Button
                 size="lg"
                 asChild
-                className="bg-watney-blue-primary text-white hover:bg-watney-blue-primary/90"
+                className="bg-primary text-white hover:bg-primary"
               >
                 <Link href="/become-an-affiliate">
                   Learn More <ArrowRight className="w-4 h-4 ml-2" />
@@ -223,7 +223,7 @@ export default function AffiliatePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-white"
+                className="btn-outline-watney text-primary hover:bg-primary hover:text-white"
                 asChild
               >
                 <Link href="/contact">

@@ -24,16 +24,16 @@ export default function Header() {
   ];
 
   return (
-    <header className="relative z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between h-20">
+    <header className="relative z-50 bg-white/95 backdrop-blur-md shadow-sm border-b-2 border-watney">
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between h-24">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
             src="/watney.png"
             alt="Watney College Logo"
-            width={180}
-            height={50}
-            className="h-20 w-auto"
+            width={200}
+            height={60}
+            className="h-28 w-auto p-4"
             priority
           />
         </Link>
@@ -58,7 +58,7 @@ export default function Header() {
                 }}
               >
                 <button
-                  className="text-gray-700 hover:text-watney-blue-primary font-medium transition-colors duration-200 flex items-center gap-1"
+                  className="text-gray-700 hover:text-watney font-medium transition-colors duration-200 flex items-center gap-1"
                   aria-haspopup="true"
                   aria-expanded={openSubMenu === link.name}
                   onClick={() =>
@@ -103,10 +103,10 @@ export default function Header() {
               <Link
                 key={link.name}
                 href={link.path}
-                className="text-gray-700 hover:text-watney-blue-primary font-medium transition-colors duration-200 relative group"
+                className="text-gray-700 hover:text-watney font-medium transition-colors duration-200 relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-watney-blue-primary transition-all duration-200 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-watney transition-all duration-200 group-hover:w-full"></span>
               </Link>
             )
           )}
@@ -115,7 +115,7 @@ export default function Header() {
         {/* "Apply Now" Button for Desktop */}
         <div className="hidden lg:block">
           <Link href="#">
-            <Button className="btn-watney-primary">Apply Now</Button>
+            <Button className="btn-watney-primary ">Apply Now</Button>
           </Link>
         </div>
 
