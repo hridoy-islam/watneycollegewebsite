@@ -69,10 +69,37 @@ export default function Footer() {
 
             {/* Quick Stats */}
             <div className="grid grid-cols-6 gap-1 mb-6">
-              <Facebook className="text-2xl text-white mb-1" />
-              <Linkedin className="text-2xl text-white mb-1" />
-              <Instagram className="text-2xl text-white mb-1" />
-              <X className="text-2xl text-white mb-1" />
+              <Link
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Facebook className="text-2xl text-white mb-1 cursor-pointer" />
+              </Link>
+
+              <Link
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="text-2xl text-white mb-1 cursor-pointer" />
+              </Link>
+
+              <Link
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram className="text-2xl text-white mb-1 cursor-pointer" />
+              </Link>
+
+              <Link
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <X className="text-2xl text-white mb-1 cursor-pointer" />
+              </Link>
             </div>
           </div>
 
@@ -170,20 +197,17 @@ export default function Footer() {
             <div className="flex space-x-6 text-sm">
               <Link
                 href="/privacy-policy"
-                className="text-white hover:text-watney-blue-primary transition-colors"
+                className="text-white  transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms-and-conditions"
-                className="text-white hover:text-watney-blue-primary transition-colors"
+                className="text-white  transition-colors"
               >
                 Terms & Conditions
               </Link>
-              <Link
-                href="/cookies"
-                className="text-white hover:text-watney-blue-primary transition-colors"
-              >
+              <Link href="/cookies" className="text-white  transition-colors">
                 Cookies
               </Link>
             </div>
