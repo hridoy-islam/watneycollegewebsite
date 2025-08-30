@@ -252,11 +252,15 @@ export default function page() {
   return (
     <div>
       <Hero />
-      <div className="relative">
-        <GeometricBgPattern />
+      <div className="relative overflow-hidden">
+        <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden">
+          {/* Left Side Background Image */}
+          <div className="absolute -left-16 top-1/2 transform -translate-y-1/2 w-64 h-96 bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none rotate-180"></div>
 
-        <section className="py-20 bg-watney-blue-primary/5 ">
-          <div className="container mx-auto ">
+          {/* Right Side Background Image */}
+          <div className="absolute -right-16 top-1/2 transform -translate-y-1/2 w-64 h-96 bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none"></div>
+
+          <div className="container mx-auto relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-800">
               Explore Our <span className="text-gradient-watney">Courses</span>
             </h2>
@@ -317,10 +321,15 @@ export default function page() {
             </div>
           </div>
         </section>
-
         {/* Essential Resources Section */}
-        <section className="py-20 bg-watney-blue-primary/5">
-          <div className="container mx-auto px-4">
+        <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden">
+          {/* Left Side Background Image */}
+          <div className="absolute -left-[80vw] top-0 w-full h-full bg-[url('/pattern/p2.png')] bg-cover bg-center pointer-events-none "></div>
+
+          {/* Right Side Background Image */}
+          <div className="absolute -right-[80vw] top-0 w-full h-full bg-[url('/pattern/p2.png')] bg-cover bg-center pointer-events-none rotate-180"></div>
+
+          <div className="container mx-auto px-4 relative z-10">
             {/* Header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -329,9 +338,6 @@ export default function page() {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              {/* <Badge className="bg-primary/15 hover:bg-primary/15 text-primary mb-4">
-              Student Support
-            </Badge> */}
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Essential{" "}
                 <span className="text-gradient-watney">Resources</span>
@@ -366,7 +372,6 @@ export default function page() {
                     "Secure safe, affordable, and convenient housing near campus with our trusted partners.",
                   icon: <MapPin className="w-6 h-6" />,
                   href: "/accommodation",
-
                   delay: 0,
                 },
                 {
@@ -440,8 +445,14 @@ export default function page() {
         </section>
 
         {/* Services Section */}
-        <section className="py-20 bg-watney-blue-primary/5 ">
-          <div className="container mx-auto px-4">
+        <section className=" relative py-20 bg-watney-blue-primary/5 overflow-hidden">
+          {/* Left Side Background Image */}
+          <div className="absolute -left-[70vw] top-0 w-full h-full bg-[url('/pattern/p3.png')] bg-cover bg-center pointer-events-none z-0"></div>
+
+          {/* Right Side Background Image */}
+          <div className="absolute -right-[70vw] top-0 w-full h-full bg-[url('/pattern/p3.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
+
+          <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Services We{" "}
@@ -453,7 +464,7 @@ export default function page() {
               </p>
             </div>
 
-            <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-8 z-[1000]">
               <Card className=" ">
                 <CardHeader>
                   <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
@@ -588,9 +599,14 @@ export default function page() {
             </div>
           </div>
         </section>
-        {/* /ridoy */}
+
         {/* CTA Section */}
-        <section className="py-20 bg-soft-sky">
+        <section className=" relative py-20 bg-soft-sky">
+          {/* Left Side Background Image */}
+          <div className="absolute -left-[80vw] top-0 w-full h-full bg-[url('/pattern/p4.png')] bg-cover bg-center pointer-events-none z-0"></div>
+
+          {/* Right Side Background Image */}
+          <div className="absolute -right-[80vw] top-0 w-full h-full bg-[url('/pattern/p4.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl font-bold text-black mb-6">
               Ready to Start Your{" "}
@@ -622,8 +638,14 @@ export default function page() {
           </div>
         </section>
         {/* Why Choose Us Section */}
-        <section className="py-20 bg-watney-blue-primary/5 z-[10000]">
-          <div className="container mx-auto px-4">
+        <section className=" relative py-20 bg-watney-blue-primary/5 ">
+          {/* Left Side Background Image */}
+          <div className="absolute -left-[60vw] top-0 w-full h-full bg-[url('/pattern/p5.png')] bg-cover bg-center pointer-events-none z-0 scale-50"></div>
+
+          {/* Right Side Background Image */}
+          <div className="absolute -right-[60vw] top-[205px] w-full h-full bg-[url('/pattern/p5.png')] bg-cover bg-center pointer-events-none rotate-180 z-0 scale-50"></div>
+
+          <div className="container mx-auto px-4 z-10 relative">
             {/* Header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -687,8 +709,11 @@ export default function page() {
           </div>
         </section>
 
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
+        <section className=" relative py-20 bg-white">
+          <div className="absolute -left-[80vw] top-0 w-full h-full bg-[url('/pattern/p6.png')] bg-cover bg-center pointer-events-none z-0"></div>
+
+          <div className="absolute -right-[80vw] top-0 w-full h-full bg-[url('/pattern/p6.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
+          <div className="container mx-auto px-4 z-10 relative">
             {/* Header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -866,7 +891,10 @@ export default function page() {
         </section>
 
         {/* Student Engagement Section */}
-        <section className="py-20 bg-watney-blue-primary/5">
+        <section className="py-20 relative bg-watney-blue-primary/5">
+          <div className="absolute -left-[80vw] top-0 w-full h-full bg-[url('/pattern/p3.png')] bg-cover bg-center pointer-events-none z-0"></div>
+
+          <div className="absolute -right-[80vw] top-0 w-full h-full bg-[url('/pattern/p3.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
           <div className="container mx-auto px-4">
             {/* Header */}
             <motion.div
@@ -1031,7 +1059,10 @@ export default function page() {
           </div>
         </section>
         {/* Testimonials Section */}
-        <section className="py-20 bg-watney-blue-primary/5">
+        <section className="py-20 relative bg-watney-blue-primary/5">
+         <div className="absolute -left-[80vw] top-0 w-full h-full bg-[url('/pattern/p4.png')] bg-cover bg-center pointer-events-none z-0"></div>
+
+          <div className="absolute -right-[80vw] top-0 w-full h-full bg-[url('/pattern/p4.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               {/* <Badge className="mb-4">Student Success Stories</Badge> */}

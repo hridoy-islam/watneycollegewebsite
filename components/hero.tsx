@@ -5,7 +5,10 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden bg-soft-sky py-20 md:py-0">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden py-20 md:py-0  ">
+      <div className="absolute left-60 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0"></div>
+
+      <div className="absolute right-60 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         {/* Large Blue Orb */}
