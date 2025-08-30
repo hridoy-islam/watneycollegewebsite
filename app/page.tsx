@@ -447,10 +447,10 @@ export default function page() {
         {/* Services Section */}
         <section className=" relative py-20 bg-watney-blue-primary/5 overflow-hidden">
           {/* Left Side Background Image */}
-          <div className="absolute -left-[70vw] top-0 w-full h-full bg-[url('/pattern/p3.png')] bg-cover bg-center pointer-events-none z-0"></div>
+          <div className="absolute -left-[70vw] top-0 w-full h-full bg-[url('/pattern/p8.png')] bg-cover bg-center pointer-events-none z-0"></div>
 
           {/* Right Side Background Image */}
-          <div className="absolute -right-[70vw] top-0 w-full h-full bg-[url('/pattern/p3.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
+          <div className="absolute -right-[70vw] top-0 w-full h-full bg-[url('/pattern/p8.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
@@ -1063,7 +1063,7 @@ export default function page() {
          <div className="absolute -left-[80vw] top-0 w-full h-full bg-[url('/pattern/p4.png')] bg-cover bg-center pointer-events-none z-0"></div>
 
           <div className="absolute -right-[80vw] top-0 w-full h-full bg-[url('/pattern/p4.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 z-10 relative">
             <div className="text-center mb-16">
               {/* <Badge className="mb-4">Student Success Stories</Badge> */}
               <h2 className="text-4xl font-bold mb-4">
