@@ -25,6 +25,11 @@ export default function Footer() {
     { name: "Prevent Duty Statement", href: "#" },
     { name: "Academic Calendar", href: "#" },
     { name: "Fire Safety", href: "#" },
+    {
+      name: "Staff Login",
+      href: "https://app.watneycollege.co.uk/",
+      external: true,
+    },
   ];
 
   const campusLinks = [
@@ -109,12 +114,23 @@ export default function Footer() {
             <ul className="space-y-3">
               {academicLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-white transition-colors duration-200"
-                  >
-                    {link.name}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white transition-colors duration-200"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-white transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
