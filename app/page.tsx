@@ -254,7 +254,7 @@ export default function page() {
       <Hero />
       <div className="relative overflow-hidden">
         <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden">
-           <div className="absolute -left-0 top-0 w-[18vw] h-full bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none z-0"></div>
+           <div className="absolute -left-0 top-0 w-[18vw] h-full  bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none z-0"></div>
 
           <div className="absolute -right-0 top-0 w-[18vw] h-full bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
           <div className="container mx-auto relative z-10">
