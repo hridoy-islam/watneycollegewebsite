@@ -703,9 +703,9 @@ export default function page() {
         </section>
 
         <section className=" relative py-20 bg-white">
-          <div className="absolute -left-[80vw] top-0 w-full h-full bg-[url('/pattern/p6.png')] bg-cover bg-center pointer-events-none z-0"></div>
+          <div className="absolute -left-[80vw] top-0 w-full h-full bg-[url('/pattern/p9.png')] bg-cover bg-center pointer-events-none z-0"></div>
 
-          <div className="absolute -right-[80vw] top-0 w-full h-full bg-[url('/pattern/p6.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
+          <div className="absolute -right-[80vw] top-0 w-full h-full bg-[url('/pattern/p9.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
           <div className="container mx-auto px-4 z-10 relative">
             {/* Header */}
             <motion.div
