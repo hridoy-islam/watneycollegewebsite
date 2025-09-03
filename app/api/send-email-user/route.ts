@@ -52,7 +52,7 @@ export async function POST(req: Request) {
     const mailOptions = {
       from: process.env.SENDER_EMAIL,
       // to: "mahitasnimul2@gmail.com",
-      tp: email,
+      to: email,
       subject: `Thank You for Contacting Watney College`,
       html,
     };
