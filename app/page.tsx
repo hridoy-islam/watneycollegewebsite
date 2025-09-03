@@ -254,12 +254,9 @@ export default function page() {
       <Hero />
       <div className="relative overflow-hidden">
         <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden">
-          {/* Left Side Background Image */}
-          <div className="absolute -left-16 top-1/2 transform -translate-y-1/2 w-64 h-96 bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none rotate-180"></div>
+           <div className="absolute -left-0 top-0 w-[18vw] h-full bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none z-0"></div>
 
-          {/* Right Side Background Image */}
-          <div className="absolute -right-16 top-1/2 transform -translate-y-1/2 w-64 h-96 bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none"></div>
-
+          <div className="absolute -right-0 top-0 w-[18vw] h-full bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
           <div className="container mx-auto relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-800">
               Explore Our <span className="text-gradient-watney">Courses</span>
@@ -1060,7 +1057,7 @@ export default function page() {
         </section>
         {/* Testimonials Section */}
         <section className="py-20 relative bg-watney-blue-primary/5">
-         <div className="absolute -left-[80vw] top-0 w-full h-full bg-[url('/pattern/p4.png')] bg-cover bg-center pointer-events-none z-0"></div>
+          <div className="absolute -left-[80vw] top-0 w-full h-full bg-[url('/pattern/p4.png')] bg-cover bg-center pointer-events-none z-0"></div>
 
           <div className="absolute -right-[80vw] top-0 w-full h-full bg-[url('/pattern/p4.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
           <div className="container mx-auto px-4 z-10 relative">
