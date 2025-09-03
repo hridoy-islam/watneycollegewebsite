@@ -253,7 +253,7 @@ export default function page() {
     <div>
       <Hero />
       <div className="relative overflow-hidden">
-        <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden">
+        {/* <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden">
            <div className="absolute -left-0 top-0 w-[18vw] h-full  bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none z-0"></div>
 
           <div className="absolute -right-0 top-0 w-[18vw] h-full bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
@@ -262,10 +262,8 @@ export default function page() {
               Explore Our <span className="text-gradient-watney">Courses</span>
             </h2>
 
-            {/* Search & Filter Bar */}
             <div className="max-w-4xl mx-auto bg-white rounded-lg p-6 shadow-lg mb-8 relative">
               <div className="flex flex-col md:flex-row gap-4">
-                {/* Search Input */}
                 <div className="flex-1 relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <Input
@@ -275,7 +273,6 @@ export default function page() {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full pl-10 h-12 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
-                  {/* Search Results Dropdown */}
                   {searchTerm && (
                     <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
                       {filteredCourses.length > 0 ? (
@@ -297,7 +294,6 @@ export default function page() {
                   )}
                 </div>
 
-                {/* Category Filter */}
                 <Select
                   value={selectedCategory}
                   onValueChange={setSelectedCategory}
@@ -317,9 +313,9 @@ export default function page() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* Essential Resources Section */}
-        <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden">
+        <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden z-0">
           {/* Left Side Background Image */}
           <div className="absolute -left-[80vw] top-0 w-full h-full bg-[url('/pattern/p2.png')] bg-cover bg-center pointer-events-none "></div>
 
