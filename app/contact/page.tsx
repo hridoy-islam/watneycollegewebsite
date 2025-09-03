@@ -6,7 +6,6 @@ import type React from "react";
 
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import GeometricBgPattern from "../../components/geometric-bg-pattern";
 
 export default function ContactPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +41,7 @@ export default function ContactPage() {
   return (
     <div className="bg-white">
       <div className="relative">
-        <GeometricBgPattern />
+   
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Mail className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />

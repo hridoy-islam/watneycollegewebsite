@@ -27,7 +27,7 @@ export const AdminEmail = ({
   return (
     <Html>
       <Head />
-      <Preview>RoboFx Trader</Preview>
+      <Preview>Algopips</Preview>
       <Tailwind
         config={{
           theme: {
@@ -49,17 +49,17 @@ export const AdminEmail = ({
           <Container className="bg-white p-45">
             <Section>
               <Img
-                src={`https://mining.robofxtrader.com/logo.png`}
+                src={`https://mining.algopips.net/logo.png`}
                 width="184"
                 height="auto"
-                alt="Robofx"
+                alt="Algopips"
                 className="mx-auto my-20"
               />
             </Section>
             <Section className="text-center">
               <Text>
-                We got a new contact form submission from {name}. Phone :{" "}
-                {phone} <br />
+                Mining Algopips got a new contact form submission from {name}.
+                Phone : {phone} <br />
                 email: {email} <br />
                 message: {message}
               </Text>
@@ -70,7 +70,7 @@ export const AdminEmail = ({
               </Text>
               <Text className="text-center text-gray-400">+19292301920</Text>
               <Text className="text-center text-gray-400 mb-3">
-                &copy; 2024 RoboFX All Rights Reserved
+                &copy; 2025 Algopips All Rights Reserved
               </Text>
             </Section>
           </Container>

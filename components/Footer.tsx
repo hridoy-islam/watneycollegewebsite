@@ -17,21 +17,21 @@ import Image from "next/image";
 
 export default function Footer() {
   const academicLinks = [
-    { name: "Policies", href: "/acc" },
-    { name: "Access And Participation Statement", href: "/acc" },
-    { name: "Student Protection Plan", href: "/acc" },
-    { name: "Governance and Management", href: "/acc" },
-    { name: "Accident and Emergency Support", href: "/acc" },
-    { name: "Prevent Duty Statement", href: "/prevent-duty-statement" },
-    { name: "Academic Calendar", href: "/academic-calendar" },
-    { name: "Fire Safety", href: "/fire-safety" },
+    { name: "Policies", href: "#" },
+    { name: "Access And Participation Statement", href: "#" },
+    { name: "Student Protection Plan", href: "#" },
+    { name: "Governance and Management", href: "#" },
+    { name: "Accident and Emergency Support", href: "#" },
+    { name: "Prevent Duty Statement", href: "#" },
+    { name: "Academic Calendar", href: "#" },
+    { name: "Fire Safety", href: "#" },
   ];
 
   const campusLinks = [
-    { name: "KLASPAD (VLE)", href: "/klaspad" },
-    { name: "Partners", href: "/partners" },
-    { name: "Recruitment", href: "/career-employability" },
-    { name: "Verify", href: "/verify" },
+    { name: "KLASPAD (VLE)", href: "#" },
+    { name: "Partners", href: "#" },
+    { name: "Recruitment", href: "#" },
+    { name: "Verify", href: "#" },
     { name: "Student Finance", href: "/student-finance" },
     { name: "Accommodation", href: "/accommodation" },
     { name: "Career & Employablity", href: "/career-employability" },

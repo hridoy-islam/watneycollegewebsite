@@ -26,7 +26,6 @@ import {
   UserCheck,
   Building,
 } from "lucide-react";
-import GeometricBgPattern from "../../components/geometric-bg-pattern";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -180,7 +179,7 @@ export default function CareerEmployabilityPage() {
       {/* Hero Section */}
       <div className="relative">
         {" "}
-        <GeometricBgPattern />
+  
         <section className="relative bg-ocean-breeze py-20">
           <div className="container mx-auto px-4">
             <motion.div

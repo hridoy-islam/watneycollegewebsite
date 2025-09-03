@@ -26,7 +26,6 @@ import {
   Info,
   Mail,
 } from "lucide-react";
-import GeometricBgPattern from "../../components/geometric-bg-pattern";
 
 // Animation variants
 const containerVariants = {
@@ -66,7 +65,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative">
-        <GeometricBgPattern />
+        
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <BookOpen className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />

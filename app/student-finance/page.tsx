@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { PoundSterlingIcon as Pound, CheckCircle, ExternalLink, FileText, Calculator, Users, GraduationCap, ArrowRight, Info, AlertCircle } from 'lucide-react'
-import GeometricBgPattern from "../../components/geometric-bg-pattern"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -109,7 +108,7 @@ export default function StudentFinancePage() {
   return (
     <div className="min-h-screen ">
      <div className="relative">
-             <GeometricBgPattern />
+       
       {/* Hero Section */}
       <section className="relative bg-ocean-breeze py-20">
         <div className="container mx-auto px-4">

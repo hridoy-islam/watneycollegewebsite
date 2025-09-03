@@ -52,9 +52,7 @@ import {
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Hero from "@/components/hero";
-import GeometricBgPattern from "../components/geometric-bg-pattern";
 import { courses } from "./courses/data/courseData";
-import { Input } from "@/components/ui/input";
 
 export default function page() {
   function Counter({
@@ -253,67 +251,7 @@ export default function page() {
     <div>
       <Hero />
       <div className="relative overflow-hidden">
-        {/* <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden">
-           <div className="absolute -left-0 top-0 w-[18vw] h-full  bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none z-0"></div>
-
-          <div className="absolute -right-0 top-0 w-[18vw] h-full bg-[url('/pattern/p1.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
-          <div className="container mx-auto relative z-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-800">
-              Explore Our <span className="text-gradient-watney">Courses</span>
-            </h2>
-
-            <div className="max-w-4xl mx-auto bg-white rounded-lg p-6 shadow-lg mb-8 relative">
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1 relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <Input
-                    type="text"
-                    placeholder="Search courses..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 h-12 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                  {searchTerm && (
-                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
-                      {filteredCourses.length > 0 ? (
-                        filteredCourses.map((course) => (
-                          <Link
-                            href={`/courses/${course.slug}`}
-                            key={course.id}
-                            className="block px-4 py-2 hover:bg-gray-100 text-gray-800"
-                          >
-                            {course.title}
-                          </Link>
-                        ))
-                      ) : (
-                        <div className="px-4 py-2 text-gray-500">
-                          No courses found matching your search.
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-
-                <Select
-                  value={selectedCategory}
-                  onValueChange={setSelectedCategory}
-                >
-                  <SelectTrigger className="w-full md:w-48 h-12 text-gray-700">
-                    <Filter className="w-4 h-4 mr-2" />
-                    <SelectValue placeholder="All Categories" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {categories.map((category) => (
-                      <SelectItem key={category} value={category}>
-                        {category === "all" ? "All Categories" : category}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-          </div>
-        </section> */}
+    
         {/* Essential Resources Section */}
         <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden z-0">
           {/* Left Side Background Image */}

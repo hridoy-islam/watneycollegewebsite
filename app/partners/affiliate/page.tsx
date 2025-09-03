@@ -24,7 +24,6 @@ import {
   ArrowRight,
   Info,
 } from "lucide-react";
-import GeometricBgPattern from "@/components/geometric-bg-pattern";
 
 // Animation variants
 const containerVariants = {
@@ -109,7 +108,7 @@ export default function AffiliatePage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative">
-        <GeometricBgPattern />
+      
         {/* Hero Section */}
         <section className=" relative bg-ocean-breeze py-20 text-white">
           <div className="container mx-auto px-4">

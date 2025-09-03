@@ -10,7 +10,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ArrowRight, X } from "lucide-react";
-import GeometricBgPattern from "../../components/geometric-bg-pattern";
 
 export default function ProspectusPage() {
   const [showForm, setShowForm] = useState(false);
@@ -28,7 +27,7 @@ export default function ProspectusPage() {
     <div className="min-h-screen bg-white">
       <div className="relative">
         {" "}
-        <GeometricBgPattern />
+    
         {/* Hero Section */}
         <section className="relative bg-ocean-breeze py-24 text-white">
           <div className="container mx-auto px-6 text-center">
