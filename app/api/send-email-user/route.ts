@@ -40,7 +40,7 @@ export async function POST(req: Request) {
     // Render ejs template
     const templatePath = path.join(
       process.cwd(),
-      "static/email_template/contact_template.ejs"
+      "static/email_template/contact_user_template.ejs"
     );
     const html = await ejs.renderFile(templatePath, {
      name,
@@ -51,8 +51,9 @@ export async function POST(req: Request) {
 
     const mailOptions = {
       from: process.env.SENDER_EMAIL,
-      to: "info@watneycollege.co.uk",
-      subject: `New Contact Form Submission from ${name}`,
+      // to: "mahitasnimul2@gmail.com",
+      tp: email,
+      subject: `Thank You for Contacting Watney College`,
       html,
     };
 

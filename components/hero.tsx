@@ -50,7 +50,7 @@ export default function Hero() {
         <div className="absolute bottom-10 left-1/3 w-24 h-24 bg-watney-blue-accent/10 rounded-full blur-3xl animate-float-light delay-1000"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 ">
+      <div className="container mx-auto px-4 relative z-10 mt-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in-up">

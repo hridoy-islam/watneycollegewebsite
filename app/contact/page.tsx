@@ -1,5 +1,5 @@
 "use client";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 import type React from "react";
@@ -27,21 +27,64 @@ export default function ContactPage() {
     }));
   };
 
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsLoading(true);
+  //   // Simulate API call
+  //   await new Promise((resolve) => setTimeout(resolve, 2000));
+  //   setIsSubmitted(true);
+  //   setIsLoading(false);
+  //   // Optionally reset form
+  //   setFormData({ name: "", email: "", subject: "", message: "" });
+  // };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (isLoading) return; // Prevent double submission
     setIsLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsSubmitted(true);
-    setIsLoading(false);
-    // Optionally reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    try {
+      // Send to admin
+      const adminRes = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      // Send confirmation to user
+      const userRes = await fetch("/api/send-email-user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (adminRes.ok && userRes.ok) {
+        setIsSubmitted(true);
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+
+        // Hide success message after 3 seconds
+        setTimeout(() => setIsSubmitted(false), 3000);
+      } else {
+        console.error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsLoading(false); // Always stop loading
+    }
   };
 
   return (
     <div className="bg-white">
       <div className="relative">
-   
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Mail className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
@@ -102,7 +145,7 @@ export default function ContactPage() {
                         href="mailto:info@watneycollege.ac.uk"
                         className="text-watney-blue-primary hover:underline"
                       >
-                        info@watneycollege.ac.uk
+                        info@watneycollege.co.uk
                       </a>
                       <p className="text-gray-500 text-sm">
                         We aim to respond within 24 hours
@@ -157,7 +200,7 @@ export default function ContactPage() {
                         onChange={handleInputChange}
                         placeholder="John Doe"
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-watney-blue-primary focus:border-transparent"
+                        className="w-full bg-white px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-watney-blue-primary focus:border-transparent"
                       />
                     </div>
                     <div>
@@ -175,7 +218,7 @@ export default function ContactPage() {
                         onChange={handleInputChange}
                         placeholder="john.doe@example.com"
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-watney-blue-primary focus:border-transparent"
+                        className="w-full bg-white px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-watney-blue-primary focus:border-transparent"
                       />
                     </div>
                     <div>
@@ -193,7 +236,7 @@ export default function ContactPage() {
                         onChange={handleInputChange}
                         placeholder="Inquiry about admissions"
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-watney-blue-primary focus:border-transparent"
+                        className="w-full bg-white px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-watney-blue-primary focus:border-transparent"
                       />
                     </div>
                     <div>
@@ -216,10 +259,20 @@ export default function ContactPage() {
                     </div>
                     <Button
                       type="submit"
+                      className="w-full btn-knowera-gradient font-bold py-4 rounded-xl transition-all duration-300 group"
                       disabled={isLoading}
-                      className="w-full btn-watney-primary"
                     >
-                      {isLoading ? "Sending..." : "Send Message"}
+                      {isLoading ? (
+                        <span className="flex items-center justify-center">
+                          <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></span>
+                          Sending...
+                        </span>
+                      ) : (
+                        <span className="flex items-center justify-center">
+                          Send Message
+                          <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                        </span>
+                      )}
                     </Button>
                   </form>
                 )}
