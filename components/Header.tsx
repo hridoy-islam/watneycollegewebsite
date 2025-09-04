@@ -24,7 +24,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="relative z-50 bg-white/95 backdrop-blur-md shadow-sm border-b-2 border-watney">
+    <header className="fixed top-0 left-0 w-full z-[99999] bg-white/85 backdrop-blur-md shadow-sm border-b-2 border-watney ">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between h-24">
         {/* Logo */}
         <Link href="/" className="flex items-center">

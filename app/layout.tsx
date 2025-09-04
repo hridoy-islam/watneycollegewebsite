@@ -38,7 +38,7 @@ export default function RootLayout({
       </head>
       <body className="relative">
         <Header />
-        <div>
+        <div className="pt-24 min-h-screen">
           <Providers>{children}</Providers>
         </div>
         <Footer />
