@@ -11,15 +11,15 @@ export default function Header() {
   const submenuTimeout = useRef<NodeJS.Timeout | null>(null);
   const navLinks = [
     { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
     { name: "Courses", path: "/courses" },
     {
       name: "Partners",
       subItems: [
-        { name: "Affiliate Partners", path: "/partners/affiliate" },
+        { name: "Employees", path: "/partners/affiliate" },
         { name: "Accreditations", path: "/partners/accreditations" },
       ],
     },
-    { name: "About Us", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -114,7 +114,7 @@ export default function Header() {
 
         {/* "Apply Now" Button for Desktop */}
         <div className="hidden lg:block">
-          <Link href="#">
+          <Link href="/courses">
             <Button className="btn-watney-primary ">Apply Now</Button>
           </Link>
         </div>
@@ -219,7 +219,7 @@ export default function Header() {
             </nav>
 
             <div className="mt-8">
-              <Link href="/admissions">
+              <Link href="/courses">
                 <Button
                   className="w-full btn-watney-primary"
                   onClick={() => setIsMobileMenuOpen(false)}

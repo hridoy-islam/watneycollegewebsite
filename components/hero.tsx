@@ -72,7 +72,7 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-fade-in delay-400">
               <Button className="btn-watney-primary flex items-center justify-center">
-                <Link href="/contact" className="flex items-center">
+                <Link href="/courses" className="flex items-center">
                   Apply Now <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
