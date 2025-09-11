@@ -25,7 +25,8 @@ export default function Hero() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchFocused, setSearchFocused] = useState(false);
 
-  const categories = ["all", "Business", "English", "Healthcare"];
+  // const categories = ["all", "Business", "English", "Healthcare"];
+  const categories = ["all", "Healthcare"];
 
   const filteredCourses = courses.filter((course) => {
     const matchesSearch =
