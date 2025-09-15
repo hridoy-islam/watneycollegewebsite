@@ -207,7 +207,7 @@ export default function AboutPage() {
                 <div className="relative">
                   <img
                     src="/mission.jpg"
-                    alt="Education in action"
+                     alt="Watney College students engaging in classroom learning"
                     className="w-full h-80 object-cover rounded-2xl shadow-lg"
                   />
                 </div>
@@ -215,7 +215,7 @@ export default function AboutPage() {
                 <div className="absolute -bottom-6 -right-6 w-48 h-32">
                   <img
                     src="/mission1.jpg"
-                    alt="Students collaborating"
+                     alt="Group of students collaborating on a project"
                     className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white"
                   />
                 </div>
@@ -259,7 +259,7 @@ export default function AboutPage() {
                 <div className="relative">
                   <img
                     src="/vision.jpg"
-                    alt="Graduation celebration"
+                    alt="Graduates celebrating their success at Watney College"
                     className="w-full h-80 object-cover rounded-2xl shadow-lg"
                   />
                 </div>
@@ -267,7 +267,7 @@ export default function AboutPage() {
                 <div className="absolute -bottom-6 -left-6 w-48 h-32">
                   <img
                     src="/vision1.jpg"
-                    alt="Students in discussion"
+                    alt="Students discussing future opportunities"
                     className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white"
                   />
                 </div>

@@ -20,9 +20,41 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+// export const metadata: Metadata = {
+//   title: "Watney College",
+//   description: "English Learning Centre In London",
+// };
+
+
 export const metadata: Metadata = {
-  title: "Watney College",
-  description: "",
+  title: 'Watney College',
+  description: 'English Learning Centre In London',
+  keywords: ['Watney College', 'London college', 'higher education', 'courses in London', 'student accommodation', 'career support', 'alumni network'],
+  openGraph: {
+    title: 'Watney College',
+    description: 'English Learning Centre In London',
+    url: 'https://www.watneycollege.co.uk',
+    siteName: 'Watney College',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'Watney College | English Learning Centre In London',
+      },
+    ],
+    locale: 'en_GB',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Watney College',
+    description: 'English Learning Centre In London.',
+    images: ['/hero.png'],
+  },
+  alternates: {
+    canonical: 'https://www.watneycollege.co.uk',
+  },
 };
 
 export default function RootLayout({

@@ -251,7 +251,6 @@ export default function page() {
     <div>
       <Hero />
       <div className="relative overflow-hidden">
-    
         {/* Essential Resources Section */}
         <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden z-0">
           {/* Left Side Background Image */}
@@ -709,7 +708,7 @@ export default function page() {
                     <div className="relative mb-6 rounded-xl overflow-hidden bg-gradient-to-r from-blue-100 to-purple-100 h-48 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                       <Image
                         src="/alumni.jpg"
-                        alt="User Icon"
+                        alt="Group photo of Watney College alumni networking at an event"
                         width={600}
                         height={28}
                         priority
@@ -776,10 +775,10 @@ export default function page() {
                     <div className="relative mb-6 rounded-xl overflow-hidden bg-gradient-to-r from-blue-100 to-purple-100 h-48 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                       <Image
                         src="/research.jpg"
-                        alt="User Icon"
                         width={600}
                         height={28}
                         priority
+                        alt="Watney College students and faculty conducting research in a modern laboratory"
                       />
                     </div>
 

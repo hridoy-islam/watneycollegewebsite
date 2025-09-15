@@ -11,7 +11,7 @@ export default function Header() {
   const submenuTimeout = useRef<NodeJS.Timeout | null>(null);
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
+    { name: "About Us", path: "/about-us" },
     { name: "Courses", path: "/courses" },
     {
       name: "Partners",
