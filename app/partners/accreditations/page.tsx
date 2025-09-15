@@ -76,8 +76,8 @@ export default function AccreditationPage() {
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
               <Handshake className="w-8 h-8 text-watney-blue-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-watney-blue-primary">
-              Accreditations & Partnerships
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">
+              Accreditations & <span className="text-watney-blue-primary">Partnerships</span>
             </h1>
             <p className="text-lg mb-8 text-gray-600 leading-relaxed">
               Watney College is proud to be accredited by leading organizations,

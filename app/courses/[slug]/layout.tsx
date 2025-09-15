@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { courses } from "../data/courseData";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>; // params is now a Promise
 }
 
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
   // Await params before using them
-  const { params } = props;
-  const { slug } = params; // now safe to use
+  const params = await props.params; // Await the params Promise
+  const { slug } = params; // Now safe to use
 
   // Find course or fallback
   const course = courses.find((c) => c.slug === slug) || {
@@ -19,7 +19,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
   };
 
   return {
-    title: course.title,
+    title: `${course.title} | Watney College`,
     description: course.description,
     keywords: [
       "Watney College",
@@ -34,7 +34,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
       "higher education",
     ],
     openGraph: {
-      title: course.title,
+      title: `${course.title} | Watney College`,
       description: course.description,
       url: `/courses/${slug}`,
       siteName: "Watney College",
@@ -51,7 +51,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: course.title,
+      title: `${course.title} | Watney College`,
       description: course.description,
       images: [course.image],
     },
@@ -61,6 +61,6 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
   };
 }
 
-export default function Page({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
