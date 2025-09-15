@@ -27,7 +27,10 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-  title: 'Watney College',
+  title: {
+    default: "Watney College",
+    template: "%s | Watney College",
+  },
   description: 'English Learning Centre In London',
   keywords: ['Watney College', 'London college', 'higher education', 'courses in London', 'student accommodation', 'career support', 'alumni network'],
   openGraph: {

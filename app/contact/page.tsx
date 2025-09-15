@@ -7,6 +7,14 @@ import type React from "react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
+
+export const metadata = {
+  title: "Contact Watney College",
+  description: "Contact us for admissions, programs, or general inquiries.",
+};
+
+
+
 export default function ContactPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
