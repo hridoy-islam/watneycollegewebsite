@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Watney College',
     description: 'English Learning Centre In London',
-    url: 'https://www.watneycollege.co.uk',
+    url: '/',
     siteName: 'Watney College',
     images: [
       {
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     images: ['/hero.png'],
   },
   alternates: {
-    canonical: 'https://www.watneycollege.co.uk',
+    canonical: '/',
   },
 };
 
