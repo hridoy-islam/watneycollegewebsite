@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: 'Watney College',
     images: [
       {
-        url: '/hero.png',
+        url: '/watney.png',
         width: 1200,
         height: 630,
         alt: 'Watney College | English Learning Centre In London',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Watney College',
     description: 'English Learning Centre In London.',
-    images: ['/hero.png'],
+    images: ['/watney.png'],
   },
   alternates: {
     canonical: '/',
@@ -68,7 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} light`}>
       <head>
-        <title>Watney College</title>
+       
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="relative">

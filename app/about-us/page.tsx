@@ -65,12 +65,7 @@ const iconVariants = {
 
 export default function AboutPage() {
   
- useSEO({
-    title: "About Us",
-    description: "Learn about Watney College - A progressive institution in the heart of London, dedicated to empowering students through exceptional education and practical career-focused training.",
-    image: "/about.jpg",
-    url: "/about-us"
-  });
+
   return (
     <div className="min-h-screen bg-white">
       <div className="relative">
