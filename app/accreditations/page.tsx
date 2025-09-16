@@ -153,16 +153,20 @@ export default function AccreditationPage() {
                     className="flex flex-col bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 w-full h-full"
                   >
                     {/* Logo */}
-                    <div className="mb-4 flex items-center justify-center">
-                      <div className="relative w-32 h-20">
-                        <Image
-                          src={acc.logo}
-                          alt={`${acc.title} logo`}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                    </div>
+                   <div className="mb-4 flex items-center justify-center">
+  <div
+    className={`relative ${
+      acc.title === "ESB" ? "w-64 h-28" : "w-32 h-20"
+    }`}
+  >
+    <Image
+      src={acc.logo}
+      alt={`${acc.title} logo`}
+      fill
+      className="object-contain"
+    />
+  </div>
+</div>
 
                     {/* Title */}
                     {/* <CardHeader>
