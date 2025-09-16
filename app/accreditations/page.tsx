@@ -120,7 +120,7 @@ export default function AccreditationPage() {
                   logo: "/esb.png",
                   link: "https://esbuk.org/web/",
                   description:
-                    "ESB (European Skills Body) recognizes institutions that provide industry-relevant skills and qualifications.",
+                    "English Speaking Board recognizes institutions that provide industry-relevant skills and qualifications.",
                 },
                 {
                   title: "Focus Award",
