@@ -68,9 +68,9 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="relative overflow-hidden">
-        <div className="absolute  top-0 w-screen h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
-        <div className="absolute   top-0 w-screen h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
+      <div className="relative overflow-hidden ">
+        <div className="absolute right-80 top-0 w-screen h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute left-80 top-0 w-screen h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-0  z-10"></div>
         
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
@@ -99,7 +99,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               {/* Left: Text Content */}
-              <div>
+              <div className="z-50">
                 <Badge className="mb-6 bg-primary/15 text-primary hover:bg-primary/10">
                   Who We Are
                 </Badge>
@@ -121,7 +121,7 @@ export default function AboutPage() {
               </div>
 
               {/* Right: Image */}
-              <div className="relative">
+              <div className="relative z-50">
                 <motion.div
                   initial={{ scale: 0.95, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
@@ -143,7 +143,7 @@ export default function AboutPage() {
         </section>
 
         {/* Accreditations */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white z-50">
           <div className="container mx-auto px-4">
             <motion.div
               className="text-center mb-12"
@@ -208,9 +208,9 @@ export default function AboutPage() {
            
 
             {/* Vision Section */}
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-center z-50">
               {/* Vision Content - Left */}
-              <div className="space-y-6">
+              <div className="space-y-6 z-50">
                 <h2 className="text-4xl font-bold text-gray-900 mb-6">
                   Our Vision
                 </h2>
@@ -225,7 +225,7 @@ export default function AboutPage() {
               </div>
 
               {/* Vision Images - Right */}
-              <div className="relative">
+              <div className="relative z-50">
                 {/* Main large image */}
                 <div className="relative">
                   <img
@@ -391,6 +391,7 @@ export default function AboutPage() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-50px" }}
+                  className="z-50"
                 >
                   <Card className="group hover:shadow-lg transition-all duration-300 border-white/20 hover:border-white h-full">
                     <CardHeader>
