@@ -158,19 +158,19 @@ export default function CourseDetailPage() {
                     value="curriculum"
                     className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
                   >
-                    Curriculum
+                    Programme Information
                   </TabsTrigger>
                   <TabsTrigger
                     value="requirements"
                     className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
                   >
-                    Requirements
+                    Entry Requirement
                   </TabsTrigger>
                   <TabsTrigger
                     value="career"
                     className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
                   >
-                    Career
+                    Programme Structure
                   </TabsTrigger>
                 </TabsList>
 
