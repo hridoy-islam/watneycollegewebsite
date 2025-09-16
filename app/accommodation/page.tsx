@@ -59,8 +59,9 @@ export default function AccommodationPage() {
   return (
     <div className="min-h-screen bg-primary">
       
-<div className="relative">
-       
+<div className="relative overflow-hidden">
+        <div className="absolute right-44 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute left-44  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
       {/* Hero Section */}
       <section className="relative bg-ocean-breeze py-20">
         <div className="container ">

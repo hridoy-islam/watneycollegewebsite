@@ -85,8 +85,11 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-hidden">
       <div className="relative">
+        <div className="absolute right-44 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute left-44  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
+        {/* Header Section */}
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Mail className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
@@ -101,10 +104,10 @@ export default function ContactPage() {
         </section>
 
         <section className="section-padding bg-white">
-          <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12">
+          <div className="container mx-auto px-4 z-50">
+            <div className="grid lg:grid-cols-2 gap-12  z-50">
               {/* Contact Information */}
-              <div className="space-y-8">
+              <div className="space-y-8  z-50">
                 <h2 className="text-4xl font-black text-gray-900 mb-6">
                   Contact{" "}
                   <span className="text-gradient-watney">Information</span>
@@ -170,7 +173,7 @@ export default function ContactPage() {
               </div>
 
               {/* Contact Form */}
-              <div className="bg-watney-blue-light rounded-3xl p-8 shadow-xl border border-watney-blue-accent">
+              <div className="bg-watney-blue-light rounded-3xl p-8 shadow-xl border border-watney-blue-accent  z-50">
                 <h2 className="text-3xl font-black text-gray-900 mb-6 text-center">
                   Send Us a Message
                 </h2>

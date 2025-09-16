@@ -64,6 +64,8 @@ export default function AccreditationPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative">
+        <div className="absolute right-32 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute left-32  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
         {/* Header Section */}
         <section className="relative bg-ocean-breeze py-20 text-white">
           <div className="container mx-auto px-4">
@@ -91,12 +93,12 @@ export default function AccreditationPage() {
 
         {/* Accreditations Section */}
         <section id="accreditations" className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 z-50">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 z-50"
             >
               {[
                 {
@@ -142,7 +144,7 @@ export default function AccreditationPage() {
                   whileInView="visible"
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex"
+                  className="flex z-50"
                 >
                   <a
                     href={acc.link}
@@ -163,11 +165,11 @@ export default function AccreditationPage() {
                     </div>
 
                     {/* Title */}
-                    <CardHeader>
+                    {/* <CardHeader>
                       <CardTitle className="text-xl text-watney-blue-primary text-center mb-3">
                         {acc.title}
                       </CardTitle>
-                    </CardHeader>
+                    </CardHeader> */}
 
                     {/* Description */}
                     <CardContent className="flex-grow">
