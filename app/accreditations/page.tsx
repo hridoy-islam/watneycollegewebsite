@@ -63,7 +63,7 @@ const iconVariants = {
 export default function AccreditationPage() {
   return (
     <div className="min-h-screen bg-white">
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <div className="absolute right-32 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
         <div className="absolute left-32  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
         {/* Header Section */}
