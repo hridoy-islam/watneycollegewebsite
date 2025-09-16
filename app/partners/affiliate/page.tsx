@@ -154,65 +154,57 @@ export default function AffiliatePage() {
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-  {affiliates.map((affiliate, index) => (
-    <motion.div
-      key={affiliate.name}
-      variants={itemVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="flex"
-    >
-      <div className="w-full">
-        <div className="bg-white hover:shadow-md rounded-xl p-6 cursor-pointer transition-all h-full flex flex-col items-center text-center">
-          {/* Logo */}
-          <div
-            className={`${
-              affiliate.name === "SMS Higher Education Group" ||
-              affiliate.name === "Medicare Link"
-                ? "w-40 h-28"
-                : "w-32 h-24"
-            } mb-4 relative flex items-center justify-center`}
-          >
-            <Image
-              src={affiliate.logo}
-              alt={`${affiliate.name} logo`}
-              fill
-              className="object-contain"
-            />
-          </div>
+              {affiliates.map((affiliate, index) => (
+                <motion.div
+                  key={affiliate.name}
+                  variants={itemVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="flex"
+                >
+                  <div className="w-full">
+                    <div className="bg-white hover:shadow-md rounded-xl p-6 cursor-pointer transition-all h-full flex flex-col items-center text-center">
+                      {/* Logo */}
+                      <div
+                        className={`${
+                          affiliate.name === "SMS Higher Education Group" ||
+                          affiliate.name === "Medicare Link"
+                            ? "w-40 h-28"
+                            : "w-32 h-24"
+                        } mb-4 relative flex items-center justify-center`}
+                      >
+                        <Image
+                          src={affiliate.logo}
+                          alt={`${affiliate.name} logo`}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
 
-          {/* Service */}
-          <p className="text-gray-600 text-justify mb-4">{affiliate.service}</p>
+                      {/* Service */}
+                      <p className="text-gray-600 text-justify mb-4">
+                        {affiliate.service}
+                      </p>
 
-          {/* Learn More Button */}
-          <a
-  href={affiliate.link}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="mt-auto inline-flex items-center gap-2 bg-watney-blue-primary text-white px-5 py-3 rounded-lg font-medium text-sm shadow-md hover:bg-watney-blue-dark hover:shadow-lg transition-all duration-300"
->
-  Learn More
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-4 w-4"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-  </svg>
-</a>
-
-        </div>
-      </div>
-    </motion.div>
-  ))}
-</div>
-
-
+                      {/* Learn More Button */}
+                      <Button  className="">
+                        <a
+                          href={affiliate.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 w-full"
+                        >
+                          Learn More
+                          <ArrowRight className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
