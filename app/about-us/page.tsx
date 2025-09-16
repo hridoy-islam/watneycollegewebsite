@@ -410,38 +410,29 @@ export default function AboutPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-20 bg-soft-sky text-center">
+         <section className="py-20  bg-soft-sky text-black text-center">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl  font-bold mb-6">
-                Ready to Begin Your Journey?
+              <h2 className="text-4xl font-bold mb-6">
+                Why Choose Watney College?
               </h2>
-              <p className="text-xl mb-8 text-gray-600 mx-auto">
-                Join a growing community of learners transforming their futures
-                with Watney College.
+              <p className="text-xl mb-8 text-gray-600">
+                With our strong partnerships and accreditations, you can trust
+                that you are receiving a world-class education.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  asChild
-                  className="btn-watney-primary flex items-center justify-center"
-                >
-                  <Link href="/courses">
-                    Explore Our Courses <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="btn-outline-watney flex items-center justify-center bg-transparent text-primary"
+                  variant="default"
+                  className="border-white bg-primary hover:bg-primary/90 text-white "
                   asChild
                 >
                   <Link href="/contact">
-                    Contact Admissions <Info className="w-4 h-4 ml-2" />
+                    Contact Us <Info className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
               </div>

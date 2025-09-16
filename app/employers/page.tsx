@@ -184,17 +184,17 @@ export default function AffiliatePage() {
                       </div>
 
                       {/* Service */}
-                      <p className="text-gray-600 text-justify mb-4">
+                      <p className="text-gray-600 text-justify mb-4 flex-grow">
                         {affiliate.service}
                       </p>
 
                       {/* Learn More Button */}
-                      <Button  className="">
+                      <Button asChild className="">
                         <a
                           href={affiliate.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 w-full"
+                          className="flex items-center gap-2"
                         >
                           Learn More
                           <ArrowRight className="h-4 w-4" />

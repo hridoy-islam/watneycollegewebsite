@@ -304,15 +304,15 @@ export default function page() {
                   href: "/accommodation",
                   delay: 0,
                 },
-                {
-                  title: "Student Finance",
-                  description:
-                    "Comprehensive guidance on tuition, scholarships, loans, and budget planning for UK Nationals and Settled persons.",
-                  icon: <Banknote className="w-6 h-6" />,
-                  href: "/student-finance",
-                  gradient: "from-green-500 to-emerald-600",
-                  delay: 0.1,
-                },
+                // {
+                //   title: "Student Finance",
+                //   description:
+                //     "Comprehensive guidance on tuition, scholarships, loans, and budget planning for UK Nationals and Settled persons.",
+                //   icon: <Banknote className="w-6 h-6" />,
+                //   href: "/student-finance",
+                //   gradient: "from-green-500 to-emerald-600",
+                //   delay: 0.1,
+                // },
                 {
                   title: "Career & Employability",
                   description:
