@@ -202,43 +202,8 @@ export default function AboutPage() {
 
         {/* Vision & Mission */}
         <section className="py-20 text-primary">
-          <div className="container mx-auto px-4">
-            {/* Mission Section */}
-            <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-              {/* Mission Images - Left */}
-              <div className="relative">
-                {/* Main large image */}
-                <div className="relative">
-                  <img
-                    src="/mission.jpg"
-                     alt="Watney College students engaging in classroom learning"
-                    className="w-full h-80 object-cover rounded-2xl shadow-lg"
-                  />
-                </div>
-                {/* Overlapping smaller image */}
-                <div className="absolute -bottom-6 -right-6 w-48 h-32">
-                  <img
-                    src="/mission1.jpg"
-                     alt="Group of students collaborating on a project"
-                    className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white"
-                  />
-                </div>
-              </div>
-
-              {/* Mission Content - Right */}
-              <div className="space-y-6">
-                <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                  Our Mission
-                </h2>
-                <p className="text-gray-600 leading-relaxed">
-                  At Watney College, we believe that education is the key to
-                  unlocking potential. Our mission is to empower individuals by
-                  delivering high-quality, accessible education that nurtures
-                  personal growth, cultivates critical thinking, and fosters
-                  lifelong learning.
-                </p>
-              </div>
-            </div>
+          <div className="container mx-auto px-4 space-y-8">
+           
 
             {/* Vision Section */}
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -275,6 +240,43 @@ export default function AboutPage() {
                     className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white"
                   />
                 </div>
+              </div>
+            </div>
+
+             {/* Mission Section */}
+            <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+              {/* Mission Images - Left */}
+              <div className="relative">
+                {/* Main large image */}
+                <div className="relative">
+                  <img
+                    src="/mission.jpg"
+                     alt="Watney College students engaging in classroom learning"
+                    className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                  />
+                </div>
+                {/* Overlapping smaller image */}
+                <div className="absolute -bottom-6 -right-6 w-48 h-32">
+                  <img
+                    src="/mission1.jpg"
+                     alt="Group of students collaborating on a project"
+                    className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white"
+                  />
+                </div>
+              </div>
+
+              {/* Mission Content - Right */}
+              <div className="space-y-6">
+                <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                  Our Mission
+                </h2>
+                <p className="text-gray-600 leading-relaxed">
+                  At Watney College, we believe that education is the key to
+                  unlocking potential. Our mission is to empower individuals by
+                  delivering high-quality, accessible education that nurtures
+                  personal growth, cultivates critical thinking, and fosters
+                  lifelong learning.
+                </p>
               </div>
             </div>
           </div>
@@ -373,11 +375,11 @@ export default function AboutPage() {
                 {
                   icon: <Star className="w-6 h-6" />,
                   title: "High Success Rate",
-                  desc: "98% of our graduates achieve their academic or career goals.",
+                  desc: "98% of our students achieve their academic or career goals.",
                 },
                 {
                   icon: <GraduationCap className="w-6 h-6" />,
-                  title: "Pathways to Degrees",
+                  title: "Progress to Degrees",
                   desc: "Progress to bachelor's and master's programs through university links.",
                 },
               ].map((feature, index) => (

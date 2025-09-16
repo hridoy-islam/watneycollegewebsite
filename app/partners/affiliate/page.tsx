@@ -65,42 +65,42 @@ const affiliates = [
     service:
       "SMS Higher Education Group (SMS HEG) has extensive experience supporting students who aspire to study in the UK. Collaborating with a wide network of institutions offering diverse courses, the organisation focuses on a student-first approach that shapes its role as a trusted education consultancy.",
     logo: "/affiliates/sms.png",
-    link: "#",
+    link: "https://smsheg.co.uk/",
   },
-  {
-    name: "IEEUK",
-    service:
-      "International Education Exchange (IEE) works with leading UK colleges and universities to place the right people in the right opportunities, both locally and internationally. The organisation values openness, with friendly service at its core, and is committed to building strong, effective relationships with all stakeholders and partners. IEE has supported students across Europe in achieving British degrees.",
-    logo: "/affiliates/icare.png",
-    link: "#",
-  },
+  // {
+  //   name: "IEEUK",
+  //   service:
+  //     "International Education Exchange (IEE) works with leading UK colleges and universities to place the right people in the right opportunities, both locally and internationally. The organisation values openness, with friendly service at its core, and is committed to building strong, effective relationships with all stakeholders and partners. IEE has supported students across Europe in achieving British degrees.",
+  //   logo: "/affiliates/icare.png",
+  //   link: "https://ieeuk.com/",
+  // },
   {
     name: "Medicare",
     service:
       "Medicare Training delivers accredited, flexible courses for individuals and organisations in health and social care. Through workshops, virtual classrooms, and online learning, the organisation provides engaging, compliant training on topics such as medicine administration, safeguarding, infection control, and equality. With expert tutors and accessible formats, Medicare Training has supported hundreds of learners in gaining essential qualifications.",
     logo: "/affiliates/medicare.png",
-    link: "#",
+    link: "https://medicaretraining.co.uk/",
   },
   {
     name: "Care Square",
     service:
       "Care Square provides supported living and care services for adults with mental health conditions and learning disabilities. Services range from 24-hour supported accommodation to community-based support, delivered with a focus on individual needs and long-term independence.",
     logo: "/affiliates/caresquare.png",
-    link: "#",
+    link: "https://caresquare.org.uk/",
   },
   {
     name: "Medicare Link",
     service:
       "Medicare Link provides domiciliary care, live-in support, dementia care, companionship, and domestic cleaning services. The organisation also offers healthcare staffing solutions, with care plans arranged in consultation with clients and their families.",
     logo: "/affiliates/medicare-link.png",
-    link: "#",
+    link: "https://everycare.co.uk/romford/",
   },
   {
     name: "Everycare Romford",
     service:
       "Everycare Romford provides home care services and healthcare staffing across Romford and surrounding areas, including Newham and Tower Hamlets. Services include personal care, companionship, dementia and palliative support, physical disability assistance, and long-term critical illness care. The organisation delivers tailored, person-centred care using qualified health and social care staff, with flexible packages designed to meet individual needs. It is CQC-registered and operates under Everycare UK’s established care network.",
     logo: "/affiliates/everycare.png",
-    link: "#",
+    link: "https://medicarelink.co.uk/",
   },
 ];
 
@@ -108,7 +108,6 @@ export default function AffiliatePage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative">
-      
         {/* Hero Section */}
         <section className=" relative bg-ocean-breeze py-20 text-white">
           <div className="container mx-auto px-4">
@@ -155,47 +154,65 @@ export default function AffiliatePage() {
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {affiliates.map((affiliate, index) => (
-                <motion.div
-                  key={affiliate.name}
-                  variants={itemVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex"
-                >
-                  <div  className="w-full">
-                    <div className="bg-white hover:shadow-md rounded-xl p-6 cursor-pointer transition-all h-full flex flex-col items-center text-center">
-                      {/* Logo */}
-                      <div
-                        className={`${
-                          affiliate.name === "SMS Higher Education Group" ||
-                          affiliate.name === "Medicare Link"
-                            ? "w-40 h-28" // 🔥 slightly larger than others
-                            : "w-32 h-24"
-                        } mb-4 relative flex items-center justify-center`}
-                      >
-                        <Image
-                          src={affiliate.logo}
-                          alt={`${affiliate.name} logo`}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
+  {affiliates.map((affiliate, index) => (
+    <motion.div
+      key={affiliate.name}
+      variants={itemVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      className="flex"
+    >
+      <div className="w-full">
+        <div className="bg-white hover:shadow-md rounded-xl p-6 cursor-pointer transition-all h-full flex flex-col items-center text-center">
+          {/* Logo */}
+          <div
+            className={`${
+              affiliate.name === "SMS Higher Education Group" ||
+              affiliate.name === "Medicare Link"
+                ? "w-40 h-28"
+                : "w-32 h-24"
+            } mb-4 relative flex items-center justify-center`}
+          >
+            <Image
+              src={affiliate.logo}
+              alt={`${affiliate.name} logo`}
+              fill
+              className="object-contain"
+            />
+          </div>
 
-                      {/* Name */}
-                      <h3 className="text-xl font-bold text-watney-blue-primary mb-2">
-                        {affiliate.name}
-                      </h3>
+          {/* Service */}
+          <p className="text-gray-600 text-justify mb-4">{affiliate.service}</p>
 
-                      {/* Service */}
-                      <p className="text-gray-600 text-justify">{affiliate.service}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          {/* Learn More Button */}
+          <a
+  href={affiliate.link}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-auto inline-flex items-center gap-2 bg-watney-blue-primary text-white px-5 py-3 rounded-lg font-medium text-sm shadow-md hover:bg-watney-blue-dark hover:shadow-lg transition-all duration-300"
+>
+  Learn More
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-4 w-4"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+  </svg>
+</a>
+
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</div>
+
+
           </div>
         </section>
 

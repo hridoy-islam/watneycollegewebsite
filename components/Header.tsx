@@ -17,9 +17,10 @@ export default function Header() {
       name: "Partners",
       subItems: [
         { name: "Employees", path: "/partners/affiliate" },
-        { name: "Accreditations", path: "/partners/accreditations" },
       ],
     },
+            { name: "Accreditations", path: "/accreditations" },
+
     { name: "Contact", path: "/contact" },
   ];
 
@@ -113,7 +114,15 @@ export default function Header() {
         </nav>
 
         {/* "Apply Now" Button for Desktop */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block space-x-4">
+          <a
+  href="https://system.klaspad.com/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button className="btn-watney-primary">VLE</Button>
+</a>
+
           <Link href="/courses">
             <Button className="btn-watney-primary ">Apply Now</Button>
           </Link>
