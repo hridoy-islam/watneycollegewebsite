@@ -23,17 +23,18 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { courses } from "@/app/courses/data/courseData";
+import AdultCareDiplomaTabs from "../components/AdultCareDiplomaTabs";
 
 export default function CourseDetailPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const params = useParams();
   const slug = params?.slug as string;
-
   // Now you can use 'slug' to find your course:
   const course = courses.find((c) => c.slug === slug);
-
+  
   const [activeTab, setActiveTab] = useState("overview");
+  const isAdultCareDiploma = course?.slug === "level-4-diploma-in-adult-care";
 
   if (!course) {
     return (
@@ -141,118 +142,117 @@ export default function CourseDetailPage() {
 
             {/* Tabs Section */}
             <div className="bg-white rounded-2xl shadow-lg">
-              <Tabs
-                value={activeTab}
-                onValueChange={setActiveTab}
-                className="w-full"
-              >
-                <TabsList className="grid w-full grid-cols-4 bg-primary p-1">
-                  <TabsTrigger
-                    value="overview"
-                    className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
-                  >
-                    <Book className="w-4 h-4 mr-2" />
-                    Overview
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="curriculum"
-                    className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
-                  >
-                    Programme Information
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="requirements"
-                    className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
-                  >
-                    Entry Requirement
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="career"
-                    className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
-                  >
-                    Programme Structure
-                  </TabsTrigger>
-                </TabsList>
+             <Tabs
+  value={activeTab}
+  onValueChange={setActiveTab}
+  className="w-full"
+>
+  <TabsList className="grid w-full grid-cols-4 bg-primary p-1">
+    <TabsTrigger
+      value="overview"
+      className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
+    >
+      <Book className="w-4 h-4 mr-2" />
+      Overview
+    </TabsTrigger>
+    <TabsTrigger
+      value="curriculum"
+      className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
+    >
+      Programme Information
+    </TabsTrigger>
+    <TabsTrigger
+      value="requirements"
+      className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
+    >
+      Entry Requirement
+    </TabsTrigger>
+    <TabsTrigger
+      value="career"
+      className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
+    >
+      Programme Structure
+    </TabsTrigger>
+  </TabsList>
 
-                <div className="p-6 lg:p-8">
-                  {/* === Overview Tab === */}
-                  <TabsContent value="overview" className="space-y-6">
-                    <h3 className="text-2xl font-bold text-gray-900">
-                      Course Overview
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed whitespace-pre-line">
-                      {course.overview}
-                    </p>
+  <div className="p-6 lg:p-8">
+    {isAdultCareDiploma ? (
+      <AdultCareDiplomaTabs />
+    ) : (
+      <>
+        {/* === Original Dynamic Tabs for Other Courses === */}
+        <TabsContent value="overview" className="space-y-6">
+          <h3 className="text-2xl font-bold text-gray-900">Course Overview</h3>
+          <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+            {course.overview}
+          </p>
 
-                    <div>
-                      <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                        Key Features
-                      </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {course.tags.map((tag, idx) => (
-                          <div key={idx} className="flex items-start space-x-3">
-                            <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                            <span className="text-gray-600">{tag}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </TabsContent>
-
-                  {/* === Curriculum Tab === */}
-                  <TabsContent value="curriculum" className="space-y-6">
-                    <h3 className="text-2xl font-bold text-gray-900">
-                      Programme Information
-                    </h3>
-                    <p className="text-gray-600">
-                      This course includes the following units and assessments:
-                    </p>
-                    <ul className="space-y-3 mt-4">
-                      {course.curriculum.map((item, index) => (
-                        <li key={index} className="bg-gray-50 p-4 rounded-lg">
-                          <p className="text-gray-800">{item}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </TabsContent>
-
-                  {/* === Requirements Tab === */}
-                  <TabsContent value="requirements" className="space-y-6">
-                    <h3 className="text-2xl font-bold text-gray-900">
-                      Requirements
-                    </h3>
-                    <ul className="space-y-2 text-gray-600">
-                      {course.requirements.map((req, index) => (
-                        <li key={index} className="flex items-start space-x-2">
-                          <span className="text-primary ">•</span>
-                          <span>{req}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </TabsContent>
-
-                  {/* === Career Tab === */}
-                  <TabsContent value="career" className="space-y-6">
-                    <h3 className="text-2xl font-bold text-gray-900">
-                      Programme Structure
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Successful graduates are well-prepared for a variety of
-                      professional roles, including:
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                      {course.career.map((role, index) => (
-                        <div
-                          key={index}
-                          className="bg-white shadow-sm border border-gray-200 p-4 rounded-lg text-center hover:shadow-md transition"
-                        >
-                          <p className="font-semibold text-gray-800">{role}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </TabsContent>
+          <div>
+            <h4 className="text-xl font-semibold text-gray-900 mb-4">
+              Key Features
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {course.tags.map((tag, idx) => (
+                <div key={idx} className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                  <span className="text-gray-600">{tag}</span>
                 </div>
-              </Tabs>
+              ))}
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="curriculum" className="space-y-6">
+          <h3 className="text-2xl font-bold text-gray-900">
+            Programme Information
+          </h3>
+          <p className="text-gray-600">
+            This course includes the following units and assessments:
+          </p>
+          <ul className="space-y-3 mt-4">
+            {course.curriculum.map((item, index) => (
+              <li key={index} className="bg-gray-50 p-4 rounded-lg">
+                <p className="text-gray-800">{item}</p>
+              </li>
+            ))}
+          </ul>
+        </TabsContent>
+
+        <TabsContent value="requirements" className="space-y-6">
+          <h3 className="text-2xl font-bold text-gray-900">Requirements</h3>
+          <ul className="space-y-2 text-gray-600">
+            {course.requirements.map((req, index) => (
+              <li key={index} className="flex items-start space-x-2">
+                <span className="text-primary">•</span>
+                <span>{req}</span>
+              </li>
+            ))}
+          </ul>
+        </TabsContent>
+
+        <TabsContent value="career" className="space-y-6">
+          <h3 className="text-2xl font-bold text-gray-900">
+            Programme Structure
+          </h3>
+          <p className="text-gray-700 leading-relaxed">
+            Successful graduates are well-prepared for a variety of
+            professional roles, including:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            {course.career.map((role, index) => (
+              <div
+                key={index}
+                className="bg-white shadow-sm border border-gray-200 p-4 rounded-lg text-center hover:shadow-md transition"
+              >
+                <p className="font-semibold text-gray-800">{role}</p>
+              </div>
+            ))}
+          </div>
+        </TabsContent>
+      </>
+    )}
+  </div>
+</Tabs>
             </div>
           </div>
 
@@ -345,11 +345,3 @@ export default function CourseDetailPage() {
   );
 }
 
-// Helper to get dynamic route ID in App Router
-function useRouteId() {
-  const pathname = usePathname();
-  return pathname.split("/").pop();
-}
-
-// You'll need to define this if not using useRouter
-import { usePathname } from "next/navigation";

@@ -107,9 +107,9 @@ const affiliates = [
 export default function AffiliatePage() {
   return (
     <div className="min-h-screen bg-white">
-      <div className="relative">
-          <div className="absolute right-0 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
-        <div className="absolute left-0  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
+      <div className="relative overflow-hidden">
+          <div className="absolute left-64 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none z-10"></div>
+        <div className="absolute right-64  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180  z-10"></div>
         {/* Hero Section */}
         <section className=" relative bg-ocean-breeze py-20 text-white">
           <div className="container mx-auto px-4">
@@ -155,7 +155,7 @@ export default function AffiliatePage() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 z-50">
               {affiliates.map((affiliate, index) => (
                 <motion.div
                   key={affiliate.name}
@@ -164,7 +164,7 @@ export default function AffiliatePage() {
                   whileInView="visible"
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex"
+                  className="flex z-50"
                 >
                   <div className="w-full">
                     <div className="bg-white hover:shadow-md rounded-xl p-6 cursor-pointer transition-all h-full flex flex-col items-center text-center">
