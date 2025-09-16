@@ -22,6 +22,7 @@ import {
   ArrowRight,
   Info,
   Handshake,
+  BookCheck,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -167,13 +168,32 @@ export default function AccreditationPage() {
             >
               <CardHeader>
                 <CardTitle className="flex items-center text-xl text-watney-blue-primary">
-                  <BookOpen className="w-6 h-6 mr-2" /> Focus Award
+                  <BookCheck className="w-6 h-6 mr-2" /> Focus Award
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-lg">
                   Focus Award is a prestigious recognition for institutions that
                   excel in student support and career readiness.
+                </CardDescription>
+              </CardContent>
+            </motion.div>
+
+            {/* Accreditation Card 5 */}
+            <motion.div
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              className="border border-gray-100 rounded-lg p-6 bg-white hover:shadow-sm"
+            >
+              <CardHeader>
+                <CardTitle className="flex items-center text-xl text-watney-blue-primary">
+                  <BookOpen className="w-6 h-6 mr-2" /> Nqual
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-lg">
+                  NQual provide high quality qualifications and assessments designed to meet the needs of learners and help them to achieve their potential, both professionally and personally.
                 </CardDescription>
               </CardContent>
             </motion.div>
