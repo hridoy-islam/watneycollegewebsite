@@ -64,8 +64,8 @@ export default function AccreditationPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative overflow-hidden">
-        <div className="absolute right-32 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
-        <div className="absolute left-32  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
+        <div className="absolute right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
         {/* Header Section */}
         <section className="relative bg-ocean-breeze py-20 text-white">
           <div className="container mx-auto px-4">
@@ -153,20 +153,20 @@ export default function AccreditationPage() {
                     className="flex flex-col bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 w-full h-full"
                   >
                     {/* Logo */}
-                   <div className="mb-4 flex items-center justify-center">
-  <div
-    className={`relative ${
-      acc.title === "ESB" ? "w-64 h-28" : "w-32 h-20"
-    }`}
-  >
-    <Image
-      src={acc.logo}
-      alt={`${acc.title} logo`}
-      fill
-      className="object-contain"
-    />
-  </div>
-</div>
+                    <div className="mb-4 flex items-center justify-center">
+                      <div
+                        className={`relative ${
+                          acc.title === "ESB" ? "w-64 h-28" : "w-32 h-20"
+                        }`}
+                      >
+                        <Image
+                          src={acc.logo}
+                          alt={`${acc.title} logo`}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
 
                     {/* Title */}
                     {/* <CardHeader>

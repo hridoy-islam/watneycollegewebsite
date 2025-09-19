@@ -26,8 +26,8 @@ export default function ProspectusPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative overflow-hidden">
-        <div className="absolute right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
-        <div className="absolute left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
+        <div className="absolute right-80 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute left-80  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
         {/* Hero Section */}
         <section className="relative bg-ocean-breeze py-24 text-white ">
           <div className="container mx-auto px-6 text-center z-50">

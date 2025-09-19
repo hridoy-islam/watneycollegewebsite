@@ -254,8 +254,8 @@ export default function page() {
         {/* Essential Resources Section */}
         <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden z-0">
 
-          <div className="absolute -left-52 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
-          <div className="absolute -right-44 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none  z-0"></div>
+          <div className="absolute -left-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
+          <div className="absolute -right-64 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none  z-0"></div>
 
           <div className="container mx-auto px-4 relative z-10">
             {/* Header */}
@@ -375,7 +375,7 @@ export default function page() {
         {/* Services Section */}
         <section className=" relative py-20 bg-watney-blue-primary/5 overflow-hidden">
           <div className="absolute right-80 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
-         <div className="absolute left-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-0"></div>
+         <div className="absolute left-80 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-0"></div>
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
@@ -528,8 +528,8 @@ export default function page() {
         {/* CTA Section */}
         <section className=" relative py-20 bg-soft-sky">
         
-          <div className="absolute left-28  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
-          <div className="absolute right-56 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
+          <div className="absolute left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
+          <div className="absolute right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl font-bold text-black mb-6">
               Ready to Start Your{" "}
@@ -562,8 +562,8 @@ export default function page() {
         </section>
         {/* Why Choose Us Section */}
         <section className=" relative py-20 bg-watney-blue-primary/5 ">
-         <div className="absolute left-36  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
-          <div className="absolute right-52 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
+         <div className="absolute left-80  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
+          <div className="absolute right-80 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
 
           <div className="container mx-auto px-4 z-10 relative">
             {/* Header */}
@@ -630,8 +630,8 @@ export default function page() {
         </section>
 
         <section className=" relative py-20 bg-white">
-           <div className="absolute left-48  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
-          <div className="absolute right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
+           <div className="absolute left-80  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
+          <div className="absolute right-80 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
           <div className="container mx-auto px-4 z-10 relative">
             {/* Header */}
             <motion.div
@@ -811,8 +811,8 @@ export default function page() {
 
         {/* Student Engagement Section */}
         <section className="py-20 relative bg-watney-blue-primary/5">
-          <div className="absolute -left-52  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180   z-0"></div>
-          <div className="absolute -right-20 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
+          <div className="absolute -left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180   z-0"></div>
+          <div className="absolute -right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
           <div className="container mx-auto px-4">
             {/* Header */}
             <motion.div
@@ -978,8 +978,8 @@ export default function page() {
         </section>
         {/* Testimonials Section */}
         <section className="py-20 relative bg-watney-blue-primary/5">
-            <div className="absolute -left-48  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180   z-0"></div>
-          <div className="absolute -right-8 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
+            <div className="absolute -left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180   z-0"></div>
+          <div className="absolute -right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
           <div className="container mx-auto px-4 z-10 relative">
             <div className="text-center mb-16">
               {/* <Badge className="mb-4">Student Success Stories</Badge> */}

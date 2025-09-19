@@ -108,8 +108,8 @@ export default function AffiliatePage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative overflow-hidden">
-          <div className="absolute left-64 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none z-10"></div>
-        <div className="absolute right-64  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180  z-10"></div>
+          <div className="absolute right-96 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180  z-10"></div>
+        <div className="absolute left-96  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none  z-10"></div>
         {/* Hero Section */}
         <section className=" relative bg-ocean-breeze py-20 text-white">
           <div className="container mx-auto px-4">

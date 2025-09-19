@@ -180,8 +180,8 @@ export default function CareerEmployabilityPage() {
       <div className="relative overflow-hidden">
        
 
-         <div className="absolute right-0 top-0 h-full w-full  bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
-        <div className="absolute left-8  top-0 h-full w-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
+         <div className="absolute right-96 top-0 h-full w-full  bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute left-96  top-0 h-full w-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-0  z-10"></div>
   
         <section className="relative bg-ocean-breeze py-20">
           <div className="container mx-auto px-4">
