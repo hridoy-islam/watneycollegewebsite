@@ -61,17 +61,13 @@ const iconVariants = {
   },
 };
 
-
-
 export default function AboutPage() {
-  
-
   return (
     <div className="min-h-screen bg-white">
       <div className="relative overflow-hidden ">
         <div className="absolute right-96 top-0 w-screen h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180 z-10"></div>
         <div className="absolute left-96 top-0 w-screen h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-0  z-10"></div>
-        
+
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <BookOpen className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
@@ -111,11 +107,15 @@ export default function AboutPage() {
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Watney College is a progressive institution dedicated to
-                  providing exceptional education and training opportunities
-                  that empower students to thrive in their chosen careers.
-                  Located in the heart of London, we aim to deliver a
-                  transformative learning experience that combines academic
-                  rigor with practical skills to meet the demands of a rapidly
+                  delivering positive outcomes for students through exceptional
+                  education and training opportunities at both Further and
+                  Higher Education levels. Our mission is to empower students to
+                  thrive in their chosen careers while meeting the needs of
+                  local employers. Located in the heart of London, we offer
+                  excellent teaching across a diverse range of higher education
+                  programmes. We are committed to providing a transformative
+                  learning experience that combines academic rigor with
+                  practical skills, preparing students to succeed in a rapidly
                   evolving global workforce.
                 </p>
               </div>
@@ -205,8 +205,6 @@ export default function AboutPage() {
         {/* Vision & Mission */}
         <section className="py-20 text-primary">
           <div className="container mx-auto px-4 space-y-8">
-           
-
             {/* Vision Section */}
             <div className="grid lg:grid-cols-2 gap-16 items-center z-50">
               {/* Vision Content - Left */}
@@ -215,12 +213,10 @@ export default function AboutPage() {
                   Our Vision
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  We aspire to become a leading higher education provider in
-                  London, recognized for our student-centered approach and
-                  innovative teaching methods. Through partnerships with
-                  reputable universities, we aim to offer accredited degree
-                  pathways and advanced professional qualifications that prepare
-                  our students for success in a competitive global economy.
+                  Our vision is for an integrated employment and skills system
+                  for the region, through which we can stimulate economic
+                  growth, deliver better outcomes for residents and businesses,
+                  and create healthier thriving communities.
                 </p>
               </div>
 
@@ -245,7 +241,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-             {/* Mission Section */}
+            {/* Mission Section */}
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
               {/* Mission Images - Left */}
               <div className="relative">
@@ -253,7 +249,7 @@ export default function AboutPage() {
                 <div className="relative">
                   <img
                     src="/mission.jpg"
-                     alt="Watney College students engaging in classroom learning"
+                    alt="Watney College students engaging in classroom learning"
                     className="w-full h-80 object-cover rounded-2xl shadow-lg"
                   />
                 </div>
@@ -261,7 +257,7 @@ export default function AboutPage() {
                 <div className="absolute -bottom-6 -right-6 w-48 h-32">
                   <img
                     src="/mission1.jpg"
-                     alt="Group of students collaborating on a project"
+                    alt="Group of students collaborating on a project"
                     className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white"
                   />
                 </div>
@@ -273,13 +269,61 @@ export default function AboutPage() {
                   Our Mission
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  At Watney College, we believe that education is the key to
-                  unlocking potential. Our mission is to empower individuals by
-                  delivering high-quality, accessible education that nurtures
-                  personal growth, cultivates critical thinking, and fosters
-                  lifelong learning.
+                  To empower individuals through high-quality, accessible
+                  education that promotes personal growth, cultivates critical
+                  thinking, and inspires lifelong learning.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+          <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                Our <span className="text-watney-blue-primary">Objectives</span>
+              </h2>
+              <p className="text-xl text-gray-600 mx-auto max-w-3xl">
+                Guiding our mission to deliver high-quality, employer-aligned
+                education in line with UK Higher Education standards.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                "To be a recognized Institution to provide Higher Education as per the UK Higher Education regulator expected standards.",
+                "Offer programmes that address employer and economic needs by delivering targeted interventions to meet short to medium-term demand.",
+                "Deliver flexible short training programmes to employers based on sector 'in-demand' skills needs.",
+                "Build strong and inclusive communities to support local residents into employment and career progression.",
+                "Encourage collaboration between providers, employers, and stakeholders to create a cohesive approach to skills development and employment support.",
+              ].map((objective, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  initial="hidden"
+                  className="z-[50]"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-50px" }}
+                >
+                  <Card className="h-full border border-gray-200 hover:shadow-md transition-shadow ">
+                    <CardContent className="pt-6 pb-6 px-5">
+                      <div className="flex items-start gap-4">
+                        <div className="mt-1 flex-shrink-0">
+                          <CheckCircle className="w-5 h-5 text-watney-blue-primary" />
+                        </div>
+                        <p className="text-gray-700 leading-relaxed">
+                          {objective}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -332,7 +376,7 @@ export default function AboutPage() {
             </motion.div>
           </div>
         </section>
-
+      
         {/* Why Choose Us */}
         <section className="py-20 ">
           <div className="container text-white ">
@@ -413,7 +457,7 @@ export default function AboutPage() {
         </section>
 
         {/* Final CTA */}
-         <section className="py-20  bg-soft-sky text-black text-center">
+        <section className="py-20  bg-soft-sky text-black text-center">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

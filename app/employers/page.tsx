@@ -60,13 +60,13 @@ const iconVariants = {
 };
 
 const affiliates = [
-  {
-    name: "SMS Higher Education Group",
-    service:
-      "SMS Higher Education Group (SMS HEG) has extensive experience supporting students who aspire to study in the UK. Collaborating with a wide network of institutions offering diverse courses, the organisation focuses on a student-first approach that shapes its role as a trusted education consultancy.",
-    logo: "/affiliates/sms.png",
-    link: "https://smsheg.co.uk/",
-  },
+  // {
+  //   name: "SMS Higher Education Group",
+  //   service:
+  //     "SMS Higher Education Group (SMS HEG) has extensive experience supporting students who aspire to study in the UK. Collaborating with a wide network of institutions offering diverse courses, the organisation focuses on a student-first approach that shapes its role as a trusted education consultancy.",
+  //   logo: "/affiliates/sms.png",
+  //   link: "https://smsheg.co.uk/",
+  // },
   // {
   //   name: "IEEUK",
   //   service:
@@ -74,33 +74,33 @@ const affiliates = [
   //   logo: "/affiliates/icare.png",
   //   link: "https://ieeuk.com/",
   // },
-  {
-    name: "Medicare",
-    service:
-      "Medicare Training delivers accredited, flexible courses for individuals and organisations in health and social care. Through workshops, virtual classrooms, and online learning, the organisation provides engaging, compliant training on topics such as medicine administration, safeguarding, infection control, and equality. With expert tutors and accessible formats, Medicare Training has supported hundreds of learners in gaining essential qualifications.",
-    logo: "/affiliates/medicare.png",
-    link: "https://medicaretraining.co.uk/",
-  },
+  // {
+  //   name: "Medicare",
+  //   service:
+  //     "Medicare Training delivers accredited, flexible courses for individuals and organisations in health and social care. Through workshops, virtual classrooms, and online learning, the organisation provides engaging, compliant training on topics such as medicine administration, safeguarding, infection control, and equality. With expert tutors and accessible formats, Medicare Training has supported hundreds of learners in gaining essential qualifications.",
+  //   logo: "/affiliates/medicare.png",
+  //   link: "https://medicaretraining.co.uk/",
+  // },
   {
     name: "Care Square",
     service:
-      "Care Square provides supported living and care services for adults with mental health conditions and learning disabilities. Services range from 24-hour supported accommodation to community-based support, delivered with a focus on individual needs and long-term independence.",
+      "Care Square is delighted to collaborate with residents of London Borough of Barking and Dagenham, Havering, Redbridge, Tower Hamlet and Newham to deliver supported living for the people in need.",
     logo: "/affiliates/caresquare.png",
     link: "https://caresquare.org.uk/",
   },
   {
     name: "Medicare Link",
     service:
-      "Medicare Link provides domiciliary care, live-in support, dementia care, companionship, and domestic cleaning services. The organisation also offers healthcare staffing solutions, with care plans arranged in consultation with clients and their families.",
+      "Established in 1993, Everycare provides home care support to individuals allowing them to remain in the comfort and familiar surroundings of their own home.",
     logo: "/affiliates/medicare-link.png",
-    link: "https://everycare.co.uk/romford/",
+    link: "https://medicarelink.co.uk/",
   },
   {
     name: "Everycare Romford",
     service:
-      "Everycare Romford provides home care services and healthcare staffing across Romford and surrounding areas, including Newham and Tower Hamlets. Services include personal care, companionship, dementia and palliative support, physical disability assistance, and long-term critical illness care. The organisation delivers tailored, person-centred care using qualified health and social care staff, with flexible packages designed to meet individual needs. It is CQC-registered and operates under Everycare UK’s established care network.",
+      "We believe that the elders in any society are the most precious members of our community. They have endured world wars and have the most life experiences that we can only learn from, hence they should be given the respect they deserve, with a person-centered approach that focuses on the individual and their own distinctive personality.",
     logo: "/affiliates/everycare.png",
-    link: "https://medicarelink.co.uk/",
+    link: "https://everycare.co.uk/romford/",
   },
 ];
 
@@ -226,7 +226,7 @@ export default function AffiliatePage() {
                 students and professionals.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
+                {/* <Button
                   size="lg"
                   asChild
                   className="bg-primary text-white hover:bg-primary"
@@ -234,7 +234,7 @@ export default function AffiliatePage() {
                   <Link href="/become-an-affiliate">
                     Learn More <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
-                </Button>
+                </Button> */}
                 <Button
                   size="lg"
                   variant="outline"
