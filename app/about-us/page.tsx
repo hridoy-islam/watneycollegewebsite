@@ -100,9 +100,9 @@ export default function AboutPage() {
                   Who We Are
                 </Badge>
                 <h2 className="text-4xl  font-bold mb-6">
-                  Empowering Futures{" "}
+                  About
                   <span className="text-gradient-watney">
-                    Through Education
+                    Us
                   </span>
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
