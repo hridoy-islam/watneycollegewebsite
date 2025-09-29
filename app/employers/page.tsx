@@ -111,28 +111,20 @@ export default function AffiliatePage() {
           <div className="absolute right-96 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180  z-10"></div>
         <div className="absolute left-96  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none  z-10"></div>
         {/* Hero Section */}
-        <section className=" relative bg-ocean-breeze py-20 text-white">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users className="w-8 h-8 text-watney-blue-primary" />
-              </div>
-              <h1 className="text-4xl text-black md:text-5xl lg:text-6xl font-bold mb-6">
-                Partner with{" "}
-                <span className="text-watney-blue-primary">Watney College</span>
-              </h1>
-              <p className="text-lg mb-8 text-gray-600  mx-auto leading-relaxed">
-                Join our network of trusted partners and help us empower
-                students across London and beyond.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+       <section className="relative py-20 bg-ocean-breeze overflow-hidden">
+  <div className="container mx-auto px-4 relative z-10 text-center">
+    <Users className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
+    <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+      Partner with{" "}
+      <span className="text-watney-blue-primary">Watney College</span>
+    </h1>
+    <p className="text-lg text-gray-600 leading-relaxed mx-auto">
+      Join our network of trusted partners and help us empower students
+      across London and beyond.
+    </p>
+  </div>
+</section>
+
 
         <section id="affiliates" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
