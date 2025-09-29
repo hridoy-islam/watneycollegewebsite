@@ -14,6 +14,7 @@ export default function Header() {
     { name: "About Us", path: "/about-us" },
     { name: "Courses", path: "/courses" },
     { name: "Employers", path: "/employers" },
+    { name: "Partners ", path: "#" },
    
     { name: "Accreditations", path: "/accreditations" },
 

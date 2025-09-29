@@ -155,7 +155,7 @@ export default function AffiliatePage() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 z-50">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 z-50">
               {affiliates.map((affiliate, index) => (
                 <motion.div
                   key={affiliate.name}
@@ -198,7 +198,7 @@ export default function AffiliatePage() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-2"
                         >
-                          Learn More
+                          Read More
                           <ArrowRight className="h-4 w-4" />
                         </a>
                       </Button>
@@ -211,7 +211,7 @@ export default function AffiliatePage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-soft-sky text-white text-center">
+        {/* <section className="py-20 bg-soft-sky text-white text-center">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -226,15 +226,7 @@ export default function AffiliatePage() {
                 students and professionals.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                {/* <Button
-                  size="lg"
-                  asChild
-                  className="bg-primary text-white hover:bg-primary"
-                >
-                  <Link href="/become-an-affiliate">
-                    Learn More <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button> */}
+              
                 <Button
                   size="lg"
                   variant="outline"
@@ -248,7 +240,7 @@ export default function AffiliatePage() {
               </div>
             </motion.div>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   );
