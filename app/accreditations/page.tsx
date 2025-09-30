@@ -64,13 +64,13 @@ export default function AccreditationPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative overflow-hidden">
-        <div className="absolute right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
-        <div className="absolute left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
+        <div className="absolute right-[290px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute left-[294px]  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
         {/* Header Section */}
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
   <div className="container mx-auto px-4 relative z-10 text-center">
     <Handshake className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-    <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+            <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
     
       <span className="text-watney-blue-primary">Accreditations</span>
     </h1>
@@ -176,7 +176,7 @@ export default function AccreditationPage() {
                     {/* Learn More Button */}
                     <div className="mt-4 flex justify-center">
                       <Button>
-                        Learn More
+                        Read More
                         <ArrowRight className="h-4 w-4" />
                       </Button>
                     </div>

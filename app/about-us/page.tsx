@@ -65,8 +65,8 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative overflow-hidden ">
-        <div className="absolute right-96 top-0 w-screen h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180 z-10"></div>
-        <div className="absolute left-96 top-0 w-screen h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-0  z-10"></div>
+        <div className="absolute right-[350px]  w-screen h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute left-[350px] top-0 w-screen h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-0  z-10"></div>
 
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">

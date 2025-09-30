@@ -108,23 +108,22 @@ export default function AffiliatePage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative overflow-hidden">
-          <div className="absolute right-96 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180  z-10"></div>
-        <div className="absolute left-96  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none  z-10"></div>
+       <div className="absolute right-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute left-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
         {/* Hero Section */}
-       <section className="relative py-20 bg-ocean-breeze overflow-hidden">
-  <div className="container mx-auto px-4 relative z-10 text-center">
-    <Users className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-    <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
-      Partner with{" "}
-      <span className="text-watney-blue-primary">Watney College</span>
-    </h1>
-    <p className="text-lg text-gray-600 leading-relaxed mx-auto">
-      Join our network of trusted partners and help us empower students
-      across London and beyond.
-    </p>
-  </div>
-</section>
-
+        <section className="relative py-20 bg-ocean-breeze overflow-hidden">
+          <div className="container mx-auto px-4 relative z-10 text-center">
+            <Users className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
+            <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+              Partner with{" "}
+              <span className="text-watney-blue-primary">Watney College</span>
+            </h1>
+            <p className="text-lg text-gray-600 leading-relaxed mx-auto">
+              Join our network of trusted partners and help us empower students
+              across London and beyond.
+            </p>
+          </div>
+        </section>
 
         <section id="affiliates" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
