@@ -127,6 +127,13 @@ export default function AccreditationPage() {
                   description:
                     "NQual provides high-quality qualifications and assessments designed to meet the needs of learners and help them achieve their potential, both professionally and personally.",
                 },
+                {
+                  title: "ATHE",
+                  logo: "/SVG.svg",
+                  link: "https://athe.co.uk",
+                  description:
+                    "ATHE is a global awarding organisation regulated by Ofqual and other UK and international regulators since 2011. Working with 220 centres in over 35 countries to complement our strong brand presence in the UK.",
+                },
               ].map((acc, index) => (
                 <motion.div
                   key={acc.title}

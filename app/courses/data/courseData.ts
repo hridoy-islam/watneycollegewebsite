@@ -289,7 +289,7 @@ export const courses = [
   {
     id: 8,
     slug: "level-4-diploma-in-adult-care",
-    title: "Level 4 Diploma in Adult Care",
+    title: "NQual Level 4 Diploma in Adult Care",
     description:
       "Designed for care professionals aspiring to or working in leadership and management roles. This qualification develops advanced skills in communication, safeguarding, health and safety, person-centred planning, and inclusive practice, preparing learners to lead teams and manage services effectively.",
     category: "Healthcare",

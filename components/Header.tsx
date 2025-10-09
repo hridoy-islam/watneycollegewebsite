@@ -112,6 +112,14 @@ export default function Header() {
 
         {/* "Apply Now" Button for Desktop */}
         <div className="hidden lg:block space-x-4">
+
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="bg-[#942a24] hover:bg-[#942a24]/90"  >Student Login</Button>
+          </a>
           <a
             href="https://system.klaspad.com/"
             target="_blank"
@@ -119,6 +127,7 @@ export default function Header() {
           >
             <Button className="btn-watney-primary">VLE</Button>
           </a>
+
 
           <Link href="/courses">
             <Button className="btn-watney-primary ">Apply Now</Button>
