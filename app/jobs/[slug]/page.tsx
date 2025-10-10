@@ -101,7 +101,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                   {job.location && (
                     <div className="flex items-center text-slate-600">
                       <MapPin className="w-5 h-5 mr-2 text-slate-400" />
-                      {job.location}
+                      Location: {job.location}
                     </div>
                   )}
 
@@ -109,7 +109,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                   {job.remoteWorking && (
                     <div className="flex items-center text-slate-600">
                       <Briefcase className="w-5 h-5 mr-2 text-slate-400" />
-                      {job.remoteWorking}
+                      Remote Working: {job.remoteWorking}
                     </div>
                   )}
 
