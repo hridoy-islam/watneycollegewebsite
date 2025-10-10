@@ -153,9 +153,9 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
+        className={`fixed inset-0 lg:hidden transition-all duration-300 ${
           isMobileMenuOpen
-            ? "opacity-100 pointer-events-auto"
+            ? "opacity-100 pointer-events-auto z-[10000]"
             : "opacity-0 pointer-events-none"
         }`}
       >
@@ -165,14 +165,14 @@ export default function Header() {
         ></div>
 
         <div
-          className={`absolute top-0 right-0 h-full w-80 bg-white transform transition-transform duration-300 shadow-2xl ${
+          className={`z-[100001] absolute top-0 right-0 h-screen w-80 bg-white transform transition-transform duration-300 shadow-2xl ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="p-6">
+          <div className="p-6 bg-white">
             <div className="flex items-center justify-between mb-8">
               <Image
-                src="/watney-logo.png"
+                src="/watney.png"
                 alt="Watney College Logo"
                 width={150}
                 height={40}
@@ -186,7 +186,7 @@ export default function Header() {
               </button>
             </div>
 
-            <nav className="space-y-2">
+            <nav className="space-y-2 ">
               {navLinks.map((link) =>
                 link.subItems ? (
                   <div key={link.name}>

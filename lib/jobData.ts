@@ -16,7 +16,7 @@ export interface Job {
   hours: string;
   location: string;
   remoteWorking: string;
-  company: string;
+  // company: string;
 }
 
 
@@ -104,7 +104,7 @@ export const jobs: Job[] = [
     hours: "Part time",
     location: "80-82 Nelson Street, London, E1 2DY",
     remoteWorking: "Hybrid - work remotely up to 2 days per week",
-    company: "WATNEY COLLEGE LIMITED"
+    // company: "WATNEY COLLEGE LIMITED"
   }
 ];
 
