@@ -11,7 +11,8 @@ import {
     Calendar,
     CheckCircle2,
     ArrowLeft,
-    Building2
+    Building2,
+    Clock
 } from 'lucide-react';
 import moment from 'moment';
 
@@ -43,55 +44,94 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                 <div className="grid lg:grid-cols-3 gap-8">
                     <div className="lg:col-span-2">
                         <Card className="border-slate-200">
-                            <CardHeader className="space-y-4">
-                                {/* Job Title */}
-                                <div className="flex flex-row flex-wrap gap-2">
-                                    <h2 className="text-2xl font-semibold text-slate-800">{job.title}</h2>
+                        
+<CardHeader className="space-y-4">
+  {/* Job Title */}
+  <div className="flex flex-row flex-wrap gap-2 items-center">
+    {job.title && (
+      <h2 className="text-2xl font-semibold text-slate-800">{job.title}</h2>
+    )}
 
-                                    {/* Job Type */}
+    {job.type && (
+      <Badge
+        variant="secondary"
+        className="bg-blue-100 text-blue-800 hover:bg-blue-100"
+      >
+        {job.type}
+      </Badge>
+    )}
+  </div>
 
-                                    <Badge variant="secondary" className="bg-blue-100 text-blue-800 hover:bg-blue-100">
-                                        {job.type}
-                                    </Badge>
-                                </div>
+  {/* Job Details */}
 
-                                {/* Job Details */}
-                                <div className="grid sm:grid-cols-3 gap-4">
-                                    {/* Salary (conditionally shown) */}
-                                    {job.salary && (
-                                        <div className="flex items-center text-slate-600">
-                                            <DollarSign className="w-5 h-5 mr-2 text-slate-400" />
-                                            {job.salary}
-                                        </div>
-                                    )}
+    <div className="grid sm:grid-cols-2 gap-4">
+      {/* Salary */}
+      {job.salary && (
+        <div className="flex items-center text-slate-600">
+          <DollarSign className="w-5 h-5 mr-2 text-slate-400" />
+          {job.salary}
+        </div>
+      )}
 
-                                    <div className="flex items-center text-slate-600">
-                                        <Calendar className="w-5 h-5 mr-2 text-slate-400" />
-                                        Posted: {moment(job.postedDate).format("DD-MM-YYYY")}
-                                    </div>
+      {/* Posting Date */}
+      {job.postedDate && (
+        <div className="flex items-center text-slate-600">
+          <Calendar className="w-5 h-5 mr-2 text-slate-400" />
+          Posting Date: {moment(job.postedDate).format("DD-MM-YYYY")}
+        </div>
+      )}
 
-                                    <div className="flex items-center text-slate-600">
-                                        <Briefcase className="w-5 h-5 mr-2 text-slate-400" />
-                                        Deadline: {moment(job.deadline).format("DD-MM-YYYY")}
-                                    </div>
+      {/* Deadline */}
+      {job.deadline && (
+        <div className="flex items-center text-slate-600">
+          <Briefcase className="w-5 h-5 mr-2 text-slate-400" />
+          Closing Date: {moment(job.deadline).format("DD-MM-YYYY")}
+        </div>
+      )}
 
-                                </div>
+      {/* Hours */}
+      {job.hours && (
+        <div className="flex items-center text-slate-600">
+          <Clock className="w-5 h-5 mr-2 text-slate-400" />
+          Hours: {job.hours}
+        </div>
+      )}
 
-                                {/* Apply Button */}
-                                <Button
-                                    asChild
-                                    className="py-5 text-lg"
-                                >
-                                    <a
-                                        href={job.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        Apply Now
-                                    </a>
-                                </Button>
+      {/* Location */}
+      {job.location && (
+        <div className="flex items-center text-slate-600">
+          <MapPin className="w-5 h-5 mr-2 text-slate-400" />
+          {job.location}
+        </div>
+      )}
 
-                            </CardHeader>
+      {/* Remote Working */}
+      {job.remoteWorking && (
+        <div className="flex items-center text-slate-600">
+          <Briefcase className="w-5 h-5 mr-2 text-slate-400" />
+          {job.remoteWorking}
+        </div>
+      )}
+
+      {/* Company */}
+      {job.company && (
+        <div className="flex items-center text-slate-600">
+          <Building2 className="w-5 h-5 mr-2 text-slate-400" />
+          {job.company}
+        </div>
+      )}
+    </div>
+  
+
+  {/* Apply Button */}
+  {job.link && (
+    <Button asChild className="py-5 text-lg">
+      <a href={job.link} target="_blank" rel="noopener noreferrer">
+        Apply Now
+      </a>
+    </Button>
+  )}
+</CardHeader>
 
 
                             <CardContent className="space-y-8">
@@ -147,9 +187,8 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                                 )}
 
                                 {/* Final Call-to-Action */}
-                                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center space-y-4">
-                                    <h3 className="text-xl font-semibold text-slate-900">Ready to Apply?</h3>
-                                    <p className="text-slate-600">Join our team and make an impact!</p>
+                                <div className="p-6 text-center space-y-4">
+                                    
                                     <Button asChild className="px-8">
                                         <a
                                             href={job.link}
