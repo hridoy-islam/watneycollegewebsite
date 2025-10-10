@@ -375,7 +375,7 @@ export default function page() {
         {/* Services Section */}
         <section className=" relative py-20 bg-watney-blue-primary/5 overflow-hidden">
           <div className="absolute right-80 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
-         <div className="absolute left-80 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-0"></div>
+          <div className="absolute left-80 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-0"></div>
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
@@ -527,7 +527,7 @@ export default function page() {
 
         {/* CTA Section */}
         <section className=" relative py-20 bg-soft-sky">
-        
+
           <div className="absolute left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
           <div className="absolute right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
           <div className="container mx-auto px-4 text-center">
@@ -562,7 +562,7 @@ export default function page() {
         </section>
         {/* Why Choose Us Section */}
         <section className=" relative py-20 bg-watney-blue-primary/5 ">
-         <div className="absolute left-80  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
+          <div className="absolute left-80  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
           <div className="absolute right-80 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
 
           <div className="container mx-auto px-4 z-10 relative">
@@ -630,7 +630,7 @@ export default function page() {
         </section>
 
         <section className=" relative py-20 bg-white">
-           <div className="absolute left-80  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
+          <div className="absolute left-80  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
           <div className="absolute right-80 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
           <div className="container mx-auto px-4 z-10 relative">
             {/* Header */}
@@ -978,7 +978,7 @@ export default function page() {
         </section>
         {/* Testimonials Section */}
         <section className="py-20 relative bg-watney-blue-primary/5">
-            <div className="absolute -left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180   z-0"></div>
+          <div className="absolute -left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180   z-0"></div>
           <div className="absolute -right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
           <div className="container mx-auto px-4 z-10 relative">
             <div className="text-center mb-16">
@@ -993,90 +993,42 @@ export default function page() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
               <Card className="p-6">
                 <div className="flex items-center mb-4">
                   <Avatar className="mr-3">
-                    <AvatarImage src="/p1.jpg" />
-                    <AvatarFallback>SJ</AvatarFallback>
+                    <AvatarImage src="/noushin.jpeg" />
+                    <AvatarFallback>N</AvatarFallback>
                   </Avatar>
                   <div>
-                    <div className="font-semibold">Sarah Johnson</div>
-                    <div className="text-sm text-gray-600">
-                      Business Administration
-                    </div>
+                    <div className="font-semibold">Noushin</div>
+
                   </div>
                 </div>
-                <div className="flex mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-                <p className="text-gray-600 italic">
-                  "Watney College made my dream of studying in London a reality.
-                  Their support throughout the application process was
-                  exceptional, and I couldn't have asked for better guidance."
+
+                <p className="text-gray-600">
+                  "As a recent graduate of the OTHM Level 3 Foundation Diploma in Health and Social Care at Watney College, I can confidently say that the program has been instrumental in shaping my career. The comprehensive curriculum and the unwavering support from the faculty equipped me with the essential knowledge and skills to excel in the health and social care sector. The practical approach to learning, combined with real-world case studies, provided me with a solid foundation to pursue further studies and professional opportunities in this field."
                 </p>
               </Card>
 
               <Card className="p-6">
                 <div className="flex items-center mb-4">
                   <Avatar className="mr-3">
-                    <AvatarImage src="/p2.jpg" />
-                    <AvatarFallback>MK</AvatarFallback>
+                    <AvatarImage src="/tayef.jpeg" />
+                    <AvatarFallback>T</AvatarFallback>
                   </Avatar>
                   <div>
-                    <div className="font-semibold">Michael Kim</div>
-                    <div className="text-sm text-gray-600">
-                      Computer Science
-                    </div>
+                    <div className="font-semibold">Tayef</div>
+
                   </div>
                 </div>
-                <div className="flex mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-                <p className="text-gray-600 italic">
-                  "The practical approach to learning and industry connections
-                  at Watney College helped me land my dream job right after
-                  graduation."
+
+                <p className="text-gray-600 ">
+                  "Completing the OTHM Level 3 Foundation Diploma in Health and Social Care at Watney College was a transformative experience. The diverse and inclusive environment, along with the dedicated instructors, made learning both engaging and insightful. The program's emphasis on personal and professional development has not only prepared me for immediate employment but also instilled a lifelong passion for contributing positively to the health and social care community."
                 </p>
               </Card>
 
-              <Card className="p-6">
-                <div className="flex items-center mb-4">
-                  <Avatar className="mr-3">
-                    <AvatarImage src="/p3.jpg" />
-                    <AvatarFallback>EP</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <div className="font-semibold">Json Parker</div>
-                    <div className="text-sm text-gray-600">
-                      Digital Marketing
-                    </div>
-                  </div>
-                </div>
-                <div className="flex mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-                <p className="text-gray-600 italic">
-                  "The flexible learning options allowed me to balance work and
-                  studies perfectly. The quality of education exceeded my
-                  expectations."
-                </p>
-              </Card>
+             
             </div>
           </div>
         </section>
