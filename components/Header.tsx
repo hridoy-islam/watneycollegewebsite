@@ -114,7 +114,7 @@ export default function Header() {
         <div className="hidden lg:block space-x-4">
 
           <a
-            href="#"
+            href="https://app.watneycollege.co.uk"
             target="_blank"
             rel="noopener noreferrer"
           >

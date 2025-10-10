@@ -41,6 +41,7 @@ export default function Footer() {
     { name: "Accommodation", href: "/accommodation" },
     { name: "Career & Employablity", href: "/career-employability" },
     { name: "Request a prospectus", href: "/prospectus" },
+     { name: "Jobs", href: "/jobs" },
   ];
 
   const aboutLinks = [
