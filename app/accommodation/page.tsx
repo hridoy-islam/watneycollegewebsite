@@ -156,12 +156,14 @@ export default function AccommodationPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-watney-blue-primary text-white hover:bg-watney-blue-primary/90">
+              {/* <Button size="lg" className="bg-watney-blue-primary text-white hover:bg-watney-blue-primary/90">
                 Get Accommodation Help
-              </Button>
-              <Button size="lg" variant="outline" className="btn-outline-watney flex items-center justify-center bg-transparent">
+              </Button> */}
+               <Link href="/contact">
+              <Button size="lg" className="bg-watney-blue-primary flex items-center justify-center" onClick={()=>{}}>
                 Contact Support Team
               </Button>
+              </Link>
             </div>
           </motion.div>
         </div>

@@ -313,3 +313,12 @@ html {
   content: "";
   @apply absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity;
 }
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

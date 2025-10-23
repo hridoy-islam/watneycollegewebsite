@@ -325,7 +325,8 @@ export default function page() {
                   description:
                     "Get a free, detailed course guide delivered to your inbox or by post.",
                   icon: <BookOpen className="w-6 h-6" />,
-                  href: "/prospectus",
+                  // href: "/prospectus",
+                   href: "#",
                   gradient: "from-pink-500 to-rose-600",
                   delay: 0.3,
                 },
@@ -530,35 +531,42 @@ export default function page() {
 
           <div className="absolute left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
           <div className="absolute right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl font-bold text-black mb-6">
-              Ready to Start Your{" "}
-              <span className="text-gradient-watney">Educational Journey?</span>
-            </h2>
-            <p className="text-lg text-black mb-8  mx-auto">
-              Join thousands of successful students who have transformed their
-              careers through our comprehensive programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href={"/courses"}>
-                <Button
-                  size="lg"
-                  className="btn-watney-primary flex items-center justify-center"
-                >
-                  Get Started Today
-                </Button>
-              </Link>
-              <Link href={"/contact"}>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="btn-outline-watney flex items-center text-watney-blue-primary justify-center bg-transparent"
-                >
-                  Contact Us
-                </Button>
-              </Link>
-            </div>
-          </div>
+         <div className="container mx-auto px-4  text-center">
+  {/* Heading */}
+  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6 leading-tight">
+    Ready to Start Your{" "}
+    <span className="text-gradient-watney">Educational Journey?</span>
+  </h2>
+
+  {/* Description */}
+  <p className="text-base sm:text-lg md:text-xl text-black mb-8 max-w-2xl mx-auto px-2">
+    Join thousands of successful students who have transformed their careers
+    through our comprehensive programs.
+  </p>
+
+  {/* Buttons */}
+  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+    <Link href="/courses" className="w-full sm:w-auto">
+      <Button
+        size="lg"
+        className="btn-watney-primary w-full sm:w-auto flex items-center justify-center"
+      >
+        Get Started Today
+      </Button>
+    </Link>
+
+    <Link href="/contact" className="w-full sm:w-auto">
+      <Button
+        size="lg"
+        variant="outline"
+        className="btn-outline-watney w-full sm:w-auto flex items-center justify-center text-watney-blue-primary bg-transparent"
+      >
+        Contact Us
+      </Button>
+    </Link>
+  </div>
+</div>
+
         </section>
         {/* Why Choose Us Section */}
         <section className=" relative py-20 bg-watney-blue-primary/5 ">

@@ -178,11 +178,9 @@ export default function CareerEmployabilityPage() {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-       
-
-         <div className="absolute right-96 top-0 h-full w-full  bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute right-96 top-0 h-full w-full  bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180 z-10"></div>
         <div className="absolute left-96  top-0 h-full w-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-0  z-10"></div>
-  
+
         <section className="relative bg-ocean-breeze py-20">
           <div className="container mx-auto px-4">
             <motion.div
@@ -403,20 +401,25 @@ export default function CareerEmployabilityPage() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-watney-blue-primary text-white hover:bg-watney-blue-primary/90"
-                >
-                  Get Career Support
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="btn-outline-watney flex items-center justify-center bg-transparent"
-                >
-                  View Job Opportunities
-                </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link href="/contact">
+                  <Button
+                    size="lg"
+                    className="bg-watney-blue-primary text-white hover:bg-watney-blue-primary/90"
+                  >
+                    Get Career Support
+                  </Button>
+                </Link>
+
+                <Link href="/jobs">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="btn-outline-watney flex items-center justify-center bg-transparent"
+                  >
+                    View Job Opportunities
+                  </Button>
+                </Link>
               </div>
             </motion.div>
           </div>

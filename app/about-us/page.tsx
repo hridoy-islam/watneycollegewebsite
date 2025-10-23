@@ -100,10 +100,7 @@ export default function AboutPage() {
                   Who We Are
                 </Badge>
                 <h2 className="text-4xl  font-bold mb-6">
-                  About{" "}
-                  <span className="text-gradient-watney">
-                    Us
-                  </span>
+                  About <span className="text-gradient-watney">Us</span>
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Watney College is a progressive institution dedicated to
@@ -203,35 +200,22 @@ export default function AboutPage() {
         </section>
 
         {/* Vision & Mission */}
-        <section className="py-20 text-primary">
-          <div className="container mx-auto px-4 space-y-8">
+        <section className="py-16 sm:py-20 text-primary">
+          <div className="container mx-auto px-4 space-y-16">
             {/* Vision Section */}
-            <div className="grid lg:grid-cols-2 gap-16 items-center z-50">
-              {/* Vision Content - Left */}
-              <div className="space-y-6 z-50">
-                <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                  Our Vision
-                </h2>
-                <p className="text-gray-600 leading-relaxed">
-                  Our vision is for an integrated employment and skills system
-                  for the region, through which we can stimulate economic
-                  growth, deliver better outcomes for residents and businesses,
-                  and create healthier thriving communities.
-                </p>
-              </div>
-
-              {/* Vision Images - Right */}
-              <div className="relative z-50">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+              {/* Vision Images - Top on small screens */}
+              <div className="order-1 lg:order-2 relative">
                 {/* Main large image */}
                 <div className="relative">
                   <img
                     src="/vision.jpg"
                     alt="Graduates celebrating their success at Watney College"
-                    className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                    className="w-full h-60 sm:h-72 md:h-80 object-cover rounded-2xl shadow-lg"
                   />
                 </div>
                 {/* Overlapping smaller image */}
-                <div className="absolute -bottom-6 -left-6 w-48 h-32">
+                <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 w-32 sm:w-40 md:w-48 h-24 sm:h-28 md:h-32">
                   <img
                     src="/vision1.jpg"
                     alt="Students discussing future opportunities"
@@ -239,22 +223,35 @@ export default function AboutPage() {
                   />
                 </div>
               </div>
+
+              {/* Vision Content */}
+              <div className="order-2 lg:order-1 space-y-4 text-center lg:text-left">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                  Our Vision
+                </h2>
+                <p className="text-gray-600 leading-relaxed text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+                  Our vision is for an integrated employment and skills system
+                  for the region, through which we can stimulate economic
+                  growth, deliver better outcomes for residents and businesses,
+                  and create healthier thriving communities.
+                </p>
+              </div>
             </div>
 
             {/* Mission Section */}
-            <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-              {/* Mission Images - Left */}
-              <div className="relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+              {/* Mission Images - Top on small screens */}
+              <div className="order-1 relative">
                 {/* Main large image */}
                 <div className="relative">
                   <img
                     src="/mission.jpg"
                     alt="Watney College students engaging in classroom learning"
-                    className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                    className="w-full h-60 sm:h-72 md:h-80 object-cover rounded-2xl shadow-lg"
                   />
                 </div>
                 {/* Overlapping smaller image */}
-                <div className="absolute -bottom-6 -right-6 w-48 h-32">
+                <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 w-32 sm:w-40 md:w-48 h-24 sm:h-28 md:h-32">
                   <img
                     src="/mission1.jpg"
                     alt="Group of students collaborating on a project"
@@ -263,12 +260,12 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Mission Content - Right */}
-              <div className="space-y-6">
-                <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              {/* Mission Content */}
+              <div className="order-2 space-y-4 text-center lg:text-left">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
                   Our Mission
                 </h2>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
                   To empower individuals through high-quality, accessible
                   education that promotes personal growth, cultivates critical
                   thinking, and inspires lifelong learning.
@@ -277,7 +274,8 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-          <section className="py-20 bg-gray-50">
+
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <motion.div
               className="text-center mb-16"
@@ -339,44 +337,47 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <Card className="border-l-4 border-primary shadow-lg">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                      <MessageCircle className="w-7 h-7 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                        Message From the Principal
-                      </h3>
-                      <blockquote className="text-gray-600 leading-relaxed space-y-4">
-                        <p>
-                          On behalf of Watney College, I’d like to welcome all
-                          who are planning to enrich their professional and
-                          academic skills. We are committed to supporting
-                          ambitious learners in developing the knowledge and
-                          expertise needed to achieve their desired goals.
-                        </p>
-                        <p>
-                          We understand that returning to education can be a
-                          challenge — many people step away from learning due to
-                          circumstances beyond their control. Watney College is
-                          here to offer a supportive, inclusive platform that
-                          encourages students to re-engage with higher
-                          education, advance in their careers, or finally
-                          achieve that dream they’ve always held.
-                        </p>
-                        <p className="font-medium text-gray-800">
-                          — Principal, Watney College
-                        </p>
-                      </blockquote>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+  <CardContent className="p-6 sm:p-8">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+      {/* Icon */}
+      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+        <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+      </div>
+
+      {/* Content */}
+      <div className="text-center sm:text-left">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
+          Message From the Principal
+        </h3>
+
+        <blockquote className="text-gray-600 leading-relaxed space-y-4 text-sm sm:text-base">
+          <p>
+            On behalf of Watney College, I’d like to welcome all who are
+            planning to enrich their professional and academic skills. We are
+            committed to supporting ambitious learners in developing the
+            knowledge and expertise needed to achieve their desired goals.
+          </p>
+          <p>
+            We understand that returning to education can be a challenge — many
+            people step away from learning due to circumstances beyond their
+            control. Watney College is here to offer a supportive, inclusive
+            platform that encourages students to re-engage with higher
+            education, advance in their careers, or finally achieve that dream
+            they’ve always held.
+          </p>
+          <p className="font-medium text-gray-800">
+            — Principal, Watney College
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </CardContent>
+</Card>
+
             </motion.div>
           </div>
         </section>
-      
+
         {/* Why Choose Us */}
         <section className="py-20 ">
           <div className="container text-white ">

@@ -58,10 +58,11 @@ export default function CourseDetailPage() {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`w-4 h-4 ${i < Math.floor(rating)
+        className={`w-4 h-4 ${
+          i < Math.floor(rating)
             ? "fill-yellow-400 text-yellow-400"
             : "text-gray-300"
-          }`}
+        }`}
       />
     ));
   };
@@ -124,7 +125,6 @@ export default function CourseDetailPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 to-blue-900/80"></div>
               <div className="relative p-8 lg:p-12 flex items-center">
                 <div className="flex-1">
-
                   <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
                     {course.title}
                   </h2>
@@ -141,38 +141,39 @@ export default function CourseDetailPage() {
 
             {/* Tabs Section */}
             <div className="bg-white rounded-2xl shadow-lg">
-              <Tabs
-                value={activeTab}
-                onValueChange={setActiveTab}
-                className="w-full"
-              >
-                <TabsList className="grid w-full grid-cols-4 bg-primary p-1">
-                  <TabsTrigger
-                    value="overview"
-                    className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
-                  >
-                    <Book className="w-4 h-4 mr-2" />
-                    Overview
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="curriculum"
-                    className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
-                  >
-                    Programme Information
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="requirements"
-                    className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
-                  >
-                    Entry Requirement
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="career"
-                    className="data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-white"
-                  >
-                    Programme Structure
-                  </TabsTrigger>
-                </TabsList>
+              <Tabs value={activeTab} onValueChange={setActiveTab} className="">
+   <TabsList
+  className="
+    flex w-full overflow-x-auto bg-primary p-1 rounded-md 
+    scrollbar-hide 
+    sm:grid sm:grid-cols-4 sm:overflow-visible
+  "
+>
+  {[
+    { value: "overview", label: "Overview", shortLabel: "Overview" },
+    { value: "curriculum", label: "Programme Information", shortLabel: "Program Info" },
+    { value: "requirements", label: "Entry Requirement", shortLabel: "Requirement" },
+    { value: "career", label: "Programme Structure", shortLabel: "Structure" },
+  ].map((tab) => (
+    <TabsTrigger
+      key={tab.value}
+      value={tab.value}
+      className="
+        flex items-center flex-shrink-0 text-white text-xs sm:text-sm gap-1 
+        data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm 
+        rounded-md transition-colors
+      "
+      style={{ minWidth: "max-content" }}
+    >
+      {/* Small screen label */}
+      <span className="sm:hidden">{tab.shortLabel}</span>
+      {/* Large screen label */}
+      <span className="hidden sm:inline">{tab.label}</span>
+    </TabsTrigger>
+  ))}
+</TabsList>
+
+
 
                 <div className="p-6 lg:p-8">
                   {isAdultCareDiploma ? (
@@ -181,7 +182,9 @@ export default function CourseDetailPage() {
                     <>
                       {/* === Original Dynamic Tabs for Other Courses === */}
                       <TabsContent value="overview" className="space-y-6">
-                        <h3 className="text-2xl font-bold text-gray-900">Course Overview</h3>
+                        <h3 className="text-2xl font-bold text-gray-900">
+                          Course Overview
+                        </h3>
                         <p className="text-gray-600 leading-relaxed whitespace-pre-line">
                           {course.overview}
                         </p>
@@ -192,7 +195,10 @@ export default function CourseDetailPage() {
                           </h4>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {course.tags.map((tag, idx) => (
-                              <div key={idx} className="flex items-start space-x-3">
+                              <div
+                                key={idx}
+                                className="flex items-start space-x-3"
+                              >
                                 <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
                                 <span className="text-gray-600">{tag}</span>
                               </div>
@@ -206,11 +212,15 @@ export default function CourseDetailPage() {
                           Programme Information
                         </h3>
                         <p className="text-gray-600">
-                          This course includes the following units and assessments:
+                          This course includes the following units and
+                          assessments:
                         </p>
                         <ul className="space-y-3 mt-4">
                           {course.curriculum.map((item, index) => (
-                            <li key={index} className="bg-gray-50 p-4 rounded-lg">
+                            <li
+                              key={index}
+                              className="bg-gray-50 p-4 rounded-lg"
+                            >
                               <p className="text-gray-800">{item}</p>
                             </li>
                           ))}
@@ -218,10 +228,15 @@ export default function CourseDetailPage() {
                       </TabsContent>
 
                       <TabsContent value="requirements" className="space-y-6">
-                        <h3 className="text-2xl font-bold text-gray-900">Requirements</h3>
+                        <h3 className="text-2xl font-bold text-gray-900">
+                          Requirements
+                        </h3>
                         <ul className="space-y-2 text-gray-600">
                           {course.requirements.map((req, index) => (
-                            <li key={index} className="flex items-start space-x-2">
+                            <li
+                              key={index}
+                              className="flex items-start space-x-2"
+                            >
                               <span className="text-primary">•</span>
                               <span>{req}</span>
                             </li>
@@ -234,8 +249,8 @@ export default function CourseDetailPage() {
                           Programme Structure
                         </h3>
                         <p className="text-gray-700 leading-relaxed">
-                          Successful graduates are well-prepared for a variety of
-                          professional roles, including:
+                          Successful graduates are well-prepared for a variety
+                          of professional roles, including:
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                           {course.career.map((role, index) => (
@@ -243,7 +258,9 @@ export default function CourseDetailPage() {
                               key={index}
                               className="bg-white shadow-sm border border-gray-200 p-4 rounded-lg text-center hover:shadow-md transition"
                             >
-                              <p className="font-semibold text-gray-800">{role}</p>
+                              <p className="font-semibold text-gray-800">
+                                {role}
+                              </p>
                             </div>
                           ))}
                         </div>
@@ -292,18 +309,20 @@ export default function CourseDetailPage() {
                     <Download className="w-4 h-4 text-purple-600" />
                     <span className="text-sm">Download Brochure</span>
                   </button>
-                  <button className="w-full flex items-center justify-start space-x-3 text-left p-3 rounded-lg hover:bg-gray-50 transition-colors"  onClick={() => router.push("/contact")}>
+                  <button
+                    className="w-full flex items-center justify-start space-x-3 text-left p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                    onClick={() => router.push("/contact")}
+                  >
                     <Book className="w-4 h-4 text-purple-600" />
                     <span className="text-sm">Book Consultation</span>
                   </button>
                   <button
                     className="w-full flex items-center justify-start space-x-3 text-left p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                    onClick={() => window.location.href = 'tel:+442080046463'}
+                    onClick={() => (window.location.href = "tel:+442080046463")}
                   >
                     <Phone className="w-4 h-4 text-purple-600" />
                     <span className="text-sm">Schedule Call</span>
                   </button>
-
                 </div>
               </CardContent>
             </Card>
@@ -347,4 +366,3 @@ export default function CourseDetailPage() {
     </div>
   );
 }
-
