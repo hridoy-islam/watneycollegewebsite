@@ -56,8 +56,8 @@ export const jobs: Job[] = [
   // },
 {
    id: "1",
-    slug: "health-social-care-teacher",
-    title: "Health & Social Care Teacher",
+    slug: "teacher-business-management",
+    title: "Teacher - Business Management",
     type: "Permanent",
     salary: "", // Not specified
     description:
