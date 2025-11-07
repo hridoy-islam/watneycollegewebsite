@@ -114,13 +114,14 @@ export default function AffiliatePage() {
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Users className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
-              Partner with{" "}
-              <span className="text-watney-blue-primary">Watney College</span>
-            </h1>
+           <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+  Building Futures Together with{" "}
+  <span className="text-watney-blue-primary">Watney College</span>
+</h1>
             <p className="text-lg text-gray-600 leading-relaxed mx-auto">
-              Join our network of trusted partners and help us empower students
-              across London and beyond.
+               Partner with us to bridge education and industry. As a valued employer or
+    partner, you’ll help shape the next generation of skilled professionals
+    through collaboration, internships, and real-world learning experiences.
             </p>
           </div>
         </section>

@@ -13,8 +13,7 @@ export default function Header() {
     // { name: "Home", path: "/" },
     { name: "About Us", path: "/about-us" },
     { name: "Courses", path: "/courses" },
-    { name: "Employers", path: "/employers" },
-    { name: "Partners ", path: "#" },
+    { name: "Employers & Partners ", path: "/employers-and-partners" },
    
     { name: "Accreditations", path: "/accreditations" },
 

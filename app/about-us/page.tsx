@@ -96,9 +96,7 @@ export default function AboutPage() {
             >
               {/* Left: Text Content */}
               <div className="z-50">
-                <Badge className="mb-6 bg-primary/15 text-primary hover:bg-primary/10">
-                  Who We Are
-                </Badge>
+                
                 <h2 className="text-4xl  font-bold mb-6">
                   About <span className="text-gradient-watney">Us</span>
                 </h2>
@@ -337,43 +335,44 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <Card className="border-l-4 border-primary shadow-lg">
-  <CardContent className="p-6 sm:p-8">
-    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-      {/* Icon */}
-      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
-        <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-      </div>
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                    {/* Icon */}
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+                      <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                    </div>
 
-      {/* Content */}
-      <div className="text-center sm:text-left">
-        <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
-          Message From the Principal
-        </h3>
+                    {/* Content */}
+                    <div className="text-center sm:text-left">
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
+                        Message From the Principal
+                      </h3>
 
-        <blockquote className="text-gray-600 leading-relaxed space-y-4 text-sm sm:text-base">
-          <p>
-            On behalf of Watney College, I’d like to welcome all who are
-            planning to enrich their professional and academic skills. We are
-            committed to supporting ambitious learners in developing the
-            knowledge and expertise needed to achieve their desired goals.
-          </p>
-          <p>
-            We understand that returning to education can be a challenge — many
-            people step away from learning due to circumstances beyond their
-            control. Watney College is here to offer a supportive, inclusive
-            platform that encourages students to re-engage with higher
-            education, advance in their careers, or finally achieve that dream
-            they’ve always held.
-          </p>
-          <p className="font-medium text-gray-800">
-            — Principal, Watney College
-          </p>
-        </blockquote>
-      </div>
-    </div>
-  </CardContent>
-</Card>
-
+                      <blockquote className="text-gray-600 leading-relaxed space-y-4 text-sm sm:text-base">
+                        <p>
+                          On behalf of Watney College, I’d like to welcome all
+                          who are planning to enrich their professional and
+                          academic skills. We are committed to supporting
+                          ambitious learners in developing the knowledge and
+                          expertise needed to achieve their desired goals.
+                        </p>
+                        <p>
+                          We understand that returning to education can be a
+                          challenge — many people step away from learning due to
+                          circumstances beyond their control. Watney College is
+                          here to offer a supportive, inclusive platform that
+                          encourages students to re-engage with higher
+                          education, advance in their careers, or finally
+                          achieve that dream they’ve always held.
+                        </p>
+                        <p className="font-medium text-gray-800">
+                          — Principal, Watney College
+                        </p>
+                      </blockquote>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </section>

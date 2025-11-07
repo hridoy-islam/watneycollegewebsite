@@ -17,14 +17,14 @@ import Image from "next/image";
 
 export default function Footer() {
   const academicLinks = [
-    { name: "Policies", href: "#" },
-    { name: "Access And Participation Statement", href: "#" },
-    { name: "Student Protection Plan", href: "#" },
+    { name: "Policies", href: "/policies" },
+    { name: "Access And Participation Statement", href: "/access-and-participation" },
+    { name: "Student Protection Plan", href: "/student-protection-plan" },
     { name: "Governance and Management", href: "#" },
-    { name: "Accident and Emergency Support", href: "#" },
-    { name: "Prevent Duty Statement", href: "#" },
+    { name: "Accident and Emergency Support", href: "/accident-and-emergency" },
+    { name: "Prevent Duty Statement", href: "/prevent-duty-statement" },
     { name: "Academic Calendar", href: "#" },
-    { name: "Fire Safety", href: "#" },
+    { name: "Fire Safety", href: "fire-safety-statement" },
     {
       name: "Staff Login",
       href: "https://app.watneycollege.co.uk/",
@@ -33,11 +33,10 @@ export default function Footer() {
   ];
 
   const campusLinks = [
-    { name: "KLASPAD (VLE)", href: "#" },
-    { name: "Partners", href: "#" },
-    { name: "Recruitment", href: "#" },
+    { name: "KLASPAD (VLE)", href: "https://system.klaspad.com/login" },
+    { name: "Employers & Partners", href: "/employers-and-partners" },
     { name: "Verify", href: "#" },
-    { name: "Student Finance", href: "/student-finance" },
+    // { name: "Student Finance", href: "/student-finance" },
     { name: "Accommodation", href: "/accommodation" },
     { name: "Career & Employablity", href: "/career-employability" },
     { name: "Request a prospectus", href: "/prospectus" },
@@ -134,7 +133,7 @@ export default function Footer() {
 
       {/* Campus Life Links */}
       <div className="flex flex-col items-center lg:items-start">
-        <h3 className="text-lg font-bold text-white mb-6">Campus Life</h3>
+        <h3 className="text-lg font-bold text-white mb-6">Quick Links</h3>
         <ul className="space-y-3">
           {campusLinks.map((link) => (
             <li key={link.name}>
@@ -159,7 +158,7 @@ export default function Footer() {
             <MapPin className="w-5 h-5 text-white mt-1 flex-shrink-0" />
             <div>
               <p className="text-white text-sm leading-relaxed">
-                80-82 Nelson Street Whitechapel,
+                80-82 Nelson Street, Whitechapel,
                 <br />
                 London, E1 2DY, United Kingdom
               </p>

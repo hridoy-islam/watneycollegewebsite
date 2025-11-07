@@ -152,7 +152,7 @@ export default function AccommodationPage() {
                 <Mail className="w-6 h-6 text-primary mr-2" />
                 <span className="text-black font-semibold">Contact Us</span>
               </div>
-              <p className="text-black text-lg">student.support@watneycollege.co.uk</p>
+              <p className="text-black text-lg">info@watneycollege.co.uk</p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
