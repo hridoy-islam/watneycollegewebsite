@@ -116,12 +116,12 @@ export default function VerifyPage() {
           </div>
         )}
         {!verificationData&&(
-          <section className="py-48 bg-white mt-16 border-t border-gray-100"></section>
+          <section className="py-48 bg-white mt-16"></section>
         )}
 
         {/* Verification Result Section */}
         {verificationData && (
-          <section className="py-20 bg-white mt-16 border-t border-gray-100">
+          <section className="py-20 bg-white mt-16">
             <div className="container mx-auto px-6">
               {verificationData.documents &&
               verificationData.documents.length > 0 ? (
