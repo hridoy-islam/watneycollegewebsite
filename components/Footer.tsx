@@ -35,7 +35,7 @@ export default function Footer() {
   const campusLinks = [
     { name: "KLASPAD (VLE)", href: "https://www.klaspad.com/", external: true,},
     { name: "Employers & Partners", href: "/employers-and-partners" },
-    { name: "Verify", href: "#" },
+    { name: "Verify", href: "/verify" },
     // { name: "Student Finance", href: "/student-finance" },
     { name: "Accommodation", href: "/accommodation" },
     { name: "Career & Employablity", href: "/career-employability" },
