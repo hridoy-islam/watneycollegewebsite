@@ -189,10 +189,10 @@ export default function Footer() {
 
           {/* Office Hours */}
           <div className="flex items-start space-x-3 justify-center lg:justify-start">
-            <Clock className="w-5 h-5 text-white mt-1 flex-shrink-0" />
+            <Clock className="w-5 h-5 text-white flex-shrink-0" />
             <div className="text-white text-sm">
               <div>Mon-Fri: 9AM-5PM</div>
-              <div>Sat: 10AM-1PM</div>
+              
             </div>
           </div>
         </div>
