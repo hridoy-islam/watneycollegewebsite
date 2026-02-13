@@ -55,8 +55,6 @@ export default function GovernanceAndManagementPage() {
           </div>
         </section>
 
-     
-
         <section className="py-24 bg-gray-50">
           <div className="container mx-auto px-4">
             <motion.div
@@ -81,63 +79,70 @@ export default function GovernanceAndManagementPage() {
 
             {/* Scrollable Org Chart Wrapper */}
             <div className="w-full overflow-x-auto pb-12 custom-scrollbar relative z-20">
-              <div className="min-w-[900px] max-w-6xl mx-auto pt-4 flex flex-col items-center">
+              {/* Added min-w-[1200px] right here so it forces the x-scroll on mobile */}
+              <div className="min-w-[1200px] pt-4 flex flex-col items-center">
                 
                 {/* Level 1 */}
                 <OrgNode title={<>Board of<br />Directors</>} />
                 <VLine h="h-10" />
                 
-                {/* Level 2 Connector */}
-                <HLine w="w-2/3" />
+                {/* Level 2 Connector - Spans 80% to hit the centers of the adjusted columns */}
+                <HLine w="w-[80%]" />
 
                 {/* Level 2 Main Branches */}
                 <div className="flex w-full justify-between">
                   
-                  {/* Branch 1: College Oversight */}
-                  <div className="w-1/3 flex flex-col items-center">
+                  {/* Branch 1: College Oversight (20% width) */}
+                  <div className="w-[20%] flex flex-col items-center">
                     <VLine h="h-10" />
-                    <OrgNode title={<>College<br />Oversight<br />Board</>} />
+                    <OrgNode title={<>College Oversight<br />Board</>} />
                   </div>
 
-                  {/* Branch 2: Academic Committee */}
-                  <div className="w-1/3 flex flex-col items-center">
+                  {/* Branch 2: Academic Board (30% width to allow siblings to space out) */}
+                  <div className="w-[30%] flex flex-col items-center">
                     <VLine h="h-10" />
-                    <OrgNode title={<>Academic<br />Committee</>} />
+                    <OrgNode title={<>Academic<br />Board</>} />
                     
                     <VLine h="h-10" />
-                    <OrgNode title={<>Quality<br />Assurance<br />Committee</>} />
+                    <OrgNode title={<>Quality Assurance<br />Committee</>} />
                     
                     <VLine h="h-10" />
                     <HLine w="w-1/2" />
                     <div className="flex w-full">
-                      <div className="w-1/2 flex flex-col items-center">
+                      <div className="w-1/2 flex flex-col items-center px-2">
                         <VLine h="h-10" />
-                        <OrgNode title={<>Assessment &<br />Progression<br />Board</>} />
+                        <OrgNode title={<>Assessment &<br />Progression Board</>} />
                       </div>
-                      <div className="w-1/2 flex flex-col items-center">
+                      <div className="w-1/2 flex flex-col items-center px-2">
                         <VLine h="h-10" />
                         <OrgNode title={<>Programme<br />Committee</>} />
                       </div>
                     </div>
                   </div>
 
-                  {/* Branch 3: Principals Executive Group */}
-                  <div className="w-1/3 flex flex-col items-center">
+                  {/* Branch 3: Principals Executive Group (30% width to allow siblings to space out) */}
+                  <div className="w-[30%] flex flex-col items-center">
                     <VLine h="h-10" />
                     <OrgNode title={<>Principals<br />Executive<br />Group</>} />
                     
                     <VLine h="h-10" />
                     <HLine w="w-1/2" />
                     <div className="flex w-full">
-                      <div className="w-1/2 flex flex-col items-center">
+                      <div className="w-1/2 flex flex-col items-center px-2">
                         <VLine h="h-10" />
                         <OrgNode title={<>Student<br />Engagement &<br />WBL</>} />
                       </div>
-                      <div className="w-1/2 flex flex-col items-center">
+                      <div className="w-1/2 flex flex-col items-center px-2">
                         <VLine h="h-10" />
                         <OrgNode title={<>All Staff<br />Meeting</>} />
                       </div>
                     </div>
+                  </div>
+
+                  {/* Branch 4: Audit, Remuneration and Risk Committee (20% width) */}
+                  <div className="w-[20%] flex flex-col items-center">
+                    <VLine h="h-10" />
+                    <OrgNode title={<>Audit,<br />Remuneration and<br />Risk Committee</>} />
                   </div>
 
                 </div>
@@ -146,7 +151,6 @@ export default function GovernanceAndManagementPage() {
           </div>
         </section>
 
-       
       </div>
     </div>
   );
