@@ -1,31 +1,31 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Fire Safety Statement | Watney College",
+  title: "Governance and Management | Watney College",
   description:
-    "Read Watney College's Fire Safety Statement outlining our fire prevention measures, emergency procedures, and commitment to ensuring the safety of all students and staff on campus.",
+    "Explore the organizational structure of Watney College. Learn about our Board of Directors, Academic Committees, and Executive Group dedicated to maintaining institutional excellence.",
   keywords: [
     "Watney College",
-    "fire safety statement",
-    "campus safety",
-    "emergency procedures",
-    "fire prevention",
-    "student safety",
-    "staff safety",
-    "health and safety",
+    "Governance",
+    "Management Structure",
+    "Board of Directors",
+    "Academic Committee",
+    "College Leadership",
+    "Institutional Oversight",
+    "Quality Assurance",
   ],
   openGraph: {
-    title: "Fire Safety Statement | Watney College",
+    title: "Governance and Management | Watney College",
     description:
-      "Read Watney College's Fire Safety Statement outlining our fire prevention measures, emergency procedures, and commitment to ensuring the safety of all students and staff on campus.",
-    url: "/fire-safety-statement",
+      "Explore the organizational structure of Watney College. Learn about our Board of Directors, Academic Committees, and Executive Group.",
+    url: "/governance-and-management",
     siteName: "Watney College",
     images: [
       {
-        url: "/logo.png", // Replace with a relevant image
+        url: "/logo.png",
         width: 1200,
         height: 630,
-        alt: "Watney College Fire Safety Statement",
+        alt: "Watney College Governance and Management",
       },
     ],
     locale: "en_GB",
@@ -33,20 +33,19 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fire Safety Statement | Watney College",
+    title: "Governance and Management | Watney College",
     description:
-      "Read Watney College's Fire Safety Statement outlining our fire prevention measures, emergency procedures, and commitment to ensuring the safety of all students and staff on campus.",
-    images: ["/logo.png"], // Replace with a relevant image
+      "Explore the organizational structure of Watney College including our leadership boards and committees.",
+    images: ["/logo.png"],
   },
   alternates: {
-    canonical: "/fire-safety-statement",
+    canonical: "/governance-and-management",
   },
 };
 
 export default function Page({ children }: { children: React.ReactNode }) {
   return (
-    <div >
-      
+    <div className="w-full">
       {children}
     </div>
   );
