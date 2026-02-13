@@ -20,7 +20,7 @@ export default function Footer() {
     { name: "Policies", href: "/policies" },
     { name: "Access And Participation Statement", href: "/access-and-participation" },
     { name: "Student Protection Plan", href: "/student-protection-plan" },
-    { name: "Governance and Management", href: "#" },
+    { name: "Governance and Management", href: "/governace-and-management" },
     { name: "Accident and Emergency Support", href: "/accident-and-emergency" },
     { name: "Prevent Duty Statement", href: "/prevent-duty-statement" },
     { name: "Academic Calendar", href: "#" },
