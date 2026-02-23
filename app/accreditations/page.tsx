@@ -68,19 +68,17 @@ export default function AccreditationPage() {
         <div className="absolute left-[294px]  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
         {/* Header Section */}
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
-  <div className="container mx-auto px-4 relative z-10 text-center">
-    <Handshake className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
+          <div className="container mx-auto px-4 relative z-10 text-center">
+            <Handshake className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
             <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
-    
-      <span className="text-watney-blue-primary">Accreditations</span>
-    </h1>
-    <p className="text-lg text-gray-600 leading-relaxed mx-auto">
-      Watney College is proud to be accredited by leading organizations,
-      ensuring the quality and recognition of our programs.
-    </p>
-  </div>
-</section>
-
+              <span className="text-watney-blue-primary">Accreditations</span>
+            </h1>
+            <p className="text-lg text-gray-600 leading-relaxed mx-auto">
+              Watney College is proud to be accredited by leading organizations,
+              ensuring the quality and recognition of our programs.
+            </p>
+          </div>
+        </section>
 
         {/* Accreditations Section */}
         <section id="accreditations" className="py-20 bg-gray-50">
@@ -104,7 +102,7 @@ export default function AccreditationPage() {
                   logo: "/asic.svg",
                   link: "https://www.asic.org.uk/",
                   description:
-                    "ASIC (Australian Securities and Investments Commission) ensures compliance with financial regulations, providing trust and security to students and professionals.",
+                    "The Accreditation Service for International Schools, Colleges, and Universities (ASIC) is a UK-based, internationally recognized quality assurance body that accredits private post-secondary institutions globally",
                 },
                 {
                   title: "ESB",
