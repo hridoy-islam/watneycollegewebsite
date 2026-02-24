@@ -131,6 +131,9 @@ export default function GovernanceAndManagementPage() {
         <div className="  p-8 md:p-12 rounded-2xl shadow-xl border border-blue-200">
          
           <p className="text-lg  leading-relaxed mb-6">
+            Strategic Oversight. Academic Integrity. Institutional Accountability.
+          </p>
+          <p className="text-lg  leading-relaxed mb-6">
             Watney College operates a robust governance framework designed to 
             <strong> protect academic standards</strong>, safeguard student interests, 
             and ensure regulatory compliance.
