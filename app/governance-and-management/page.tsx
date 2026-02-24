@@ -80,7 +80,7 @@ export default function GovernanceAndManagementPage() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center justify-center p-4 bg-white rounded-2xl shadow-lg mb-8"
+              className="inline-flex items-center justify-center p-4  rounded-2xl  mb-8"
             >
               <Network className="w-12 h-12 text-watney-blue-primary" />
             </motion.div>
@@ -104,65 +104,45 @@ export default function GovernanceAndManagementPage() {
         </section>
 
         {/* SECTION 1: Intro */}
-        <section className="relative py-24  z-10 overflow-hidden">
-          {/* Background Patterns */}
-          <div className="absolute -left-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
-          <div className="absolute -right-64 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0"></div>
-          
-          <div className="container mx-auto relative z-10 ">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              className="relative mx-auto "
-            >
-              {/* Decorative subtle glowing orb behind the card */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-watney-blue-primary/15 blur-[100px] rounded-full z-0 pointer-events-none"></div>
+        <section className="relative py-24 z-10 overflow-hidden bg-slate-50">
+  {/* Background Patterns */}
+  <div className="absolute -left-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 opacity-40 z-0"></div>
+  <div className="absolute -right-64 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none opacity-40 z-0"></div>
+  
+  <div className="container mx-auto relative z-10 px-4 md:px-6">
+   
+<div className="text-center mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Governance And Management</h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-transparent via-watney to-transparent mx-auto rounded-full"></div>
+              </motion.div>
+            </div>
+    <div className=" gap-12 items-center">
+      {/* Strategic Pillars */}
+     
 
-              {/* Main Glassmorphism Card */}
-              <div className="relative z-10 bg-white/70 backdrop-blur-2xl p-8 md:p-12 lg:p-16 rounded-[2.5rem]  border border-blue-100 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] overflow-hidden">
-                
-                {/* Subtle top accent line */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-1.5 bg-gradient-to-r from-transparent via-watney-blue-primary to-transparent opacity-80"></div>
-
-                <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
-                  
-                  {/* Left Column: Headlines */}
-                  <div className="w-full md:w-5/12">
-                    <div className="inline-flex items-center gap-2  py-1.5 mb-8 rounded-full bg-blue-50/80 border border-blue-100/50 text-watney-blue-primary text-xs font-bold tracking-widest uppercase shadow-sm">
-                      <span className="w-2 h-2 rounded-full bg-watney-blue-primary animate-pulse"></span>
-                      Core Principles
-                    </div>
-                    
-                    <h2 className="flex flex-col gap-3 text-3xl  font-black text-slate-900 tracking-tight">
-                      <span className="text-slate-800">Strategic Oversight</span> 
-                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-watney-blue-primary to-watney-blue-primary pb-1">Academic Integrity</span> 
-                      <span className="text-slate-800">Institutional Accountability</span>
-                    </h2>
-                  </div>
-
-                  {/* Divider for Desktop */}
-                  <div className="hidden md:block w-[1px] h-40 bg-gradient-to-b from-transparent via-slate-200 to-transparent"></div>
-                  
-                  {/* Right Column: Paragraphs */}
-                  <div className="w-full md:w-7/12 flex flex-col gap-6">
-                    <p className="text-lg md:text-xl leading-relaxed text-slate-600 font-medium">
-                      We operate a robust governance framework designed to protect academic standards, safeguard student interests, and ensure regulatory compliance.
-                    </p>
-                    
-                    <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-50/50 to-transparent border border-blue-100/50">
-                      <p className="text-base md:text-lg leading-relaxed text-slate-700">
-                        Our structure clearly separates strategic oversight from executive management, ensuring <span className="font-semibold text-slate-900">independence</span>, <span className="font-semibold text-slate-900">transparency</span>, and <span className="font-semibold text-slate-900 text-watney-blue-primary">effective institutional leadership</span>.
-                      </p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+      {/* Main Content */}
+      <div className="">
+        <div className="  p-8 md:p-12 rounded-2xl shadow-xl border border-blue-200">
+         
+          <p className="text-lg  leading-relaxed mb-6">
+            Watney College operates a robust governance framework designed to 
+            <strong> protect academic standards</strong>, safeguard student interests, 
+            and ensure regulatory compliance.
+          </p>
+          <p className="text-lg  leading-relaxed">
+            Our structure clearly separates strategic oversight from executive management, ensuring independence, transparency, and effective institutional leadership.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* SECTION 2: Governance Philosophy */}
         <section className="relative py-24  overflow-hidden">
@@ -453,6 +433,17 @@ export default function GovernanceAndManagementPage() {
           <div className="absolute -right-64 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0"></div>
           
           <div className="container mx-auto relative z-10">
+            <div className="text-center mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Governance vs Management</h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-transparent via-watney to-transparent mx-auto rounded-full"></div>
+              </motion.div>
+            </div>
             <div className="mx-auto bg-white/90 rounded-3xl shadow-xl overflow-hidden border border-blue-100 flex flex-col md:flex-row">
               
               {/* Left Panel: Governance */}
@@ -537,6 +528,17 @@ export default function GovernanceAndManagementPage() {
           <div className="absolute -right-64 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0"></div>
           
           <div className="container mx-auto relative z-10">
+            <div className="text-center mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Accountability Statement</h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-transparent via-watney to-transparent mx-auto rounded-full"></div>
+              </motion.div>
+            </div>
             <motion.div 
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -548,7 +550,7 @@ export default function GovernanceAndManagementPage() {
               <div className="relative z-10">
                 <ShieldAlert className="w-12 h-12 text-blue-600 mx-auto mb-6" />
                 <p className="text-xl md:text-2xl font-semibold text-slate-900 leading-relaxed text-balance mb-6">
-                  We maintain a clear separation between governance and executive management. Governance bodies focus on strategy and oversight, while executive management drives operational excellence.
+                 Watney College maintains a clear separation between governance and executive management. Governance bodies do not manage day-to-day operations, and executive management does not override academic or governance decisions.
                 </p>
                 <div className="inline-block bg-gradient-to-r from-blue-50 to-blue-100 px-8 py-3 rounded-full text-sm font-bold text-blue-700 shadow-md border border-blue-200">
                   This structure safeguards institutional integrity
