@@ -111,34 +111,22 @@ export default function GovernanceAndManagementPage() {
   
   <div className="container mx-auto relative z-10 px-4 md:px-6">
    
-<div className="text-center mb-16">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Governance And Management</h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-transparent via-watney to-transparent mx-auto rounded-full"></div>
-              </motion.div>
-            </div>
+
     <div className=" gap-12 items-center">
       {/* Strategic Pillars */}
      
 
       {/* Main Content */}
-      <div className="">
+      <div className="z-[9999]">
         <div className="  p-8 md:p-12 rounded-2xl shadow-xl border border-blue-200">
          
           <p className="text-lg  leading-relaxed mb-6">
             Strategic Oversight. Academic Integrity. Institutional Accountability.
-          </p>
-          <p className="text-lg  leading-relaxed mb-6">
+         
             Watney College operates a robust governance framework designed to 
-            <strong> protect academic standards</strong>, safeguard student interests, 
+            protect academic standards, safeguard student interests, 
             and ensure regulatory compliance.
-          </p>
-          <p className="text-lg  leading-relaxed">
+         
             Our structure clearly separates strategic oversight from executive management, ensuring independence, transparency, and effective institutional leadership.
           </p>
         </div>
