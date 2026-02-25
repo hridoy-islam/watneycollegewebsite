@@ -19,36 +19,61 @@ import { Card, CardContent } from "@/components/ui/card";
 const OrgNode = ({
   title,
   subtitle,
+  isGolden = false, // New prop
 }: {
   title: React.ReactNode;
-  subtitle: React.ReactNode;
+  subtitle?: React.ReactNode;
+  isGolden?: boolean;
 }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.9, y: 15 }}
     whileInView={{ opacity: 1, scale: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, ease: "easeOut" }}
-    className="w-[140px] sm:w-[160px]"
+    className="w-[140px] sm:w-[160px] mx-auto relative z-10"
   >
-    <Card className="relative z-10 h-full flex flex-col items-center justify-center bg-white border-[3px] border-watney rounded-xl shadow-[5px_5px_0px_0px_#009dff] hover:shadow-[7px_7px_0px_0px_#009dff] hover:-translate-y-0.5 transition-all duration-300 min-h-[76px] cursor-default overflow-hidden">
-      <CardContent className="p-2 flex flex-col sm:p-3 text-center text-xs sm:text-[13px] font-bold text-slate-800 leading-snug  items-center justify-center h-full w-full">
+    <div 
+      className={`h-full flex flex-col items-center justify-center border-[3px] rounded-xl transition-all duration-300 min-h-[76px] cursor-default overflow-hidden
+        ${isGolden 
+          ? "bg-gradient-to-b from-[#FFD700] via-[#FDB931] to-[#D4AF37] border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)]" 
+          : "bg-white border-watney shadow-[5px_5px_0px_0px_#009dff] hover:shadow-[7px_7px_0px_0px_#009dff]"
+        } hover:-translate-y-0.5`}
+    >
+      <div className={`p-2 flex flex-col sm:p-3 text-center text-xs sm:text-[13px] font-bold leading-snug items-center justify-center h-full w-full
+        ${isGolden ? "text-black" : "text-slate-800"}`}
+      >
         {title}
         {subtitle && (
-          <div className="text-[10px] sm:text-xs font-medium  mt-1">
+          <div className={`text-[10px] sm:text-xs font-medium mt-1 ${isGolden ? "text-black/80" : "text-slate-600"}`}>
             {subtitle}
           </div>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   </motion.div>
 );
 
 const VLine = ({ h = "h-8 sm:h-10" }: { h?: string }) => (
-  <div className={`w-[3px] bg-watney ${h} mx-auto relative z-0`} />
+  <div className={`w-[3px] bg-watney ${h} mx-auto relative z-0 pointer-events-none`} />
 );
 
 const HLine = ({ w = "w-full" }: { w?: string }) => (
-  <div className={`h-[3px] bg-watney ${w} mx-auto relative z-0`} />
+  <div className={`h-[3px] bg-watney ${w} mx-auto relative z-0 pointer-events-none`} />
+);
+
+// Magnetic lines that don't affect layout
+const MagneticVLine = ({ height }: { height: number }) => (
+  <div 
+    className="absolute w-[3px] bg-watney pointer-events-none z-0" 
+    style={{ height: `${height}px`, left: "50%", transform: "translateX(-50%)" }}
+  />
+);
+
+const MagneticHLine = ({ width, top, left }: { width: number; top: number; left: number }) => (
+  <div 
+    className="absolute h-[3px] bg-watney pointer-events-none z-0" 
+    style={{ width: `${width}px`, top: `${top}px`, left: `${left}px` }}
+  />
 );
 
 // --- Vertical Flow Helper Components ---
@@ -251,7 +276,7 @@ export default function GovernanceAndManagementPage() {
 
                   {/* ROOT: Board of Directors */}
                   <div className="flex flex-col items-center relative z-10">
-                    <OrgNode title="Board of Directors" />
+                    <OrgNode title="Board of Directors " isGolden={true} />
                     <VLine />
                   </div>
 
@@ -348,7 +373,7 @@ export default function GovernanceAndManagementPage() {
             <div className="absolute -left-96 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0 opacity-50"></div>
             <div className="absolute -right-96 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0 opacity-50"></div>
 
-            <div className=" mx-auto relative z-10 ">
+            <div className="mx-auto relative z-10 ">
               <div className="text-center mb-16">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -365,137 +390,122 @@ export default function GovernanceAndManagementPage() {
                 </motion.div>
               </div>
 
-              <div className="xl:hidden text-center text-sm font-medium text-watney mb-6 animate-pulse flex items-center justify-center gap-2">
-                <ArrowDown className="w-4 h-4 rotate-90" />
-                Swipe horizontally to view full flow
-                <ArrowDown className="w-4 h-4 -rotate-90" />
-              </div>
-
-              <div className="w-full overflow-x-auto pb-12 relative z-20 custom-scrollbar">
-                <div className=" scale-[80%]  flex flex-col items-center w-full mx-auto ">
-                  {/* LEVEL 0 */}
-                  <div className="flex flex-col items-center">
-                    <OrgNode title="BOARD OF DIRECTORS" />
-                    <VLine h="h-8 sm:h-10" />
+              <div className="container overflow-x-auto pb-12 relative z-20 custom-scrollbar">
+                <div className="flex flex-col items-center w-full mx-auto relative ">
+                  {/* LEVEL 0: BOARD OF DIRECTORS */}
+                  <div className="relative">
+                    <OrgNode title="BOARD OF DIRECTORS" isGolden={true}/>
                   </div>
 
-                  {/* LEVEL 1 */}
-                  <div className="flex flex-col items-center">
+                  {/* Vertical line from Board to Principal */}
+                  <div className="relative w-full flex justify-center " style={{ height: "60px" }}>
+                    <div className="w-[3px] bg-watney h-full pointer-events-none" />
+                  </div>
+
+                  {/* LEVEL 1: PRINCIPAL */}
+                  <div className=" relative">
                     <OrgNode title="PRINCIPAL" subtitle="Ruseel Kabir" />
-                    <VLine h="h-8 sm:h-10" />
                   </div>
 
-                  {/* LEVEL 2 */}
-                  <div className="relative inline-flex items-start gap-4 sm:gap-6 mt-[-3px]">
-                    <div className="absolute top-0 left-[70px] right-[70px] sm:left-[80px] sm:right-[80px] h-[3px] bg-watney z-0"></div>
+                  {/* Vertical line from Principal to Level 2 */}
+                  <div className="relative w-full flex justify-center mb-8" style={{ height: "40px" }}>
+                    <div className="w-[3px] bg-watney h-full pointer-events-none" />
+                  </div>
 
-                    {/* MARKETING */}
-                    <div className="flex flex-col items-center">
-                      <VLine h="h-6 sm:h-8" />
-                      <OrgNode
-                        title="HEAD OF MARKETING"
-                        subtitle="Tahamidul Mamur"
-                      />
-                      <VLine h="h-8 sm:h-12" />
-                      <OrgNode title="MARKETING OFFICER" />
-                    </div>
+                  {/* LEVEL 2: 6 Department Heads */}
+                  <div className="relative w-full" style={{ marginBottom: "60px" }}>
+                    {/* Horizontal spine  all 6 nodes */}
+                    <div className="absolute -top-8 left-0 right-0 h-[3px] bg-watney pointer-events-none" style={{ 
+                      width: "100%",
+                      maxWidth: "962px",
+                      left: "50%",
+                      transform: "translateX(-50%)"
+                    }} />
 
-                    {/* ADMIN & REGISTRY */}
-                    <div className="flex flex-col items-center">
-                      <VLine h="h-6 sm:h-8" />
-                      <OrgNode
-                        title="HEAD OF ADMIN AND REGISTRY"
-                        subtitle="Dr. Rahman Hasan"
-                      />
-                      <VLine h="h-8 sm:h-12" />
+                    {/* 6 nodes grid */}
+                    <div className="flex justify-center gap-8 mt-2.5 flex-wrap">
+                      {/* Node 1 */}
+                      <div className="relative" style={{ marginTop: "0px" }}>
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                        <OrgNode title="HEAD OF MARKETING" subtitle="Tahamidul Mamur" />
+                      </div>
 
-                      <div className="relative inline-flex items-start gap-4 sm:gap-6 mt-[-3px]">
-                        <div className="absolute top-0 left-[70px] right-[70px] sm:left-[80px] sm:right-[80px] h-[3px] bg-watney z-0"></div>
+                      {/* Node 2 */}
+                      <div className="relative" style={{ marginTop: "0px" }}>
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                        <OrgNode title="HEAD OF ADMIN" subtitle="Dr. Rahman Hasan" />
+                      </div>
 
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode
-                            title="ACADEMIC ADMINISTRATOR"
-                            subtitle="Afruza Rahman"
-                          />
-                        </div>
+                      {/* Node 3 */}
+                      <div className="relative" style={{ marginTop: "0px" }}>
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                        <OrgNode title="HEAD OF FINANCE" subtitle="Md Kamal Pervez" />
+                      </div>
 
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode
-                            title="STUDENT ENGAGEMENT OFFICER"
-                            subtitle="ASM MOHOSIN ABDULLAH"
-                          />
-                        </div>
+                      {/* Node 4 */}
+                      <div className="relative" style={{ marginTop: "0px" }}>
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                        <OrgNode title="HEAD OF HR" subtitle="Bilkis Akter Mily" />
+                      </div>
+
+                      {/* Node 5 */}
+                      <div className="relative" style={{ marginTop: "0px" }}>
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                        <OrgNode title="HEAD OF ACADEMIC" subtitle="Syed Jahedul Islam" />
+                      </div>
+
+                      {/* Node 6 */}
+                      <div className="relative" style={{ marginTop: "0px" }}>
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                        <OrgNode title="HEAD OF QA" subtitle="Kishour Zadid" />
                       </div>
                     </div>
+                  </div>
 
-                    {/* FINANCE */}
-                    <div className="flex flex-col items-center">
-                      <VLine h="h-6 sm:h-8" />
-                      <OrgNode
-                        title="HEAD OF FINANCE"
-                        subtitle="Md Kamal Pervez"
-                      />
-                    </div>
+                  {/* LEVEL 3: Sub-nodes for selected departments */}
+                  <div className="relative w-full" >
+                    <div className="flex justify-center gap-8 flex-wrap">
+                      {/* From Node 1 - Marketing Officer */}
+                      <div className="relative right-24 -mt-6"  >
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                        <OrgNode title="MARKETING OFFICER" />
+                      </div>
 
-                    {/* HR */}
-                    <div className="flex flex-col items-center">
-                      <VLine h="h-6 sm:h-8" />
-                      <OrgNode
-                        title="HEAD OF HUMAN RESOURCES"
-                        subtitle="Bilkis Akter Mily"
-                      />
-                      <VLine h="h-8 sm:h-12" />
-                      <OrgNode
-                        title="ACCOUNTS ADMINISTRATOR"
-                        subtitle="M. Hasan"
-                      />
-                    </div>
-
-                    {/* ACADEMIC */}
-                    <div className="flex flex-col items-center">
-                      <VLine h="h-6 sm:h-8" />
-                      <OrgNode
-                        title="HEAD OF ACADEMIC"
-                        subtitle="Syed Jahedul Islam"
-                      />
-                      <VLine h="h-8 sm:h-12" />
-                      <OrgNode title="PROGRAMME LEADER" />
-                      <VLine h="h-8 sm:h-12" />
-
-                      <div className="relative inline-flex items-start gap-4 sm:gap-6 mt-[-3px]">
-                        <div className="absolute top-0 left-[70px] right-[70px] sm:left-[80px] sm:right-[80px] h-[3px] bg-watney z-0"></div>
-
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode title="PERSONAL TUTOR" />
+                      {/* From Node 2 - Admin Officer */}
+                      <div className="flex flex-col gap-4">
+                        <div className="relative right-24 -mt-6">
+                          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                          <OrgNode title="ACADEMIC ADMIN" subtitle="Afruza Rahman" />
                         </div>
-
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode title="LECTURER" />
-                        </div>
-
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode title="ASSESSORS" />
-                        </div>
-
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode title="INTERNAL VERIFIER" />
+                        <div className="relative right-24 ">
+                          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                          <OrgNode title="STUDENT ENGAGEMENT" subtitle="ASM MOHOSIN" />
                         </div>
                       </div>
-                    </div>
 
-                    {/* QUALITY ASSURANCE */}
-                    <div className="flex flex-col items-center">
-                      <VLine h="h-6 sm:h-8" />
-                      <OrgNode
-                        title="HEAD OF QUALITY ASSURANCE"
-                        subtitle="Kishour Zadid"
-                      />
+                      {/* From Node 4 - Accounts Admin */}
+                      <div className="relative right-24 -mt-6">
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                        <OrgNode title="ACCOUNTS ADMIN" subtitle="M. Hasan" />
+                      </div>
+
+                      {/* From Node 5 - Programme & Team */}
+                      <div className="flex flex-col gap-4">
+                        <div className="relative   -top-8">
+                          <div className="absolute top-0 right-40 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                          <OrgNode title="PROGRAMME LEADER" />
+                        </div>
+                        <div className="flex gap-4">
+                          <div className="relative left-24 -mt-4">
+                            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                            <OrgNode title="PERSONAL TUTOR" />
+                          </div>
+                          <div className="relative left-28 -top-32">
+                            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+                            <OrgNode title="LECTURER" />
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
