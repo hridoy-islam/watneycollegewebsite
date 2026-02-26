@@ -474,11 +474,11 @@ export default function GovernanceAndManagementPage() {
             {/* From Node 2 - Admin Officer */}
             <div className="flex flex-col gap-4">
 
-              <div className="relative right-72 top-2 -mt-6">
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
+              <div className="relative right-72 top-40 -mt-6">
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "190px", top: "-190px" }} />
                 <OrgNode title="ACADEMIC ADMINISTRATOR" subtitle="Afruza Rahman" />
               </div>
-              <div className="relative right-24 -top-28">
+              <div className="relative right-24 top-8">
                 <div className="absolute mt-24 right-44 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none rotate-90" style={{ height: "40px", top: "-40px" }} />
                 <OrgNode title="STUDENT ENGAGEMENT OFFICER" subtitle="ASM MOHOSIN ABDULLAH" />
               </div>
@@ -496,11 +496,11 @@ export default function GovernanceAndManagementPage() {
                 <div className="absolute top-0 right-80 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
                 <OrgNode title="PROGRAMME LEADER" />
               </div>
-              <div className="relative -top-40 left-32">
+              <div className="relative -top-0 left-32">
                 {/* Personal Tutor */}
                 <div className="flex gap-4">
 
-                  <div className="absolute top-0 right-40 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "110px", top: "-120px" }} />
+                  <div className="absolute top-0 right-40 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "270px", top: "-280px" }} />
                 <div className="relative left-24 -mt-4">
                   <OrgNode title="PERSONAL TUTOR" />
                 </div>
