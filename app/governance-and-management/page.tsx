@@ -496,11 +496,11 @@ export default function GovernanceAndManagementPage() {
                 <div className="absolute top-0 right-80 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
                 <OrgNode title="PROGRAMME LEADER" />
               </div>
-              <div className="relative -top-16 left-32">
+              <div className="relative -top-40 left-32">
                 {/* Personal Tutor */}
                 <div className="flex gap-4">
 
-                  <div className="absolute top-0 right-40 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "240px", top: "-240px" }} />
+                  <div className="absolute top-0 right-40 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "110px", top: "-120px" }} />
                 <div className="relative left-24 -mt-4">
                   <OrgNode title="PERSONAL TUTOR" />
                 </div>
