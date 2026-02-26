@@ -91,7 +91,7 @@ const affiliates = [
   {
     name: "Medicare Link",
     service:
-      "Established in 1993, Everycare provides home care support to individuals allowing them to remain in the comfort and familiar surroundings of their own home.",
+      "Medicare Link is a London-based care provider delivering person-centred domiciliary and live-in care services to older adults and individuals with diverse support needs. The organisation offers tailored care plans, trained and vetted carers, and flexible 24/7 support to promote independence, dignity, and overall wellbeing in clients’ own homes.",
     logo: "/affiliates/medicare-link.png",
     link: "https://medicarelink.co.uk/",
   },
