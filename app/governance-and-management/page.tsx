@@ -433,7 +433,7 @@ export default function GovernanceAndManagementPage() {
             {/* Node 2 */}
             <div className="relative" style={{ marginTop: "0px" }}>
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
-              <OrgNode title="HEAD OF ADMIN And REGISTRY" subtitle="Dr. Rahman Hasan" />
+              <OrgNode title="HEAD OF ADMIN AND REGISTRY" subtitle="Dr. Rahman Hasan" />
             </div>
 
             {/* Node 3 */}
