@@ -43,11 +43,11 @@ const OrgNode = ({
         ${isGolden ? "text-black" : "text-slate-800"}`}
       >
         {title}
-        {subtitle && (
+        {/* {subtitle && (
           <div className={`text-[10px] sm:text-xs font-medium mt-1 ${isGolden ? "text-black/80" : "text-slate-600"}`}>
             {subtitle}
           </div>
-        )}
+        )} */}
       </div>
     </div>
   </motion.div>
@@ -478,8 +478,8 @@ export default function GovernanceAndManagementPage() {
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "190px", top: "-190px" }} />
                 <OrgNode title="ACADEMIC ADMINISTRATOR" subtitle="Afruza Rahman" />
               </div>
-              <div className="relative right-24 top-8">
-                <div className="absolute mt-24 right-44 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none rotate-90" style={{ height: "40px", top: "-40px" }} />
+              <div className="relative right-24 top-16">
+                <div className="absolute mt-16 right-44 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none rotate-90" style={{ height: "40px", top: "-40px" }} />
                 <OrgNode title="STUDENT ENGAGEMENT OFFICER" subtitle="ASM MOHOSIN ABDULLAH" />
               </div>
             </div>
@@ -492,7 +492,7 @@ export default function GovernanceAndManagementPage() {
 
             {/* From Node 5 - Programme & Team */}
             <div className="flex flex-col gap-4">
-              <div className="relative   -top-64 left-72">
+              <div className="relative   -top-52 left-72">
                 <div className="absolute top-0 right-80 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
                 <OrgNode title="PROGRAMME LEADER" />
               </div>
