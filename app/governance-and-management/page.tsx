@@ -439,8 +439,8 @@ export default function GovernanceAndManagementPage() {
 
                     {/* --- RED SOLID LINES (SEG/PIMG to PEG) --- */}
                     <path d="M 0 430 L 250 430" stroke="#C81F4A" strokeWidth="4" fill="none" />
-                    <path d="M 90 560 L 90 430" stroke="#C81F4A" strokeWidth="4" fill="none" markerEnd="url(#arr-red)" />
-                    <path d="M 250 560 L 250 430" stroke="#C81F4A" strokeWidth="4" fill="none" markerEnd="url(#arr-red)" />
+                    <path d="M 90 560 L 90 430" stroke="#C81F4A" strokeWidth="4" fill="none"  />
+                    <path d="M 250 560 L 250 430" stroke="#C81F4A" strokeWidth="4" fill="none"  />
                     <path d="M 140 430 L 140 365" stroke="#C81F4A" strokeWidth="4" fill="none" markerEnd="url(#arr-red)" />
 
                     {/* --- CORAL/SALMON SOLID LINES (Specialist Reviews to ARRC/COB) --- */}
