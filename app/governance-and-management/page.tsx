@@ -15,6 +15,96 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
+
+
+const GovNode = ({
+  label,
+  abbr,
+  cx,
+  top,
+  width = 190,
+  badgeBg,
+  badgeFg,
+  boxBg,
+  boxFg,
+  border,
+}: {
+  label: string;
+  abbr?: string;
+  cx: number;
+  top: number;
+  width?: number;
+  badgeBg?: string;
+  badgeFg?: string;
+  boxBg: string;
+  boxFg: string;
+  border?: string;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4 }}
+    style={{
+      position: "absolute",
+      left: cx - width / 2,
+      top,
+      width,
+      zIndex: 10,
+    }}
+  >
+    {/* Badge (Optional) */}
+    {abbr && badgeBg && badgeFg && (
+      <div
+        style={{
+          position: "absolute",
+          top: -22,
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: 44,
+          height: 44,
+          borderRadius: "50%",
+          background: badgeBg,
+          color: badgeFg,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 11,
+          fontWeight: 900,
+          border: "2.5px solid #fff",
+          boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+          zIndex: 20,
+        }}
+      >
+        {abbr}
+      </div>
+    )}
+    {/* Box */}
+    <div
+      style={{
+        background: boxBg,
+        color: boxFg,
+        borderRadius: 10,
+        padding: abbr ? "26px 14px 14px" : "14px",
+        minHeight: 100,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        fontSize: 14,
+        fontWeight: 800,
+        boxShadow: "0 4px 12px rgba(0,0,0,0.18)",
+        border: border ? `1.5px solid ${border}` : `2px solid ${boxBg}`,
+        lineHeight: 1.35,
+      }}
+    >
+      {label}
+    </div>
+  </motion.div>
+);
+
+
+
 // --- Org Chart Helper Components ---
 const OrgNode = ({
   title,
@@ -44,7 +134,7 @@ const OrgNode = ({
       >
         {title}
         {/* {subtitle && (
-          <div className={`text-[10px] sm:text-xs font-medium mt-1 ${isGolden ? "text-black/80" : "text-slate-600"}`}>
+          <div className={`text-[10px] sm:text-xs font-medium mt-1 ${isGolden ? "text-black/80" : ""}`}>
             {subtitle}
           </div>
         )} */}
@@ -136,7 +226,7 @@ export default function GovernanceAndManagementPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-12"
+                className="text-lg md:text-xl  max-w-3xl mx-auto leading-relaxed mb-12"
               >
                 Watney College is committed to maintaining transparent,
                 accountable, and effective leadership to guide our academic
@@ -187,7 +277,7 @@ export default function GovernanceAndManagementPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4 ">
                     Governance Philosophy
                   </h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-transparent via-watney to-transparent mx-auto rounded-full"></div>
@@ -225,10 +315,10 @@ export default function GovernanceAndManagementPage() {
                       <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-md transition-transform duration-300 group-hover:bg-gradient-to-br group-hover:from-blue-200 group-hover:to-blue-100">
                         <item.icon className="w-7 h-7 text-blue-600" />
                       </div>
-                      <h3 className="text-xl font-bold mb-3 text-slate-900">
+                      <h3 className="text-xl font-bold mb-3 ">
                         {item.title}
                       </h3>
-                      <p className="text-slate-600 leading-relaxed">
+                      <p className=" leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -239,128 +329,280 @@ export default function GovernanceAndManagementPage() {
           </section>
 
           {/* SECTION 3: Functional Structure (Strategic View) */}
-          <section className="relative py-24 overflow-hidden z-10 ">
+          <section className="relative py-24 overflow-hidden z-10">
             {/* Background Patterns */}
             <div className="absolute -left-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0 opacity-50"></div>
             <div className="absolute -right-64 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0 opacity-50"></div>
 
             <div className="container mx-auto relative z-10">
+              {/* Heading */}
               <motion.div
-                className="mx-auto text-center mb-12"
+                className="mx-auto text-center "
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 ">
                   Functional Structure
                 </h2>
-                <p className="text-lg  font-medium max-w-2xl mx-auto">
+                <p className="text-lg font-medium max-w-2xl mx-auto ">
                   A strategic governance model designed for clear hierarchy,
                   effective delegation, and specialized oversight.
                 </p>
               </motion.div>
 
-              {/* Mobile scroll instruction */}
-              <div className="xl:hidden text-center text-sm font-medium text-watney mb-6 animate-pulse flex items-center justify-center gap-2">
+             
+
+              {/* Mobile scroll hint */}
+              <div className="xl:hidden text-center text-sm font-medium text-watney  animate-pulse flex items-center justify-center gap-2">
                 <ArrowDown className="w-4 h-4 rotate-90" />
                 Swipe horizontally to view structure
                 <ArrowDown className="w-4 h-4 -rotate-90" />
               </div>
 
-              {/* Chart Container */}
+              {/* Chart scroll wrapper */}
               <div className="w-full overflow-x-auto custom-scrollbar pb-16 relative z-20">
-                <div className="min-w-max flex flex-col items-center w-full mx-auto relative px-4">
-                  {/* Decorative Glow */}
-                  <div className="absolute top-20 w-full max-w-3xl h-[80%]  blur-3xl rounded-full z-0 pointer-events-none -translate-y-1/2 left-1/2 -translate-x-1/2"></div>
+                <div
+                  style={{
+                    minWidth: 1060,
+                    position: "relative",
+                    height: 740,
+                    margin: "0 auto",
+                    marginLeft:'60px'
+                  }}
+                >
+                  {/* ── SVG LINES ── */}
+                  <svg
+                    width="1060"
+                    height="740"
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      zIndex: 1,
+                      pointerEvents: "none",
+                    }}
+                  >
+                    <defs>
+                      {/* Universal Markers - Automatically point in the path's direction */}
+                      <marker id="arr-maroon" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#9C3B67" /></marker>
+                      <marker id="arr-black" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#000" /></marker>
+                      <marker id="arr-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#C81F4A" /></marker>
+                      <marker id="arr-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#FF8A65" /></marker>
+                      <marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2E8B57" /></marker>
+                      <marker id="arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#1E3A8A" /></marker>
+                      <marker id="arr-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#7E22CE" /></marker>
+                    </defs>
 
-                  {/* ROOT: Board of Directors */}
-                  <div className="flex flex-col items-center relative z-10">
-                    <OrgNode title="Board of Directors " isGolden={true} />
-                    <VLine />
+                    {/* --- MAROON SOLID LINES (BoD downward flows) --- */}
+                    <path d="M 530 135 L 530 200" stroke="#9C3B67" strokeWidth="4" fill="none" />
+                    <path d="M 530 200 L 530 135" stroke="none" fill="none" markerEnd="url(#arr-maroon)" /> {/* Up arrow to BoD */}
+                    <path d="M 140 200 L 920 200" stroke="#9C3B67" strokeWidth="4" fill="none" />
+                    <path d="M 140 200 L 140 255" stroke="#9C3B67" strokeWidth="4" fill="none" markerEnd="url(#arr-maroon)" />
+                    <path d="M 920 200 L 920 255" stroke="#9C3B67" strokeWidth="4" fill="none" markerEnd="url(#arr-maroon)" />
+                    <path d="M 400 200 L 400 260" stroke="#9C3B67" strokeWidth="4" fill="none" />
+                    <path d="M 660 200 L 660 260" stroke="#9C3B67" strokeWidth="4" fill="none" />
+
+                    {/* --- BLACK SOLID LINES (Upward to BoD) --- */}
+                   <path 
+  d="M 460 260 L 460 135" 
+  stroke="#000" 
+  strokeWidth="3" 
+  strokeDasharray="8,6" 
+  fill="none" 
+  markerEnd="url(#arr-black)" 
+/>
+<path 
+  d="M 600 260 L 600 135" 
+  stroke="#000" 
+  strokeWidth="3" 
+  strokeDasharray="8,6" 
+  fill="none" 
+  markerEnd="url(#arr-black)" 
+/>
+                    {/* --- BLACK DASHED LINES (Information Flow Loops) --- */}
+                    {/* Top Left Loop */}
+                    <path d="M 410 80 L 180 80 L 180 280" stroke="#000" strokeWidth="3" strokeDasharray="10,8" fill="none" />
+                    <path d="M 350 80 L 410 80" stroke="none" fill="none" markerEnd="url(#arr-black)" />
+                    <path d="M 180 120 L 180 260" stroke="none" fill="none" markerEnd="url(#arr-black)" />
+                    
+                    {/* Top Right Loop */}
+                    <path d="M 650 80 L 860 80 L 860 255" stroke="#000" strokeWidth="3" strokeDasharray="10,8" fill="none" />
+                    <path d="M 710 80 L 650 80" stroke="none" fill="none" markerEnd="url(#arr-black)" />
+                    <path d="M 860 10 L 860 260" stroke="none" fill="none" markerEnd="url(#arr-black)" />
+
+                    {/* Middle Horizontal Dashed */}
+                    <path d="M 190 230 L 850 230" stroke="#000" strokeWidth="3" strokeDasharray="10,8" fill="none" />
+                    <path d="M 200 230 L 860 230" stroke="none" fill="none" markerEnd="url(#arr-black)" />
+                    <path d="M 860 230 L 180 230" stroke="none" fill="none" markerEnd="url(#arr-black)" />
+
+                    {/* --- RED SOLID LINES (SEG/PIMG to PEG) --- */}
+                    <path d="M 0 430 L 250 430" stroke="#C81F4A" strokeWidth="4" fill="none" />
+                    <path d="M 90 560 L 90 430" stroke="#C81F4A" strokeWidth="4" fill="none" markerEnd="url(#arr-red)" />
+                    <path d="M 250 560 L 250 430" stroke="#C81F4A" strokeWidth="4" fill="none" markerEnd="url(#arr-red)" />
+                    <path d="M 140 430 L 140 365" stroke="#C81F4A" strokeWidth="4" fill="none" markerEnd="url(#arr-red)" />
+
+                    {/* --- CORAL/SALMON SOLID LINES (Specialist Reviews to ARRC/COB) --- */}
+                    <path d="M 400 430 L 660 430" stroke="#FF8A65" strokeWidth="4" fill="none" />
+                    <path d="M 530 560 L 530 430" stroke="#FF8A65" strokeWidth="4" fill="none" />
+                    <path d="M 400 430 L 400 365" stroke="#FF8A65" strokeWidth="4" fill="none" markerEnd="url(#arr-coral)" />
+                    <path d="M 660 430 L 660 365" stroke="#FF8A65" strokeWidth="4" fill="none" markerEnd="url(#arr-coral)" />
+
+                    {/* --- GREEN SOLID LINE (QESC to AB) --- */}
+                    <path d="M 920 560 L 920 365" stroke="#2E8B57" strokeWidth="4" fill="none" markerEnd="url(#arr-green)" />
+
+                    {/* --- BLUE & PURPLE DASHED LINES --- */}
+                    {/* Blue (ARRC <-> SR) */}
+                    <path d="M 460 380 L 460 540" stroke="#1E3A8A" strokeWidth="3" strokeDasharray="8,6" fill="none" />
+                    <path d="M 460 400 L 460 370" stroke="none" fill="none" markerEnd="url(#arr-blue)" />
+                    <path d="M 460 520 L 460 550" stroke="none" fill="none" markerEnd="url(#arr-blue)" />
+
+                    {/* Purple (COB <-> SR) */}
+                    <path d="M 600 380 L 600 540" stroke="#7E22CE" strokeWidth="3" strokeDasharray="8,6" fill="none" />
+                    <path d="M 600 400 L 600 370" stroke="none" fill="none" markerEnd="url(#arr-purple)" />
+                    <path d="M 600 520 L 600 550" stroke="none" fill="none" markerEnd="url(#arr-purple)" />
+                  </svg>
+
+                  {/* ── BOXES ── */}
+
+                  {/* Board of Directors */}
+                  <GovNode
+                    label="Board of Directors"
+                    abbr="BoD"
+                    cx={530}
+                    top={30}
+                    width={240}
+                    badgeBg="#F1C4D1"
+                    badgeFg="#9C3B67"
+                    boxBg="#9C3B67"
+                    boxFg="#fff"
+                  />
+                  {/* PEG */}
+                  <GovNode
+                    label="Principal's Executive Group"
+                    abbr="PEG"
+                    cx={140}
+                    top={260}
+                    width={210}
+                    badgeBg="#F8D7DA"
+                    badgeFg="#C81F4A"
+                    boxBg="#C81F4A"
+                    boxFg="#fff"
+                  />
+                  {/* ARRC */}
+                  <GovNode
+                    label="Audit, Remuneration & Risk Committee"
+                    abbr="ARRC"
+                    cx={400}
+                    top={260}
+                    width={210}
+                    badgeBg="#D0E2FF"
+                    badgeFg="#1E3A8A"
+                    boxBg="#1E3A8A"
+                    boxFg="#fff"
+                  />
+                  {/* COB */}
+                  <GovNode
+                    label="College Oversight Board"
+                    abbr="COB"
+                    cx={660}
+                    top={260}
+                    width={210}
+                    badgeBg="#E8D8F8"
+                    badgeFg="#7E22CE"
+                    boxBg="#7E22CE"
+                    boxFg="#fff"
+                  />
+                  {/* AB */}
+                  <GovNode
+                    label="Academic Board"
+                    abbr="AB"
+                    cx={920}
+                    top={260}
+                    width={210}
+                    badgeBg="#C3F0CA"
+                    badgeFg="#2E8B57"
+                    boxBg="#2E8B57"
+                    boxFg="#fff"
+                  />
+                  {/* SEG */}
+                  <GovNode
+                    label="Student Engagement Group"
+                    abbr="SEG"
+                    cx={55}
+                    top={560}
+                    width={180}
+                    badgeBg="#FCE4EC"
+                    badgeFg="#D81B60"
+                    boxBg="#F48FB1"
+                    boxFg="#880E4F"
+                    border="#F06292"
+                  />
+                  {/* PIMG */}
+                  <GovNode
+                    label="Public Information Monitoring Group"
+                    abbr="PIMG"
+                    cx={250}
+                    top={560}
+                    width={180}
+                    badgeBg="#FCE4EC"
+                    badgeFg="#D81B60"
+                    boxBg="#F48FB1"
+                    boxFg="#880E4F"
+                    border="#F06292"
+                  />
+                  {/* SR */}
+                  <GovNode
+                    label="Specialist Reviews"
+                    cx={530}
+                    top={560}
+                    width={210}
+                    boxBg="#FF8A65"
+                    boxFg="#3E2723"
+                    border="#FF7043"
+                  />
+                  {/* QESC */}
+                  <GovNode
+                    label="Quality & Enhancement Steering Committee"
+                    abbr="QESC"
+                    cx={920}
+                    top={560}
+                    width={210}
+                    badgeBg="#DCEDC8"
+                    badgeFg="#33691E"
+                    boxBg="#9CCC65"
+                    boxFg="#1B5E20"
+                    border="#8BC34A"
+                  />
+                </div>
+              </div>
+
+               {/* KEY */}
+              <div className="flex justify-center mb-10 -mt-16">
+                <div className="inline-flex flex-col gap-3 bg-white border border-gray-200 rounded-xl shadow px-6 py-4">
+                  <p className="font-black text-center text-slate-700 text-xs tracking-widest uppercase mb-1">
+                    KEY
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center" style={{ width: 110 }}>
+                      <div style={{ flex: 1, height: 3, background: "#1e293b" }} />
+                      <div style={{ width: 0, height: 0, borderTop: "6px solid transparent", borderBottom: "6px solid transparent", borderLeft: "10px solid #1e293b" }} />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-slate-800">Solid Line</p>
+                      <p className="text-[11px] text-slate-500">Reporting Relationship</p>
+                    </div>
                   </div>
-
-                  {/* LEVEL 1 Container: Using inline-flex to wrap tightly around the columns */}
-                  <div className="relative inline-flex items-start gap-4 sm:gap-6 lg:gap-10 z-10 mt-[-3px]">
-                    {/* Exact Horizontal Spine: Left/Right coordinates exactly match half the width of OrgNode */}
-                    <div className="absolute top-0 left-[70px] right-[70px] sm:left-[80px] sm:right-[80px] h-[3px] bg-watney z-0"></div>
-
-                    {/* Branch 1: College Oversight Board */}
-                    <div className="flex flex-col items-center">
-                      <VLine />
-                      <OrgNode title="College Oversight Board" />
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center" style={{ width: 110 }}>
+                      <div style={{ width: 0, height: 0, borderTop: "6px solid transparent", borderBottom: "6px solid transparent", borderRight: "10px solid #1e293b" }} />
+                      <div style={{ flex: 1, height: 3, backgroundImage: "repeating-linear-gradient(to right,#1e293b 0,#1e293b 7px,transparent 7px,transparent 13px)" }} />
+                      <div style={{ width: 0, height: 0, borderTop: "6px solid transparent", borderBottom: "6px solid transparent", borderLeft: "10px solid #1e293b" }} />
                     </div>
-
-                    {/* Branch 2: Academic Board Sub-tree */}
-                    <div className="flex flex-col items-center">
-                      <VLine />
-                      <OrgNode title="Academic Board" />
-                      <VLine h="h-6 sm:h-8" />
-                      <OrgNode title="Quality Assurance Committee" />
-                      <VLine h="h-6 sm:h-8" />
-
-                      {/* Academic Board Split Level */}
-                      <div className="relative inline-flex items-start gap-4 sm:gap-6 mt-[-3px]">
-                        {/* Exact Horizontal Spine */}
-                        <div className="absolute top-0 left-[70px] right-[70px] sm:left-[80px] sm:right-[80px] h-[3px] bg-watney z-0"></div>
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode
-                            title={
-                              <>
-                                Assessment &<br />
-                                Progression Board
-                              </>
-                            }
-                          />
-                        </div>
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode title="Programme Committee" />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Branch 3: Principals Executive Sub-tree */}
-                    <div className="flex flex-col items-center">
-                      <VLine />
-                      <OrgNode title="Principals Executive Group" />
-                      <VLine h="h-6 sm:h-8" />
-
-                      {/* Principals Executive Split Level */}
-                      <div className="relative inline-flex items-start gap-4 sm:gap-6 mt-[-3px]">
-                        {/* Exact Horizontal Spine */}
-                        <div className="absolute top-0 left-[70px] right-[70px] sm:left-[80px] sm:right-[80px] h-[3px] bg-watney z-0"></div>
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode
-                            title={
-                              <>
-                                Student Engagement
-                                <br />& WBL
-                              </>
-                            }
-                          />
-                        </div>
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode title="All Staff Meeting" />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Branch 4: Audit Committee */}
-                    <div className="flex flex-col items-center">
-                      <VLine />
-                      <OrgNode
-                        title={
-                          <>
-                            Audit, Remuneration
-                            <br />
-                            and Risk Committee
-                          </>
-                        }
-                      />
+                    <div>
+                      <p className="text-xs font-bold text-slate-800">Dashed Line</p>
+                      <p className="text-[11px] text-slate-500">Flow of Information</p>
                     </div>
                   </div>
                 </div>
@@ -381,7 +623,7 @@ export default function GovernanceAndManagementPage() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4  tracking-tight">
           Organogram
         </h2>
         <p className="text-lg text-slate-700 font-medium mx-auto">
@@ -542,7 +784,7 @@ export default function GovernanceAndManagementPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4 ">
                     Governance vs Management
                   </h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-transparent via-watney to-transparent mx-auto rounded-full"></div>
@@ -606,7 +848,7 @@ export default function GovernanceAndManagementPage() {
                       <div className="p-3 bg-blue-50 rounded-xl">
                         <Briefcase className="w-8 h-8 text-blue-600" />
                       </div>
-                      <h3 className="text-3xl font-bold text-slate-900">
+                      <h3 className="text-3xl font-bold ">
                         Executive Management
                       </h3>
                     </div>
@@ -649,7 +891,7 @@ export default function GovernanceAndManagementPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4 ">
                     Accountability Statement
                   </h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-transparent via-watney to-transparent mx-auto rounded-full"></div>
@@ -665,7 +907,7 @@ export default function GovernanceAndManagementPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent rounded-3xl pointer-events-none z-0" />
                 <div className="relative z-10">
                   <ShieldAlert className="w-12 h-12 text-blue-600 mx-auto mb-6" />
-                  <p className="text-xl md:text-2xl font-semibold text-slate-900 leading-relaxed text-balance mb-6">
+                  <p className="text-xl md:text-2xl font-semibold  leading-relaxed text-balance mb-6">
                     Watney College maintains a clear separation between
                     governance and executive management. Governance bodies do
                     not manage day-to-day operations, and executive management
