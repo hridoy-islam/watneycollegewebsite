@@ -137,18 +137,16 @@ function TermsPage() {
               <br />
               80-82 Nelson Street
               <br />
-              Whitechapel, London,
-              <br />
-              E1 2DY, United Kingdom
+              Dubai
             </p>
-            <p>Phone: +44 (0) 2080046463</p>
+            <p>Phone: +971 4 123 4567</p>
             <p>
               Email:{" "}
               <a
-                href="mailto:info@watneycollege.co.uk"
+                href="mailto:info@watneycollege.com"
                 className="text-watney-blue-primary underline"
               >
-                info@watneycollege.co.uk
+                info@watneycollege.com
               </a>
             </p>
           </address>
