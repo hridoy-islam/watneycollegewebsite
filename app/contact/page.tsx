@@ -122,7 +122,7 @@ export default function ContactPage() {
                         Our Location
                       </h3>
                       <p className="text-gray-600">
-                        80-82 Nelson Street, E1 2DY, Dubai
+                         Dubai
                       </p>
                     </div>
                   </div>

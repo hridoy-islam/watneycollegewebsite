@@ -134,8 +134,7 @@ function TermsPage() {
           <address className="not-italic space-y-1">
             <p>
               Dubai Campus
-              <br />
-              80-82 Nelson Street
+             
               <br />
               Dubai
             </p>

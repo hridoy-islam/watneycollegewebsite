@@ -133,10 +133,9 @@ function TermsPage() {
           </h2>
           <address className="not-italic space-y-1">
             <p>
-              London Campus
+              Dubai Campus
               <br />
-              80-82 Nelson Street
-              <br />
+            
               Dubai
             </p>
             <p>Phone: +971 4 123 4567</p>

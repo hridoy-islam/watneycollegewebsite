@@ -158,8 +158,7 @@ export default function Footer() {
                 <MapPin className="w-5 h-5 text-white mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-white text-sm leading-relaxed">
-                    80-82 Nelson Street
-                    <br />
+                   
                     Dubai
                   </p>
                 </div>
