@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Partner with Watney College",
+  title: "Accreditations",
   description:
     "Join our network of trusted partners and help us empower students across London and beyond.",
   keywords: [

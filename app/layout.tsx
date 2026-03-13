@@ -25,38 +25,48 @@ const inter = Inter({
 //   description: "English Learning Centre In London",
 // };
 
-
 export const metadata: Metadata = {
   title: {
-    default: "Watney College",
-    template: "%s | Watney College",
+    default:
+      "Study in the UK | Watney College – Higher Education & Professional Diplomas",
+    template: "%s | Watney College – Higher Education & Professional Diplomas",
   },
-  description: 'English Learning Centre In London',
-  keywords: ['Watney College', 'London college', 'higher education', 'courses in London', 'student accommodation', 'career support', 'alumni network'],
+  description: "English Learning Centre In London",
+  keywords: [
+    "Higher Education in the UK",
+    "UK Professional Qualifications",
+    "International Students UK",
+    "English Language Courses UK",
+    "Healthcare Management Courses UK",
+    "ATHE Diplomas",
+    "UK Career-Focused Education",
+  ],
   openGraph: {
-    title: 'Watney College',
-    description: 'English Learning Centre In London',
-    url: '/',
-    siteName: 'Watney College',
+    title:
+      "Study in the UK | Watney College – Higher Education & Professional Diplomas",
+    description: "English Learning Centre In London",
+    url: "/",
+    siteName: "Watney College",
     images: [
       {
-        url: '/watney.png',
+        url: "/watney.png",
         width: 1200,
         height: 630,
-        alt: 'Watney College | English Learning Centre In London',
+        alt: "Watney College | English Learning Centre In London",
       },
     ],
-    locale: 'en_GB',
-    type: 'website',
+    locale: "en_GB",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Watney College',
-    description: 'English Learning Centre In London.',
-    images: ['/watney.png'],
+    card: "summary_large_image",
+    title:
+      "Study in the UK | Watney College – Higher Education & Professional Diplomas",
+    description: "English Learning Centre In London.",
+    images: ["/watney.png"],
   },
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
 };
 
@@ -68,7 +78,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} light`}>
       <head>
-       
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="relative">
