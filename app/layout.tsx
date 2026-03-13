@@ -22,7 +22,7 @@ const inter = Inter({
 
 // export const metadata: Metadata = {
 //   title: "Watney College",
-//   description: "English Learning Centre In London",
+//   description: "Higher Education in the UK",
 // };
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       "Study in the UK | Watney College – Higher Education & Professional Diplomas",
     template: "%s | Watney College – Higher Education & Professional Diplomas",
   },
-  description: "English Learning Centre In London",
+  description: "Higher Education in the UK",
   keywords: [
     "Higher Education in the UK",
     "UK Professional Qualifications",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title:
       "Study in the UK | Watney College – Higher Education & Professional Diplomas",
-    description: "English Learning Centre In London",
+    description: "Higher Education in the UK",
     url: "/",
     siteName: "Watney College",
     images: [
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         url: "/watney.png",
         width: 1200,
         height: 630,
-        alt: "Watney College | English Learning Centre In London",
+        alt: "Watney College | Higher Education in the UK",
       },
     ],
     locale: "en_GB",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title:
       "Study in the UK | Watney College – Higher Education & Professional Diplomas",
-    description: "English Learning Centre In London.",
+    description: "Higher Education in the UK.",
     images: ["/watney.png"],
   },
   alternates: {
