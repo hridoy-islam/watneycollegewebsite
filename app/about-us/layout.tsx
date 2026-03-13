@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: "/about.jpg",
         width: 1200,
         height: 630,
-        alt: "Watney College | English Learning Centre In London",
+        alt: "Watney College | Higher Education in the UK",
       },
     ],
     locale: "en_GB",
