@@ -95,7 +95,7 @@ export default function AdultCareDiplomaTabs() {
         <div className="">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Programme Overview</h3>
           <p className="text-gray-700 leading-relaxed mb-4">
-            The Nqual Level 4 Diploma in Adult Care is designed to provide learners with knowledge and skills relating to care practices. It will provide individuals with the chance to develop knowledge and gain skills to seek employment or progression onto higher level qualifications.
+            The NQual Level 4 Diploma in Adult Care is designed to provide learners with knowledge and skills relating to care practices. It will provide individuals with the chance to develop knowledge and gain skills to seek employment or progression onto higher level qualifications.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
             The purpose of this qualification is to prepare individuals for progression in the care sector. The units specified within this document cover a variety of areas and topics relevant to the sector, including leadership and management in health care.

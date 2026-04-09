@@ -29,32 +29,78 @@ const itemVariants = {
 }
 
 export default function AccommodationPage() {
+  // const supportServices = [
+  //   {
+  //     title: "Finding Accommodation Options",
+  //     description: "We help you find private or shared accommodation options that suit your needs.",
+  //     icon: Home,
+  //     color: "bg-primary"
+  //   },
+  //   {
+  //     title: "Verified Landlords & Agencies",
+  //     description: "Connect with trusted landlords and reputable student housing agencies we work with.",
+  //     icon: Shield,
+  //     color: "bg-primary"
+  //   },
+  //   {
+  //     title: "Contract & Deposit Guidance",
+  //     description: "Get expert guidance on contracts, deposits, and living arrangements.",
+  //     icon: FileText,
+  //     color: "bg-primary"
+  //   },
+  //   {
+  //     title: "Transport & Local Advice",
+  //     description: "Receive advice on transport links, local amenities, and budgeting.",
+  //     icon: Train,
+  //     color: "bg-primary"
+  //   }
+  // ]
+
+
+
   const supportServices = [
-    {
-      title: "Finding Accommodation Options",
-      description: "We help you find private or shared accommodation options that suit your needs.",
-      icon: Home,
-      color: "bg-primary"
-    },
-    {
-      title: "Verified Landlords & Agencies",
-      description: "Connect with trusted landlords and reputable student housing agencies we work with.",
-      icon: Shield,
-      color: "bg-primary"
-    },
-    {
-      title: "Contract & Deposit Guidance",
-      description: "Get expert guidance on contracts, deposits, and living arrangements.",
-      icon: FileText,
-      color: "bg-primary"
-    },
-    {
-      title: "Transport & Local Advice",
-      description: "Receive advice on transport links, local amenities, and budgeting.",
-      icon: Train,
-      color: "bg-primary"
-    }
-  ]
+  {
+    title: "Finding Accommodation Options",
+    points: [
+      "Private & shared housing options",
+      "Tailored to your budget",
+      "Close to campus locations",
+    ],
+    icon: Home,
+    color: "bg-primary",
+  },
+  {
+    title: "Verified Landlords & Agencies",
+    points: [
+      "Trusted landlords only",
+      "Reputable housing partners",
+      "Safe & secure options",
+    ],
+    icon: Shield,
+    color: "bg-primary",
+  },
+  {
+    title: "Contract & Deposit Guidance",
+    points: [
+      "Clear contract explanation",
+      "Deposit protection advice",
+      "Avoid hidden charges",
+    ],
+    icon: FileText,
+    color: "bg-primary",
+  },
+  {
+    title: "Transport & Local Advice",
+    points: [
+      "Transport guidance",
+      "Nearby amenities info",
+      "Cost-saving tips",
+    ],
+    icon: Train,
+    color: "bg-primary",
+  },
+];
+
 
   return (
     <div className="min-h-screen bg-primary">
@@ -104,28 +150,42 @@ export default function AccommodationPage() {
           </motion.div>
 
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text=primary"
-          >
-            {supportServices.map((service, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="text-center h-full border-2 hover:border-primary transition-all duration-300 hover:shadow-lg group text-primary">
-                  <CardHeader>
-                    <div className={`w-16 h-16 ${service.color} rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <service.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <CardTitle className="text-lg">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">{service.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+>
+  {supportServices.map((service, index) => (
+    <motion.div key={index} variants={itemVariants}>
+      <Card className="h-full border hover:border-primary transition-all duration-300 hover:shadow-md group p-6">
+        
+        {/* Icon */}
+        <div
+          className={`w-14 h-14 ${service.color} rounded-md flex items-center justify-center mb-4 group-hover:scale-105 transition`}
+        >
+          <service.icon className="w-7 h-7 text-white" />
+        </div>
+
+        {/* Title */}
+        <h3 className="text-lg font-semibold mb-3 text-primary">
+          {service.title}
+        </h3>
+
+        {/* Bullet Points */}
+        <ul className="space-y-2 text-sm text-gray-600">
+          {service.points.map((point, i) => (
+            <li key={i} className="flex items-start gap-2">
+              <span className="mt-1 w-1.5 h-1.5 bg-primary rounded-full"></span>
+              {point}
+            </li>
+          ))}
+        </ul>
+
+      </Card>
+    </motion.div>
+  ))}
+</motion.div>
         </div>
       </section>
 

@@ -38,7 +38,7 @@ export default function Footer() {
     { name: "Verify", href: "/verify" },
     // { name: "Student Finance", href: "/student-finance" },
     { name: "Accommodation", href: "/accommodation" },
-    { name: "Career & Employablity", href: "/career-employability" },
+    { name: "Career & Employability", href: "/career-employability" },
     { name: "Request a prospectus", href: "/prospectus" },
      { name: "Jobs", href: "/jobs" },
   ];

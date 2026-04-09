@@ -84,7 +84,7 @@ const affiliates = [
   {
     name: "Care Square",
     service:
-      "Care Square is delighted to collaborate with residents of London Borough of Barking and Dagenham, Havering, Redbridge, Tower Hamlet and Newham to deliver supported living for the people in need.",
+      "Care Square is delighted to collaborate with residents of London Borough of Barking and Dagenham, Havering, Redbridge, Tower Hamlets and Newham to deliver supported living for the people in need.",
     logo: "/affiliates/caresquare.png",
     link: "https://caresquare.org.uk/",
   },

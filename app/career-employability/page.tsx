@@ -86,28 +86,28 @@ export default function CareerEmployabilityPage() {
     {
       title: "CV & Interview Preparation",
       description:
-        "Tailored CV writing and interview coaching specifically for the care industry.",
+        "Sector-specific CV preparation and interview support for jobs.",
       icon: FileText,
       color: "bg-primary",
     },
     {
       title: "Employability Workshops",
       description:
-        "Comprehensive workshops focusing on workplace readiness and professional skills.",
+        "Comprehensive workshops focusing on workplace requirements and professional competencies.",
       icon: Users,
       color: "bg-primary",
     },
     {
       title: "One-to-One Progression Advice",
       description:
-        "Personalized career guidance for Healthcare Assistant, Support Worker, or further study paths.",
+        "Personalised career guidance for employment or further study progression.",
       icon: UserCheck,
       color: "bg-primary",
     },
     {
       title: "Active Vacancy Referrals",
       description:
-        "Direct referrals to current job openings through our recruitment partner network.",
+        "Direct referral to vacancies through established recruitment networks.",
       icon: Briefcase,
       color: "bg-primary",
     },
@@ -154,7 +154,7 @@ export default function CareerEmployabilityPage() {
   const outcomes = [
     {
       stat: "100%",
-      description: "Adult Care Level 3 graduates secured employment",
+      description: "Secured employment",
       icon: Award,
     },
     {
@@ -193,14 +193,11 @@ export default function CareerEmployabilityPage() {
                 <Briefcase className="w-8 h-8 text-watney-blue-primary" />
               </div>
               <h1 className="text-5xl lg:text-6xl text-black font-bold mb-6">
-                Career &{" "}
+                Career And{" "}
                 <span className="text-watney-blue-primary">Employability</span>
               </h1>
               <p className="text-lg mb-8 text-gray-600 mx-auto">
-                At Watney College, we are proud to provide not only high-quality
-                education but also real career outcomes, especially in the
-                health and social care sector. We are committed to supporting
-                every learner in becoming career-ready and confident.
+                At Watney College, we are committed to delivering high-quality education alongside measurable career outcomes, particularly within the health and social care sector, ensuring learners are prepared for career.
               </p>
               {/* <Button
               size="lg"
@@ -225,11 +222,7 @@ export default function CareerEmployabilityPage() {
               <h2 className="text-4xl font-bold mb-4 text-black">
                 Our Success <span className="text-gradient-watney">Story</span>
               </h2>
-              <p className="text-lg text-gray-600 mx-auto">
-                Our Level 3 Diploma in Adult Care has been successfully
-                delivered with all students achieving certification and
-                progressing directly into employment.
-              </p>
+              
             </motion.div>
 
             <motion.div
@@ -397,7 +390,7 @@ export default function CareerEmployabilityPage() {
                   </span>
                 </div>
                 <p className="text-black text-lg">
-                  careers@watneycollege.co.uk
+                  info@watneycollege.co.uk
                 </p>
               </div>
 

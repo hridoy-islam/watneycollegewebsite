@@ -271,14 +271,13 @@ export default function page() {
                 <span className="text-gradient-watney">Resources</span>
               </h2>
               <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Everything you need to succeed — from housing and funding to
-                career support and course guides.
+                Comprehensive support for your success, including accommodation, funding, careers, and course guidance
               </p>
             </motion.div>
 
             {/* Cards Grid */}
             <motion.div
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-4"
               variants={{
                 hidden: { opacity: 0 },
                 visible: {
@@ -302,34 +301,44 @@ export default function page() {
                   href: "/accommodation",
                   delay: 0,
                 },
-                // {
-                //   title: "Student Finance",
-                //   description:
-                //     "Comprehensive guidance on tuition, scholarships, loans, and budget planning for UK Nationals and Settled persons.",
-                //   icon: <Banknote className="w-6 h-6" />,
-                //   href: "/student-finance",
-                //   gradient: "from-green-500 to-emerald-600",
-                //   delay: 0.1,
-                // },
                 {
-                  title: "Career & Employability",
+                  title: "Employability",
                   description:
-                    "Boost your employability with CV reviews, mock interviews, and job placements.",
+                  "Boost your employability with CV reviews, mock interviews, and job placements.",
                   icon: <Briefcase className="w-6 h-6" />,
                   href: "/career-employability",
                   gradient: "from-purple-500 to-violet-600",
                   delay: 0.2,
                 },
                 {
-                  title: "Request a Prospectus",
+                  title: "Fees Funding",
                   description:
-                    "Get a free, detailed course guide delivered to your inbox or by post.",
+                    "Expert guidance on tuition fees, scholarships, student loans, and financial planning to help you manage your education costs with confidence.",
+                  icon: <Banknote className="w-6 h-6" />,
+                  href: "/student-finance",
+                  gradient: "from-green-500 to-emerald-600",
+                  delay: 0.3,
+                },
+                {
+                  title: "Course guidance",
+                  description:
+                    "Receive personalized advice to choose the right course based on your goals, interests, and career aspirations.",
                   icon: <BookOpen className="w-6 h-6" />,
                   // href: "/prospectus",
                    href: "#",
                   gradient: "from-pink-500 to-rose-600",
-                  delay: 0.3,
+                  delay: 0.4,
                 },
+                // {
+                //   title: "Request a Prospectus",
+                //   description:
+                //     "Get a free, detailed course guide delivered to your inbox or by post.",
+                //   icon: <BookOpen className="w-6 h-6" />,
+                //   // href: "/prospectus",
+                //    href: "#",
+                //   gradient: "from-pink-500 to-rose-600",
+                //   delay: 0.3,
+                // },
               ].map((card, index) => (
                 <motion.div
                   key={index}

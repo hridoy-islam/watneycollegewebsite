@@ -8,6 +8,18 @@ import {
   GraduationCap,
   Calendar,
   AlertCircle,
+  AlertTriangle,
+  BookOpen,
+  Briefcase,
+  CreditCard,
+  FileCheck,
+  HeartHandshake,
+  Megaphone,
+  PieChart,
+  RefreshCw,
+  Scale,
+  ShieldAlert,
+  Lock,
 } from "lucide-react";
 
 // Helper component for the arrow
@@ -30,49 +42,114 @@ const ArrowRight = ({ className }: { className?: string }) => (
 );
 
 export default function PoliciesPage() {
-  const policies = [
-    {
-      title: "Academic Integrity Policy",
-      icon: ShieldCheck,
-      file: "/policies/academic-integrity.pdf",
-    },
-    {
-      title: "Student Code of Conduct",
-      icon: Users,
-      file: "/policies/code-of-conduct.pdf",
-    },
-    {
-      title: "Attendance & Punctuality Policy",
-      icon: Calendar,
-      file: "/policies/attendance.pdf",
-    },
-    {
-      title: "Assessment & Grading Policy",
-      icon: FileText,
-      file: "/policies/assessment-grading.pdf",
-    },
-    {
-      title: "Health & Safety Policy",
-      icon: ShieldCheck,
-      file: "/policies/health-safety.pdf",
-    },
-    {
-      title: "Privacy & Data Protection Policy",
-      icon: ShieldCheck,
-      file: "/policies/privacy.pdf",
-    },
-    {
-      title: "Accessibility Statement",
-      icon: GraduationCap,
-      file: "/policies/accessibility.pdf",
-    },
-    {
-      title: "Complaints Procedure",
-      icon: AlertCircle,
-      file: "/policies/complaints.pdf",
-    },
-    // Add more policies here as needed
-  ];
+
+const policies = [
+  {
+    title: "Academic Staff and Recruitment Policy",
+    icon: Briefcase,
+    file: "/policies/academic-staff-and-recruitment.pdf",
+  },
+  {
+    title: "Academic Staff Induction and Staff Development Process",
+    icon: BookOpen,
+    file: "/policies/academic-staff-induction.pdf",
+  },
+  {
+    title: "Student Engagement Strategies",
+    icon: Users,
+    file: "/policies/student-engagement-strategies.pdf",
+  },
+  {
+    title: "Student Assessment Feedback Process",
+    icon: FileText,
+    file: "/policies/student-assessment-feedback.pdf",
+  },
+  {
+    title: "Student Needs and PTS Support",
+    icon: HeartHandshake,
+    file: "/policies/student-needs-and-pts-support.pdf",
+  },
+  {
+    title: "Academic Regulations",
+    icon: BookOpen,
+    file: "/policies/academic-regulations.pdf",
+  },
+  {
+    title: "Planned Recruitment Strategy",
+    icon: Briefcase,
+    file: "/policies/planned-recruitment-strategy.pdf",
+  },
+  {
+    title: "Complaint Policy and Process",
+    icon: AlertCircle,
+    file: "/policies/complaint-policy-and-process.pdf",
+  },
+  {
+    title: "Tuition Fees Refund and Compensation Policy",
+    icon: CreditCard,
+    file: "/policies/tuition-fees-refund.pdf",
+  },
+  {
+    title: "Information Accuracy and Completeness Policy",
+    icon: FileCheck,
+    file: "/policies/information-accuracy.pdf",
+  },
+  {
+    title: "Course Change and Closure Policy",
+    icon: RefreshCw,
+    file: "/policies/course-change-and-closure.pdf",
+  },
+  {
+    title: "Compensation Decision-Making Framework",
+    icon: Scale,
+    file: "/policies/compensation-decision-making.pdf",
+  },
+  {
+    title: "Safeguarding and Prevent Policy",
+    icon: ShieldCheck,
+    file: "/policies/safeguarding-and-prevent.pdf",
+  },
+  {
+    title: "Conflict of Interest Policy",
+    icon: AlertTriangle,
+    file: "/policies/conflict-of-interest.pdf",
+  },
+  {
+    title: "Whistle Blowing Policy",
+    icon: Megaphone,
+    file: "/policies/whistle-blowing.pdf",
+  },
+  {
+    title: "Anti-Bribery and Anti-Corruption Policy",
+    icon: ShieldAlert,
+    file: "/policies/anti-bribery-and-corruption.pdf",
+  },
+  {
+    title: "Data Protection Policy",
+    icon: Lock,
+    file: "/policies/data-protection.pdf",
+  },
+  {
+    title: "Equality, Diversity and Inclusion Policy",
+    icon: Users,
+    file: "/policies/equality-diversity-inclusion.pdf",
+  },
+  {
+    title: "Account 2023",
+    icon: PieChart,
+    file: "/policies/account-2023.pdf",
+  },
+  {
+    title: "Account 2024",
+    icon: PieChart,
+    file: "/policies/account-2024.pdf",
+  },
+  {
+    title: "Account 2025",
+    icon: PieChart,
+    file: "/policies/account-2025.pdf",
+  }
+];
 
   return (
     <div className="min-h-screen bg-white">
