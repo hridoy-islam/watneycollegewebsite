@@ -179,7 +179,7 @@ export default function AdultSocialCareTabs() {
           
           rows={[
             { week: "8", unit: "8a Communication", code: "L/651/1135", credits: 3, glh: 24 },
-            { week: "", unit: "8b Handling Information", code: "J/651/1142", credits: 1, glh: 8 },
+            { week: "8", unit: "8b Handling Information", code: "J/651/1142", credits: 1, glh: 8 },
             { week: "9", unit: "Privacy and Dignity", code: "M/651/1136", credits: 3, glh: 24 },
             { week: "10", unit: "Awareness of Mental Health and Dementia", code: "T/651/1138", credits: 3, glh: 24 },
             { week: "11", unit: "Health, Safety, and Principles of Basic Life Support", code: "H/651/1141", credits: 3, glh: 24 },
