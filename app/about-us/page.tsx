@@ -156,44 +156,116 @@ export default function AboutPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              {[
-                {
-                  name: "ESB",
-                  desc: "English for Speakers of Other Languages",
-                },
-                {
-                  name: "Focus Awards",
-                  desc: "Vocational & Technical Qualifications",
-                },
-                {
-                  name: "ASIC",
-                  desc: "Accreditation Service for International Schools",
-                },
-              ].map((accreditation, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
-                >
-                  <Card className="text-center hover:shadow-lg transition-shadow duration-300 h-full">
-                    <CardHeader>
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                        <Award className="w-6 h-6 text-primary" />
+            <div  className="">
+                      <div className="container mx-auto px-4 z-50">
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 z-50"
+                        >
+                          {[
+                            // {
+                            //   title: "Klaspad",
+                            //   logo: "/klaspad.png",
+                            //   link: "https://system.klaspad.com/login",
+                            //   description:
+                            //     "Klaspad is a leading accreditation body that ensures educational institutions meet high standards of quality and excellence.",
+                            // },
+                            {
+                              title: "ASIC",
+                              logo: "/asic.svg",
+                              link: "https://www.asic.org.uk/",
+                              description:
+                                "The Accreditation Service for International Schools, Colleges, and Universities (ASIC) is a UK-based, internationally recognized quality assurance body that accredits private post-secondary institutions globally",
+                            },
+                            {
+                              title: "ESB",
+                              logo: "/esb.png",
+                              link: "https://esbuk.org/web/",
+                              description:
+                                "English Speaking Board recognizes institutions that provide industry-relevant skills and qualifications.",
+                            },
+                            {
+                              title: "Focus Award",
+                              logo: "/focus-award.png",
+                              link: "https://focusawards.org.uk/",
+                              description:
+                                "Focus Award is a prestigious recognition for institutions that excel in student support and career readiness.",
+                            },
+                            {
+                              title: "NQual",
+                              logo: "/nqual.png",
+                              link: "https://nqual.com",
+                              description:
+                                "NQual provides high-quality qualifications and assessments designed to meet the needs of learners and help them achieve their potential, both professionally and personally.",
+                            },
+                            {
+                              title: "ATHE",
+                              logo: "/SVG.svg",
+                              link: "https://athe.co.uk",
+                              description:
+                                "ATHE is a global awarding organisation regulated by Ofqual and other UK and international regulators since 2011. Working with 220 centres in over 35 countries to complement our strong brand presence in the UK.",
+                            },
+                          ].map((acc, index) => (
+                            <motion.div
+                              key={acc.title}
+                              variants={itemVariants}
+                              initial="hidden"
+                              whileInView="visible"
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.4, delay: index * 0.1 }}
+                              className="flex z-50 border border-gray-200 rounded-xl"
+                            >
+                              <a
+                                href={acc.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 w-full h-full"
+                              >
+                                {/* Logo */}
+                                <div className="mb-4 flex items-center justify-center">
+                                  <div
+                                    className={`relative ${
+                                      acc.title === "ESB" ? "w-64 h-28" : "w-32 h-20"
+                                    }`}
+                                  >
+                                    <Image
+                                      src={acc.logo}
+                                      alt={`${acc.title} logo`}
+                                      fill
+                                      className="object-contain"
+                                    />
+                                  </div>
+                                </div>
+            
+                                {/* Title */}
+                                {/* <CardHeader>
+                                  <CardTitle className="text-xl text-watney-blue-primary text-center mb-3">
+                                    {acc.title}
+                                  </CardTitle>
+                                </CardHeader> */}
+            
+                                {/* Description */}
+                                <CardContent className="flex-grow">
+                                  <CardDescription className="text-gray-700 text-base text-center">
+                                    {acc.description}
+                                  </CardDescription>
+                                </CardContent>
+            
+                                {/* Learn More Button */}
+                                <div className="mt-4 flex justify-center">
+                                  <Button>
+                                    Read More
+                                    <ArrowRight className="h-4 w-4" />
+                                  </Button>
+                                </div>
+                              </a>
+                            </motion.div>
+                          ))}
+                        </motion.div>
                       </div>
-                      <CardTitle className="text-xl">
-                        {accreditation.name}
-                      </CardTitle>
-                      <CardDescription className="text-lg">
-                        {accreditation.desc}
-                      </CardDescription>
-                    </CardHeader>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
+                    </div>
           </div>
         </section>
 
@@ -205,7 +277,7 @@ export default function AboutPage() {
               {/* Vision Images - Top on small screens */}
               <div className="order-1 lg:order-2 relative">
                 {/* Main large image */}
-                <div className="relative">
+                <div className="relative z-50">
                   <img
                     src="/vision.jpg"
                     alt="Graduates celebrating their success at Watney College"
@@ -213,17 +285,17 @@ export default function AboutPage() {
                   />
                 </div>
                 {/* Overlapping smaller image */}
-                <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 w-32 sm:w-40 md:w-48 h-24 sm:h-28 md:h-32">
+                <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 w-32 sm:w-40 md:w-48 h-24 sm:h-28 md:h-32 z-50">
                   <img
                     src="/vision1.jpg"
                     alt="Students discussing future opportunities"
-                    className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white"
+                    className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white z-50"
                   />
                 </div>
               </div>
 
               {/* Vision Content */}
-              <div className="order-2 lg:order-1 space-y-4 text-center lg:text-left">
+              <div className="order-2 lg:order-1 space-y-4 text-center lg:text-left z-50">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
                   Our Vision
                 </h2>

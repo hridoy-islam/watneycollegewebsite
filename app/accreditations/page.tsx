@@ -90,13 +90,13 @@ export default function AccreditationPage() {
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 z-50"
             >
               {[
-                {
-                  title: "Klaspad",
-                  logo: "/klaspad.png",
-                  link: "https://system.klaspad.com/login",
-                  description:
-                    "Klaspad is a leading accreditation body that ensures educational institutions meet high standards of quality and excellence.",
-                },
+                // {
+                //   title: "Klaspad",
+                //   logo: "/klaspad.png",
+                //   link: "https://system.klaspad.com/login",
+                //   description:
+                //     "Klaspad is a leading accreditation body that ensures educational institutions meet high standards of quality and excellence.",
+                // },
                 {
                   title: "ASIC",
                   logo: "/asic.svg",

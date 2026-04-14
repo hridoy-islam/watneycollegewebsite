@@ -24,6 +24,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { courses } from "@/app/courses/data/courseData";
 import AdultCareDiplomaTabs from "../components/AdultCareDiplomaTabs";
+import AdultSocialCareTabs from "../components/AdultSocialCareTabs";
 
 export default function CourseDetailPage() {
   const searchParams = useSearchParams();
@@ -35,6 +36,7 @@ export default function CourseDetailPage() {
 
   const [activeTab, setActiveTab] = useState("overview");
   const isAdultCareDiploma = course?.slug === "level-4-diploma-in-adult-care";
+  const isAdultSocialCare = course?.slug === "level-2-adult-social-care";
 
   if (!course) {
     return (
@@ -142,41 +144,57 @@ export default function CourseDetailPage() {
             {/* Tabs Section */}
             <div className="bg-white rounded-2xl shadow-lg">
               <Tabs value={activeTab} onValueChange={setActiveTab} className="">
-   <TabsList
-  className="
+                <TabsList
+                  className="
     flex w-full overflow-x-auto bg-primary p-1 rounded-md 
     scrollbar-hide 
     sm:grid sm:grid-cols-4 sm:overflow-visible
   "
->
-  {[
-    { value: "overview", label: "Overview", shortLabel: "Overview" },
-    { value: "curriculum", label: "Programme Information", shortLabel: "Program Info" },
-    { value: "requirements", label: "Entry Requirement", shortLabel: "Requirement" },
-    { value: "career", label: "Programme Structure", shortLabel: "Structure" },
-  ].map((tab) => (
-    <TabsTrigger
-      key={tab.value}
-      value={tab.value}
-      className="
+                >
+                  {[
+                    {
+                      value: "overview",
+                      label: "Overview",
+                      shortLabel: "Overview",
+                    },
+                    {
+                      value: "curriculum",
+                      label: "Programme Information",
+                      shortLabel: "Program Info",
+                    },
+                    {
+                      value: "requirements",
+                      label: "Entry Requirement",
+                      shortLabel: "Requirement",
+                    },
+                    {
+                      value: "career",
+                      label: "Programme Structure",
+                      shortLabel: "Structure",
+                    },
+                  ].map((tab) => (
+                    <TabsTrigger
+                      key={tab.value}
+                      value={tab.value}
+                      className="
         flex items-center flex-shrink-0 text-white text-xs sm:text-sm gap-1 
         data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm 
         rounded-md transition-colors
       "
-      style={{ minWidth: "max-content" }}
-    >
-      {/* Small screen label */}
-      <span className="sm:hidden">{tab.shortLabel}</span>
-      {/* Large screen label */}
-      <span className="hidden sm:inline">{tab.label}</span>
-    </TabsTrigger>
-  ))}
-</TabsList>
-
-
+                      style={{ minWidth: "max-content" }}
+                    >
+                      {/* Small screen label */}
+                      <span className="sm:hidden">{tab.shortLabel}</span>
+                      {/* Large screen label */}
+                      <span className="hidden sm:inline">{tab.label}</span>
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
 
                 <div className="p-6 lg:p-8">
-                  {isAdultCareDiploma ? (
+                  {isAdultSocialCare ? (
+                    <AdultSocialCareTabs />
+                  ) : isAdultCareDiploma ? (
                     <AdultCareDiplomaTabs />
                   ) : (
                     <>
@@ -337,7 +355,7 @@ export default function CourseDetailPage() {
                   {courses
                     .filter(
                       (c) =>
-                        c.id !== course.id && c.category === course.category
+                        c.id !== course.id && c.category === course.category,
                     )
                     .slice(0, 2)
                     .map((related) => (
