@@ -5,6 +5,7 @@ import { Providers } from "./providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Inter } from "next/font/google";
+import MaintenancePage from "@/components/MaintainancePage";
 
 // const nunito = Nunito({
 //   subsets: ["latin"],
@@ -65,18 +66,30 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
+  // return (
+  //   <html lang="en" className={`${inter.variable} light`}>
+  //     <head>
+       
+  //       <link rel="icon" href="/favicon.ico" />
+  //     </head>
+  //     <body className="relative">
+  //       <Header />
+  //       <div className="pt-24 min-h-screen">
+  //         <Providers>{children}</Providers>
+  //       </div>
+  //       <Footer />
+  //     </body>
+  //   </html>
+  // );
+
+   return (
     <html lang="en" className={`${inter.variable} light`}>
       <head>
        
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="relative">
-        <Header />
-        <div className="pt-24 min-h-screen">
-          <Providers>{children}</Providers>
-        </div>
-        <Footer />
+       <MaintenancePage/>
       </body>
     </html>
   );
