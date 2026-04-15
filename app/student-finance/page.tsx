@@ -125,7 +125,7 @@ export default function StudentFinancePage() {
               Student <span className="text-watney-blue-primary">Finance</span>
             </h1>
             <p className="text-lg mb-8 text-gray-600 mx-auto">
-              If you are facing financial difficulties and are a British citizen or hold Indefinite Leave to Remain (ILR), you may be eligible to apply for funding to cover course fees and maintenance support.
+              Student Finance England loans will become available once Watney College completes OfS registration and designation for public funding. Current programmes are funded through self-payment or employer sponsorship. We will update this page as soon as designation is confirmed.
             </p>
             {/* <Button size="lg" className="btn-watney-primary  text-white hover:bg-watney-blue-primary/90">
               Check Your Eligibility
@@ -135,7 +135,74 @@ export default function StudentFinancePage() {
         </div>
       </section>
 
+     {/* Tuition Fees 2025–26 */}
+<section className="py-20 bg-white">
+  <div className="container mx-auto px-4">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-12"
+    >
+      <h2 className="text-4xl font-bold text-black mb-4">
+        Tuition Fees <span className="text-gradient-watney">2025–26</span>
+      </h2>
      
+    </motion.div>
+
+    <div className="max-w-4xl mx-auto overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+      <table className="w-full text-left">
+        <thead className="bg-watney-blue-light">
+          <tr>
+            <th className="px-6 py-4 text-sm font-bold text-black">
+              Programme
+            </th>
+            <th className="px-6 py-4 text-sm font-bold text-black">
+              Tuition Fee
+            </th>
+          </tr>
+        </thead>
+
+        <tbody className="bg-white divide-y divide-gray-100">
+          <tr>
+            <td className="px-6 py-4 text-gray-700">
+              NQual Level 2 Adult Social Care Certificate
+            </td>
+            <td className="px-6 py-4 font-semibold text-watney-blue-primary">
+              £1,500 per year
+            </td>
+          </tr>
+
+          <tr>
+            <td className="px-6 py-4 text-gray-700">
+              NQual Level 4 Diploma in Adult Care
+            </td>
+            <td className="px-6 py-4 font-semibold text-watney-blue-primary">
+              £1,100 per year
+            </td>
+          </tr>
+
+          <tr>
+            <td className="px-6 py-4 text-gray-700">
+              ATHE Level 4 Healthcare Management
+            </td>
+            <td className="px-6 py-4 font-semibold text-watney-blue-primary">
+              £6,500 per year <span className="text-xs text-gray-500">(from September 2026)</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td className="px-6 py-4 text-gray-700">UK HND</td>
+            <td className="px-6 py-4 font-semibold text-watney-blue-primary">
+              £6,180 per year <span className="text-xs text-gray-500">(from September 2026)</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
       {/* Eligibility Criteria */}
       <section className="py-20 ">
@@ -181,6 +248,22 @@ export default function StudentFinancePage() {
             ))}
           </motion.div>
         </div>
+        <div className="mt-8 max-w-4xl mx-auto bg-gray-50 border border-gray-200 rounded-xl p-6 text-sm text-gray-700 leading-relaxed">
+  <p>
+    <span className="font-semibold">Cancellation and Refund Rights —</span>{" "}
+    You have a 14-day cancellation period from the date of enrolment. Further
+    refund provisions are set out in our{" "}
+    <a
+      href="/policies"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-watney-blue-primary font-medium underline hover:text-watney-blue-primary/80"
+    >
+      Tuition Fee Refund and Compensation Policy.
+    </a>
+    .
+  </p>
+</div>
       </section>
 
       {/* Types of Support */}
@@ -322,6 +405,8 @@ export default function StudentFinancePage() {
           </motion.div>
         </div>
       </section>
+
+      
       </div>
     </div>
   )

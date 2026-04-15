@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Employers & Partners",
   description:
-    "Watney College is proud to be accredited by leading organizations, ensuring the quality and recognition of our programs.",
+    "Watney College is proud to be accredited by leading organizations, ensuring the quality and recognition of our programmes.",
   keywords: [
     "Watney College",
     "accreditations",
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     "career readiness",
   ],
   openGraph: {
-    title: "Accreditations & Partnerships | Watney College",
+    title: "Employers and Partners | Watney College",
     description:
-      "Watney College is proud to be accredited by leading organizations, ensuring the quality and recognition of our programs.",
+      "Watney College is proud to be accredited by leading organizations, ensuring the quality and recognition of our programmes.",
     url: "/partners/accreditations",
     siteName: "Watney College",
     images: [
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Accreditations & Partnerships | Watney College",
+    title: "Employers and Partners | Watney College",
     description:
-      "Watney College is proud to be accredited by leading organizations, ensuring the quality and recognition of our programs.",
+      "Watney College is proud to be accredited by leading organizations, ensuring the quality and recognition of our programmes.",
     images: ["/logo.png"], // Replace with an actual image
   },
   alternates: {

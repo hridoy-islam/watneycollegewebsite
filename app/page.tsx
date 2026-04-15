@@ -313,7 +313,7 @@ export default function page() {
                 {
                   title: "Fees Funding",
                   description:
-                    "Expert guidance on tuition fees, scholarships, student loans, and financial planning to help you manage your education costs with confidence.",
+                    "Tuition fees, payment options and financial support for your studies at Watney College.",
                   icon: <Banknote className="w-6 h-6" />,
                   href: "/student-finance",
                   gradient: "from-green-500 to-emerald-600",
@@ -325,7 +325,7 @@ export default function page() {
                     "Receive personalized advice to choose the right course based on your goals, interests, and career aspirations.",
                   icon: <BookOpen className="w-6 h-6" />,
                   // href: "/prospectus",
-                   href: "#",
+                   href: "/contact",
                   gradient: "from-pink-500 to-rose-600",
                   delay: 0.4,
                 },
@@ -724,9 +724,7 @@ export default function page() {
                     {/* Content */}
                     <div className="flex-grow">
                       <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                        Join our exclusive alumni community of over 15,000+
-                        graduates worldwide. Access mentorship programs,
-                        networking events, and career advancement opportunities.
+                          Join our exclusive alumni community of graduates worldwide. Access mentorship programs, networking events, and career advancement opportunities.
                       </p>
 
                       {/* Features */}
@@ -886,12 +884,12 @@ export default function page() {
                     </p>
 
                     {/* Stats */}
-                    <div className="bg-watney-blue-primary/5 rounded-lg p-4 mb-6">
+                    {/* <div className="bg-watney-blue-primary/5 rounded-lg p-4 mb-6">
                       <div className="flex justify-between items-center text-sm">
                         <span className="text-gray-600">Active Members</span>
                         <span className="font-bold text-primary">250+</span>
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* CTA */}
                     {/* <Button
@@ -925,14 +923,14 @@ export default function page() {
                     </p>
 
                     {/* Upcoming Event Preview */}
-                    <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6">
+                    {/* <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6">
                       <p className="text-sm font-medium text-orange-800">
                         Next Event
                       </p>
                       <p className="text-xs text-orange-600">
                         Annual Career Fair - March 15
                       </p>
-                    </div>
+                    </div> */}
 
                     {/* CTA */}
                     {/* <Button
@@ -966,7 +964,7 @@ export default function page() {
                     </p>
 
                     {/* Impact Stats */}
-                    <div className="bg-green-50 rounded-lg p-4 mb-6">
+                    {/* <div className="bg-green-50 rounded-lg p-4 mb-6">
                       <div className="grid grid-cols-2 gap-4 text-sm">
                         <div className="text-center">
                           <div className="font-bold text-green-600">120+</div>
@@ -977,7 +975,7 @@ export default function page() {
                           <div className="text-gray-600">Hours</div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* CTA */}
                     {/* <Button

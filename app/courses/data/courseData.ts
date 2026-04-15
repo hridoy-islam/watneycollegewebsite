@@ -1,3 +1,5 @@
+import { duration } from "moment";
+
 export const courses = [
   // {
   //   id: 1,
@@ -204,7 +206,7 @@ export const courses = [
     slug: "level-2-adult-social-care",
     title: "Level 2 Adult Social Care",
     description:
-      "Designed for new entrants or existing workers in adult social care roles. This qualification ensures foundational competence in person-centred care, safeguarding, communication, health and safety, and legal responsibilities, serving as a nationally recognised benchmark for care practice.",
+      "Designed for new entrants or existing workers in adult social care roles, providing foundational competence in person-centred care and safeguarding",
     category: "Healthcare",
     level: "Level 2",
     image: "/adultcare1.jpg",
@@ -215,6 +217,9 @@ export const courses = [
       "Safeguarding Adults & Children",
       "Health & Safety in Care",
     ],
+        duration:"Duration: 1 year  |  Mode: Blended (in-person and remote)  |  Start: September and January",
+
+    courseFee: "£1,500",
     link: "https://app.watneycollege.co.uk/courses/apply/689e02749443d6e90e5b14a7",
     overview:
       "This Level 2 Adult Social Care Certificate is designed to improve portability and reduce the need for repeat training and assessment when individual move roles. Skills for Care was commissioned by the Department of Health and Social Care (DHSC) to develop a specification for the development of the new Level 2 Adult Social Care Certificate qualification, based on the existing Care Certificate standards. The NQual Level 2 Adult Social Care Certificate qualification is supported by Skills for Care and the Department of Health and Social Care. This qualification is guided by the Skills for Care & Development Assessment Principles and Additional Assessment Principles Guidance.",
@@ -291,7 +296,7 @@ export const courses = [
     slug: "level-4-diploma-in-adult-care",
     title: "NQual Level 4 Diploma in Adult Care",
     description:
-      "Designed for care professionals aspiring to or working in leadership and management roles. This qualification develops advanced skills in communication, safeguarding, health and safety, person-centred planning, and inclusive practice, preparing learners to lead teams and manage services effectively.",
+      "Designed for care professionals aspiring to or working in leadership and management roles in adult social care. This qualification develops advanced skills in communication, safeguarding, health and safety, person-centred planning, and inclusive practice, preparing learners to lead teams and manage services effectively.",
     category: "Healthcare",
     level: "Level 4",
     image: "/adultcare2.jpg",
@@ -301,6 +306,8 @@ export const courses = [
       "Safeguarding Adults & Children",
       "Health & Safety Leadership",
     ],
+    courseFee: "£1,200",
+    duration:"Duration: 1 year  |  Mode: Blended (in-person and remote)  |  Start: September and January",
     link: "https://app.watneycollege.co.uk/courses/apply/689dedb69443d6e90e5b146c",
     overview: `This Level 4 Diploma in Adult Care is designed to provide learners with knowledge and skills relating to care practices. It will provide individuals with the chance to develop knowledge and gain skills to seek employment or progression onto higher level qualifications. The purpose of this qualification is to prepare individuals for progression in the care sector. The units specified within this document cover a variety of areas and topics relevant to the sector, including leadership and management in health care. This qualification is supported by Skills for Care and developed using the Development Assessment Principles. This qualification is approved by Skills for Care.`,
     curriculum: [

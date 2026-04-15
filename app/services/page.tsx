@@ -194,7 +194,7 @@ export default function ServicesPage() {
               { icon: Star, title: "Expert Faculty", desc: "World-class instructors with industry experience" },
               { icon: Globe, title: "Global Recognition", desc: "Internationally recognized certifications" },
               { icon: Users, title: "Personalized Support", desc: "One-on-one guidance throughout your journey" },
-              { icon: Award, title: "Proven Results", desc: "98% success rate in student outcomes" }
+              { icon: Award, title: "Proven Results", desc: "Strong success rate in student outcomes" }
             ].map((item, index) => (
               <motion.div key={index} variants={itemVariants} className="text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">

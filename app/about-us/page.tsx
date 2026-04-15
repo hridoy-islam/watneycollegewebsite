@@ -96,7 +96,6 @@ export default function AboutPage() {
             >
               {/* Left: Text Content */}
               <div className="z-50">
-                
                 <h2 className="text-4xl  font-bold mb-6">
                   About <span className="text-gradient-watney">Us</span>
                 </h2>
@@ -111,7 +110,11 @@ export default function AboutPage() {
                   programmes. We are committed to providing a transformative
                   learning experience that combines academic rigor with
                   practical skills, preparing students to succeed in a rapidly
-                  evolving global workforce.
+                  evolving global workforce. Watney College is a private limited
+                  company (Company No. 12858207) registered in England and
+                  Wales. The College has submitted an application for
+                  registration with the Office for Students (OfS). UKPRN:
+                  10087811.
                 </p>
               </div>
 
@@ -156,118 +159,154 @@ export default function AboutPage() {
               </p>
             </motion.div>
 
-            <div  className="">
-                      <div className="container mx-auto px-4 z-50">
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 z-50"
-                        >
-                          {[
-                            // {
-                            //   title: "Klaspad",
-                            //   logo: "/klaspad.png",
-                            //   link: "https://system.klaspad.com/login",
-                            //   description:
-                            //     "Klaspad is a leading accreditation body that ensures educational institutions meet high standards of quality and excellence.",
-                            // },
-                            {
-                              title: "ASIC",
-                              logo: "/asic.svg",
-                              link: "https://www.asic.org.uk/",
-                              description:
-                                "The Accreditation Service for International Schools, Colleges, and Universities (ASIC) is a UK-based, internationally recognized quality assurance body that accredits private post-secondary institutions globally",
-                            },
-                            {
-                              title: "ESB",
-                              logo: "/esb.png",
-                              link: "https://esbuk.org/web/",
-                              description:
-                                "English Speaking Board recognizes institutions that provide industry-relevant skills and qualifications.",
-                            },
-                            {
-                              title: "Focus Award",
-                              logo: "/focus-award.png",
-                              link: "https://focusawards.org.uk/",
-                              description:
-                                "Focus Award is a prestigious recognition for institutions that excel in student support and career readiness.",
-                            },
-                            {
-                              title: "NQual",
-                              logo: "/nqual.png",
-                              link: "https://nqual.com",
-                              description:
-                                "NQual provides high-quality qualifications and assessments designed to meet the needs of learners and help them achieve their potential, both professionally and personally.",
-                            },
-                            {
-                              title: "ATHE",
-                              logo: "/SVG.svg",
-                              link: "https://athe.co.uk",
-                              description:
-                                "ATHE is a global awarding organisation regulated by Ofqual and other UK and international regulators since 2011. Working with 220 centres in over 35 countries to complement our strong brand presence in the UK.",
-                            },
-                          ].map((acc, index) => (
-                            <motion.div
-                              key={acc.title}
-                              variants={itemVariants}
-                              initial="hidden"
-                              whileInView="visible"
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.4, delay: index * 0.1 }}
-                              className="flex z-50 border border-gray-200 rounded-xl"
-                            >
-                              <a
-                                href={acc.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex flex-col bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 w-full h-full"
-                              >
-                                {/* Logo */}
-                                <div className="mb-4 flex items-center justify-center">
-                                  <div
-                                    className={`relative ${
-                                      acc.title === "ESB" ? "w-64 h-28" : "w-32 h-20"
-                                    }`}
-                                  >
-                                    <Image
-                                      src={acc.logo}
-                                      alt={`${acc.title} logo`}
-                                      fill
-                                      className="object-contain"
-                                    />
-                                  </div>
-                                </div>
-            
-                                {/* Title */}
-                                {/* <CardHeader>
+            <div className="">
+              <div className="container mx-auto px-4 z-50">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 z-50"
+                >
+                  {[
+                    // {
+                    //   title: "Klaspad",
+                    //   logo: "/klaspad.png",
+                    //   link: "https://system.klaspad.com/login",
+                    //   description:
+                    //     "Klaspad is a leading accreditation body that ensures educational institutions meet high standards of quality and excellence.",
+                    // },
+                    {
+                      title: "ASIC",
+                      logo: "/asic.svg",
+                      link: "https://www.asic.org.uk/",
+                      description:
+                        "The Accreditation Service for International Schools, Colleges, and Universities (ASIC) is a UK-based, internationally recognized quality assurance body that accredits private post-secondary institutions globally",
+                    },
+                    {
+                      title: "ESB",
+                      logo: "/esb.png",
+                      link: "https://esbuk.org/web/",
+                      description:
+                        "English Speaking Board recognizes institutions that provide industry-relevant skills and qualifications. ESB is an Ofqual-regulated awarding organisation specialising in spoken English qualifications and communication skills.",
+                    },
+                    {
+                      title: "Focus Award",
+                      logo: "/focus-award.png",
+                      link: "https://focusawards.org.uk/",
+                      description:
+                        "Focus Awards is a regulated awarding organisation delivering qualifications in health, social care, business and education sectors. It is regulated by Ofqual in England",
+                    },
+                    {
+                      title: "NQual",
+                      logo: "/nqual.png",
+                      link: "https://nqual.com",
+                      description:
+                        "NQual provides high-quality qualifications and assessments designed to meet the needs of learners and help them achieve their potential, both professionally and personally.",
+                    },
+                    {
+                      title: "ATHE",
+                      logo: "/SVG.svg",
+                      link: "https://athe.co.uk",
+                      description:
+                        "ATHE is a global awarding organisation regulated by Ofqual and other UK and international regulators since 2011. Working with 220 centres in over 35 countries to complement our strong brand presence in the UK.",
+                    },
+                  ].map((acc, index) => (
+                    <motion.div
+                      key={acc.title}
+                      variants={itemVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      className="flex z-50 border border-gray-200 rounded-xl"
+                    >
+                      <a
+                        href={acc.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 w-full h-full"
+                      >
+                        {/* Logo */}
+                        <div className="mb-4 flex items-center justify-center">
+                          <div
+                            className={`relative ${
+                              acc.title === "ESB" ? "w-64 h-28" : "w-32 h-20"
+                            }`}
+                          >
+                            <Image
+                              src={acc.logo}
+                              alt={`${acc.title} logo`}
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Title */}
+                        {/* <CardHeader>
                                   <CardTitle className="text-xl text-watney-blue-primary text-center mb-3">
                                     {acc.title}
                                   </CardTitle>
                                 </CardHeader> */}
-            
-                                {/* Description */}
-                                <CardContent className="flex-grow">
-                                  <CardDescription className="text-gray-700 text-base text-center">
-                                    {acc.description}
-                                  </CardDescription>
-                                </CardContent>
-            
-                                {/* Learn More Button */}
-                                <div className="mt-4 flex justify-center">
-                                  <Button>
-                                    Read More
-                                    <ArrowRight className="h-4 w-4" />
-                                  </Button>
-                                </div>
-                              </a>
-                            </motion.div>
-                          ))}
-                        </motion.div>
-                      </div>
-                    </div>
+
+                        {/* Description */}
+                        <CardContent className="flex-grow">
+                          <CardDescription className="text-gray-700 text-base text-center">
+                            {acc.description}
+                          </CardDescription>
+                        </CardContent>
+
+                        {/* Learn More Button */}
+                        <div className="mt-4 flex justify-center">
+                          <Button>
+                            Read More
+                            <ArrowRight className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </a>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
           </div>
         </section>
+
+        {/* Regulatory Status Section */}
+<section className="py-16  z-50">
+  <div className="container mx-auto ">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="max-w-4xl mx-auto"
+    >
+      <Card className="border-t-4 border-watney-blue-primary shadow-md">
+        <CardHeader>
+          <div className="flex items-center gap-3 mb-2">
+            <Building className="w-6 h-6 text-watney-blue-primary" />
+            <CardTitle className="text-2xl font-bold">Regulatory Status</CardTitle>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4 text-gray-700 leading-relaxed">
+            <p>
+              Watney College has submitted an application for registration with the 
+              <span className="font-semibold text-gray-900"> Office for Students (OfS)</span> under 
+              the Approved category. Our <span className="font-semibold text-gray-900">UKPRN is 10087811</span>.
+            </p>
+            <p>
+              We are accredited by <span className="font-semibold text-gray-900">ASIC</span> and 
+              deliver regulated qualifications through <span className="font-semibold text-gray-900">NQual</span> and 
+              <span className="font-semibold text-gray-900"> ATHE</span> awarding bodies, 
+              both of which are regulated by <span className="font-semibold text-gray-900">Ofqual</span>.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
+  </div>
+</section>
 
         {/* Vision & Mission */}
         <section className="py-16 sm:py-20 text-primary">
@@ -438,7 +477,7 @@ export default function AboutPage() {
                           achieve that dream they’ve always held.
                         </p>
                         <p className="font-medium text-gray-800">
-                          — Principal, Watney College
+                         — Dr. ATM Shafiul Alam, Principal, Watney College
                         </p>
                       </blockquote>
                     </div>
@@ -493,7 +532,7 @@ export default function AboutPage() {
                 {
                   icon: <Star className="w-6 h-6" />,
                   title: "High Success Rate",
-                  desc: "98% of our students achieve their academic or career goals.",
+                  desc: "Strong success rate in student outcomes",
                 },
                 {
                   icon: <GraduationCap className="w-6 h-6" />,

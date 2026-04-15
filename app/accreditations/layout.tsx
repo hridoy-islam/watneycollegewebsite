@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "collaboration",
   ],
   openGraph: {
-    title: "Partner with Watney College",
+    title: "Accreditations and Awarding Bodies | Watney College",
     description:
       "Join our network of trusted partners and help us empower students across London and beyond.",
     url: "/partners/affiliate",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Partner with Watney College",
+    title: "Accreditations and Awarding Bodies | Watney College",
     description:
       "Join our network of trusted partners and help us empower students across London and beyond.",
     images: ["/logo.png"], // Replace with actual image

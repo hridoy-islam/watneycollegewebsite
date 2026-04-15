@@ -28,8 +28,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     default:
-      "Study in the UK | Watney College – Higher Education & Professional Diplomas",
-    template: "%s | Watney College – Higher Education & Professional Diplomas",
+      "Watney College | Higher Education Provider — London | UKPRN 10087811",
+    template: "%s | Watney College | Higher Education Provider — London | UKPRN 10087811",
   },
   description: "Higher Education in the UK",
   keywords: [

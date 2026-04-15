@@ -108,6 +108,12 @@ export default function CourseDetailPage() {
                   <Tag className="w-4 h-4 mr-1" />
                   {course.category}
                 </div>
+                {course.duration && (
+                  <div className="flex items-start gap-2 text-gray-600  px-4 py-3 rounded-lg">
+                    <Clock className="w-4 h-4 mt-1 text-primary" />
+                    <span className="leading-relaxed">{course.duration}</span>
+                  </div>
+                )}
                 {/* <div className="flex items-center">
                   <Users className="w-4 h-4 mr-1" />
                   {course.students}
@@ -288,6 +294,24 @@ export default function CourseDetailPage() {
                 </div>
               </Tabs>
             </div>
+            {/* Compliance & Student Information */}
+<div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+  <h4 className="text-lg font-semibold text-gray-900 mb-3">
+    Student Information
+  </h4>
+
+  <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
+    {/* Complaints */}
+    <p>
+      If you have a concern about this course, view our Student Complaints Procedure.
+    </p>
+
+    {/* Course Change Notice */}
+    <p>
+      In the unlikely event of a significant change or closure of this course, Watney College will notify you in writing and implement the arrangements set out in our Student Protection Plan.
+    </p>
+  </div>
+</div>
           </div>
 
           {/* Sidebar */}
@@ -295,6 +319,18 @@ export default function CourseDetailPage() {
             {/* Price Card */}
             <Card className="bg-gradient-to-br from-primary to-primary/80 text-white border-0 shadow-lg">
               <CardContent className="p-6">
+                <div className="bg-white/10 p-6 border-b border-white/10 rounded-md mb-6">
+                  <div className="text-white text-sm font-medium mb-1">
+                    Tuition Fee
+                  </div>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-bold">
+                      {/* Logic: Display fee from data, or a placeholder if not set */}
+                      {course.courseFee ? course.courseFee : "-"}
+                    </span>
+                    <span className="text-white text-sm">/ per year</span>
+                  </div>
+                </div>
                 <div className="text-3xl font-bold mb-2">Enroll Now</div>
 
                 <a
@@ -323,10 +359,10 @@ export default function CourseDetailPage() {
                   Quick Actions
                 </h4>
                 <div className="space-y-3">
-                  <button className="w-full flex items-center justify-start space-x-3 text-left p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                  {/* <button className="w-full flex items-center justify-start space-x-3 text-left p-3 rounded-lg hover:bg-gray-50 transition-colors">
                     <Download className="w-4 h-4 text-purple-600" />
                     <span className="text-sm">Download Brochure</span>
-                  </button>
+                  </button> */}
                   <button
                     className="w-full flex items-center justify-start space-x-3 text-left p-3 rounded-lg hover:bg-gray-50 transition-colors"
                     onClick={() => router.push("/contact")}

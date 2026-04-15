@@ -80,11 +80,13 @@ export default function AdultSocialCareTabs() {
             Principles Guidance.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Designed for new entrants or existing workers in adult social care
-            roles, this qualification ensures foundational competence in
+            Designed for new entrants or existing workers in adult social care roles, providing foundational competence in person-centred care and safeguarding. This qualification ensures foundational competence in
             person-centred care, safeguarding, communication, health and safety,
             and legal responsibilities — serving as a nationally recognised
             benchmark for care practice.
+          </p>
+          <p className="text-gray-700 leading-relaxed pt-5">
+           <span className="font-semibold">Assessment:</span> Portfolio of evidence, internally assessed and verified. No written examinations. Assessed against NQual qualification standards regulated by Ofqual.
           </p>
 
           <div className="mt-6">
@@ -157,7 +159,7 @@ export default function AdultSocialCareTabs() {
             Entry Requirements
           </h3>
           <ul className="space-y-2 text-gray-700">
-            {["Minimum age: 19", "No formal academic entry requirements"].map(
+            {["No formal entry requirements.", "Applicants must be 16 or over and working in or seeking employment in adult social care."].map(
               (req, index) => (
                 <li key={index} className="flex items-start space-x-2">
                   <span className="text-primary font-bold">•</span>

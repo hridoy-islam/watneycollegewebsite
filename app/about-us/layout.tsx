@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Watney College | London Higher Education Provider",
   description:
     "Learn more about Watney College, our mission, vision, and values in London.",
   keywords: [

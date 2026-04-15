@@ -76,9 +76,9 @@ export default function Hero() {
     <div className="order-2 lg:order-1 space-y-8 text-center lg:text-left animate-fade-in-up">
       <div className="space-y-4">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight text-gray-900">
-          <span className="block">Education Empowerment</span>
+          <span className="block">Education. Empowerment.</span>
           <span className="block text-watney-blue-primary">
-            Opportunity Success..
+            Opportunity. Success.
           </span>
         </h1>
       </div>

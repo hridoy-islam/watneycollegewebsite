@@ -135,7 +135,9 @@ export default function ContactPage() {
                       <h3 className="text-lg font-bold text-gray-900 mb-1">
                         Phone Support
                       </h3>
-                      <p className="text-gray-600">+44 (0) 2080046463</p>
+                      <a href="tel:+44 (0) 2080046463" className="text-gray-600">
+                        +44 (0) 2080046463
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -165,8 +167,7 @@ export default function ContactPage() {
                       <h3 className="text-lg font-bold text-gray-900 mb-1">
                         Office Hours
                       </h3>
-                      <p className="text-gray-600">Mon-Fri: 9AM - 5PM</p>
-                      <p className="text-gray-600">Sat: 10AM - 1PM</p>
+                      <p className="text-gray-600">Mon-Fri: 9AM - 6PM</p>
                     </div>
                   </div>
                 </div>
@@ -281,6 +282,23 @@ export default function ContactPage() {
                     </Button>
                   </form>
                 )}
+                 <div className="mt-6 bg-white border border-gray-200 rounded-xl p-4 text-sm text-gray-600 leading-relaxed">
+    <p>
+      To submit a complaint, please see our{" "}
+      
+        Student Complaints Procedure
+       
+      or email{" "}
+      <a
+        href="mailto:info@watneycollege.co.uk"
+        className="text-watney-blue-primary font-medium underline"
+      >
+        info@watneycollege.co.uk
+      </a>{" "}
+      with the subject line{" "}
+      <span className="font-semibold">"Formal Complaint"</span>.
+    </p>
+  </div>
               </div>
             </div>
           </div>

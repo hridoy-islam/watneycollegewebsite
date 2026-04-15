@@ -84,7 +84,7 @@ const affiliates = [
   {
     name: "Care Square",
     service:
-      "Care Square is delighted to collaborate with residents of London Borough of Barking and Dagenham, Havering, Redbridge, Tower Hamlets and Newham to deliver supported living for the people in need.",
+      "Care Square is a work placement and employer partner of Watney College, providing healthcare students with practical experience in supported living environments across East London.",
     logo: "/affiliates/caresquare.png",
     link: "https://caresquare.org.uk/",
   },
@@ -108,25 +108,29 @@ export default function AffiliatePage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative overflow-hidden">
-       <div className="absolute right-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
-        <div className="absolute left-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
+        
         {/* Hero Section */}
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
+          <div className="absolute right-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute left-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Users className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-           <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
-  Building Futures Together with{" "}
-  <span className="text-watney-blue-primary">Watney College</span>
-</h1>
+            <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+              Building Futures Together with{" "}
+              <span className="text-watney-blue-primary">Watney College</span>
+            </h1>
             <p className="text-lg text-gray-600 leading-relaxed mx-auto">
-               Partner with us to bridge education and industry. As a valued employer or
-    partner, you’ll help shape the next generation of skilled professionals
-    through collaboration, internships, and real-world learning experiences.
+              Partner with us to bridge education and industry. As a valued
+              employer or partner, you’ll help shape the next generation of
+              skilled professionals through collaboration, internships, and
+              real-world learning experiences.
             </p>
           </div>
         </section>
 
-        <section id="affiliates" className="py-20 bg-gray-50">
+        <section id="affiliates" className="py-20 bg-gray-50 relative">
+          <div className="absolute right-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
+        <div className="absolute left-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
           <div className="container mx-auto px-4">
             <motion.div
               className=" mx-auto text-center mb-12"
@@ -198,6 +202,71 @@ export default function AffiliatePage() {
                   </div>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="relative py-20 bg-soft-sky">
+          {/* Background Patterns */}
+          <div className="absolute left-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0"></div>
+          <div className="absolute right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
+
+          <div className="container mx-auto px-4 text-center relative z-10">
+            {/* Heading */}
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6 leading-tight">
+              Partner With{" "}
+              <span className="text-gradient-watney">Watney College</span>
+            </h2>
+
+            {/* Description */}
+            <p className="text-base sm:text-lg md:text-xl text-black mb-8 max-w-3xl mx-auto px-2">
+              If your organisation would like to offer work placements,
+              co-deliver training, or recruit Watney College graduates, we’d
+              love to collaborate with you.
+            </p>
+
+            {/* Contact Info */}
+            <div className="mb-8 space-y-2 text-gray-700 text-sm sm:text-base">
+              <p>
+                📧{" "}
+                <a
+                  href="mailto:info@watneycollege.co.uk"
+                  className="text-primary font-medium underline"
+                >
+                  info@watneycollege.co.uk
+                </a>
+              </p>
+              <p>
+                📞{" "}
+                <a
+                  href="tel:+442080046463"
+                  className="text-primary font-medium underline"
+                >
+                  +44 (0)20 8004 6463
+                </a>
+              </p>
+            </div>
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="btn-watney-primary w-full sm:w-auto flex items-center justify-center"
+                >
+                  Partner With Us
+                </Button>
+              </Link>
+
+              <Link href="/courses" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="btn-outline-watney w-full sm:w-auto flex items-center justify-center text-watney-blue-primary bg-transparent"
+                >
+                  Explore Courses
+                </Button>
+              </Link>
             </div>
           </div>
         </section>

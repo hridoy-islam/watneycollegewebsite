@@ -104,6 +104,9 @@ export default function AdultCareDiplomaTabs() {
             This qualification is supported by Skills for Care and developed using the Development Assessment Principles. This qualification is approved by Skills for Care.
           </p>
         </div>
+        <p className="text-gray-700 leading-relaxed pt-5">
+           <span className="font-semibold">Assessment:</span> Portfolio of evidence, internally assessed and verified. No written examinations. Assessed against NQual qualification standards regulated by Ofqual.
+          </p>
       </TabsContent>
 
       {/* === Curriculum Tab (Programme Information) === */}
@@ -138,7 +141,7 @@ export default function AdultCareDiplomaTabs() {
         <div className="">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Entry Requirements</h3>
           <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Learners should have or be working towards a minimum of level 2 in literacy and numeracy or equivalent.</li>
+            <li>Applicants should hold a Level 3 qualification or equivalent, or have relevant experience in adult social care.</li>
             <li>Minimum age 18</li>
           </ul>
 

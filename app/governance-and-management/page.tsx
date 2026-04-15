@@ -32,14 +32,16 @@ const OrgNode = ({
     transition={{ duration: 0.5, ease: "easeOut" }}
     className="w-[140px] sm:w-[160px] mx-auto relative z-10"
   >
-    <div 
+    <div
       className={`h-full flex flex-col items-center justify-center border-[3px] rounded-xl transition-all duration-300 min-h-[76px] cursor-default overflow-hidden
-        ${isGolden 
-          ? "bg-gradient-to-b from-[#FFD700] via-[#FDB931] to-[#D4AF37] border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)]" 
-          : "bg-white border-watney shadow-[5px_5px_0px_0px_#009dff] hover:shadow-[7px_7px_0px_0px_#009dff]"
+        ${
+          isGolden
+            ? "bg-gradient-to-b from-[#FFD700] via-[#FDB931] to-[#D4AF37] border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)]"
+            : "bg-white border-watney shadow-[5px_5px_0px_0px_#009dff] hover:shadow-[7px_7px_0px_0px_#009dff]"
         } hover:-translate-y-0.5`}
     >
-      <div className={`p-2 flex flex-col sm:p-3 text-center text-xs sm:text-[13px] font-bold leading-snug items-center justify-center h-full w-full
+      <div
+        className={`p-2 flex flex-col sm:p-3 text-center text-xs sm:text-[13px] font-bold leading-snug items-center justify-center h-full w-full
         ${isGolden ? "text-black" : "text-slate-800"}`}
       >
         {title}
@@ -60,7 +62,9 @@ const VLine = ({ h = "h-8 sm:h-10" }: { h?: string }) => (
     {/* dashed Line with Arrows beside the solid line */}
     <div className="absolute left-[calc(50%+8px)] -top-1 h-full border-l-[3.5px] border-dashed border-watney">
       {/* <div className="absolute -top-[5px] -left-[5px] text-[10px] text-watney leading-none">▲</div> */}
-      <div className="absolute -bottom-[5px] -right-[5px] text-[16px] text-watney leading-none">▼</div>
+      <div className="absolute -bottom-[5px] -right-[5px] text-[16px] text-watney leading-none">
+        ▼
+      </div>
     </div>
   </div>
 );
@@ -71,23 +75,39 @@ const HLine = ({ w = "w-full" }: { w?: string }) => (
     <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full h-[3px] bg-watney" />
     {/* dashed Line with Arrows beside (below) the solid line */}
     <div className="absolute top-[calc(50%+8px)] -translate-y-1/2 left-0 w-full border-t-[3.5px] border-dashed border-watney">
-      <div className="absolute -left-[4px] -top-[6px] text-[10px] text-watney leading-none">◀</div>
-      <div className="absolute -right-[4px] -top-[6px] text-[10px] text-watney leading-none">▶</div>
+      <div className="absolute -left-[4px] -top-[6px] text-[10px] text-watney leading-none">
+        ◀
+      </div>
+      <div className="absolute -right-[4px] -top-[6px] text-[10px] text-watney leading-none">
+        ▶
+      </div>
     </div>
   </div>
 );
 
 // Magnetic lines that don't affect layout
 const MagneticVLine = ({ height }: { height: number }) => (
-  <div 
-    className="absolute w-[3px] bg-watney pointer-events-none z-0" 
-    style={{ height: `${height}px`, left: "50%", transform: "translateX(-50%)" }}
+  <div
+    className="absolute w-[3px] bg-watney pointer-events-none z-0"
+    style={{
+      height: `${height}px`,
+      left: "50%",
+      transform: "translateX(-50%)",
+    }}
   />
 );
 
-const MagneticHLine = ({ width, top, left }: { width: number; top: number; left: number }) => (
-  <div 
-    className="absolute h-[3px] bg-watney pointer-events-none z-0" 
+const MagneticHLine = ({
+  width,
+  top,
+  left,
+}: {
+  width: number;
+  top: number;
+  left: number;
+}) => (
+  <div
+    className="absolute h-[3px] bg-watney pointer-events-none z-0"
     style={{ width: `${width}px`, top: `${top}px`, left: `${left}px` }}
   />
 );
@@ -189,7 +209,19 @@ export default function GovernanceAndManagementPage() {
               </div>
             </div>
           </section>
-
+          <section className="relative py-6 bg-white border-y border-gray-200 z-20">
+            
+            <div className="container mx-auto px-4 text-center">
+              <p className="text-sm md:text-base text-slate-700 leading-relaxed">
+                <span className="font-semibold">UKPRN:</span> 10087811 |{" "}
+                <span className="font-semibold">Company Registration No:</span>{" "}
+                12858207 | Registered in England and Wales |{" "}
+                <span className="font-semibold">
+                  OfS registration application submitted April 2026
+                </span>
+              </p>
+            </div>
+          </section>
           {/* SECTION 2: Governance Philosophy */}
           <section className="relative py-24  overflow-hidden">
             <div className="absolute -left-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0"></div>
@@ -255,7 +287,7 @@ export default function GovernanceAndManagementPage() {
           </section>
 
           {/* SECTION 3: Functional Structure (Strategic View) */}
-         <section className="relative py-24 overflow-hidden z-10 ">
+          <section className="relative py-24 overflow-hidden z-10 ">
             {/* Background Patterns */}
             <div className="absolute -left-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0 opacity-50"></div>
             <div className="absolute -right-64 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0 opacity-50"></div>
@@ -298,19 +330,20 @@ export default function GovernanceAndManagementPage() {
 
                   {/* LEVEL 1 Container */}
                   <div className="relative inline-flex items-start gap-4 sm:gap-6 lg:gap-10 z-10 mt-[-3px]">
-                    
                     {/* Exact Horizontal Spine 1 with dashed line */}
                     <div className="absolute top-0 left-[70px] right-[70px] sm:left-[80px] sm:right-[80px] z-0 pointer-events-none">
                       <div className="absolute top-0 w-full h-[3px] bg-watney" />
-                      
+
                       <div className="absolute -top-[10px] left-0 w-1/2 border-t-[3.5px] border-dashed border-watney"></div>
-                      
+
                       <div className="absolute top-[8px] -right-2 w-1/2 border-t-[3.5px] border-dashed border-watney"></div>
                     </div>
 
                     {/* Green dashed line connecting Academic Board and Principals Executive Group */}
                     <div className="absolute top-[70px] sm:top-[78px] left-1/2 -translate-x-1/2 w-[224px]  border-t-[3.5px] border-dashed border-watney z-0 pointer-events-none">
-                      <div className="absolute left-[2px] -top-[9.5px] text-[16px] text-watney leading-none rotate-90">▼</div>
+                      <div className="absolute left-[2px] -top-[9.5px] text-[16px] text-watney leading-none rotate-90">
+                        ▼
+                      </div>
                     </div>
 
                     {/* Branch 1: College Oversight Board */}
@@ -411,164 +444,246 @@ export default function GovernanceAndManagementPage() {
           </section>
 
           {/* SECTION 4: Organogram (Vertical Flow) */}
-         <section className="relative py-24 overflow-hidden ">
-  <div className="absolute -left-96 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0 opacity-50"></div>
-  <div className="absolute -right-96 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0 opacity-50"></div>
+          <section className="relative py-24 overflow-hidden ">
+            <div className="absolute -left-96 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0 opacity-50"></div>
+            <div className="absolute -right-96 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0 opacity-50"></div>
 
-  <div className="mx-auto relative z-10 ">
-    <div className="text-center mb-16">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 tracking-tight">
-          Organogram
-        </h2>
-        <p className="text-lg text-slate-700 font-medium mx-auto">
-          Structured Authority Flow with Defined Accountability Layers
-        </p>
-      </motion.div>
-    </div>
-
-    <div className="container overflow-x-auto pb-12 relative z-20 custom-scrollbar">
-      <div className="flex flex-col items-center   relative ">
-        {/* LEVEL 0: BOARD OF DIRECTORS */}
-        <div className="relative">
-          <OrgNode title="BOARD OF DIRECTORS" isGolden={true} />
-        </div>
-
-        {/* Vertical line from Board to Principal */}
-        <div className="relative w-full flex justify-center " style={{ height: "60px" }}>
-          <div className="w-[3px] bg-watney h-full pointer-events-none" />
-        </div>
-
-        {/* LEVEL 1: PRINCIPAL */}
-        <div className=" relative">
-          <OrgNode title="PRINCIPAL" subtitle="Ruseel Kabir" />
-        </div>
-
-        {/* Vertical line from Principal to Level 2 */}
-        <div className="relative w-full flex justify-center mb-8" style={{ height: "40px" }}>
-          <div className="w-[3px] bg-watney h-full pointer-events-none" />
-        </div>
-
-        {/* LEVEL 2: 6 Department Heads */}
-        <div className="relative w-full" style={{ marginBottom: "60px" }}>
-          <div className="absolute -top-8 left-0 right-0 h-[3px] bg-watney pointer-events-none" style={{
-            width: "100%",
-            maxWidth: "962px",
-            left: "50%",
-            transform: "translateX(-50%)"
-          }} />
-
-          {/* 6 nodes grid */}
-          <div className="flex justify-center gap-8 mt-2.5 flex-wrap">
-            {/* Node 1 */}
-            <div className="relative" style={{ marginTop: "0px" }}>
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
-              <OrgNode title="HEAD OF MARKETING" subtitle="Tahamidul Mamur" />
-            </div>
-
-            {/* Node 2 */}
-            <div className="relative" style={{ marginTop: "0px" }}>
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
-              <OrgNode title="HEAD OF ADMIN AND REGISTRY" subtitle="Dr. Rahman Hasan" />
-            </div>
-
-            {/* Node 3 */}
-            <div className="relative" style={{ marginTop: "0px" }}>
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
-              <OrgNode title="HEAD OF FINANCE" subtitle="Md Kamal Pervez" />
-            </div>
-
-            {/* Node 4 */}
-            <div className="relative" style={{ marginTop: "0px" }}>
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
-              <OrgNode title="HEAD OF HUMAN RESOURCES" subtitle="Bilkis Akter Mily" />
-            </div>
-
-            {/* Node 5 */}
-            <div className="relative" style={{ marginTop: "0px" }}>
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
-              <OrgNode title="HEAD OF ACADEMIC" subtitle="Syed Jahedul Islam" />
-            </div>
-
-            {/* Node 6 */}
-            <div className="relative" style={{ marginTop: "0px" }}>
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
-              <OrgNode title="HEAD OF QUALITY ASSURANCE" subtitle="Kishour Zadid" />
-            </div>
-          </div>
-        </div>
-
-        {/* LEVEL 3: Sub-nodes for selected departments */}
-        <div className="relative w-full" >
-          <div className="flex justify-center gap-8 flex-wrap">
-            {/* From Node 1 - Marketing Officer */}
-            <div className="relative right-72 -mt-6"  >
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
-              <OrgNode title="MARKETING OFFICER" />
-            </div>
-
-            {/* From Node 2 - Admin Officer */}
-            <div className="flex flex-col gap-4">
-
-              <div className="relative right-72 top-40 -mt-6">
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "190px", top: "-190px" }} />
-                <OrgNode title="ACADEMIC ADMINISTRATOR" subtitle="Afruza Rahman" />
+            <div className="mx-auto relative z-10 ">
+              <div className="text-center mb-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 tracking-tight">
+                    Organogram
+                  </h2>
+                  <p className="text-lg text-slate-700 font-medium mx-auto">
+                    Structured Authority Flow with Defined Accountability Layers
+                  </p>
+                </motion.div>
               </div>
-              <div className="relative right-24 top-16">
-                <div className="absolute mt-16 right-44 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none rotate-90" style={{ height: "40px", top: "-40px" }} />
-                <OrgNode title="STUDENT ENGAGEMENT OFFICER" subtitle="ASM MOHOSIN ABDULLAH" />
+
+              <div className="container overflow-x-auto pb-12 relative z-20 custom-scrollbar">
+                <div className="flex flex-col items-center   relative ">
+                  {/* LEVEL 0: BOARD OF DIRECTORS */}
+                  <div className="relative">
+                    <OrgNode title="BOARD OF DIRECTORS" isGolden={true} />
+                  </div>
+
+                  {/* Vertical line from Board to Principal */}
+                  <div
+                    className="relative w-full flex justify-center "
+                    style={{ height: "60px" }}
+                  >
+                    <div className="w-[3px] bg-watney h-full pointer-events-none" />
+                  </div>
+
+                  {/* LEVEL 1: PRINCIPAL */}
+                  <div className=" relative">
+                    <OrgNode title="PRINCIPAL" subtitle="Ruseel Kabir" />
+                  </div>
+
+                  {/* Vertical line from Principal to Level 2 */}
+                  <div
+                    className="relative w-full flex justify-center mb-8"
+                    style={{ height: "40px" }}
+                  >
+                    <div className="w-[3px] bg-watney h-full pointer-events-none" />
+                  </div>
+
+                  {/* LEVEL 2: 6 Department Heads */}
+                  <div
+                    className="relative w-full"
+                    style={{ marginBottom: "60px" }}
+                  >
+                    <div
+                      className="absolute -top-8 left-0 right-0 h-[3px] bg-watney pointer-events-none"
+                      style={{
+                        width: "100%",
+                        maxWidth: "962px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                      }}
+                    />
+
+                    {/* 6 nodes grid */}
+                    <div className="flex justify-center gap-8 mt-2.5 flex-wrap">
+                      {/* Node 1 */}
+                      <div className="relative" style={{ marginTop: "0px" }}>
+                        <div
+                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
+                          style={{ height: "40px", top: "-40px" }}
+                        />
+                        <OrgNode
+                          title="HEAD OF MARKETING"
+                          subtitle="Tahamidul Mamur"
+                        />
+                      </div>
+
+                      {/* Node 2 */}
+                      <div className="relative" style={{ marginTop: "0px" }}>
+                        <div
+                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
+                          style={{ height: "40px", top: "-40px" }}
+                        />
+                        <OrgNode
+                          title="HEAD OF ADMIN AND REGISTRY"
+                          subtitle="Dr. Rahman Hasan"
+                        />
+                      </div>
+
+                      {/* Node 3 */}
+                      <div className="relative" style={{ marginTop: "0px" }}>
+                        <div
+                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
+                          style={{ height: "40px", top: "-40px" }}
+                        />
+                        <OrgNode
+                          title="HEAD OF FINANCE"
+                          subtitle="Md Kamal Pervez"
+                        />
+                      </div>
+
+                      {/* Node 4 */}
+                      <div className="relative" style={{ marginTop: "0px" }}>
+                        <div
+                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
+                          style={{ height: "40px", top: "-40px" }}
+                        />
+                        <OrgNode
+                          title="HEAD OF HUMAN RESOURCES"
+                          subtitle="Bilkis Akter Mily"
+                        />
+                      </div>
+
+                      {/* Node 5 */}
+                      <div className="relative" style={{ marginTop: "0px" }}>
+                        <div
+                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
+                          style={{ height: "40px", top: "-40px" }}
+                        />
+                        <OrgNode
+                          title="HEAD OF ACADEMIC"
+                          subtitle="Syed Jahedul Islam"
+                        />
+                      </div>
+
+                      {/* Node 6 */}
+                      <div className="relative" style={{ marginTop: "0px" }}>
+                        <div
+                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
+                          style={{ height: "40px", top: "-40px" }}
+                        />
+                        <OrgNode
+                          title="HEAD OF QUALITY ASSURANCE"
+                          subtitle="Kishour Zadid"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* LEVEL 3: Sub-nodes for selected departments */}
+                  <div className="relative w-full">
+                    <div className="flex justify-center gap-8 flex-wrap">
+                      {/* From Node 1 - Marketing Officer */}
+                      <div className="relative right-72 -mt-6">
+                        <div
+                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
+                          style={{ height: "40px", top: "-40px" }}
+                        />
+                        <OrgNode title="MARKETING OFFICER" />
+                      </div>
+
+                      {/* From Node 2 - Admin Officer */}
+                      <div className="flex flex-col gap-4">
+                        <div className="relative right-72 top-40 -mt-6">
+                          <div
+                            className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
+                            style={{ height: "190px", top: "-190px" }}
+                          />
+                          <OrgNode
+                            title="ACADEMIC ADMINISTRATOR"
+                            subtitle="Afruza Rahman"
+                          />
+                        </div>
+                        <div className="relative right-24 top-16">
+                          <div
+                            className="absolute mt-16 right-44 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none rotate-90"
+                            style={{ height: "40px", top: "-40px" }}
+                          />
+                          <OrgNode
+                            title="STUDENT ENGAGEMENT OFFICER"
+                            subtitle="ASM MOHOSIN ABDULLAH"
+                          />
+                        </div>
+                      </div>
+
+                      {/* From Node 4 - Accounts Admin */}
+                      <div className="relative right-24 -mt-6">
+                        <div
+                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
+                          style={{ height: "40px", top: "-40px" }}
+                        />
+                        <OrgNode
+                          title="ACCOUNTS ADMINISTRATOR"
+                          subtitle="M. Hasan"
+                        />
+                      </div>
+
+                      {/* From Node 5 - Programme & Team */}
+                      <div className="flex flex-col gap-4">
+                        <div className="relative   -top-52 left-72">
+                          <div
+                            className="absolute top-0 right-80 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
+                            style={{ height: "40px", top: "-40px" }}
+                          />
+                          <OrgNode title="PROGRAMME LEADER" />
+                        </div>
+                        <div className="relative -top-0 left-32">
+                          {/* Personal Tutor */}
+                          <div className="flex gap-4">
+                            <div
+                              className="absolute top-0 right-40 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
+                              style={{ height: "270px", top: "-280px" }}
+                            />
+                            <div className="relative left-24 -mt-4">
+                              <OrgNode title="PERSONAL TUTOR" />
+                            </div>
+                            {/* Assessors added beside Personal Tutor */}
+                            <div className="relative left-28 -top-4">
+                              <div
+                                className="absolute mt-16 right-44  transform -translate-x-1/3 w-[3px] bg-watney pointer-events-none rotate-90"
+                                style={{ height: "40px", top: "-40px" }}
+                              />
+                              <OrgNode title="ASSESSORS" />
+                            </div>
+                            {/* Lecturer */}
+                            <div className="relative left-32 -top-4">
+                              <div
+                                className="absolute mt-16 right-44  transform -translate-x-1/3 w-[3px] bg-watney pointer-events-none rotate-90"
+                                style={{ height: "40px", top: "-40px" }}
+                              />
+                              <OrgNode title="LECTURER" />
+                            </div>
+                            {/* Internal Verifier added beside Lecturer */}
+                            <div className="relative left-36 -top-4">
+                              <div
+                                className="absolute mt-16 right-44  transform -translate-x-1/3 w-[3px] bg-watney pointer-events-none rotate-90"
+                                style={{ height: "40px", top: "-40px" }}
+                              />
+                              <OrgNode title="INTERNAL VERIFIER" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-
-            {/* From Node 4 - Accounts Admin */}
-            <div className="relative right-24 -mt-6">
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
-              <OrgNode title="ACCOUNTS ADMINISTRATOR" subtitle="M. Hasan" />
-            </div>
-
-            {/* From Node 5 - Programme & Team */}
-            <div className="flex flex-col gap-4">
-              <div className="relative   -top-52 left-72">
-                <div className="absolute top-0 right-80 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "40px", top: "-40px" }} />
-                <OrgNode title="PROGRAMME LEADER" />
-              </div>
-              <div className="relative -top-0 left-32">
-                {/* Personal Tutor */}
-                <div className="flex gap-4">
-
-                  <div className="absolute top-0 right-40 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none" style={{ height: "270px", top: "-280px" }} />
-                <div className="relative left-24 -mt-4">
-                  <OrgNode title="PERSONAL TUTOR" />
-                </div>
-                {/* Assessors added beside Personal Tutor */}
-                <div className="relative left-28 -top-4">
-                  <div className="absolute mt-16 right-44  transform -translate-x-1/3 w-[3px] bg-watney pointer-events-none rotate-90" style={{ height: "40px", top: "-40px" }} />
-                  <OrgNode title="ASSESSORS" />
-                </div>
-                {/* Lecturer */}
-                <div className="relative left-32 -top-4">
-                  <div className="absolute mt-16 right-44  transform -translate-x-1/3 w-[3px] bg-watney pointer-events-none rotate-90" style={{ height: "40px", top: "-40px" }} />
-                  <OrgNode title="LECTURER" />
-                </div>
-                {/* Internal Verifier added beside Lecturer */}
-                <div className="relative left-36 -top-4">
-                  <div className="absolute mt-16 right-44  transform -translate-x-1/3 w-[3px] bg-watney pointer-events-none rotate-90" style={{ height: "40px", top: "-40px" }} />
-                  <OrgNode title="INTERNAL VERIFIER" />
-                </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+          </section>
 
           {/* SECTION 5: Governance vs Management Split Panel */}
           <section className="relative py-24 overflow-hidden">
@@ -713,7 +828,12 @@ export default function GovernanceAndManagementPage() {
                     does not override academic or governance decisions.
                   </p>
                   <div className="inline-block bg-gradient-to-r from-blue-50 to-blue-100 px-8 py-3 rounded-full text-sm font-bold text-blue-700 shadow-md border border-blue-200">
-                    This structure safeguards institutional integrity
+                    The Board of Directors is the governing body of Watney
+                    College and holds ultimate responsibility for the College's
+                    strategic direction, financial sustainability, and
+                    compliance with all regulatory requirements. The Board
+                    operates in accordance with its Articles of Association and
+                    is committed to the principles of good governance.
                   </div>
                 </div>
               </motion.div>
