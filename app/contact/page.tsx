@@ -147,7 +147,7 @@ export default function ContactPage() {
                         Email Us
                       </h3>
                       <a
-                        href="mailto:info@watneycollege.ac.uk"
+                        href="mailto:info@watneycollege.co.uk"
                         className="text-watney-blue-primary hover:underline"
                       >
                         info@watneycollege.co.uk
