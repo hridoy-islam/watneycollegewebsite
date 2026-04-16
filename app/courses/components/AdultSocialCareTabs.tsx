@@ -80,13 +80,17 @@ export default function AdultSocialCareTabs() {
             Principles Guidance.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Designed for new entrants or existing workers in adult social care roles, providing foundational competence in person-centred care and safeguarding. This qualification ensures foundational competence in
+            Designed for new entrants or existing workers in adult social care
+            roles, providing foundational competence in person-centred care and
+            safeguarding. This qualification ensures foundational competence in
             person-centred care, safeguarding, communication, health and safety,
             and legal responsibilities — serving as a nationally recognised
             benchmark for care practice.
           </p>
           <p className="text-gray-700 leading-relaxed pt-5">
-           <span className="font-semibold">Assessment:</span> Portfolio of evidence, internally assessed and verified. No written examinations. Assessed against NQual qualification standards regulated by Ofqual.
+            <span className="font-semibold">Assessment:</span> Portfolio of
+            evidence, internally assessed and verified. No written examinations.
+            Assessed against NQual qualification standards regulated by Ofqual.
           </p>
 
           <div className="mt-6">
@@ -117,10 +121,11 @@ export default function AdultSocialCareTabs() {
           <h3 className="text-2xl font-bold text-gray-900 ">
             Programme Information
           </h3>
-          
-            <p className="mb-4">This course includes the following units and assessments:</p>
 
-          
+          <p className="mb-4">
+            This course includes the following units and assessments:
+          </p>
+
           <ul className="space-y-3">
             {[
               "Understand Own Role",
@@ -159,37 +164,86 @@ export default function AdultSocialCareTabs() {
             Entry Requirements
           </h3>
           <ul className="space-y-2 text-gray-700">
-            {["No formal entry requirements.", "Applicants must be 16 or over and working in or seeking employment in adult social care."].map(
-              (req, index) => (
-                <li key={index} className="flex items-start space-x-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span>{req}</span>
-                </li>
-              )
-            )}
+            {[
+              "No formal entry requirements.",
+              "Applicants must be 16 or over and working in or seeking employment in adult social care.",
+            ].map((req, index) => (
+              <li key={index} className="flex items-start space-x-2">
+                <span className="text-primary font-bold">•</span>
+                <span>{req}</span>
+              </li>
+            ))}
           </ul>
-
-        
         </div>
       </TabsContent>
 
       {/* === Career Tab (Programme Structure) === */}
-       <TabsContent value="career" className="space-y-4">
+      <TabsContent value="career" className="space-y-4">
         <TermTable
-          termTitle="(Weeks 8-13, 15/06/2026 - 21/07/2026)"
-          termSubtitle="Mandatory Units — Practice and Safety Phase"
-          
+          termTitle="(Weeks 1-7, 01/04/2026 - 20/05/2026)"
+          termSubtitle="Mandatory Units — Foundation and Core Knowledge Phase"
           rows={[
-            { week: "8", unit: "8a Communication", code: "L/651/1135", credits: 3, glh: 24 },
-            { week: "8", unit: "8b Handling Information", code: "J/651/1142", credits: 1, glh: 8 },
-            { week: "9", unit: "Privacy and Dignity", code: "M/651/1136", credits: 3, glh: 24 },
-            { week: "10", unit: "Awareness of Mental Health and Dementia", code: "T/651/1138", credits: 3, glh: 24 },
-            { week: "11", unit: "Health, Safety, and Principles of Basic Life Support", code: "H/651/1141", credits: 3, glh: 24 },
-            { week: "12", unit: "Infection Prevention and Control (IPC)", code: "K/651/1143", credits: 2, glh: 16 },
-            { week: "13", unit: "An Awareness of Learning Disability and Autism", code: "L/651/1144", credits: 3, glh: 24 },
+            {
+              week: "1",
+              unit: "Understand Own Role",
+              code: "D/651/1130",
+              credits: 2,
+              glh: 16,
+            },
+            {
+              week: "2",
+              unit: "Personal Development",
+              code: "F/651/1131",
+              credits: 3,
+              glh: 24,
+            },
+            {
+              week: "3",
+              unit: "Duty of Care",
+              code: "H/651/1132",
+              credits: 2,
+              glh: 16,
+            },
+            {
+              week: "4",
+              unit: "Equality, Diversity, Inclusion and Human Rights",
+              code: "J/651/1133",
+              credits: 2,
+              glh: 16,
+            },
+            {
+              week: "5",
+              unit: "Work in a Person-Centred Way",
+              code: "K/651/1134",
+              credits: 3,
+              glh: 24,
+            },
+            {
+              week: "6",
+              unit: "6a Adult Safeguarding",
+              code: "Y/651/1139",
+              credits: 3,
+              glh: 24,
+            },
+            {
+              week: "6",
+              unit: "6b Safeguarding Children",
+              code: "F/651/1140",
+              credits: 1,
+              glh: 8,
+             
+            },
+            {
+              week: "7",
+              unit: "Nutrition and Hydration",
+              code: "R/651/1137",
+              credits: 2,
+              glh: 16,
+            },
           ]}
           totalCredits={18}
           totalGLH={144}
+          
         />
       </TabsContent>
     </>

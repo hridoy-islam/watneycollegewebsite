@@ -49,22 +49,22 @@ export default function PoliciesPage() {
        {
          title: "Academic Regulations",
          icon: BookOpen,
-         file: "/policies/academic-regulations.pdf",
+         file: "/2.5.15. Academic Regulations.pdf",
        },
        {
          title: "Student Engagement Strategies",
          icon: Users,
-         file: "/policies/student-engagement-strategies.pdf",
+         file: "/2.5.12 Student Assessment Feedback Process.pdf",
        },
        {
          title: "Student Assessment Feedback Process",
          icon: FileText,
-         file: "/policies/student-assessment-feedback.pdf",
+         file: "/2.5.12 Student Assessment Feedback Process.pdf",
        },
        {
          title: "Course Change and Closure Policy",
          icon: RefreshCw,
-         file: "/policies/course-change-and-closure.pdf",
+         file: "/3.8 Course Changes and Closures Policy.pdf",
        },
      ],
    },
@@ -189,8 +189,8 @@ export default function PoliciesPage() {
                             className="z-50 hover:cursor-pointer"
                           >
                             <a
-                              // href={policy.file}
-                              // download
+                              href={policy.file}
+                              download
                               className="flex items-center justify-between w-full p-4 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-watney-blue-primary/30 transition-colors group z-[9999]"
                             >
                               <div className="flex items-start md:items-center gap-4 z-[9999] pr-4">
