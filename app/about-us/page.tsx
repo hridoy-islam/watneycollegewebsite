@@ -273,40 +273,60 @@ export default function AboutPage() {
         </section>
 
         {/* Regulatory Status Section */}
-<section className="py-16  z-50">
-  <div className="container mx-auto ">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="max-w-4xl mx-auto"
-    >
-      <Card className="border-t-4 border-watney-blue-primary shadow-md">
-        <CardHeader>
-          <div className="flex items-center gap-3 mb-2">
-            <Building className="w-6 h-6 text-watney-blue-primary" />
-            <CardTitle className="text-2xl font-bold">Regulatory Status</CardTitle>
+        <section className="py-16  z-50">
+          <div className="container mx-auto ">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto"
+            >
+              <Card className="border-t-4 border-watney-blue-primary shadow-md">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-2">
+                    <Building className="w-6 h-6 text-watney-blue-primary" />
+                    <CardTitle className="text-2xl font-bold">
+                      Regulatory Status
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4 text-gray-700 leading-relaxed">
+                    <p>
+                      Watney College has submitted an application for
+                      registration with the
+                      <span className="font-semibold text-gray-900">
+                        {" "}
+                        Office for Students (OfS)
+                      </span>{" "}
+                      under the Approved category. Our{" "}
+                      <span className="font-semibold text-gray-900">
+                        UKPRN is 10087811
+                      </span>
+                      .
+                    </p>
+                    <p>
+                      We are accredited by{" "}
+                      <span className="font-semibold text-gray-900">ASIC</span>{" "}
+                      and deliver regulated qualifications through{" "}
+                      <span className="font-semibold text-gray-900">NQual</span>{" "}
+                      and
+                      <span className="font-semibold text-gray-900">
+                        {" "}
+                        ATHE
+                      </span>{" "}
+                      awarding bodies, both of which are regulated by{" "}
+                      <span className="font-semibold text-gray-900">
+                        Ofqual
+                      </span>
+                      .
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              Watney College has submitted an application for registration with the 
-              <span className="font-semibold text-gray-900"> Office for Students (OfS)</span> under 
-              the Approved category. Our <span className="font-semibold text-gray-900">UKPRN is 10087811</span>.
-            </p>
-            <p>
-              We are accredited by <span className="font-semibold text-gray-900">ASIC</span> and 
-              deliver regulated qualifications through <span className="font-semibold text-gray-900">NQual</span> and 
-              <span className="font-semibold text-gray-900"> ATHE</span> awarding bodies, 
-              both of which are regulated by <span className="font-semibold text-gray-900">Ofqual</span>.
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-    </motion.div>
-  </div>
-</section>
+        </section>
 
         {/* Vision & Mission */}
         <section className="py-16 sm:py-20 text-primary">
@@ -477,7 +497,7 @@ export default function AboutPage() {
                           achieve that dream they’ve always held.
                         </p>
                         <p className="font-medium text-gray-800">
-                         — Dr. ATM Shafiul Alam, Principal, Watney College
+                          — Dr. S. Alam, Principal, Watney College
                         </p>
                       </blockquote>
                     </div>
