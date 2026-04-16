@@ -288,14 +288,14 @@ export default function page() {
                   description:
                     "Ready to join Watney College? Apply online in minutes by clicking the Apply Now button and registering your details. Our team will guide you through the next steps.",
                   icon: <Send className="w-6 h-6" />,
-                  href: "https://app.watneycollege.co.uk/",
+                  href: "",
                 },
                 {
                   title: "Tuition Fees",
                   description:
                     "Tuition fees vary by programme. Full fee details for each course are listed on the individual course page. Please refer to your chosen course for specific fee information.",
                   icon: <Banknote className="w-6 h-6" />,
-                  href: "/courses",
+                  href: "",
                 },
                 {
                   title: "Student Finance",
@@ -309,7 +309,7 @@ export default function page() {
                   description:
                     "We recommend that all students arrange accommodation before registering with Watney College. We can provide guidance and signposting to help you find safe, affordable housing in London. For support please contact us at support@watneycollege.co.uk.",
                   icon: <MapPin className="w-6 h-6" />,
-                  href: "mailto:support@watneycollege.co.uk",
+                  href: "",
                 },
                 {
                   title: "Student Handbook",
@@ -327,31 +327,45 @@ export default function page() {
                 },
               ].map((card, index) => (
                 <div key={index}>
-                  <Link href={card.href}>
-                    <div className="group relative bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 h-full flex flex-col cursor-pointer">
-                      {/* Icon */}
-                      <div className="w-14 h-14 bg-gradient-to-tr from-primary to-primary/60 rounded-xl flex items-center justify-center mb-5 text-white shadow">
-                        {card.icon}
-                      </div>
+                  {/* ❌ Removed Link wrapper from whole card */}
+                  <div className="group relative bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 h-full flex flex-col">
+                    {/* Icon */}
+                    <div className="w-14 h-14 bg-gradient-to-tr from-primary to-primary/60 rounded-xl flex items-center justify-center mb-5 text-white shadow">
+                      {card.icon}
+                    </div>
 
-                      {/* Content */}
-                      <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-200">
-                        {card.title}
-                      </h3>
+                    {/* Content */}
+                    <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-200">
+                      {card.title}
+                    </h3>
 
-                      <p className="text-gray-600 leading-relaxed flex-grow text-lg">
-                        {card.description}
-                      </p>
+                    <p className="text-gray-600 leading-relaxed flex-grow text-lg">
+                      {card.description}
 
-                      {/* CTA (ONLY for Student Finance) */}
-                      {card.title === "Student Finance" && (
-                        <div className="flex items-center mt-5 text-primary text-sm font-medium">
+                      {/* ✅ Special link inside description (Academic Calendar) */}
+                      {card.title === "Academic Calendar" && (
+                        <>
+                          {" "}
+                          <Link
+                            href={card.href}
+                            className="text-primary font-medium hover:underline ml-1"
+                          >
+                            Click here to see the 2025–2026 Academic Calendar
+                          </Link>
+                        </>
+                      )}
+                    </p>
+
+                    {/* ✅ Only this triggers navigation */}
+                    {card.title === "Student Finance" && (
+                      <Link href={card.href}>
+                        <div className="flex items-center mt-5 text-primary text-sm font-medium cursor-pointer hover:underline">
                           Learn More
                           <ArrowRight className="w-4 h-4 ml-1" />
                         </div>
-                      )}
-                    </div>
-                  </Link>
+                      </Link>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>

@@ -326,22 +326,6 @@ const StyledLine = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
-// Custom Tree wrapper with styling
-const StyledTree = ({
-  children,
-  lineWidth = "2px",
-  lineColor = "#93BDD4",
-  lineStyle = "dotted",
-}: any) => (
-  <Tree
-    lineWidth={lineWidth}
-    lineColor={lineColor}
-    lineStyle={lineStyle}
-    nodePadding="20px"
-  >
-    {children}
-  </Tree>
-);
 
 
 
