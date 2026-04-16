@@ -42,144 +42,83 @@ const ArrowRight = ({ className }: { className?: string }) => (
 );
 
 export default function PoliciesPage() {
-  const policyGroups = [
-    {
-      groupTitle: "Student Rights and Protection",
-      policies: [
-        {
-          title: "Student Handbook 2025–26 (PDF)",
-          icon: BookOpen,
-          file: "/policies/student-handbook-2025-26.pdf",
-        },
-        {
-          title: "Student Needs and PTS Support",
-          icon: HeartHandshake,
-          file: "/policies/student-needs-and-pts-support.pdf",
-        },
-        {
-          title: "Complaint Policy and Process",
-          icon: AlertCircle,
-          file: "/policies/complaint-policy-and-process.pdf",
-          notice: "Following completion of the College's internal complaints process, students may refer their case to the Office of the Independent Adjudicator for Higher Education (OIA) at www.oiahe.org.uk.",
-        },
-        {
-          title: "Information Accuracy and Completeness Policy",
-          icon: FileCheck,
-          file: "/policies/information-accuracy.pdf",
-        },
-        {
-          title: "Equality, Diversity and Inclusion Policy",
-          icon: Users,
-          file: "/policies/equality-diversity-inclusion.pdf",
-        },
-      ],
-    },
-    {
-      groupTitle: "Academic Policies",
-      policies: [
-        {
-          title: "Academic Regulations",
-          icon: BookOpen,
-          file: "/policies/academic-regulations.pdf",
-        },
-        {
-          title: "Student Engagement Strategies",
-          icon: Users,
-          file: "/policies/student-engagement-strategies.pdf",
-        },
-        {
-          title: "Student Assessment Feedback Process",
-          icon: FileText,
-          file: "/policies/student-assessment-feedback.pdf",
-        },
-        {
-          title: "Course Change and Closure Policy",
-          icon: RefreshCw,
-          file: "/policies/course-change-and-closure.pdf",
-        },
-      ],
-    },
-    {
-      groupTitle: "Financial Policies",
-      policies: [
-        {
-          title: "Tuition Fees Refund and Compensation Policy",
-          icon: CreditCard,
-          file: "/policies/tuition-fees-refund.pdf",
-        },
-        {
-          title: "Compensation Decision-Making Framework",
-          icon: Scale,
-          file: "/policies/compensation-decision-making.pdf",
-        },
-      ],
-    },
-    {
-      groupTitle: "Conduct and Safeguarding",
-      policies: [
-        {
-          title: "Safeguarding and Prevent Policy",
-          icon: ShieldCheck,
-          file: "/policies/safeguarding-and-prevent.pdf",
-        },
-        {
-          title: "Conflict of Interest Policy",
-          icon: AlertTriangle,
-          file: "/policies/conflict-of-interest.pdf",
-        },
-        {
-          title: "Whistle Blowing Policy",
-          icon: Megaphone,
-          file: "/policies/whistle-blowing.pdf",
-        },
-        {
-          title: "Anti-Bribery and Anti-Corruption Policy",
-          icon: ShieldAlert,
-          file: "/policies/anti-bribery-and-corruption.pdf",
-        },
-      ],
-    },
-    {
-      groupTitle: "Governance and Compliance",
-      policies: [
-        {
-          title: "Academic Staff and Recruitment Policy",
-          icon: Briefcase,
-          file: "/policies/academic-staff-and-recruitment.pdf",
-        },
-        {
-          title: "Academic Staff Induction and Staff Development Process",
-          icon: BookOpen,
-          file: "/policies/academic-staff-induction.pdf",
-        },
-        {
-          title: "Planned Recruitment Strategy",
-          icon: Briefcase,
-          file: "/policies/planned-recruitment-strategy.pdf",
-        },
-        {
-          title: "Data Protection Policy",
-          icon: Lock,
-          file: "/policies/data-protection.pdf",
-        },
-        {
-          title: "Audited Financial Accounts 2022–23",
-          icon: PieChart,
-          file: "/policies/account-2023.pdf",
-        },
-        {
-          title: "Audited Financial Accounts 2023–24",
-          icon: PieChart,
-          file: "/policies/account-2024.pdf",
-        },
-        {
-          title: "Audited Financial Accounts 2024–25",
-          icon: PieChart,
-          file: "/policies/account-2025.pdf",
-        },
-      ],
-    },
-  ];
+ const policyGroups = [
+   {
+     groupTitle: "Academic Policies",
+     policies: [
+       {
+         title: "Academic Regulations",
+         icon: BookOpen,
+         file: "/policies/academic-regulations.pdf",
+       },
+       {
+         title: "Student Engagement Strategies",
+         icon: Users,
+         file: "/policies/student-engagement-strategies.pdf",
+       },
+       {
+         title: "Student Assessment Feedback Process",
+         icon: FileText,
+         file: "/policies/student-assessment-feedback.pdf",
+       },
+       {
+         title: "Course Change and Closure Policy",
+         icon: RefreshCw,
+         file: "/policies/course-change-and-closure.pdf",
+       },
+     ],
+   },
+   {
+     groupTitle: "Complaints, Conduct, Safeguarding and Data",
+     policies: [
+       {
+         title: "Complaint Policy and Process",
+         icon: AlertCircle,
+         file: "/policies/complaint-policy-and-process.pdf",
+       },
+       {
+         title: "Safeguarding and Prevent Policy",
+         icon: ShieldCheck,
+         file: "/policies/safeguarding-and-prevent.pdf",
+       },
+       {
+         title: "Whistleblowing Policy",
+         icon: Megaphone,
+         file: "/policies/whistle-blowing.pdf",
+       },
+       {
+         title: "Anti-Bribery and Anti-Corruption Policy",
+         icon: ShieldAlert,
+         file: "/policies/anti-bribery-and-corruption.pdf",
+       },
+       {
+         title: "Data Protection Policy",
+         icon: Lock,
+         file: "/policies/data-protection.pdf",
+       },
+       {
+         title: "Equality, Diversity and Inclusion Policy",
+         icon: Users,
+         file: "/policies/equality-diversity-inclusion.pdf",
+       },
+       {
+         title: "Information Accuracy and Completeness Policy",
+         icon: FileCheck,
+         file: "/policies/information-accuracy.pdf",
+       },
+     ],
+   },
+   {
+     groupTitle: "Financial Policies",
+     policies: [
+       {
+         title: "Tuition Fees Refund and Compensation Policy",
+         icon: CreditCard,
+         file: "/policies/tuition-fees-refund.pdf",
+       },
+     ],
+   },
+ ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -192,12 +131,14 @@ export default function PoliciesPage() {
           <div className="container mx-auto relative text-center">
             <FileText className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
-              Watney College <span className="text-watney-blue-primary">Policies</span>
+              Watney College{" "}
+              <span className="text-watney-blue-primary">Policies</span>
             </h1>
             <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-5xl">
-              These policies govern the relationship between Watney College and its students. All
-              prospective and current students should read these documents before and during
-              enrolment. All documents are available as PDF downloads.
+              These policies govern the relationship between Watney College and
+              its students. All prospective and current students should read
+              these documents before and during enrolment. All documents are
+              available as PDF downloads.
             </p>
           </div>
         </section>
@@ -223,7 +164,7 @@ export default function PoliciesPage() {
             <div className="space-y-12 relative z-50">
               {policyGroups.map((group, groupIndex) => (
                 <div key={groupIndex} className="space-y-4">
-                  <motion.h3 
+                  <motion.h3
                     className="text-xl font-bold text-gray-800 border-b pb-2 mb-4"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -232,44 +173,46 @@ export default function PoliciesPage() {
                   >
                     {group.groupTitle}
                   </motion.h3>
-                  
+
                   <ul className="space-y-3">
-                    {group.policies.map((policy, index) => {
-                      const Icon = policy.icon;
-                      return (
-                        <motion.li
-                          key={index}
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.3, delay: index * 0.05 }}
-                          className="z-50 hover:cursor-pointer"
-                        >
-                          <a
-                            // href={policy.file}
-                            // download
-                            className="flex items-center justify-between w-full p-4 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-watney-blue-primary/30 transition-colors group z-[9999]"
+                    {[...group.policies]
+                      .sort((a, b) => a.title.localeCompare(b.title))
+                      .map((policy, index) => {
+                        const Icon = policy.icon;
+                        return (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: index * 0.05 }}
+                            className="z-50 hover:cursor-pointer"
                           >
-                            <div className="flex items-start md:items-center gap-4 z-[9999] pr-4">
-                              <div className="w-10 h-10 mt-1 md:mt-0 rounded-lg bg-watney-blue-primary/10 flex items-center justify-center flex-shrink-0">
-                                <Icon className="w-5 h-5 text-watney-blue-primary" />
-                              </div>
-                              <div className="flex flex-col text-left">
-                                <span className="font-medium text-gray-900 group-hover:text-watney-blue-primary transition-colors">
-                                  {policy.title}
-                                </span>
-                                {policy.notice && (
-                                  <span className="text-sm text-gray-500 mt-1 leading-relaxed">
-                                    {policy.notice}
+                            <a
+                              // href={policy.file}
+                              // download
+                              className="flex items-center justify-between w-full p-4 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-watney-blue-primary/30 transition-colors group z-[9999]"
+                            >
+                              <div className="flex items-start md:items-center gap-4 z-[9999] pr-4">
+                                <div className="w-10 h-10 mt-1 md:mt-0 rounded-lg bg-watney-blue-primary/10 flex items-center justify-center flex-shrink-0">
+                                  <Icon className="w-5 h-5 text-watney-blue-primary" />
+                                </div>
+                                <div className="flex flex-col text-left">
+                                  <span className="font-medium text-gray-900 group-hover:text-watney-blue-primary transition-colors">
+                                    {policy.title}
                                   </span>
-                                )}
+                                  {policy.notice && (
+                                    <span className="text-sm text-gray-500 mt-1 leading-relaxed">
+                                      {policy.notice}
+                                    </span>
+                                  )}
+                                </div>
                               </div>
-                            </div>
-                            <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-watney-blue-primary transition-colors flex-shrink-0" />
-                          </a>
-                        </motion.li>
-                      );
-                    })}
+                              <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-watney-blue-primary transition-colors flex-shrink-0" />
+                            </a>
+                          </motion.li>
+                        );
+                      })}
                   </ul>
                 </div>
               ))}

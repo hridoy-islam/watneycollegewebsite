@@ -40,6 +40,10 @@ import {
   UserCheck,
   Search,
   Filter,
+  CalendarDays,
+  Send,
+  CreditCard,
+  MessageCircle,
 } from "lucide-react";
 
 import {
@@ -188,50 +192,50 @@ export default function page() {
     },
   ];
 
-  const features = [
-    {
-      icon: <Dumbbell className="w-8 h-8 text-primary" />,
-      title: "Expert Academic Advisors",
-      description:
-        "Get personalized guidance from experienced professionals who understand your goals.",
-      bg: "bg-primary/10 text-primary",
-    },
-    {
-      icon: <Star className="w-8 h-8 text-primary" />,
-      title: "Flexible Learning Options",
-      description:
-        "Choose from online, hybrid, or in-person learning formats that fit your schedule.",
-      bg: "bg-primary/10 text-primary",
-    },
-    {
-      icon: <Award className="w-8 h-8 text-primary" />,
-      title: "Top-Value Education",
-      description:
-        "Quality education at competitive prices with excellent return on investment.",
-      bg: "bg-primary/10 text-primary",
-    },
-    {
-      icon: <Users className="w-8 h-8 text-primary" />,
-      title: "Career Support",
-      description:
-        "Comprehensive career services including job placement assistance and networking.",
-      bg: "bg-primary/10 text-primary",
-    },
-    {
-      icon: <MapPin className="w-8 h-8 text-primary" />,
-      title: "London Location",
-      description:
-        "Study in one of the world's most vibrant educational and cultural centers.",
-      bg: "bg-primary/10 text-primary",
-    },
-    {
-      icon: <Globe className="w-8 h-8 text-primary" />,
-      title: "International Environment",
-      description:
-        "Learn alongside students from around the world in a diverse, inclusive environment.",
-      bg: "bg-primary/10 text-primary",
-    },
-  ];
+ const features = [
+   {
+     icon: <Users className="w-8 h-8 text-primary" />,
+     title: "Experienced Academic Staff",
+     description:
+       "Learn from dedicated tutors committed to supporting your progress and achievement throughout your studies.",
+     bg: "bg-primary/10 text-primary",
+   },
+   {
+     icon: <Star className="w-8 h-8 text-primary" />,
+     title: "Flexible Learning Options",
+     description:
+       "Choose from online, hybrid, or in-person learning formats that fit your schedule.",
+     bg: "bg-primary/10 text-primary",
+   },
+   {
+     icon: <Award className="w-8 h-8 text-primary" />,
+     title: "Accessible Education",
+     description:
+       "Quality education at transparent, competitive fees with no hidden costs.",
+     bg: "bg-primary/10 text-primary",
+   },
+   {
+     icon: <BookOpen className="w-8 h-8 text-primary" />,
+     title: "Student Support",
+     description:
+       "Dedicated support throughout your studies including academic guidance and personal tutoring.",
+     bg: "bg-primary/10 text-primary",
+   },
+   {
+     icon: <MapPin className="w-8 h-8 text-primary" />,
+     title: "London Location",
+     description:
+       "Study in one of the world's most vibrant educational and cultural cities.",
+     bg: "bg-primary/10 text-primary",
+   },
+   {
+     icon: <Globe className="w-8 h-8 text-primary" />,
+     title: "International Community",
+     description:
+       "Learn alongside students from a range of backgrounds in a welcoming, inclusive environment.",
+     bg: "bg-primary/10 text-primary",
+   },
+ ];
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -253,7 +257,6 @@ export default function page() {
       <div className="relative overflow-hidden">
         {/* Essential Resources Section */}
         <section className="relative py-20 bg-watney-blue-primary/5 overflow-hidden z-0">
-
           <div className="absolute -left-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
           <div className="absolute -right-64 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none  z-0"></div>
 
@@ -271,13 +274,15 @@ export default function page() {
                 <span className="text-gradient-watney">Resources</span>
               </h2>
               <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Comprehensive support for your success, including accommodation, funding, careers, and course guidance
+                Everything you need to know before and during your studies at
+                Watney College — from applying and fees to support and key
+                dates.
               </p>
             </motion.div>
 
             {/* Cards Grid */}
             <motion.div
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-4"
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
               variants={{
                 hidden: { opacity: 0 },
                 visible: {
@@ -294,51 +299,53 @@ export default function page() {
             >
               {[
                 {
-                  title: "Accommodation",
+                  title: "How to Apply",
                   description:
-                    "Secure safe, affordable, and convenient housing near campus with our trusted partners.",
-                  icon: <MapPin className="w-6 h-6" />,
-                  href: "/accommodation",
+                    "Ready to join Watney College? Apply online in minutes by clicking the Apply Now button and registering your details. Our team will guide you through the next steps.",
+                  icon: <Send className="w-6 h-6" />,
+                  href: "/apply",
                   delay: 0,
                 },
                 {
-                  title: "Employability",
+                  title: "Tuition Fees",
                   description:
-                  "Boost your employability with CV reviews, mock interviews, and job placements.",
-                  icon: <Briefcase className="w-6 h-6" />,
-                  href: "/career-employability",
-                  gradient: "from-purple-500 to-violet-600",
+                    "Tuition fees vary by programme. Full fee details for each course are listed on the individual course page. Please refer to your chosen course for specific fee information.",
+                  icon: <Banknote className="w-6 h-6" />,
+                  href: "/courses",
+                  delay: 0.1,
+                },
+                {
+                  title: "Student Finance",
+                  description:
+                    "All programmes at Watney College are currently self-funded or employer-sponsored. Funding options vary by qualification and individual circumstances. Refer to your chosen course page or contact us to discuss your options.",
+                  icon: <CreditCard className="w-6 h-6" />,
+                  href: "/student-finance",
                   delay: 0.2,
                 },
                 {
-                  title: "Fees Funding",
+                  title: "Accommodation",
                   description:
-                    "Tuition fees, payment options and financial support for your studies at Watney College.",
-                  icon: <Banknote className="w-6 h-6" />,
-                  href: "/student-finance",
-                  gradient: "from-green-500 to-emerald-600",
+                    "We recommend that all students arrange accommodation before registering. We provide guidance and signposting to help you find safe, affordable housing in London.",
+                  icon: <MapPin className="w-6 h-6" />,
+                  href: "mailto:support@watneycollege.co.uk",
                   delay: 0.3,
                 },
                 {
-                  title: "Course guidance",
+                  title: "Student Handbook",
                   description:
-                    "Receive personalized advice to choose the right course based on your goals, interests, and career aspirations.",
+                    "Your essential guide to life at Watney College covering policies, expectations, support services and your rights as a student. Available via the Student Management System (WCSMS).",
                   icon: <BookOpen className="w-6 h-6" />,
-                  // href: "/prospectus",
-                   href: "/contact",
-                  gradient: "from-pink-500 to-rose-600",
+                  href: "/login",
                   delay: 0.4,
                 },
-                // {
-                //   title: "Request a Prospectus",
-                //   description:
-                //     "Get a free, detailed course guide delivered to your inbox or by post.",
-                //   icon: <BookOpen className="w-6 h-6" />,
-                //   // href: "/prospectus",
-                //    href: "#",
-                //   gradient: "from-pink-500 to-rose-600",
-                //   delay: 0.3,
-                // },
+                {
+                  title: "Academic Calendar",
+                  description:
+                    "Key dates for the academic year including term dates, assessment periods, submission deadlines and college closure days. View the 2025–2026 Academic Calendar.",
+                  icon: <CalendarDays className="w-6 h-6" />,
+                  href: "/academic-calendar",
+                  delay: 0.5,
+                },
               ].map((card, index) => (
                 <motion.div
                   key={index}
@@ -354,10 +361,8 @@ export default function page() {
                       whileHover={{ y: -10 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      {/* Icon Circle with Gradient */}
-                      <div
-                        className={`w-14 h-14 bg-gradient-to-tr from-primary to-primary/60 rounded-xl flex items-center justify-center mb-5 text-white shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}
-                      >
+                      {/* Icon */}
+                      <div className="w-14 h-14 bg-gradient-to-tr from-primary to-primary/60 rounded-xl flex items-center justify-center mb-5 text-white shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                         {card.icon}
                       </div>
 
@@ -369,7 +374,7 @@ export default function page() {
                         {card.description}
                       </p>
 
-                      {/* CTA Arrow */}
+                      {/* CTA */}
                       <div className="flex items-center mt-5 text-primary text-sm font-medium">
                         Learn More
                         <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0" />
@@ -390,192 +395,142 @@ export default function page() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Services We{" "}
-                <span className="text-gradient-watney">Proudly Offer</span>
+                What Watney College{" "}
+                <span className="text-gradient-watney">Offers</span>
               </h2>
               <p className="text-xl text-gray-600 ">
-                We deliver transformative education to meet the demands of an
-                evolving world.
+                Quality education and student support across healthcare and
+                vocational programmes, designed to develop your skills and
+                advance your career.
               </p>
             </div>
 
-            <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-8 z-[1000]">
-              <Card className=" ">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <BookOpen className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl text-watney-blue-primary">
-                    Academic Excellence Program
-                  </CardTitle>
-                  <CardDescription className="text-lg">
-                    Top-tier curriculum content covering diverse fields with
-                    international standards and cutting-edge methodologies.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 text-lg text-gray-600">
-                    <div>• Certified Programs</div>
-                    <div>• Expert Delivery Team</div>
-                    <div>• Flexible Scheduling</div>
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 z-[1000]">
+              {[
+                {
+                  title: "Healthcare Programmes",
+                  description:
+                    "Nationally recognised qualifications in adult health and social care, delivered by experienced practitioners.",
+                  icon: <BookOpen className="w-8 h-8 text-primary" />,
+                  points: [
+                    "NQual Level 2 Adult Social Care",
+                    "NQual Level 4 Diploma in Adult Care",
+                    "ATHE Level 4 Healthcare",
+                  ],
+                },
+                {
+                  title: "Student Support",
+                  description:
+                    "Dedicated academic and personal support throughout your studies to help you achieve your goals.",
+                  icon: <Users className="w-8 h-8 text-primary" />,
+                  points: [
+                    "Personal Tutoring",
+                    "Academic Guidance",
+                    "Wellbeing Support",
+                  ],
+                },
+                {
+                  title: "Employer Partnerships",
+                  description:
+                    "Strong links with healthcare employers supporting student progression and workforce development.",
+                  icon: <Globe className="w-8 h-8 text-primary" />,
+                  points: [
+                    "Healthcare Employer Network",
+                    "Industry Engagement",
+                    "Career Pathways",
+                  ],
+                },
+                {
+                  title: "Professional Certifications",
+                  description:
+                    "Industry-recognised qualifications designed to develop your professional skills and support career advancement in health and social care.",
+                  icon: <Award className="w-8 h-8 text-primary" />,
+                  points: [
+                    "Recognised Qualifications",
+                    "Skills Assessment",
+                    "Career Progression",
+                  ],
+                },
+                {
+                  title: "Practical Skills Development",
+                  description:
+                    "Hands-on learning designed to build the competencies required for professional practice in care.",
+                  icon: <GraduationCap className="w-8 h-8 text-primary" />,
+                  points: [
+                    "Practical Training",
+                    "Portfolio Assessment",
+                    "Work-Based Learning",
+                  ],
+                },
+                {
+                  title: "Work Placement (Healthcare)",
+                  description:
+                    "Connecting students with real-world opportunities to apply their skills and gain industry experience.",
+                  icon: <Lightbulb className="w-8 h-8 text-primary" />,
+                  points: [
+                    "Placements",
+                    "Industry Projects",
+                    "Professional Networking",
+                  ],
+                },
+              ].map((card, index) => (
+                <Card key={index}>
+                  <CardHeader>
+                    <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      {card.icon}
+                    </div>
 
-              <Card className="">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <Users className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl text-watney-blue-primary">
-                    Student Success Support
-                  </CardTitle>
-                  <CardDescription className="text-lg">
-                    Comprehensive guidance through personalized mentoring and
-                    professional development programs.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 text-lg text-gray-600">
-                    <div>• Career Guidance</div>
-                    <div>• Academic Support</div>
-                    <div>• Mental Health</div>
-                  </div>
-                </CardContent>
-              </Card>
+                    <CardTitle className="text-xl text-watney-blue-primary">
+                      {card.title}
+                    </CardTitle>
 
-              <Card className="">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10  rounded-lg flex items-center justify-center mb-4">
-                    <Globe className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl text-watney-blue-primary">
-                    Global Education Network
-                  </CardTitle>
-                  <CardDescription className="text-lg">
-                    Connecting students with worldwide opportunities through
-                    partnerships and international programs.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 text-lg text-gray-600">
-                    <div>• Study Abroad</div>
-                    <div>• Exchange Programs</div>
-                    <div>• Global Partnerships</div>
-                  </div>
-                </CardContent>
-              </Card>
+                    <CardDescription className="text-lg">
+                      {card.description}
+                    </CardDescription>
+                  </CardHeader>
 
-              <Card className="">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10  rounded-lg flex items-center justify-center mb-4">
-                    <Award className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl text-watney-blue-primary">
-                    Professional Certification Hub
-                  </CardTitle>
-                  <CardDescription className="text-lg">
-                    Industry-recognized certifications and professional
-                    development programs for career advancement.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 text-lg text-gray-600">
-                    <div>• Industry Certifications</div>
-                    <div>• Skill Assessments</div>
-                    <div>• Career Placement</div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10  rounded-lg flex items-center justify-center mb-4">
-                    <GraduationCap className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl text-watney-blue-primary">
-                    Skills Development Lab
-                  </CardTitle>
-                  <CardDescription className="text-lg">
-                    Hands-on learning experiences with cutting-edge technology
-                    and practical skill development.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 text-lg text-gray-600">
-                    <div>• Practical Training</div>
-                    <div>• Lab Sessions</div>
-                    <div>• Project Work</div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10  rounded-lg flex items-center justify-center mb-4">
-                    <Lightbulb className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl text-watney-blue-primary">
-                    Work Placement (Healthcare)
-                  </CardTitle>
-                  <CardDescription className="text-lg">
-                    Connecting students with real-world opportunities to apply
-                    their skills and gain industry experience.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 text-lg text-gray-600">
-                    <div>• Internships</div>
-                    <div>• Industry Projects</div>
-                    <div>• Professional Networking</div>
-                  </div>
-                </CardContent>
-              </Card>
+                  <CardContent>
+                    <div className="space-y-2 text-lg text-gray-600">
+                      {card.points.map((point, i) => (
+                        <div key={i}>• {point}</div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
         <section className=" relative py-20 bg-soft-sky">
-
           <div className="absolute left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
           <div className="absolute right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180  z-0"></div>
-         <div className="container mx-auto px-4  text-center">
-  {/* Heading */}
-  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6 leading-tight">
-    Ready to Start Your{" "}
-    <span className="text-gradient-watney">Educational Journey?</span>
-  </h2>
+          <div className="container mx-auto px-4  text-center">
+            {/* Heading */}
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6 leading-tight">
+              Ready to Start Your{" "}
+              <span className="text-gradient-watney">Educational Journey?</span>
+            </h2>
 
-  {/* Description */}
-  <p className="text-base sm:text-lg md:text-xl text-black mb-8 max-w-2xl mx-auto px-2">
-    Join thousands of successful students who have transformed their careers
-    through our comprehensive programs.
-  </p>
+            {/* Description */}
+            <p className="text-base sm:text-lg md:text-xl text-black mb-8 max-w-2xl mx-auto px-2">
+              Take the next step. Apply today or speak to our team to find out
+              more.
+            </p>
 
-  {/* Buttons */}
-  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-    <Link href="/courses" className="w-full sm:w-auto">
-      <Button
-        size="lg"
-        className="btn-watney-primary w-full sm:w-auto flex items-center justify-center"
-      >
-        Get Started Today
-      </Button>
-    </Link>
-
-    <Link href="/contact" className="w-full sm:w-auto">
-      <Button
-        size="lg"
-        variant="outline"
-        className="btn-outline-watney w-full sm:w-auto flex items-center justify-center text-watney-blue-primary bg-transparent"
-      >
-        Contact Us
-      </Button>
-    </Link>
-  </div>
-</div>
-
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/courses" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="btn-watney-primary w-full sm:w-auto flex items-center justify-center"
+                >
+                  Apply Now
+                </Button>
+              </Link>
+            </div>
+          </div>
         </section>
         {/* Why Choose Us Section */}
         <section className=" relative py-20 bg-watney-blue-primary/5 ">
@@ -605,8 +560,7 @@ export default function page() {
                 <span className="text-gradient-watney">Watney College?</span>
               </h2>
               <p className="text-lg text-gray-600  mx-auto leading-relaxed">
-                There are many reasons to choose us as your education partner.
-                Here are the most important ones that set us apart.
+                Here is what makes Watney College a great place to study.
               </p>
             </motion.div>
 
@@ -668,14 +622,12 @@ export default function page() {
               </span>
             </motion.div> */}
               <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-4">
-                Building{" "}
-                <span className="text-gradient-watney">Connections</span> &
-                Advancing{" "}
-                <span className="text-gradient-watney">Knowledge</span>
+                Student Community &
+                <span className="text-gradient-watney">Engagement </span>
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Join our thriving alumni network and explore cutting-edge
-                research opportunities that shape the future of education.
+                Get involved in college life and connect with your peers
+                throughout your studies at Watney College.
               </p>
             </motion.div>
 
@@ -687,136 +639,98 @@ export default function page() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
             >
-              {/* Student Alumni Club Card */}
+              {/* Tile 1 — Student Engagement */}
               <motion.div variants={cardVariants}>
                 <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
-                  {/* Background Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-primary/5 to-purple-50" />
 
-                  {/* Content */}
                   <CardContent className="relative p-8 h-full flex flex-col">
-                    {/* Icon Header */}
+                    {/* Header */}
                     <div className="flex items-center mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <Network className="w-8 h-8 text-white" />
+                        <Users className="w-8 h-8 text-white" />
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                          Student Alumni Club
+                          Student Engagement
                         </h3>
                         <p className="text-primary font-medium">
-                          Connect • Network • Thrive
+                          Connect • Participate • Belong
                         </p>
                       </div>
-                    </div>
-
-                    {/* Image Placeholder */}
-                    <div className="relative mb-6 rounded-xl overflow-hidden bg-gradient-to-r from-blue-100 to-purple-100 h-48 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                      <Image
-                        src="/alumni.jpg"
-                        alt="Group photo of Watney College alumni networking at an event"
-                        width={600}
-                        height={28}
-                        priority
-                      />
                     </div>
 
                     {/* Content */}
                     <div className="flex-grow">
                       <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                          Join our exclusive alumni community of graduates worldwide. Access mentorship programs, networking events, and career advancement opportunities.
+                        Become part of the Watney College student community.
+                        Engage with your peers, participate in college life and
+                        contribute to shaping your learning experience.
                       </p>
 
-                      {/* Features */}
-                      <ul className="space-y-3 mb-6">
+                      <ul className="space-y-3">
                         <li className="flex items-center text-gray-600">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                          Global networking events & meetups
+                          Student Representative Programme
                         </li>
                         <li className="flex items-center text-gray-600">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                          Exclusive job board & career services
+                          Peer Support Network
                         </li>
                         <li className="flex items-center text-gray-600">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                          Mentorship & professional development
+                          College Events & Activities
                         </li>
                       </ul>
                     </div>
-
-                    {/* CTA Button */}
-                    {/* <Button className="w-full btn-watney-primary group-hover:shadow-lg transition-shadow duration-300">
-                    Join Alumni Network
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button> */}
                   </CardContent>
                 </Card>
               </motion.div>
 
-              {/* Research At Watney College Card */}
+              {/* Tile 2 — Student Voice */}
               <motion.div variants={cardVariants}>
                 <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
-                  {/* Background Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-primary/5 to-purple-50" />
 
-                  {/* Content */}
                   <CardContent className="relative p-8 h-full flex flex-col">
-                    {/* Icon Header */}
+                    {/* Header */}
                     <div className="flex items-center mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <FlaskConical className="w-8 h-8 text-white" />
+                        <MessageCircle className="w-8 h-8 text-white" />
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                          Research At Watney College
+                          Student Voice
                         </h3>
-                        <p className="text-primary  font-medium">
-                          Discover • Innovate • Impact
+                        <p className="text-primary font-medium">
+                          Listen • Respond • Improve
                         </p>
                       </div>
-                    </div>
-
-                    <div className="relative mb-6 rounded-xl overflow-hidden bg-gradient-to-r from-blue-100 to-purple-100 h-48 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                      <Image
-                        src="/research.jpg"
-                        width={600}
-                        height={28}
-                        priority
-                        alt="Watney College students and faculty conducting research in a modern laboratory"
-                      />
                     </div>
 
                     {/* Content */}
                     <div className="flex-grow">
                       <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                        Explore groundbreaking research initiatives across
-                        multiple disciplines. Join faculty-led projects that
-                        address real-world challenges and contribute to global
-                        knowledge advancement.
+                        Your feedback matters. Watney College actively seeks
+                        student input to improve the quality of teaching,
+                        support and the overall student experience.
                       </p>
 
-                      {/* Features */}
-                      <ul className="space-y-3 mb-6">
+                      <ul className="space-y-3">
                         <li className="flex items-center text-gray-600">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                          Interdisciplinary research programs
+                          Student Surveys
                         </li>
                         <li className="flex items-center text-gray-600">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                          State-of-the-art research facilities
+                          Course Committee Representation
                         </li>
                         <li className="flex items-center text-gray-600">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                          Publication & conference opportunities
+                          Annual Student Experience Review
                         </li>
                       </ul>
                     </div>
-
-                    {/* CTA Button */}
-                    {/* <Button className="w-full btn-watney-primary group-hover:shadow-lg transition-shadow duration-300">
-                    Explore Research
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button> */}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -824,173 +738,7 @@ export default function page() {
           </div>
         </section>
 
-        {/* Student Engagement Section */}
-        <section className="py-20 relative bg-watney-blue-primary/5">
-          <div className="absolute -left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180   z-0"></div>
-          <div className="absolute -right-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none   z-0"></div>
-          <div className="container mx-auto px-4">
-            {/* Header */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              {/* <motion.div
-              initial={{ scale: 0.8 }}
-              whileInView={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <span className="inline-block px-4 py-1.5 bg-primary/15 text-primary rounded-full text-sm font-medium tracking-wide">
-                Student Life & Engagement
-              </span>
-            </motion.div> */}
-              <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-4">
-                Beyond the{" "}
-                <span className="text-gradient-watney">Classroom</span>
-              </h2>
-              <p className="text-lg text-gray-600 mx-auto leading-relaxed">
-                Discover opportunities to grow, connect, and make a meaningful
-                impact through our comprehensive student engagement programs.
-              </p>
-            </motion.div>
-
-            {/* 3-Grid Layout */}
-            <motion.div
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              {/* Student Associate Card */}
-              <motion.div variants={cardVariants}>
-                <Card className="group relative bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 h-full overflow-hidden">
-                  <CardContent className="p-6 h-full flex flex-col">
-                    {/* Icon */}
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                      <UserCheck className="w-7 h-7 text-white" />
-                    </div>
-
-                    {/* Content */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
-                      Student Associate
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
-                      Become a student representative and gain valuable
-                      leadership experience while representing your peers'
-                      interests and contributing to college governance.
-                    </p>
-
-                    {/* Stats */}
-                    {/* <div className="bg-watney-blue-primary/5 rounded-lg p-4 mb-6">
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-600">Active Members</span>
-                        <span className="font-bold text-primary">250+</span>
-                      </div>
-                    </div> */}
-
-                    {/* CTA */}
-                    {/* <Button
-                    variant="outline"
-                    className="w-full btn-outline-watney"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button> */}
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              {/* News and Events Card */}
-              <motion.div variants={cardVariants}>
-                <Card className="group relative bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 h-full overflow-hidden">
-                  <CardContent className="p-6 h-full flex flex-col">
-                    {/* Icon */}
-                    <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                      <Calendar className="w-7 h-7 text-white" />
-                    </div>
-
-                    {/* Content */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
-                      News & Events
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
-                      Stay connected with campus life through our vibrant
-                      calendar of academic seminars, cultural celebrations,
-                      workshops, and networking events.
-                    </p>
-
-                    {/* Upcoming Event Preview */}
-                    {/* <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6">
-                      <p className="text-sm font-medium text-orange-800">
-                        Next Event
-                      </p>
-                      <p className="text-xs text-orange-600">
-                        Annual Career Fair - March 15
-                      </p>
-                    </div> */}
-
-                    {/* CTA */}
-                    {/* <Button
-                    variant="outline"
-                    className="w-full border-orange-500 text-orange-600 hover:bg-orange-50"
-                  >
-                    View Calendar
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button> */}
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              {/* Community Project Engagement Card */}
-              <motion.div variants={cardVariants}>
-                <Card className="group relative bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 h-full overflow-hidden">
-                  <CardContent className="p-6 h-full flex flex-col">
-                    {/* Icon */}
-                    <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                      <Heart className="w-7 h-7 text-white" />
-                    </div>
-
-                    {/* Content */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
-                      Community Project Engagement
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
-                      Make a real difference through volunteer opportunities,
-                      social impact projects, and community partnerships that
-                      create positive change locally and globally.
-                    </p>
-
-                    {/* Impact Stats */}
-                    {/* <div className="bg-green-50 rounded-lg p-4 mb-6">
-                      <div className="grid grid-cols-2 gap-4 text-sm">
-                        <div className="text-center">
-                          <div className="font-bold text-green-600">120+</div>
-                          <div className="text-gray-600">Projects</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="font-bold text-green-600">2,500</div>
-                          <div className="text-gray-600">Hours</div>
-                        </div>
-                      </div>
-                    </div> */}
-
-                    {/* CTA */}
-                    {/* <Button
-                    variant="outline"
-                    className="w-full border-green-500 text-green-600 hover:bg-green-50"
-                  >
-                    Get Involved
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button> */}
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
+      
         {/* Testimonials Section */}
         <section className="py-20 relative bg-watney-blue-primary/5">
           <div className="absolute -left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180   z-0"></div>
@@ -1017,12 +765,20 @@ export default function page() {
                   </Avatar>
                   <div>
                     <div className="font-semibold">Noushin</div>
-
                   </div>
                 </div>
 
                 <p className="text-gray-600">
-                  "As a recent graduate of the OTHM Level 3 Foundation Diploma in Health and Social Care at Watney College, I can confidently say that the program has been instrumental in shaping my career. The comprehensive curriculum and the unwavering support from the faculty equipped me with the essential knowledge and skills to excel in the health and social care sector. The practical approach to learning, combined with real-world case studies, provided me with a solid foundation to pursue further studies and professional opportunities in this field."
+                  "As a recent graduate of the OTHM Level 3 Foundation Diploma
+                  in Health and Social Care at Watney College, I can confidently
+                  say that the program has been instrumental in shaping my
+                  career. The comprehensive curriculum and the unwavering
+                  support from the faculty equipped me with the essential
+                  knowledge and skills to excel in the health and social care
+                  sector. The practical approach to learning, combined with
+                  real-world case studies, provided me with a solid foundation
+                  to pursue further studies and professional opportunities in
+                  this field."
                 </p>
               </Card>
 
@@ -1034,16 +790,21 @@ export default function page() {
                   </Avatar>
                   <div>
                     <div className="font-semibold">Tayef</div>
-
                   </div>
                 </div>
 
                 <p className="text-gray-600 ">
-                  "Completing the OTHM Level 3 Foundation Diploma in Health and Social Care at Watney College was a transformative experience. The diverse and inclusive environment, along with the dedicated instructors, made learning both engaging and insightful. The program's emphasis on personal and professional development has not only prepared me for immediate employment but also instilled a lifelong passion for contributing positively to the health and social care community."
+                  "Completing the OTHM Level 3 Foundation Diploma in Health and
+                  Social Care at Watney College was a transformative experience.
+                  The diverse and inclusive environment, along with the
+                  dedicated instructors, made learning both engaging and
+                  insightful. The program's emphasis on personal and
+                  professional development has not only prepared me for
+                  immediate employment but also instilled a lifelong passion for
+                  contributing positively to the health and social care
+                  community."
                 </p>
               </Card>
-
-             
             </div>
           </div>
         </section>

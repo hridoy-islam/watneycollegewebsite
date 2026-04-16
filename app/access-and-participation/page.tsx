@@ -3,62 +3,13 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Users,
-  
-  Handshake,
-  GraduationCap,
-  Award,
-  TrendingUp,
-  FileText,
-  ExternalLink,
-  Accessibility,
-} from "lucide-react";
+import { Users, FileText, ExternalLink, CheckCircle2 } from "lucide-react";
 
 export default function AccessAndParticipationPage() {
-  const commitmentPoints = [
-    {
-      icon: Accessibility,
-      title: "Fair Access",
-      description: "We actively remove barriers to higher education for underrepresented and disadvantaged groups.",
-    },
-    {
-      icon: Handshake,
-      title: "Outreach Programs",
-      description: "Partnerships with schools and communities to inspire and prepare future students from all backgrounds.",
-    },
-    {
-      icon: GraduationCap,
-      title: "Inclusive Curriculum",
-      description: "Our courses are designed to support diverse learning needs and cultural perspectives.",
-    },
-    {
-      icon: Award,
-      title: "Financial Support",
-      description: "Scholarships, bursaries, and emergency funds to ensure financial circumstances aren’t a barrier.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Student Success",
-      description: "Targeted academic and wellbeing support to improve retention and achievement for all.",
-    },
-    {
-      icon: Users,
-      title: "Diverse Community",
-      description: "We celebrate diversity and foster an inclusive environment where every voice matters.",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-white">
       <div className="relative overflow-hidden">
+        {/* Background Patterns */}
         <div className="absolute right-[328px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-180 z-10"></div>
         <div className="absolute left-[328px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-contain bg-center pointer-events-none rotate-0 z-10"></div>
 
@@ -67,94 +18,174 @@ export default function AccessAndParticipationPage() {
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Users className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
-              Access and{" "}
-              <span className="text-watney-blue-primary">Participation Statement</span>
+              Our Commitment to{" "}
+              <span className="text-watney-blue-primary">
+                Access and Participation
+              </span>
             </h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Watney College is committed to ensuring that all students regardless of background, 
-              identity, or circumstance have equal opportunity to access, succeed in, and benefit from 
-              high-quality education.
+            <p className="text-lg text-gray-600 max-w-5xl mx-auto leading-relaxed">
+              Watney College is committed to making higher education accessible
+              to all, regardless of background, identity or circumstance. We
+              actively work to widen participation and support every student to
+              succeed throughout their studies and beyond.
             </p>
           </div>
         </section>
 
-
-        {/* Commitment Grid */}
-        <section className="py-16 bg-gray-50">
+        {/* Section 1: Content Left, Image Right */}
+        <section className="py-16 bg-white relative ">
           <div className="container mx-auto px-4">
             <motion.div
-              className="mx-auto text-center mb-12"
+              className="grid md:grid-cols-2 gap-12 items-center z-20"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                Our Core Commitments
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                These pillars guide our strategy to widen participation and enhance student success.
-              </p>
+              <div className="z-20">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Who We Support
+                </h2>
+                <p className="text-lg text-gray-600 mb-6">
+                  We are committed to improving access and outcomes for students
+                  from underrepresented groups, including:
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Students from Black, Asian and Minority Ethnic communities",
+                    "Mature students and working adults",
+                    "Students from low-income households",
+                    "Students with disabilities",
+                    "Care leavers and estranged students",
+                    "Refugees and asylum seekers",
+                    "Students with specific learning difficulties",
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <CheckCircle2 className="w-5 h-5 text-watney-blue-primary mr-3 mt-1 flex-shrink-0" />
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg h-[400px] z-20">
+                {/* Replace src with your actual image path */}
+                <img
+                  src="/com1.jpg"
+                  alt="Students collaborating"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {commitmentPoints.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Card className="h-full border-gray-200 hover:shadow-md transition-shadow">
-                    <CardHeader className="flex flex-row items-start gap-4 pb-2">
-                      <div className="w-10 h-10 rounded-lg bg-watney-blue-primary/10 flex items-center justify-center mt-1">
-                        <item.icon className="w-5 h-5 text-watney-blue-primary" />
-                      </div>
-                      <CardTitle className="text-lg">{item.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription>{item.description}</CardDescription>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </section>
 
-        {/* Action Section */}
-        <section className="py-16 bg-white">
+        {/* Section 2: Image Left, Content Right */}
+        <section className="py-16 bg-gray-50 relative ">
           <div className="container mx-auto px-4">
             <motion.div
-              className="max-w-4xl mx-auto text-center p-8 bg-ocean-breeze/10 rounded-2xl border border-ocean-breeze/20"
+              className="grid md:grid-cols-2 gap-12 items-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="order-2 md:order-1 rounded-2xl overflow-hidden shadow-lg h-[400px] z-20">
+                {/* Replace src with your actual image path */}
+                <img
+                  src="/com2.jpg"
+                  alt="Student support session"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="order-1 md:order-2 z-20">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  How We Support You
+                </h2>
+                <ul className="space-y-4">
+                  {[
+                    "Personal tutoring and one-to-one academic guidance",
+                    "Access to our WCSMS (VLE)",
+                    "Mental health and wellbeing support",
+                    "Mitigating circumstances process",
+                    "Flexible delivery models including blended and in-person learning",
+                    "Employer-aligned programmes supporting workforce progression",
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <div className="w-2 h-2 rounded-full bg-watney-blue-primary mt-2 mr-4 flex-shrink-0" />
+                      <span className="text-gray-700 text-lg">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Section 3: Content Left, Image Right */}
+        <section className="py-16 bg-white relative ">
+          <div className="container mx-auto px-4">
+            <motion.div
+              className="grid md:grid-cols-2 gap-12 items-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="z-20">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Access, Success and Progression
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  We monitor student data to identify and close participation
+                  and attainment gaps. Our goal is to ensure every student
+                  regardless of background, has an equal opportunity to access,
+                  succeed in and progress from their studies at Watney College.
+                </p>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg h-[300px] z-20">
+                {/* Replace src with your actual image path */}
+                <img
+                  src="/com3.jpg"
+                  alt="Data and progression"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Action Section - Just ONE Button */}
+        <section className="py-16 bg-ocean-breeze/30 relative z-20">
+          <div className="container mx-auto px-4">
+            <motion.div
+              className="max-w-4xl mx-auto text-center p-8 bg-white rounded-2xl shadow-sm border border-gray-100"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
               <FileText className="w-12 h-12 text-watney-blue-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                Access and Participation Statement
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Read our complete, OfS-approved plan detailing targets, activities, and investment in student success.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button asChild className="btn-watney-primary hover:btn-watney-primary/90">
+
+              <div className="mb-8">
+                <p className="text-gray-500 italic">
+                  Last reviewed: November 2025 | Next review: November 2026
+                </p>
+              </div>
+
+              <div className="flex justify-center">
+                <Button
+                  asChild
+                  size="lg"
+                  className="btn-watney-primary hover:btn-watney-primary/90 text-md sm:text-lg h-auto py-4 px-6 w-full sm:w-auto"
+                >
                   <Link
                     href="#"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center"
+                    className="flex items-center text-center justify-center whitespace-normal h-auto"
                   >
-                    Download Full Plan (PDF)
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-                <Button variant="outline" asChild>
-                  <Link href="/contact" className="flex items-center text-primary">
-                    Contact Our Access Team
+                    Download the full Access and Participation Statement (PDF)
+                    <ExternalLink className="w-5 h-5 ml-2 flex-shrink-0" />
                   </Link>
                 </Button>
               </div>
