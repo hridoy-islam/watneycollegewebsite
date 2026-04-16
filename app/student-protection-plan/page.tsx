@@ -309,7 +309,7 @@ export default function StudentProtectionPlanPage() {
                   className="btn-watney-primary hover:btn-watney-primary/90 text-md sm:text-lg h-auto py-4 px-6 w-full sm:w-auto"
                 >
                   <Link
-                    href="#"
+                    href="/Student Protection Plan.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center text-center justify-center whitespace-normal h-auto"

@@ -281,30 +281,14 @@ export default function page() {
             </motion.div>
 
             {/* Cards Grid */}
-            <motion.div
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.15,
-                    delayChildren: 0.2,
-                  },
-                },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 {
                   title: "How to Apply",
                   description:
                     "Ready to join Watney College? Apply online in minutes by clicking the Apply Now button and registering your details. Our team will guide you through the next steps.",
                   icon: <Send className="w-6 h-6" />,
-                  href: "/apply",
-                  delay: 0,
+                  href: "https://app.watneycollege.co.uk/",
                 },
                 {
                   title: "Tuition Fees",
@@ -312,78 +296,65 @@ export default function page() {
                     "Tuition fees vary by programme. Full fee details for each course are listed on the individual course page. Please refer to your chosen course for specific fee information.",
                   icon: <Banknote className="w-6 h-6" />,
                   href: "/courses",
-                  delay: 0.1,
                 },
                 {
                   title: "Student Finance",
                   description:
-                    "All programmes at Watney College are currently self-funded or employer-sponsored. Funding options vary by qualification and individual circumstances. Refer to your chosen course page or contact us to discuss your options.",
+                    "All programmes at Watney College are currently self-funded or employer-sponsored. Funding options vary by qualification and individual circumstances. Please refer to your chosen course page for specific funding information, or contact us to discuss your options.",
                   icon: <CreditCard className="w-6 h-6" />,
                   href: "/student-finance",
-                  delay: 0.2,
                 },
                 {
                   title: "Accommodation",
                   description:
-                    "We recommend that all students arrange accommodation before registering. We provide guidance and signposting to help you find safe, affordable housing in London.",
+                    "We recommend that all students arrange accommodation before registering with Watney College. We can provide guidance and signposting to help you find safe, affordable housing in London. For support please contact us at support@watneycollege.co.uk.",
                   icon: <MapPin className="w-6 h-6" />,
                   href: "mailto:support@watneycollege.co.uk",
-                  delay: 0.3,
                 },
                 {
                   title: "Student Handbook",
                   description:
-                    "Your essential guide to life at Watney College covering policies, expectations, support services and your rights as a student. Available via the Student Management System (WCSMS).",
+                    "Your essential guide to life at Watney College — covering policies, expectations, support services and your rights as a student. Your handbook is available in your student account via the Watney College Student Management System (WCSMS). Click here to login to your account to access the Student Handbook.",
                   icon: <BookOpen className="w-6 h-6" />,
-                  href: "/login",
-                  delay: 0.4,
+                  href: "#",
                 },
                 {
                   title: "Academic Calendar",
                   description:
-                    "Key dates for the academic year including term dates, assessment periods, submission deadlines and college closure days. View the 2025–2026 Academic Calendar.",
+                    "Key dates for the academic year including term dates, assessment periods, submission deadlines and college closure days. Click here to see the 2025–2026 Academic Calendar.",
                   icon: <CalendarDays className="w-6 h-6" />,
                   href: "/academic-calendar",
-                  delay: 0.5,
                 },
               ].map((card, index) => (
-                <motion.div
-                  key={index}
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ delay: card.delay, duration: 0.5 }}
-                >
+                <div key={index}>
                   <Link href={card.href}>
-                    <motion.div
-                      className="group relative bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary/30 hover:bg-watney-blue-primary/5 transition-all duration-300 h-full flex flex-col"
-                      whileHover={{ y: -10 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
+                    <div className="group relative bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 h-full flex flex-col cursor-pointer">
                       {/* Icon */}
-                      <div className="w-14 h-14 bg-gradient-to-tr from-primary to-primary/60 rounded-xl flex items-center justify-center mb-5 text-white shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                      <div className="w-14 h-14 bg-gradient-to-tr from-primary to-primary/60 rounded-xl flex items-center justify-center mb-5 text-white shadow">
                         {card.icon}
                       </div>
 
                       {/* Content */}
-                      <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-200">
                         {card.title}
                       </h3>
+
                       <p className="text-gray-600 leading-relaxed flex-grow text-lg">
                         {card.description}
                       </p>
 
-                      {/* CTA */}
-                      <div className="flex items-center mt-5 text-primary text-sm font-medium">
-                        Learn More
-                        <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0" />
-                      </div>
-                    </motion.div>
+                      {/* CTA (ONLY for Student Finance) */}
+                      {card.title === "Student Finance" && (
+                        <div className="flex items-center mt-5 text-primary text-sm font-medium">
+                          Learn More
+                          <ArrowRight className="w-4 h-4 ml-1" />
+                        </div>
+                      )}
+                    </div>
                   </Link>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -738,7 +709,6 @@ export default function page() {
           </div>
         </section>
 
-      
         {/* Testimonials Section */}
         <section className="py-20 relative bg-watney-blue-primary/5">
           <div className="absolute -left-72  top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180   z-0"></div>
