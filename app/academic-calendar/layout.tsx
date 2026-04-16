@@ -1,30 +1,29 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Accommodation",
+  title: "Academic Calendar | Watney College",
   description:
-    "Discover student accommodation options at Watney College in London, including affordable housing and safe living spaces.",
+    "View the official academic calendar for Watney College, including term dates, holidays, assessment periods, and key academic deadlines.",
   keywords: [
-    "Watney College",
-    "London college",
-    "student accommodation",
-    "London housing",
-    "student housing",
-    "safe accommodation",
-    "college dorms",
+    "Watney College academic calendar",
+    "term dates London college",
+    "college timetable UK",
+    "academic schedule Watney College",
+    "exam dates Watney College",
+    "semester dates London",
   ],
   openGraph: {
-    title: "Accommodation",
+    title: "Academic Calendar | Watney College",
     description:
-      "Discover student accommodation options at Watney College in London, including affordable housing and safe living spaces.",
-    url: "/accommodation",
+      "Stay updated with Watney College’s academic calendar, including term dates, holidays, and important academic deadlines.",
+    url: "/academic-calendar",
     siteName: "Watney College",
     images: [
       {
-        url: "/about.jpg", // update with actual accommodation image
+        url: "/watney.png", // replace with actual image if available
         width: 1200,
         height: 630,
-        alt: "Watney College Student Accommodation in London",
+        alt: "Watney College Academic Calendar",
       },
     ],
     locale: "en_GB",
@@ -32,13 +31,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Accommodation",
+    title: "Academic Calendar | Watney College",
     description:
-      "Discover student accommodation options at Watney College in London, including affordable housing and safe living spaces.",
-    images: ["/about.jpg"], // update with actual image
+      "Explore key dates, term schedules, and academic deadlines at Watney College.",
+    images: ["/watney.png"], // replace if needed
   },
   alternates: {
-    canonical: "/accommodation",
+    canonical: "/academic-calendar",
   },
 };
 
