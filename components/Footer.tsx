@@ -26,7 +26,7 @@ export default function Footer() {
     { name: "Governance and Management", href: "/governance-and-management" },
     { name: "Accident and Emergency Support", href: "/accident-and-emergency" },
     { name: "Prevent Duty Statement", href: "/prevent-duty-statement" },
-    { name: "Academic Calendar", href: "#" },
+    { name: "Academic Calendar", href: "/academic-calendar" },
     { name: "Fire Safety", href: "fire-safety-statement" },
     { name: "Student Handbook 2025–26", href: "/policies" },
     { name: "Student Complaints Procedure", href: "/policies" },
@@ -38,7 +38,11 @@ export default function Footer() {
   ];
 
   const campusLinks = [
-    { name: "WCSMS (VLE)", href: "https://www.klaspad.com/", external: true },
+    {
+      name: "WCSMS (VLE)",
+      href: "https://app.watneycollege.co.uk/",
+      external: true,
+    },
     { name: "Employers & Partners", href: "/employers-and-partners" },
     { name: "Verify", href: "/verify" },
     // { name: "Student Finance", href: "/student-finance" },

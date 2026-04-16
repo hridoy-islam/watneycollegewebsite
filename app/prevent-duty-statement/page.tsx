@@ -514,6 +514,23 @@ export default function PreventDutyStatementPage() {
             Registered address: Focal House, London Borough of Tower Hamlets.
           </div>
         </div>
+        <div className="flex justify-center py-5">
+          <Button
+            asChild
+            size="lg"
+            className="btn-watney-primary hover:btn-watney-primary/90 text-md sm:text-lg h-auto py-4 px-6 w-full sm:w-auto"
+          >
+            <Link
+              href="/Safeguarding & Prevent Policy.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-center justify-center whitespace-normal h-auto"
+            >
+              Download Safeguarding & Prevent Policy (PDF)
+              <ExternalLink className="w-5 h-5 ml-2 flex-shrink-0" />
+            </Link>
+          </Button>
+        </div>
       </section>
     </div>
   );
