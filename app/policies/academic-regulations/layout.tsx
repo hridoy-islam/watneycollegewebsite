@@ -1,29 +1,30 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Policies | Watney College",
+  title: "Academic Regulations | Watney College",
   description:
-    "Explore Watney College's policies, including academic, administrative, and student conduct guidelines, ensuring transparency and quality education.",
+    "Review the formal academic regulations of Watney College, covering assessment standards, progression requirements, and institutional governance to ensure academic excellence.",
   keywords: [
     "Watney College",
-    "policies",
-    "academic policies",
-    "student guidelines",
-    "administrative rules",
-    "education standards",
+    "academic regulations",
+    "assessment framework",
+    "academic governance",
+    "student progression",
+    "higher education standards",
+    "academic quality assurance",
   ],
   openGraph: {
-    title: "Policies | Watney College",
+    title: "Academic Regulations | Watney College",
     description:
-      "Explore Watney College's policies, including academic, administrative, and student conduct guidelines, ensuring transparency and quality education.",
-    url: "/policies",
+      "Review the formal academic regulations of Watney College, covering assessment standards, progression requirements, and institutional governance.",
+    url: "/academic-regulations",
     siteName: "Watney College",
     images: [
       {
-        url: "/logo.png", // Replace with a suitable image for the Policies page
+        url: "/logo.png", 
         width: 1200,
         height: 630,
-        alt: "Watney College Policies",
+        alt: "Watney College Academic Regulations",
       },
     ],
     locale: "en_GB",
@@ -31,13 +32,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Policies | Watney College",
+    title: "Academic Regulations | Watney College",
     description:
-      "Explore Watney College's policies, including academic, administrative, and student conduct guidelines, ensuring transparency and quality education.",
-    images: ["/logo.png"], // Replace with a suitable image
+      "The official framework for academic standards, quality assurance, and student progression at Watney College.",
+    images: ["/logo.png"],
   },
   alternates: {
-    canonical: "/policies",
+    canonical: "/academic-regulations",
   },
 };
 
