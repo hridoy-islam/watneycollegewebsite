@@ -89,7 +89,7 @@ export default function PoliciesPage() {
         {
           title: "Anti-Bribery and Anti-Corruption Policy",
           icon: ShieldAlert,
-          href: "/policies/anti-bribery-and-corruption.pdf",
+          href: "/policies/anti-bribery-and-anti-corruption-policy",
         },
         {
           title: "Data Protection Policy",
@@ -114,7 +114,7 @@ export default function PoliciesPage() {
         {
           title: "Tuition Fees Refund and Compensation Policy",
           icon: CreditCard,
-          file: "/policies/tuition-fees-refund.pdf",
+          href: "#",
         },
       ],
     },
