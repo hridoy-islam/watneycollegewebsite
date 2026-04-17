@@ -447,7 +447,7 @@ export default function GovernanceAndManagementPage() {
                           <div className="relative inline-block">
                             <div 
                               className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
-                              style={{ backgroundColor: '#e5f1fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '160px' }}
+                              style={{ backgroundColor: '#ebf4fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '160px' }}
                             >
                               <span className="font-bold text-[14px]">QA Committee</span>
                               <span className="text-[11px] mt-1">Teaching quality</span>
@@ -460,7 +460,7 @@ export default function GovernanceAndManagementPage() {
                             <div className="relative inline-block">
                               <div 
                                 className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
-                                style={{ backgroundColor: '#e5f1fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '160px' }}
+                                style={{ backgroundColor: '#ebf4fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '160px' }}
                               >
                                 <span className="font-bold text-[13px]">Assessment &</span>
                                 <span className="font-bold text-[13px]">Progression Board</span>
@@ -473,7 +473,7 @@ export default function GovernanceAndManagementPage() {
                             <div className="relative inline-block">
                               <div 
                                 className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
-                                style={{ backgroundColor: '#e5f1fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '160px' }}
+                                style={{ backgroundColor: '#ebf4fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '160px' }}
                               >
                                 <span className="font-bold text-[13px]">Programme</span>
                                 <span className="font-bold text-[13px]">Committee</span>
@@ -503,7 +503,7 @@ export default function GovernanceAndManagementPage() {
                           <div className="relative inline-block">
                             <div 
                               className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
-                              style={{ backgroundColor: '#e5f1fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '180px' }}
+                              style={{ backgroundColor: '#d5e9f7', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '180px' }}
                             >
                               <span className="font-bold text-[13px]">Student Engagement</span>
                               <span className="font-bold text-[13px]">& WBL Committee</span>
@@ -544,8 +544,12 @@ export default function GovernanceAndManagementPage() {
                       <span>Management</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: '#e5f1fa', border: '1px solid #a1cbe8' }}></div>
-                      <span>Sub-committees / Student</span>
+                      <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: '#d5e9f7', border: '1px solid #a1cbe8' }}></div>
+                      <span>Student</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: '#ebf4fa', border: '1px solid #a1cbe8' }}></div>
+                      <span>Sub-committees</span>
                     </div>
                     <div className="flex items-center gap-2 ml-4">
                       <div className="flex items-center">
