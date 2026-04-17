@@ -79,7 +79,7 @@ export default function PoliciesPage() {
         {
           title: "Safeguarding and Prevent Policy",
           icon: ShieldCheck,
-          href: "/policies/safeguarding-and-prevent.pdf",
+          href: "/policies/safeguarding-and-prevent-policy",
         },
         {
           title: "Whistleblowing Policy",
