@@ -195,9 +195,9 @@ const committees = [
 
 // Financial accounts data
 const financialAccounts = [
-  { year: "2022–23", file: "" },
-  { year: "2023–24", file: "" },
-  { year: "2024–25", file: "" },
+  { year: "2022–23", file: "4.1.3. Audited Accounts 22-23.pdf" },
+  { year: "2023–24", file: "4.1.2. Audited Accounts 23-24.pdf" },
+  { year: "2024–25", file: "4.1.1. Audited Accounts 24-25.pdf" },
 
 
 ];
@@ -1038,8 +1038,10 @@ export default function GovernanceAndManagementPage() {
                               asChild
                             >
                               <Link
-                                href={`/downloads/${account.file}`}
+                                href={`/${account.file}`}
                                 className="flex items-center gap-1.5"
+                                target="_blank"
+  rel="noopener noreferrer"
                               >
                                 <Download className="w-3.5 h-3.5" />
                                 Download PDF

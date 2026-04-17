@@ -60,9 +60,7 @@ export default function AcademicRegulationsPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Part I–III
-                  </div>
+                  
                   <h2 className=" text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Status, governance and admissions
                   </h2>
@@ -124,9 +122,7 @@ export default function AcademicRegulationsPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Part V–VI
-                  </div>
+                 
                   <h2 className=" text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Assessment and progression
                   </h2>
@@ -195,9 +191,7 @@ export default function AcademicRegulationsPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Part VIII–X
-                  </div>
+                  
                   <h2 className=" text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Misconduct, fitness to study and appeals
                   </h2>

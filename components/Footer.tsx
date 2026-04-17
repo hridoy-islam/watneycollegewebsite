@@ -28,8 +28,8 @@ export default function Footer() {
     { name: "Prevent Duty Statement", href: "/prevent-duty-statement" },
     { name: "Academic Calendar", href: "/academic-calendar" },
     { name: "Fire Safety", href: "fire-safety-statement" },
-    { name: "Student Handbook 2025–26", href: "/policies" },
-    { name: "Student Complaints Procedure", href: "/policies" },
+    // { name: "Student Handbook 2025–26", href: "/policies" },
+    // { name: "Student Complaints Procedure", href: "/policies" },
     {
       name: "Staff Login",
       href: "https://app.watneycollege.co.uk/",

@@ -50,9 +50,7 @@ export default function CourseChangeClosurePolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Section 4
-                  </div>
+                  
                   <h2 className=" text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Categories of course change
                   </h2>
@@ -102,9 +100,7 @@ export default function CourseChangeClosurePolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Section 5
-                  </div>
+                
                   <h2 className=" text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Course closure
                   </h2>
@@ -156,9 +152,7 @@ export default function CourseChangeClosurePolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Section 6
-                  </div>
+                  
                   <h2 className=" text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Student protection measures
                   </h2>

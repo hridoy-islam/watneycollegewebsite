@@ -51,9 +51,7 @@ export default function StudentEngagementStrategyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Section 3
-                  </div>
+                 
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Strategic objectives
                   </h2>
@@ -152,9 +150,7 @@ export default function StudentEngagementStrategyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Section 5–6
-                  </div>
+                 
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Student representation and the three strategic themes
                   </h2>
@@ -253,9 +249,7 @@ export default function StudentEngagementStrategyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Section 4 & 7–8
-                  </div>
+                 
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Governance, monitoring and inclusion
                   </h2>

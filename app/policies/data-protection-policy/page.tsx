@@ -47,9 +47,7 @@ export default function DataProtectionPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Sections 1–4
-                  </div>
+                
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Principles and lawful basis for processing
                   </h2>
@@ -115,9 +113,7 @@ export default function DataProtectionPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Sections 6–9
-                  </div>
+                  
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Your rights and data security
                   </h2>
@@ -201,9 +197,7 @@ export default function DataProtectionPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Sections 10–12
-                  </div>
+                 
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Data Protection Officer, breach reporting and responsibilities
                   </h2>

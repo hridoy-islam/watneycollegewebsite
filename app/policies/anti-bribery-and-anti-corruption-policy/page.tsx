@@ -50,9 +50,7 @@ export default function AntiBriberyAntiCorruptionPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Sections 1–4
-                  </div>
+                  
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Commitment, scope and definitions
                   </h2>
@@ -114,9 +112,7 @@ export default function AntiBriberyAntiCorruptionPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Section 5
-                  </div>
+                 
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Prohibited conduct
                   </h2>
@@ -183,9 +179,7 @@ export default function AntiBriberyAntiCorruptionPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Sections 7–9
-                  </div>
+                  
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Governance, reporting and investigation
                   </h2>

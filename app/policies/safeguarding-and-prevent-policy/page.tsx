@@ -53,9 +53,7 @@ export default function SafeguardingPreventPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Sections 1–4
-                  </div>
+               
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Commitment, scope and key principles
                   </h2>
@@ -120,9 +118,7 @@ export default function SafeguardingPreventPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Sections 5–7
-                  </div>
+               
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Roles, safe recruitment and reporting concerns
                   </h2>
@@ -216,9 +212,7 @@ export default function SafeguardingPreventPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Sections 8–12
-                  </div>
+    
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Prevent Duty, online safety and training
                   </h2>

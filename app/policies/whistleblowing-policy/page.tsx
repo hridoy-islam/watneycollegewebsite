@@ -51,9 +51,7 @@ export default function WhistleblowingPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Sections 1–4
-                  </div>
+                  
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Commitment, scope and what constitutes whistleblowing
                   </h2>
@@ -121,9 +119,7 @@ export default function WhistleblowingPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Sections 6–8
-                  </div>
+                 
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Governance, protection and confidentiality
                   </h2>
@@ -221,9 +217,7 @@ export default function WhistleblowingPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <div className="text-sm font-semibold text-watney-blue-primary uppercase tracking-wider mb-2">
-                    Section 9
-                  </div>
+                 
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Procedure for raising and investigating concerns
                   </h2>
