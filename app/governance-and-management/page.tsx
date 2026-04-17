@@ -25,8 +25,8 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Tree, TreeNode } from 'react-organizational-chart'
 
-// --- Org Chart Helper Components ---
 const OrgNode = ({
   title,
   subtitle,
@@ -193,138 +193,6 @@ const financialAccounts = [
 
 ];
 
-import { Tree, TreeNode } from "react-organizational-chart";
-
-// Styled node component matching the exact colors from the image
-const ChartNode = ({
-  title,
-  subtitle,
-  variant = "board", // board, governance, management, student, subcommittee
-}: {
-  title: string;
-  subtitle?: string;
-  variant?: "board" | "governance" | "management" | "student" | "subcommittee";
-}) => {
-  const styles = {
-    board: {
-      bg: "#0D2B55",
-      text: "white",
-      border: "#0D2B55",
-      minWidth: "200px",
-    },
-    governance: {
-      bg: "#1B6CA8",
-      text: "white",
-      border: "#1B6CA8",
-      minWidth: "180px",
-    },
-    management: {
-      bg: "#EBF5FB",
-      text: "#0D2B55",
-      border: "#93BDD4",
-      minWidth: "180px",
-    },
-    student: {
-      bg: "#D6EAF8",
-      text: "#0D2B55",
-      border: "#93BDD4",
-      minWidth: "160px",
-    },
-    subcommittee: {
-      bg: "#F8FAFC",
-      text: "#1B6CA8",
-      border: "#93BDD4",
-      minWidth: "160px",
-    },
-  };
-
-  const style = styles[variant];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4 }}
-      className="inline-block"
-      style={{ minWidth: style.minWidth }}
-    >
-      <div
-        style={{
-          backgroundColor: style.bg,
-          color: style.text,
-          border: `1.5px solid ${style.border}`,
-          borderRadius: "8px",
-          padding: subtitle ? "12px 16px" : "14px 20px",
-          textAlign: "center",
-          fontWeight: 600,
-          fontSize: "14px",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-        }}
-      >
-        <div style={{ lineHeight: 1.3 }}>{title}</div>
-        {subtitle && (
-          <div
-            style={{
-              fontSize: "11px",
-              fontWeight: 400,
-              opacity: 0.85,
-              marginTop: "4px",
-            }}
-          >
-            {subtitle}
-          </div>
-        )}
-      </div>
-    </motion.div>
-  );
-};
-
-// Custom connector line with double-headed arrows
-const StyledLine = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ position: "relative" }}>
-    <style>
-      {`
-        .org-chart-line {
-          border-color: #93BDD4 !important;
-          border-style: dotted !important;
-          border-width: 2px !important;
-          position: relative;
-        }
-        .org-chart-line::before,
-        .org-chart-line::after {
-          content: "⟷";
-          position: absolute;
-          color: #93BDD4;
-          font-size: 12px;
-          background: white;
-          padding: 0 2px;
-        }
-        .org-chart-vertical-line::before {
-          left: -4px;
-          top: 50%;
-          transform: translateY(-50%) rotate(90deg);
-        }
-        .org-chart-vertical-line::after {
-          right: -4px;
-          bottom: 50%;
-          transform: translateY(50%) rotate(90deg);
-        }
-        .org-chart-horizontal-line::before {
-          left: 50%;
-          top: -6px;
-          transform: translateX(-50%);
-        }
-        .org-chart-horizontal-line::after {
-          left: 50%;
-          bottom: -6px;
-          transform: translateX(-50%);
-        }
-      `}
-    </style>
-    {children}
-  </div>
-);
 
 
 
@@ -501,135 +369,192 @@ export default function GovernanceAndManagementPage() {
           </section>
 
           {/* SECTION: Functional Structure (Strategic View) */}
-          <section className="relative py-24 overflow-hidden z-10">
+    <section className="relative py-24 bg-slate-50 overflow-hidden z-10">
             <div className="absolute -left-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0 opacity-50"></div>
             <div className="absolute -right-64 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0 opacity-50"></div>
 
             <div className="container mx-auto relative z-10">
               <motion.div
-                className="mx-auto text-center mb-12"
+                className="mx-auto text-center mb-16"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
-                  Functional Structure
+                  Functional <span className="text-watney-blue-primary">Structure</span>
                 </h2>
-                <p className="text-lg font-medium max-w-2xl mx-auto">
-                  All relationships are two-way — authority is delegated
-                  downward and formal reports flow upward through the same
-                  channel. Dotted double-headed arrows represent this two-way
-                  delegation and reporting relationship.
-                </p>
+                 <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-5xl">
+                   All relationships are two-way — authority is delegated downward and formal reports flow upward through the same channel. Dotted double-headed arrows represent this two-way delegation and reporting relationship.
+                  </p>
               </motion.div>
 
-              <div className="xl:hidden text-center text-sm font-medium text-watney mb-6 animate-pulse flex items-center justify-center gap-2">
-                <ArrowDown className="w-4 h-4 rotate-90" />
-                Swipe horizontally to view structure
-                <ArrowDown className="w-4 h-4 -rotate-90" />
-              </div>
+              <div className="w-full overflow-x-auto pb-16 relative z-20">
+                <div className="min-w-max flex flex-col items-center w-full mx-auto px-4 org-chart-wrapper">
+                  
+                 
 
-              <div className="w-full overflow-x-auto custom-scrollbar pb-16 relative z-20">
-                <div className="min-w-max flex flex-col items-center w-full mx-auto relative px-4">
-                  <div className="absolute top-20 w-full max-w-3xl h-[80%] blur-3xl rounded-full z-0 pointer-events-none -translate-y-1/2 left-1/2 -translate-x-1/2"></div>
-
-                  <div className="flex flex-col items-center relative z-10">
-                    <OrgNode title="Board of Directors" isGolden={true} />
-                    <VLine />
-                  </div>
-
-                  <div className="relative inline-flex items-start gap-4 sm:gap-6 lg:gap-10 z-10 mt-[-3px]">
-                    <div className="absolute top-0 left-[70px] right-[70px] sm:left-[80px] sm:right-[80px] z-0 pointer-events-none">
-                      <div className="absolute top-0 w-full h-[3px] bg-watney" />
-                      <div className="absolute -top-[10px] left-0 w-1/2 border-t-[3.5px] border-dashed border-watney"></div>
-                      <div className="absolute top-[8px] -right-2 w-1/2 border-t-[3.5px] border-dashed border-watney"></div>
-                    </div>
-
-                    <div className="absolute top-[70px] sm:top-[78px] left-1/2 -translate-x-1/2 w-[224px] border-t-[3.5px] border-dashed border-watney z-0 pointer-events-none">
-                      <div className="absolute left-[2px] -top-[9.5px] text-[16px] text-watney leading-none rotate-90">
-                        ▼
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <VLine />
-                      <OrgNode title="College Oversight Board" />
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <VLine />
-                      <OrgNode title="Academic Board" />
-                      <VLine h="h-6 sm:h-8" />
-                      <OrgNode title="Quality Assurance Committee" />
-                      <VLine h="h-6 sm:h-8" />
-
-                      <div className="relative inline-flex items-start gap-4 sm:gap-6 mt-[-3px]">
-                        <div className="absolute top-0 left-[70px] right-[70px] sm:left-[80px] sm:right-[80px] z-0 pointer-events-none">
-                          <div className="absolute top-0 w-full h-[3px] bg-watney" />
-                          <div className="absolute top-[8px] left-[7px] w-full border-t-[3.5px] border-dashed border-watney"></div>
-                        </div>
-
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode
-                            title={
-                              <>
-                                Assessment &<br />
-                                Progression Board
-                              </>
-                            }
-                          />
-                        </div>
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode title="Programme Committee" />
+                  <Tree
+                    lineWidth={"2px"}
+                    lineColor={"#1f5f8b"}
+                    lineHeight={"50px"}
+                    lineBorderRadius={"4px"}
+                    lineStyle="dashed"
+                    label={
+                      <div className="relative inline-block ">
+                        <div 
+                          className="inline-flex flex-col items-center justify-center px-6 py-4 rounded-xl shadow-md min-w-[220px] relative z-20"
+                          style={{ backgroundColor: '#0b2146', color: '#ffffff' }}
+                        >
+                          <span className="font-bold text-[16px]">Board of Directors</span>
+                          <span className="text-[12px] mt-1 font-light opacity-90">Ultimate authority</span>
                         </div>
                       </div>
-                    </div>
-
-                    <div className="flex flex-col items-center">
-                      <VLine />
-                      <OrgNode title="Principals Executive Group" />
-                      <VLine h="h-6 sm:h-8" />
-
-                      <div className="relative inline-flex items-start gap-4 sm:gap-6 mt-[-3px]">
-                        <div className="absolute top-0 left-[70px] right-[70px] sm:left-[80px] sm:right-[80px] z-0 pointer-events-none">
-                          <div className="absolute top-0 w-full h-[3px] bg-watney" />
-                          <div className="absolute top-[8px] left-[7px] w-full border-t-[3.5px] border-dashed border-watney"></div>
+                    }
+                  >
+                    {/* College Oversight Board */}
+                    <TreeNode
+                      label={
+                        <div className="relative inline-block">
+                          <div 
+                            className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm min-w-[160px] relative z-20"
+                            style={{ backgroundColor: '#1a5275', color: '#ffffff' }}
+                          >
+                            <span className="font-normal text-[14px]">College Oversight</span>
+                            <span className="font-bold text-[14px]">Board</span>
+                          </div>
                         </div>
+                      }
+                    />
 
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode
-                            title={
-                              <>
-                                Student Engagement
-                                <br />& WBL
-                              </>
-                            }
-                          />
+                    {/* Academic Board Flow */}
+                    <TreeNode
+                      label={
+                        <div className="relative inline-block">
+                          <div 
+                            className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm min-w-[160px] relative z-20"
+                            style={{ backgroundColor: '#1b6ca8', color: '#ffffff' }}
+                          >
+                            <span className="font-normal text-[14px]">Academic Board</span>
+                            <span className="text-[14px] font-semibold mt-1 opacity-90">Standards · Quality</span>
+                          </div>
                         </div>
-                        <div className="flex flex-col items-center">
-                          <VLine h="h-6 sm:h-8" />
-                          <OrgNode title="All Staff Meeting" />
-                        </div>
-                      </div>
-                    </div>
+                      }
+                    >
+                      {/* QA Committee Flow */}
+                      <TreeNode
+                        label={
+                          <div className="relative inline-block">
+                            <div 
+                              className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
+                              style={{ backgroundColor: '#e5f1fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '160px' }}
+                            >
+                              <span className="font-bold text-[14px]">QA Committee</span>
+                              <span className="text-[11px] mt-1">Teaching quality</span>
+                            </div>
+                          </div>
+                        }
+                      >
+                        <TreeNode
+                          label={
+                            <div className="relative inline-block">
+                              <div 
+                                className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
+                                style={{ backgroundColor: '#e5f1fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '160px' }}
+                              >
+                                <span className="font-bold text-[13px]">Assessment &</span>
+                                <span className="font-bold text-[13px]">Progression Board</span>
+                              </div>
+                            </div>
+                          }
+                        />
+                        <TreeNode
+                          label={
+                            <div className="relative inline-block">
+                              <div 
+                                className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
+                                style={{ backgroundColor: '#e5f1fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '160px' }}
+                              >
+                                <span className="font-bold text-[13px]">Programme</span>
+                                <span className="font-bold text-[13px]">Committee</span>
+                              </div>
+                            </div>
+                          }
+                        />
+                      </TreeNode>
+                    </TreeNode>
 
-                    <div className="flex flex-col items-center">
-                      <VLine />
-                      <OrgNode
-                        title={
-                          <>
-                            Audit, Remuneration
-                            <br />
-                            and Risk Committee
-                          </>
+                    {/* Principal's Executive Group Flow */}
+                    <TreeNode
+                      label={
+                        <div className="relative inline-block">
+                          <div 
+                            className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm min-w-[160px] relative z-20"
+                            style={{ backgroundColor: '#1b6ca8', color: '#ffffff' }}
+                          >
+                            <span className="font-normal text-[14px]">Principal's Executive</span>
+                            <span className="font-bold text-[14px]">Group (PEG)</span>
+                          </div>
+                        </div>
+                      }
+                    >
+                      <TreeNode
+                        label={
+                          <div className="relative inline-block">
+                            <div 
+                              className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
+                              style={{ backgroundColor: '#e5f1fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '180px' }}
+                            >
+                              <span className="font-bold text-[13px]">Student Engagement</span>
+                              <span className="font-bold text-[13px]">& WBL Committee</span>
+                            </div>
+                          </div>
                         }
                       />
+                    </TreeNode>
+
+                    {/* ARRC */}
+                    <TreeNode
+                      label={
+                        <div className="relative inline-block">
+                          <div 
+                            className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm min-w-[160px] relative z-20"
+                            style={{ backgroundColor: '#1a5275', color: '#ffffff' }}
+                          >
+                            <span className="font-normal text-[14px]">ARRC</span>
+                            <span className="text-[12px] font-bold mt-1 opacity-90">Audit · Risk · Rem.</span>
+                          </div>
+                        </div>
+                      }
+                    />
+                  </Tree>
+
+                  {/* Chart Legend matching the image */}
+                  <div className="mt-16 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-600 font-medium bg-white px-6 py-3 rounded-full shadow-sm border border-slate-200">
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: '#0b2146' }}></div>
+                      <span>Board</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: '#1a5275' }}></div>
+                      <span>Governance</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: '#1b6ba8' }}></div>
+                      <span>Management</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: '#e5f1fa', border: '1px solid #a1cbe8' }}></div>
+                      <span>Sub-committees / Student</span>
+                    </div>
+                    <div className="flex items-center gap-2 ml-4">
+                      <div className="flex items-center">
+                        <div className="w-8 border-t-2 border-dashed" style={{ borderColor: '#1f5f8b' }}></div>
+                      </div>
+                      <span className="ml-1">Two-way delegation & reporting</span>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>

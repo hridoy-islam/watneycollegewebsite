@@ -322,3 +322,24 @@ html {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+
+.react-organizational-chart-line {
+  position: relative;
+}
+.react-organizational-chart-line::before,
+.react-organizational-chart-line::after {
+  content: "⇅";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #185FA5;
+  font-weight: bold;
+}
+.react-organizational-chart-line::before {
+  top: -6px;
+}
+.react-organizational-chart-line::after {
+  bottom: -6px;
+}
