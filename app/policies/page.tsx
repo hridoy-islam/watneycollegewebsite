@@ -42,83 +42,83 @@ const ArrowRight = ({ className }: { className?: string }) => (
 );
 
 export default function PoliciesPage() {
- const policyGroups = [
-   {
-     groupTitle: "Academic Policies",
-     policies: [
-       {
-         title: "Academic Regulations",
-         icon: BookOpen,
-         file: "/2.5.15. Academic Regulations.pdf",
-       },
-       {
-         title: "Student Engagement Strategies",
-         icon: Users,
-         file: "/2.5.12 Student Assessment Feedback Process.pdf",
-       },
-       {
-         title: "Student Assessment Feedback Process",
-         icon: FileText,
-         file: "/2.5.12 Student Assessment Feedback Process.pdf",
-       },
-       {
-         title: "Course Change and Closure Policy",
-         icon: RefreshCw,
-         file: "/3.8 Course Changes and Closures Policy.pdf",
-       },
-     ],
-   },
-   {
-     groupTitle: "Complaints, Conduct, Safeguarding and Data",
-     policies: [
-       {
-         title: "Complaint Policy and Process",
-         icon: AlertCircle,
-         file: "/policies/complaint-policy-and-process.pdf",
-       },
-       {
-         title: "Safeguarding and Prevent Policy",
-         icon: ShieldCheck,
-         file: "/policies/safeguarding-and-prevent.pdf",
-       },
-       {
-         title: "Whistleblowing Policy",
-         icon: Megaphone,
-         file: "/policies/whistle-blowing.pdf",
-       },
-       {
-         title: "Anti-Bribery and Anti-Corruption Policy",
-         icon: ShieldAlert,
-         file: "/policies/anti-bribery-and-corruption.pdf",
-       },
-       {
-         title: "Data Protection Policy",
-         icon: Lock,
-         file: "/policies/data-protection.pdf",
-       },
-       {
-         title: "Equality, Diversity and Inclusion Policy",
-         icon: Users,
-         file: "/policies/equality-diversity-inclusion.pdf",
-       },
-       {
-         title: "Information Accuracy and Completeness Policy",
-         icon: FileCheck,
-         file: "/policies/information-accuracy.pdf",
-       },
-     ],
-   },
-   {
-     groupTitle: "Financial Policies",
-     policies: [
-       {
-         title: "Tuition Fees Refund and Compensation Policy",
-         icon: CreditCard,
-         file: "/policies/tuition-fees-refund.pdf",
-       },
-     ],
-   },
- ];
+  const policyGroups = [
+    {
+      groupTitle: "Academic Policies",
+      policies: [
+        {
+          title: "Academic Regulations",
+          icon: BookOpen,
+          href: "/policies/academic-regulations",
+        },
+        {
+          title: "Student Engagement Strategies",
+          icon: Users,
+          href: "/policies/student-engagement",
+        },
+        {
+          title: "Student Assessment Feedback Process",
+          icon: FileText,
+          href: "/policies/assessment-feedback",
+        },
+        {
+          title: "Course Change and Closure Policy",
+          icon: RefreshCw,
+          href: "/policies/course-change",
+        },
+      ],
+    },
+    {
+      groupTitle: "Complaints, Conduct, Safeguarding and Data",
+      policies: [
+        {
+          title: "Complaint Policy and Process",
+          icon: AlertCircle,
+          file: "/policies/complaint-policy-and-process.pdf",
+        },
+        {
+          title: "Safeguarding and Prevent Policy",
+          icon: ShieldCheck,
+          file: "/policies/safeguarding-and-prevent.pdf",
+        },
+        {
+          title: "Whistleblowing Policy",
+          icon: Megaphone,
+          file: "/policies/whistle-blowing.pdf",
+        },
+        {
+          title: "Anti-Bribery and Anti-Corruption Policy",
+          icon: ShieldAlert,
+          file: "/policies/anti-bribery-and-corruption.pdf",
+        },
+        {
+          title: "Data Protection Policy",
+          icon: Lock,
+          file: "/policies/data-protection.pdf",
+        },
+        {
+          title: "Equality, Diversity and Inclusion Policy",
+          icon: Users,
+          file: "/policies/equality-diversity-inclusion.pdf",
+        },
+        {
+          title: "Information Accuracy and Completeness Policy",
+          icon: FileCheck,
+          file: "/policies/information-accuracy.pdf",
+        },
+      ],
+    },
+    {
+      groupTitle: "Financial Policies",
+      policies: [
+        {
+          title: "Tuition Fees Refund and Compensation Policy",
+          icon: CreditCard,
+          file: "/policies/tuition-fees-refund.pdf",
+        },
+      ],
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -189,8 +189,8 @@ export default function PoliciesPage() {
                             className="z-50 hover:cursor-pointer"
                           >
                             <a
-                              href={policy.file}
-                              download
+                              href={policy.href || policy.file}
+                              {...(policy.file ? { download: true } : {})}
                               className="flex items-center justify-between w-full p-4 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-watney-blue-primary/30 transition-colors group z-[9999]"
                             >
                               <div className="flex items-start md:items-center gap-4 z-[9999] pr-4">
