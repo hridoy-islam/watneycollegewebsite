@@ -94,7 +94,7 @@ export default function PoliciesPage() {
         {
           title: "Data Protection Policy",
           icon: Lock,
-          href: "/policies/data-protection.pdf",
+          href: "/policies/data-protection-policy",
         },
         {
           title: "Equality, Diversity and Inclusion Policy",
