@@ -25,17 +25,17 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 
 const Tree = dynamic(
-  () => import('react-organizational-chart').then(mod => mod.Tree),
-  { ssr: false }
-)
+  () => import("react-organizational-chart").then((mod) => mod.Tree),
+  { ssr: false },
+);
 
 const TreeNode = dynamic(
-  () => import('react-organizational-chart').then(mod => mod.TreeNode),
-  { ssr: false }
-)
+  () => import("react-organizational-chart").then((mod) => mod.TreeNode),
+  { ssr: false },
+);
 const OrgNode = ({
   title,
   subtitle,
@@ -198,13 +198,51 @@ const financialAccounts = [
   { year: "2022–23", file: "4.1.3. Audited Accounts 22-23.pdf" },
   { year: "2023–24", file: "4.1.2. Audited Accounts 23-24.pdf" },
   { year: "2024–25", file: "4.1.1. Audited Accounts 24-25.pdf" },
-
-
 ];
 
+// 2. Reusable Node components for cleaner code
+const RootNode = ({ title }: { title: string }) => (
+  <div className="relative inline-block">
+    <div
+      className="inline-flex flex-col items-center justify-center px-6 py-4 shadow-md min-w-[240px] relative z-20"
+      style={{
+        backgroundColor: "#0D2B55",
+        color: "#ffffff",
+        borderRadius: "8px",
+      }}
+    >
+      <span className="font-bold text-[16px]">{title}</span>
+    </div>
+  </div>
+);
 
-
-
+const ChildNode = ({
+  title,
+  bgColor,
+  textColor,
+  borderColor = "transparent",
+}: {
+  title: string;
+  bgColor: string;
+  textColor: string;
+  borderColor?: string;
+}) => (
+  <div className="relative inline-block">
+    <div
+      className="inline-flex flex-col items-center justify-center px-4 py-3 shadow-sm min-w-[150px] relative z-20 max-w-[160px]"
+      style={{
+        backgroundColor: bgColor,
+        color: textColor,
+        borderRadius: "8px",
+        border: `1px solid ${borderColor}`,
+      }}
+    >
+      <span className="font-bold text-[14px] p-2 text-center leading-snug ">
+        {title}
+      </span>
+    </div>
+  </div>
+);
 
 export default function GovernanceAndManagementPage() {
   return (
@@ -378,7 +416,7 @@ export default function GovernanceAndManagementPage() {
           </section>
 
           {/* SECTION: Functional Structure (Strategic View) */}
-    <section className="relative py-24 bg-slate-50 overflow-hidden z-10">
+          <section className="relative py-24 bg-slate-50 overflow-hidden z-10">
             <div className="absolute -left-72 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0 opacity-50"></div>
             <div className="absolute -right-64 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0 opacity-50"></div>
 
@@ -391,18 +429,19 @@ export default function GovernanceAndManagementPage() {
                 transition={{ duration: 0.6 }}
               >
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
-                  Functional <span className="text-watney-blue-primary">Structure</span>
+                  Functional{" "}
+                  <span className="text-watney-blue-primary">Structure</span>
                 </h2>
-                 <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-5xl">
-                   All relationships are two-way — authority is delegated downward and formal reports flow upward through the same channel. Dotted double-headed arrows represent this two-way delegation and reporting relationship.
-                  </p>
+                <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-5xl">
+                  All relationships are two-way — authority is delegated
+                  downward and formal reports flow upward through the same
+                  channel. Dotted double-headed arrows represent this two-way
+                  delegation and reporting relationship.
+                </p>
               </motion.div>
 
               <div className="w-full overflow-x-auto pb-16 relative z-20">
                 <div className="min-w-max flex flex-col items-center w-full mx-auto px-4 org-chart-wrapper">
-                  
-                 
-
                   <Tree
                     lineWidth={"2px"}
                     lineColor={"#1f5f8b"}
@@ -411,12 +450,19 @@ export default function GovernanceAndManagementPage() {
                     lineStyle="dashed"
                     label={
                       <div className="relative inline-block ">
-                        <div 
+                        <div
                           className="inline-flex flex-col items-center justify-center px-6 py-4 rounded-xl shadow-md min-w-[220px] relative z-20"
-                          style={{ backgroundColor: '#0b2146', color: '#ffffff' }}
+                          style={{
+                            backgroundColor: "#0b2146",
+                            color: "#ffffff",
+                          }}
                         >
-                          <span className="font-bold text-[16px]">Board of Directors</span>
-                          <span className="text-[12px] mt-1 font-light opacity-90">Ultimate authority</span>
+                          <span className="font-bold text-[16px]">
+                            Board of Directors
+                          </span>
+                          <span className="text-[12px] mt-1 font-light opacity-90">
+                            Ultimate authority
+                          </span>
                         </div>
                       </div>
                     }
@@ -425,11 +471,16 @@ export default function GovernanceAndManagementPage() {
                     <TreeNode
                       label={
                         <div className="relative inline-block">
-                          <div 
+                          <div
                             className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm min-w-[160px] relative z-20"
-                            style={{ backgroundColor: '#1a5275', color: '#ffffff' }}
+                            style={{
+                              backgroundColor: "#1a5275",
+                              color: "#ffffff",
+                            }}
                           >
-                            <span className="font-normal text-[14px]">College Oversight</span>
+                            <span className="font-normal text-[14px]">
+                              College Oversight
+                            </span>
                             <span className="font-bold text-[14px]">Board</span>
                           </div>
                         </div>
@@ -440,12 +491,19 @@ export default function GovernanceAndManagementPage() {
                     <TreeNode
                       label={
                         <div className="relative inline-block">
-                          <div 
+                          <div
                             className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm min-w-[160px] relative z-20"
-                            style={{ backgroundColor: '#1b6ca8', color: '#ffffff' }}
+                            style={{
+                              backgroundColor: "#1b6ca8",
+                              color: "#ffffff",
+                            }}
                           >
-                            <span className="font-normal text-[14px]">Academic Board</span>
-                            <span className="text-[14px] font-semibold mt-1 opacity-90">Standards · Quality</span>
+                            <span className="font-normal text-[14px]">
+                              Academic Board
+                            </span>
+                            <span className="text-[14px] font-semibold mt-1 opacity-90">
+                              Standards · Quality
+                            </span>
                           </div>
                         </div>
                       }
@@ -454,12 +512,21 @@ export default function GovernanceAndManagementPage() {
                       <TreeNode
                         label={
                           <div className="relative inline-block">
-                            <div 
+                            <div
                               className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
-                              style={{ backgroundColor: '#ebf4fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '160px' }}
+                              style={{
+                                backgroundColor: "#ebf4fa",
+                                color: "#1f5f8b",
+                                border: "1px solid #a1cbe8",
+                                minWidth: "160px",
+                              }}
                             >
-                              <span className="font-bold text-[14px]">QA Committee</span>
-                              <span className="text-[11px] mt-1">Teaching quality</span>
+                              <span className="font-bold text-[14px]">
+                                QA Committee
+                              </span>
+                              <span className="text-[11px] mt-1">
+                                Teaching quality
+                              </span>
                             </div>
                           </div>
                         }
@@ -467,12 +534,21 @@ export default function GovernanceAndManagementPage() {
                         <TreeNode
                           label={
                             <div className="relative inline-block">
-                              <div 
+                              <div
                                 className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
-                                style={{ backgroundColor: '#ebf4fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '160px' }}
+                                style={{
+                                  backgroundColor: "#ebf4fa",
+                                  color: "#1f5f8b",
+                                  border: "1px solid #a1cbe8",
+                                  minWidth: "160px",
+                                }}
                               >
-                                <span className="font-bold text-[13px]">Assessment &</span>
-                                <span className="font-bold text-[13px]">Progression Board</span>
+                                <span className="font-bold text-[13px]">
+                                  Assessment &
+                                </span>
+                                <span className="font-bold text-[13px]">
+                                  Progression Board
+                                </span>
                               </div>
                             </div>
                           }
@@ -480,12 +556,21 @@ export default function GovernanceAndManagementPage() {
                         <TreeNode
                           label={
                             <div className="relative inline-block">
-                              <div 
+                              <div
                                 className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
-                                style={{ backgroundColor: '#ebf4fa', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '160px' }}
+                                style={{
+                                  backgroundColor: "#ebf4fa",
+                                  color: "#1f5f8b",
+                                  border: "1px solid #a1cbe8",
+                                  minWidth: "160px",
+                                }}
                               >
-                                <span className="font-bold text-[13px]">Programme</span>
-                                <span className="font-bold text-[13px]">Committee</span>
+                                <span className="font-bold text-[13px]">
+                                  Programme
+                                </span>
+                                <span className="font-bold text-[13px]">
+                                  Committee
+                                </span>
                               </div>
                             </div>
                           }
@@ -497,12 +582,19 @@ export default function GovernanceAndManagementPage() {
                     <TreeNode
                       label={
                         <div className="relative inline-block">
-                          <div 
+                          <div
                             className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm min-w-[160px] relative z-20"
-                            style={{ backgroundColor: '#1b6ca8', color: '#ffffff' }}
+                            style={{
+                              backgroundColor: "#1b6ca8",
+                              color: "#ffffff",
+                            }}
                           >
-                            <span className="font-normal text-[14px]">Principal's Executive</span>
-                            <span className="font-bold text-[14px]">Group (PEG)</span>
+                            <span className="font-normal text-[14px]">
+                              Principal's Executive
+                            </span>
+                            <span className="font-bold text-[14px]">
+                              Group (PEG)
+                            </span>
                           </div>
                         </div>
                       }
@@ -510,12 +602,21 @@ export default function GovernanceAndManagementPage() {
                       <TreeNode
                         label={
                           <div className="relative inline-block">
-                            <div 
+                            <div
                               className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
-                              style={{ backgroundColor: '#d5e9f7', color: '#1f5f8b', border: '1px solid #a1cbe8', minWidth: '180px' }}
+                              style={{
+                                backgroundColor: "#d5e9f7",
+                                color: "#1f5f8b",
+                                border: "1px solid #a1cbe8",
+                                minWidth: "180px",
+                              }}
                             >
-                              <span className="font-bold text-[13px]">Student Engagement</span>
-                              <span className="font-bold text-[13px]">& WBL Committee</span>
+                              <span className="font-bold text-[13px]">
+                                Student Engagement
+                              </span>
+                              <span className="font-bold text-[13px]">
+                                & WBL Committee
+                              </span>
                             </div>
                           </div>
                         }
@@ -526,12 +627,19 @@ export default function GovernanceAndManagementPage() {
                     <TreeNode
                       label={
                         <div className="relative inline-block">
-                          <div 
+                          <div
                             className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm min-w-[160px] relative z-20"
-                            style={{ backgroundColor: '#1a5275', color: '#ffffff' }}
+                            style={{
+                              backgroundColor: "#1a5275",
+                              color: "#ffffff",
+                            }}
                           >
-                            <span className="font-normal text-[14px]">ARRC</span>
-                            <span className="text-[12px] font-bold mt-1 opacity-90">Audit · Risk · Rem.</span>
+                            <span className="font-normal text-[14px]">
+                              ARRC
+                            </span>
+                            <span className="text-[12px] font-bold mt-1 opacity-90">
+                              Audit · Risk · Rem.
+                            </span>
                           </div>
                         </div>
                       }
@@ -541,33 +649,58 @@ export default function GovernanceAndManagementPage() {
                   {/* Chart Legend matching the image */}
                   <div className="mt-16 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-600 font-medium bg-white px-6 py-3 rounded-full shadow-sm border border-slate-200">
                     <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: '#0b2146' }}></div>
+                      <div
+                        className="w-4 h-4 rounded-sm"
+                        style={{ backgroundColor: "#0b2146" }}
+                      ></div>
                       <span>Board</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: '#1a5275' }}></div>
+                      <div
+                        className="w-4 h-4 rounded-sm"
+                        style={{ backgroundColor: "#1a5275" }}
+                      ></div>
                       <span>Governance</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: '#1b6ba8' }}></div>
+                      <div
+                        className="w-4 h-4 rounded-sm"
+                        style={{ backgroundColor: "#1b6ba8" }}
+                      ></div>
                       <span>Management</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: '#d5e9f7', border: '1px solid #a1cbe8' }}></div>
+                      <div
+                        className="w-4 h-4 rounded-sm"
+                        style={{
+                          backgroundColor: "#d5e9f7",
+                          border: "1px solid #a1cbe8",
+                        }}
+                      ></div>
                       <span>Student</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: '#ebf4fa', border: '1px solid #a1cbe8' }}></div>
+                      <div
+                        className="w-4 h-4 rounded-sm"
+                        style={{
+                          backgroundColor: "#ebf4fa",
+                          border: "1px solid #a1cbe8",
+                        }}
+                      ></div>
                       <span>Sub-committees</span>
                     </div>
                     <div className="flex items-center gap-2 ml-4">
                       <div className="flex items-center">
-                        <div className="w-8 border-t-2 border-dashed" style={{ borderColor: '#1f5f8b' }}></div>
+                        <div
+                          className="w-8 border-t-2 border-dashed"
+                          style={{ borderColor: "#1f5f8b" }}
+                        ></div>
                       </div>
-                      <span className="ml-1">Two-way delegation & reporting</span>
+                      <span className="ml-1">
+                        Two-way delegation & reporting
+                      </span>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -577,219 +710,206 @@ export default function GovernanceAndManagementPage() {
           <section className="relative py-24 overflow-hidden">
             <div className="absolute -left-96 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-0 opacity-50"></div>
             <div className="absolute -right-96 top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none z-0 opacity-50"></div>
-
-            <div className="mx-auto relative z-10">
-              <div className="text-center mb-16">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
+            <motion.div
+              className="mx-auto text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                Organogram <span className="text-watney-blue-primary">V6</span>
+              </h2>
+              <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-5xl">
+                Full staffing hierarchy from Board of Directors through to
+                academic delivery roles.
+              </p>
+            </motion.div>
+            <div className="w-full overflow-x-auto custom-scrollbar">
+              <div className="min-w-max flex flex-col items-center w-full mx-auto org-chart-dotted scale-75">
+                <Tree
+                  lineWidth={"2px"}
+                  lineColor={"#93BDD4"}
+                  lineHeight={"80px"}
+                  nodePadding={"5px"}
+                  lineStyle="dashed"
+                  label={<RootNode title="Board of Directors" />}
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 tracking-tight">
-                    Organogram
-                  </h2>
-                  <p className="text-lg text-slate-700 font-medium mx-auto">
-                    Structured Authority Flow with Defined Accountability Layers
-                  </p>
-                </motion.div>
-              </div>
-
-              <div className="container overflow-x-auto pb-12 relative z-20 custom-scrollbar">
-                <div className="flex flex-col items-center relative">
-                  <div className="relative">
-                    <OrgNode title="BOARD OF DIRECTORS" isGolden={true} />
-                  </div>
-
-                  <div
-                    className="relative w-full flex justify-center"
-                    style={{ height: "60px" }}
+                  {/* PRINCIPAL (Top Tier) */}
+                  <TreeNode
+                    label={
+                      <ChildNode
+                        title="Principal"
+                        bgColor="#0D2B55"
+                        textColor="#ffffff"
+                      />
+                    }
                   >
-                    <div className="w-[3px] bg-watney h-full pointer-events-none" />
-                  </div>
+                    {/* 1. MARKETING */}
+                    <TreeNode
+                      label={
+                        <ChildNode
+                          title="Head of Marketing"
+                          bgColor="#1B6CA8"
+                          textColor="#ffffff"
+                        />
+                      }
+                    >
+                      <TreeNode
+                        label={
+                          <ChildNode
+                            title="Marketing Officer"
+                            bgColor="#EBF5FB"
+                            textColor="#0D2B55"
+                            borderColor="#93BDD4"
+                          />
+                        }
+                      />
+                    </TreeNode>
 
-                  <div className="relative">
-                    <OrgNode title="PRINCIPAL" subtitle="Dr Atm Shafiul Alam" />
-                  </div>
+                    {/* 2. ADMIN & REGISTRY */}
+                    <TreeNode
+                      label={
+                        <ChildNode
+                          title="Head of Admin & Registry"
+                          bgColor="#1B6CA8"
+                          textColor="#ffffff"
+                        />
+                      }
+                    >
+                      <TreeNode
+                      
+                        label={
+                          <ChildNode
+                            title="Administrator"
+                            bgColor="#EBF5FB"
+                            textColor="#0D2B55"
+                            borderColor="#93BDD4"
+                           
+                          />
+                        }
+                      />
+                      <TreeNode
+                        label={
+                          <ChildNode
+                            title={`Student Engagement\nOfficer`}
+                            bgColor="#EBF5FB"
+                            textColor="#0D2B55"
+                            borderColor="#93BDD4"
+                          />
+                        }
+                      />
+                    </TreeNode>
 
-                  <div
-                    className="relative w-full flex justify-center mb-8"
-                    style={{ height: "40px" }}
-                  >
-                    <div className="w-[3px] bg-watney h-full pointer-events-none" />
-                  </div>
+                    {/* 3. FINANCE */}
+                    <TreeNode
+                      label={
+                        <ChildNode
+                          title="Head of Finance"
+                          bgColor="#1B6CA8"
+                          textColor="#ffffff"
+                        />
+                      }
+                    >
+                      <TreeNode
+                        label={
+                          <ChildNode
+                            title={`Accounts\nAdministrator`}
+                            bgColor="#EBF5FB"
+                            textColor="#0D2B55"
+                            borderColor="#93BDD4"
+                          />
+                        }
+                      />
+                    </TreeNode>
 
-                  <div
-                    className="relative w-full"
-                    style={{ marginBottom: "60px" }}
-                  >
-                    <div
-                      className="absolute -top-8 left-0 right-0 h-[3px] bg-watney pointer-events-none"
-                      style={{
-                        width: "100%",
-                        maxWidth: "962px",
-                        left: "50%",
-                        transform: "translateX(-50%)",
-                      }}
+                    {/* 4. HR */}
+                    <TreeNode
+                      label={
+                        <ChildNode
+                          title={`Head of Human\nResources`}
+                          bgColor="#1B6CA8"
+                          textColor="#ffffff"
+                        />
+                      }
                     />
 
-                    <div className="flex justify-center gap-8 mt-2.5 flex-wrap">
-                      <div className="relative" style={{ marginTop: "0px" }}>
-                        <div
-                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
-                          style={{ height: "40px", top: "-40px" }}
+                    {/* 5. ACADEMIC */}
+                    <TreeNode
+                      label={
+                        <ChildNode
+                          title="Head of Academic"
+                          bgColor="#1B6CA8"
+                          textColor="#ffffff"
                         />
-                        <OrgNode
-                          title="HEAD OF MARKETING"
-                          subtitle="Tahamidul Mamur"
-                        />
-                      </div>
-
-                      <div className="relative" style={{ marginTop: "0px" }}>
-                        <div
-                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
-                          style={{ height: "40px", top: "-40px" }}
-                        />
-                        <OrgNode
-                          title="HEAD OF ADMIN AND REGISTRY"
-                          subtitle="Dr. Rahman Hasan"
-                        />
-                      </div>
-
-                      <div className="relative" style={{ marginTop: "0px" }}>
-                        <div
-                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
-                          style={{ height: "40px", top: "-40px" }}
-                        />
-                        <OrgNode
-                          title="HEAD OF FINANCE"
-                          subtitle="Md Kamal Pervez"
-                        />
-                      </div>
-
-                      <div className="relative" style={{ marginTop: "0px" }}>
-                        <div
-                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
-                          style={{ height: "40px", top: "-40px" }}
-                        />
-                        <OrgNode
-                          title="HEAD OF HUMAN RESOURCES"
-                          subtitle="Bilkis Akter Mily"
-                        />
-                      </div>
-
-                      <div className="relative" style={{ marginTop: "0px" }}>
-                        <div
-                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
-                          style={{ height: "40px", top: "-40px" }}
-                        />
-                        <OrgNode
-                          title="HEAD OF ACADEMIC"
-                          subtitle="Syed Jahedul Islam"
-                        />
-                      </div>
-
-                      <div className="relative" style={{ marginTop: "0px" }}>
-                        <div
-                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
-                          style={{ height: "40px", top: "-40px" }}
-                        />
-                        <OrgNode
-                          title="HEAD OF QUALITY ASSURANCE"
-                          subtitle="Kishour Zadid"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="relative w-full">
-                    <div className="flex justify-center gap-8 flex-wrap">
-                      <div className="relative right-72 -mt-6">
-                        <div
-                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
-                          style={{ height: "40px", top: "-40px" }}
-                        />
-                        <OrgNode title="MARKETING OFFICER" />
-                      </div>
-
-                      <div className="flex flex-col gap-4">
-                        <div className="relative right-72 top-40 -mt-6">
-                          <div
-                            className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
-                            style={{ height: "190px", top: "-190px" }}
+                      }
+                    >
+                      <TreeNode
+                        label={
+                          <ChildNode
+                            title="Programme Leader"
+                            bgColor="#D6EAF8"
+                            textColor="#0D2B55"
+                            borderColor="#93BDD4"
                           />
-                          <OrgNode
-                            title="ACADEMIC ADMINISTRATOR"
-                            subtitle="Afruza Rahman"
-                          />
-                        </div>
-                        <div className="relative right-24 top-16">
-                          <div
-                            className="absolute mt-16 right-44 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none rotate-90"
-                            style={{ height: "40px", top: "-40px" }}
-                          />
-                          <OrgNode
-                            title="STUDENT ENGAGEMENT OFFICER"
-                            subtitle="ASM MOHOSIN ABDULLAH"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="relative right-24 -mt-6">
-                        <div
-                          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
-                          style={{ height: "40px", top: "-40px" }}
-                        />
-                        <OrgNode
-                          title="ACCOUNTS ADMINISTRATOR"
-                          subtitle="M. Hasan"
-                        />
-                      </div>
-
-                      <div className="flex flex-col gap-4">
-                        <div className="relative -top-52 left-72">
-                          <div
-                            className="absolute top-0 right-80 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
-                            style={{ height: "40px", top: "-40px" }}
-                          />
-                          <OrgNode title="PROGRAMME LEADER" />
-                        </div>
-                        <div className="relative -top-0 left-32">
-                          <div className="flex gap-4">
-                            <div
-                              className="absolute top-0 right-40 transform -translate-x-1/2 w-[3px] bg-watney pointer-events-none"
-                              style={{ height: "270px", top: "-280px" }}
+                        }
+                      >
+                        <TreeNode
+                          label={
+                            <ChildNode
+                              title="Personal Tutor"
+                              bgColor="#D6EAF8"
+                              textColor="#0D2B55"
+                              borderColor="#93BDD4"
                             />
-                            <div className="relative left-24 -mt-4">
-                              <OrgNode title="PERSONAL TUTOR" />
-                            </div>
-                            <div className="relative left-28 -top-4">
-                              <div
-                                className="absolute mt-16 right-44 transform -translate-x-1/3 w-[3px] bg-watney pointer-events-none rotate-90"
-                                style={{ height: "40px", top: "-40px" }}
-                              />
-                              <OrgNode title="ASSESSORS" />
-                            </div>
-                            <div className="relative left-32 -top-4">
-                              <div
-                                className="absolute mt-16 right-44 transform -translate-x-1/3 w-[3px] bg-watney pointer-events-none rotate-90"
-                                style={{ height: "40px", top: "-40px" }}
-                              />
-                              <OrgNode title="LECTURER" />
-                            </div>
-                            <div className="relative left-36 -top-4">
-                              <div
-                                className="absolute mt-16 right-44 transform -translate-x-1/3 w-[3px] bg-watney pointer-events-none rotate-90"
-                                style={{ height: "40px", top: "-40px" }}
-                              />
-                              <OrgNode title="INTERNAL VERIFIER" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                          }
+                        />
+                        <TreeNode
+                          label={
+                            <ChildNode
+                              title="Lecturer"
+                              bgColor="#D6EAF8"
+                              textColor="#0D2B55"
+                              borderColor="#93BDD4"
+                            />
+                          }
+                        />
+                        <TreeNode
+                          label={
+                            <ChildNode
+                              title="Assessors"
+                              bgColor="#D6EAF8"
+                              textColor="#0D2B55"
+                              borderColor="#93BDD4"
+                            />
+                          }
+                        />
+                      </TreeNode>
+                    </TreeNode>
+
+                    {/* 6. QA */}
+                    <TreeNode
+                      label={
+                        <ChildNode
+                          title={`Head of Quality\nAssurance`}
+                          bgColor="#1B6CA8"
+                          textColor="#ffffff"
+                        />
+                      }
+                    >
+                      <TreeNode
+                        label={
+                          <ChildNode
+                            title="Internal Verifier"
+                            bgColor="#EBF5FB"
+                            textColor="#0D2B55"
+                            borderColor="#93BDD4"
+                          />
+                        }
+                      />
+                    </TreeNode>
+                  </TreeNode>
+                </Tree>
               </div>
             </div>
           </section>
@@ -1041,7 +1161,7 @@ export default function GovernanceAndManagementPage() {
                                 href={`/${account.file}`}
                                 className="flex items-center gap-1.5"
                                 target="_blank"
-  rel="noopener noreferrer"
+                                rel="noopener noreferrer"
                               >
                                 <Download className="w-3.5 h-3.5" />
                                 Download PDF
