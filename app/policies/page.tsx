@@ -59,7 +59,7 @@ export default function PoliciesPage() {
         {
           title: "Student Assessment Feedback Process",
           icon: FileText,
-          href: "/policies/assessment-feedback",
+          href: "/policies/student-assessment-feedback-process",
         },
         {
           title: "Course Change and Closure Policy",
