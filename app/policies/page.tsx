@@ -104,7 +104,7 @@ export default function PoliciesPage() {
         {
           title: "Information Accuracy and Completeness Policy",
           icon: FileCheck,
-          href: "/policies/information-accuracy.pdf",
+          href: "/policies/information-accuracy-and-completeness-policy",
         },
       ],
     },
