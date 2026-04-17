@@ -70,7 +70,7 @@ export default function AccessAndParticipationPage() {
               <div className="rounded-2xl overflow-hidden shadow-lg h-[400px] z-20">
                 {/* Replace src with your actual image path */}
                 <img
-                  src="/com1.jpg"
+                  src="/com-1.jpg"
                   alt="Students collaborating"
                   className="w-full h-full object-cover"
                 />
@@ -92,7 +92,7 @@ export default function AccessAndParticipationPage() {
               <div className="order-2 md:order-1 rounded-2xl overflow-hidden shadow-lg h-[400px] z-20">
                 {/* Replace src with your actual image path */}
                 <img
-                  src="/com2.jpg"
+                  src="/com-2.jpg"
                   alt="Student support session"
                   className="w-full h-full object-cover"
                 />
@@ -145,7 +145,7 @@ export default function AccessAndParticipationPage() {
               <div className="rounded-2xl overflow-hidden shadow-lg h-[300px] z-20">
                 {/* Replace src with your actual image path */}
                 <img
-                  src="/com3.jpg"
+                  src="/com-3.jpg"
                   alt="Data and progression"
                   className="w-full h-full object-cover"
                 />
