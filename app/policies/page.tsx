@@ -74,7 +74,7 @@ export default function PoliciesPage() {
         {
           title: "Complaint Policy and Process",
           icon: AlertCircle,
-          href: "/policies/complaint-policy-and-process.pdf",
+          href: "/policies/complaint-policy-and-process",
         },
         {
           title: "Safeguarding and Prevent Policy",
