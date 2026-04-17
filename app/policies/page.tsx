@@ -54,7 +54,7 @@ export default function PoliciesPage() {
         {
           title: "Student Engagement Strategies",
           icon: Users,
-          href: "/policies/student-engagement",
+          href: "/policies/student-engagement-strategies",
         },
         {
           title: "Student Assessment Feedback Process",
