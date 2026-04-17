@@ -25,8 +25,17 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Tree, TreeNode } from 'react-organizational-chart'
+import dynamic from 'next/dynamic'
 
+const Tree = dynamic(
+  () => import('react-organizational-chart').then(mod => mod.Tree),
+  { ssr: false }
+)
+
+const TreeNode = dynamic(
+  () => import('react-organizational-chart').then(mod => mod.TreeNode),
+  { ssr: false }
+)
 const OrgNode = ({
   title,
   subtitle,
