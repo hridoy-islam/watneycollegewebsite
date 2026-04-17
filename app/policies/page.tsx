@@ -64,7 +64,7 @@ export default function PoliciesPage() {
         {
           title: "Course Change and Closure Policy",
           icon: RefreshCw,
-          href: "/policies/course-change",
+          href: "/policies/course-change-and-closure-policy",
         },
       ],
     },
