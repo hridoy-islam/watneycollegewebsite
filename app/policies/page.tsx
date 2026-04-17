@@ -99,7 +99,7 @@ export default function PoliciesPage() {
         {
           title: "Equality, Diversity and Inclusion Policy",
           icon: Users,
-          href: "/policies/equality-diversity-inclusion.pdf",
+          href: "/policies/equality-diversity-and-inclusion-policy",
         },
         {
           title: "Information Accuracy and Completeness Policy",
