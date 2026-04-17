@@ -114,7 +114,7 @@ export default function PoliciesPage() {
         {
           title: "Tuition Fees Refund and Compensation Policy",
           icon: CreditCard,
-          href: "#",
+          href: "/policies/tuition-fees-refund-and-compensation-policy",
         },
       ],
     },

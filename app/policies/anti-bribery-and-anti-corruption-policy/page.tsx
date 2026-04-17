@@ -307,7 +307,7 @@ export default function AntiBriberyAntiCorruptionPolicyPage() {
                           className="group hover:bg-blue-50/40 transition-colors duration-150"
                         >
                           <td className="py-5 px-8">
-                            <span className="text-base font-bold text-slate-800 group-hover:text-blue-700 transition-colors">
+                            <span className="text-base font-bold text-slate-800 group-hover:text-watney-blue-primary transition-colors">
                               {row[0]}
                             </span>
                           </td>
