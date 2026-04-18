@@ -46,9 +46,9 @@ export default function Footer() {
     { name: "Employers & Partners", href: "/employers-and-partners" },
     { name: "Verify", href: "/verify" },
     // { name: "Student Finance", href: "/student-finance" },
-    { name: "Accommodation", href: "/accommodation" },
+    // { name: "Accommodation", href: "/accommodation" },
     { name: "Career & Employability", href: "/career-employability" },
-    { name: "Request a prospectus", href: "/prospectus" },
+    { name: "Prospectus 2025-26", href: "/prospectus" },
     { name: "Jobs", href: "/jobs" },
   ];
 
