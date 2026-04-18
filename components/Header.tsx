@@ -119,13 +119,13 @@ export default function Header() {
           >
             <Button className="bg-[#942a24] hover:bg-[#942a24]/90"  >Student Login</Button>
           </a>
-          <a
+          {/* <a
             href="https://system.klaspad.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Button className="btn-watney-primary">VLE</Button>
-          </a>
+          </a> */}
 
 
           <Link href="/courses">
