@@ -77,7 +77,7 @@ export default function Footer() {
             </div>
 
             {/* Quick Stats */}
-            <div className="flex justify-center lg:justify-start space-x-4">
+            {/* <div className="flex justify-center lg:justify-start space-x-4">
               <Link
                 href="https://www.facebook.com"
                 target="_blank"
@@ -109,7 +109,7 @@ export default function Footer() {
               >
                 <X className="text-2xl text-white mb-1 cursor-pointer" />
               </Link>
-            </div>
+            </div> */}
           </div>
 
           {/* Academic Links */}
