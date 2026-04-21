@@ -51,7 +51,6 @@ export default function StudentEngagementStrategyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                 
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Strategic objectives
                   </h2>
@@ -136,8 +135,8 @@ export default function StudentEngagementStrategyPage() {
                     <p className="text-sm text-gray-600 leading-relaxed">
                       This strategy aligns with the College's Business Plan
                       2026–2031, the UK Quality Code for Higher Education, and
-                      the institutional governance framework. External reference:
-                      UKSCQA / UKQC.
+                      the institutional governance framework. External
+                      reference: UKSCQA / UKQC.
                     </p>
                   </div>
                 </div>
@@ -150,7 +149,6 @@ export default function StudentEngagementStrategyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                 
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Student representation and the three strategic themes
                   </h2>
@@ -214,8 +212,8 @@ export default function StudentEngagementStrategyPage() {
                     </h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
                       Maintain an effective student representative system ·
-                      Provide structured training for representatives · Close the
-                      feedback loop by communicating outcomes.
+                      Provide structured training for representatives · Close
+                      the feedback loop by communicating outcomes.
                     </p>
                   </div>
                   <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6">
@@ -249,7 +247,6 @@ export default function StudentEngagementStrategyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                 
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Governance, monitoring and inclusion
                   </h2>
@@ -371,7 +368,7 @@ export default function StudentEngagementStrategyPage() {
                         <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
                           Key Performance Indicators
                         </th>
-                       </tr>
+                      </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100">
                       {[
@@ -396,16 +393,16 @@ export default function StudentEngagementStrategyPage() {
                             <span className="text-base font-bold text-slate-800 group-hover:text-watney-blue-primary transition-colors">
                               {row[0]}
                             </span>
-                           </td>
+                          </td>
                           <td className="py-5 px-8">
                             <span className="inline-flex items-center text-sm font-semibold text-slate-700 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 group-hover:bg-white group-hover:border-blue-200 transition-all">
                               {row[1]}
                             </span>
-                           </td>
-                         </tr>
+                          </td>
+                        </tr>
                       ))}
                     </tbody>
-                   </table>
+                  </table>
                 </div>
               </div>
             </div>
@@ -427,6 +424,7 @@ export default function StudentEngagementStrategyPage() {
               </p>
               <a
                 href="/2.5.11. Student Engagement Strategy 2026.pdf"
+                download="Student Engagement Strategy 2026.pdf"
                 className="inline-flex items-center gap-2 bg-watney-blue-primary hover:bg-watney-blue-dark text-white font-medium py-3 px-6 rounded-lg transition-colors"
               >
                 <Download className="w-4 h-4" />

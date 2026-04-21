@@ -53,7 +53,6 @@ export default function StudentAssessmentFeedbackPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Principles of effective feedback
                   </h2>
@@ -180,7 +179,6 @@ export default function StudentAssessmentFeedbackPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Assessment feedback workflow
                   </h2>
@@ -188,7 +186,9 @@ export default function StudentAssessmentFeedbackPage() {
                     <div className="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
                       <div className="flex items-center gap-3 mb-2">
                         <div className="w-7 h-7 rounded-full bg-watney-blue-primary/10 flex items-center justify-center">
-                          <span className="text-watney-blue-primary font-bold text-sm">1</span>
+                          <span className="text-watney-blue-primary font-bold text-sm">
+                            1
+                          </span>
                         </div>
                         <h3 className="font-semibold text-gray-900">
                           Assessment submission
@@ -202,7 +202,9 @@ export default function StudentAssessmentFeedbackPage() {
                     <div className="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
                       <div className="flex items-center gap-3 mb-2">
                         <div className="w-7 h-7 rounded-full bg-watney-blue-primary/10 flex items-center justify-center">
-                          <span className="text-watney-blue-primary font-bold text-sm">2</span>
+                          <span className="text-watney-blue-primary font-bold text-sm">
+                            2
+                          </span>
                         </div>
                         <h3 className="font-semibold text-gray-900">
                           Assessment marking
@@ -216,7 +218,9 @@ export default function StudentAssessmentFeedbackPage() {
                     <div className="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
                       <div className="flex items-center gap-3 mb-2">
                         <div className="w-7 h-7 rounded-full bg-watney-blue-primary/10 flex items-center justify-center">
-                          <span className="text-watney-blue-primary font-bold text-sm">3</span>
+                          <span className="text-watney-blue-primary font-bold text-sm">
+                            3
+                          </span>
                         </div>
                         <h3 className="font-semibold text-gray-900">
                           Internal verification
@@ -234,7 +238,9 @@ export default function StudentAssessmentFeedbackPage() {
                   <div className="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-7 h-7 rounded-full bg-watney-blue-primary/10 flex items-center justify-center">
-                        <span className="text-watney-blue-primary font-bold text-sm">4</span>
+                        <span className="text-watney-blue-primary font-bold text-sm">
+                          4
+                        </span>
                       </div>
                       <h3 className="font-semibold text-gray-900">
                         Feedback preparation
@@ -248,7 +254,9 @@ export default function StudentAssessmentFeedbackPage() {
                   <div className="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-7 h-7 rounded-full bg-watney-blue-primary/10 flex items-center justify-center">
-                        <span className="text-watney-blue-primary font-bold text-sm">5</span>
+                        <span className="text-watney-blue-primary font-bold text-sm">
+                          5
+                        </span>
                       </div>
                       <h3 className="font-semibold text-gray-900">
                         Feedback release
@@ -262,7 +270,9 @@ export default function StudentAssessmentFeedbackPage() {
                   <div className="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-7 h-7 rounded-full bg-watney-blue-primary/10 flex items-center justify-center">
-                        <span className="text-watney-blue-primary font-bold text-sm">6</span>
+                        <span className="text-watney-blue-primary font-bold text-sm">
+                          6
+                        </span>
                       </div>
                       <h3 className="font-semibold text-gray-900">
                         Student review and reflection
@@ -283,7 +293,6 @@ export default function StudentAssessmentFeedbackPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                 
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Monitoring, quality assurance and appeals
                   </h2>
@@ -297,29 +306,35 @@ export default function StudentAssessmentFeedbackPage() {
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-watney-blue-primary flex-shrink-0" />
                         <span className="text-gray-700">
-                          <span className="font-semibold">Programme Committees</span> — monitoring
-                          assessment delivery and student outcomes
+                          <span className="font-semibold">
+                            Programme Committees
+                          </span>{" "}
+                          — monitoring assessment delivery and student outcomes
                         </span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-watney-blue-primary flex-shrink-0" />
                         <span className="text-gray-700">
-                          <span className="font-semibold">Quality Assurance Committee</span> —
-                          reviewing quality of assessment processes
+                          <span className="font-semibold">
+                            Quality Assurance Committee
+                          </span>{" "}
+                          — reviewing quality of assessment processes
                         </span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-watney-blue-primary flex-shrink-0" />
                         <span className="text-gray-700">
-                          <span className="font-semibold">Assessment & Progression Board</span> —
-                          confirming final academic decisions
+                          <span className="font-semibold">
+                            Assessment & Progression Board
+                          </span>{" "}
+                          — confirming final academic decisions
                         </span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-watney-blue-primary flex-shrink-0" />
                         <span className="text-gray-700">
-                          <span className="font-semibold">Academic Board</span> — maintaining
-                          oversight of academic standards
+                          <span className="font-semibold">Academic Board</span>{" "}
+                          — maintaining oversight of academic standards
                         </span>
                       </li>
                     </ul>
@@ -380,8 +395,14 @@ export default function StudentAssessmentFeedbackPage() {
                     </thead>
                     <tbody className="divide-y divide-slate-100">
                       {[
-                        ["Academic Regulations", "Overarching academic framework"],
-                        ["Assessment Policy", "Detailed assessment requirements"],
+                        [
+                          "Academic Regulations",
+                          "Overarching academic framework",
+                        ],
+                        [
+                          "Assessment Policy",
+                          "Detailed assessment requirements",
+                        ],
                         [
                           "Academic Appeals Policy",
                           "Formal challenge to assessment decisions",
@@ -442,6 +463,7 @@ export default function StudentAssessmentFeedbackPage() {
               </p>
               <a
                 href="/2.5.12 Student Assessment Feedback Process.pdf"
+                download="Student Assessment Feedback Process.pdf"
                 className="inline-flex items-center gap-2 bg-watney-blue-primary hover:bg-watney-blue-dark text-white font-medium py-3 px-6 rounded-lg transition-colors"
               >
                 <Download className="w-4 h-4" />

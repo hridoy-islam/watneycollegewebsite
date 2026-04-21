@@ -52,7 +52,6 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Scope, fees and payment options
                   </h2>
@@ -60,16 +59,16 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                     <p>
                       This policy applies to all students, including self-funded
                       individuals and those sponsored by employers or recognised
-                      organisations. Tuition fees are specified for each programme
-                      and mode of study and are subject to change in line with OfS
-                      regulatory guidelines. Any fee adjustments will be
-                      communicated promptly.
+                      organisations. Tuition fees are specified for each
+                      programme and mode of study and are subject to change in
+                      line with OfS regulatory guidelines. Any fee adjustments
+                      will be communicated promptly.
                     </p>
                     <p className="font-semibold text-gray-800">
-                      Tuition fees must be paid in British pounds (GBP). Students
-                      are responsible for the full fee payment upon registration
-                      unless they have secured funding through the Student Loans
-                      Company (SLC) or an authorised sponsor.
+                      Tuition fees must be paid in British pounds (GBP).
+                      Students are responsible for the full fee payment upon
+                      registration unless they have secured funding through the
+                      Student Loans Company (SLC) or an authorised sponsor.
                     </p>
                     <ul className="space-y-2 mt-4">
                       {[
@@ -118,10 +117,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                       Currency and payment
                     </h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
-                      All tuition fees must be paid in GBP. Refunds will be issued
-                      using the original payment method in compliance with
-                      anti-money laundering regulations. Requests for refunds to
-                      third-party accounts will not be accepted.
+                      All tuition fees must be paid in GBP. Refunds will be
+                      issued using the original payment method in compliance
+                      with anti-money laundering regulations. Requests for
+                      refunds to third-party accounts will not be accepted.
                     </p>
                   </div>
                 </div>
@@ -134,16 +133,15 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Refund schedule
                   </h2>
                   <div className="space-y-4 text-gray-600 leading-relaxed">
                     <p>
                       Self-funded students are entitled to refunds in cases of
-                      overpayment, withdrawal, visa refusal or changes in mode of
-                      study, provided they comply with the statutory 14-day right
-                      to cancel from the date of registration.
+                      overpayment, withdrawal, visa refusal or changes in mode
+                      of study, provided they comply with the statutory 14-day
+                      right to cancel from the date of registration.
                     </p>
                     {/* Custom Refund Table */}
                     <div className="overflow-x-auto mt-6">
@@ -242,9 +240,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                       Visa refusal
                     </h3>
                     <p className="text-sm text-teal-700 leading-relaxed">
-                      International students refused a visa may apply for a refund,
-                      minus any non-refundable administrative fees. Supporting
-                      documentation (visa refusal letter) is required.
+                      International students refused a visa may apply for a
+                      refund, minus any non-refundable administrative fees.
+                      Supporting documentation (visa refusal letter) is
+                      required.
                     </p>
                   </div>
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
@@ -253,10 +252,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                     </h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
                       Students withdrawing from a programme must formally notify
-                      the College in writing. Refunds are calculated from the date
-                      formal notification is received. Any outstanding tuition fee
-                      debts will be deducted from the refund amount before
-                      processing.
+                      the College in writing. Refunds are calculated from the
+                      date formal notification is received. Any outstanding
+                      tuition fee debts will be deducted from the refund amount
+                      before processing.
                     </p>
                   </div>
                   <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
@@ -280,17 +279,16 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div className="md:order-2">
-                
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Compensation policy and decision-making framework
                   </h2>
                   <div className="space-y-4 text-gray-600 leading-relaxed">
                     <p>
                       Where students' continuation of study is disrupted by
-                      circumstances attributable to the College, compensation for
-                      additional costs incurred may be considered. The College
-                      will always seek to mitigate disruption through alternative
-                      arrangements before compensation is assessed.
+                      circumstances attributable to the College, compensation
+                      for additional costs incurred may be considered. The
+                      College will always seek to mitigate disruption through
+                      alternative arrangements before compensation is assessed.
                     </p>
                     <div className="font-semibold text-gray-800 mt-4">
                       Circumstances in which compensation may be considered:
@@ -347,14 +345,15 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     How to apply for a refund or compensation
                   </h2>
                   <div className="space-y-4">
                     <div className="flex gap-4">
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-watney-blue-light/50 border border-watney-blue/30 flex items-center justify-center">
-                        <span className="text-watney-blue-primary font-bold text-sm">1</span>
+                        <span className="text-watney-blue-primary font-bold text-sm">
+                          1
+                        </span>
                       </div>
                       <div>
                         <div className="font-semibold text-gray-800">
@@ -362,28 +361,36 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                         </div>
                         <p className="text-sm text-gray-600">
                           Submit to the Finance Department by email. Include
-                          student details, reason for request, payment details and
-                          bank information for refund processing.
+                          student details, reason for request, payment details
+                          and bank information for refund processing.
                         </p>
                       </div>
                     </div>
                     <div className="flex gap-4">
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-watney-blue-light/50 border border-watney-blue/30 flex items-center justify-center">
-                        <span className="text-watney-blue-primary font-bold text-sm">2</span>
+                        <span className="text-watney-blue-primary font-bold text-sm">
+                          2
+                        </span>
                       </div>
                       <div>
                         <div className="font-semibold text-gray-800">
                           Acknowledgement
                         </div>
                         <p className="text-sm text-gray-600">
-                          The College will acknowledge receipt of the application
-                          within <strong className="font-semibold">5 working days</strong>.
+                          The College will acknowledge receipt of the
+                          application within{" "}
+                          <strong className="font-semibold">
+                            5 working days
+                          </strong>
+                          .
                         </p>
                       </div>
                     </div>
                     <div className="flex gap-4">
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-watney-blue-light/50 border border-watney-blue/30 flex items-center justify-center">
-                        <span className="text-watney-blue-primary font-bold text-sm">3</span>
+                        <span className="text-watney-blue-primary font-bold text-sm">
+                          3
+                        </span>
                       </div>
                       <div>
                         <div className="font-semibold text-gray-800">
@@ -391,23 +398,28 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                         </div>
                         <p className="text-sm text-gray-600">
                           A decision will be provided within{" "}
-                          <strong className="font-semibold">15 working days</strong>.
-                          Students receive written notification including the
+                          <strong className="font-semibold">
+                            15 working days
+                          </strong>
+                          . Students receive written notification including the
                           decision, amount approved (if applicable) and reasons.
                         </p>
                       </div>
                     </div>
                     <div className="flex gap-4">
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-watney-blue-light/50 border border-watney-blue/30 flex items-center justify-center">
-                        <span className="text-watney-blue-primary font-bold text-sm">4</span>
+                        <span className="text-watney-blue-primary font-bold text-sm">
+                          4
+                        </span>
                       </div>
                       <div>
                         <div className="font-semibold text-gray-800">
                           Review right
                         </div>
                         <p className="text-sm text-gray-600">
-                          Students dissatisfied with the compensation outcome may
-                          request a review through the College Complaints Policy.
+                          Students dissatisfied with the compensation outcome
+                          may request a review through the College Complaints
+                          Policy.
                         </p>
                       </div>
                     </div>
@@ -423,8 +435,8 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                       include: receipts or invoices · travel documentation ·
                       accommodation agreements · payment confirmations or bank
                       statements · documentation relating to programme transfer.
-                      Claims submitted without sufficient supporting evidence may
-                      not be considered.
+                      Claims submitted without sufficient supporting evidence
+                      may not be considered.
                     </p>
                   </div>
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
@@ -432,12 +444,12 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                       Assessment criteria
                     </h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
-                      The College will consider: whether disruption was caused by
-                      circumstances within its control · whether additional
-                      financial costs were directly incurred · whether reasonable
-                      mitigation was offered · whether costs claimed are reasonable
-                      and proportionate · whether the student took reasonable steps
-                      to minimise impact.
+                      The College will consider: whether disruption was caused
+                      by circumstances within its control · whether additional
+                      financial costs were directly incurred · whether
+                      reasonable mitigation was offered · whether costs claimed
+                      are reasonable and proportionate · whether the student
+                      took reasonable steps to minimise impact.
                     </p>
                   </div>
                   <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6">
@@ -446,9 +458,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                     </h3>
                     <p className="text-sm text-teal-700 leading-relaxed">
                       Compensation claims are assessed by the Finance Department
-                      in consultation with Academic Administration. Final approval
-                      rests with the Director of Studies. Claims indicating wider
-                      institutional risk may be reported to the Academic Board.
+                      in consultation with Academic Administration. Final
+                      approval rests with the Director of Studies. Claims
+                      indicating wider institutional risk may be reported to the
+                      Academic Board.
                     </p>
                   </div>
                 </div>
@@ -489,8 +502,16 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                           "Full refund",
                           "Immediate on request",
                         ],
-                        ["Withdrawal at week 3", "75% refund", "From formal notification date"],
-                        ["Withdrawal weeks 4–6", "50% refund", "From formal notification date"],
+                        [
+                          "Withdrawal at week 3",
+                          "75% refund",
+                          "From formal notification date",
+                        ],
+                        [
+                          "Withdrawal weeks 4–6",
+                          "50% refund",
+                          "From formal notification date",
+                        ],
                         ["Withdrawal week 7 onwards", "No refund", "N/A"],
                         [
                           "International student — before enrolment",
@@ -557,9 +578,12 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                 &nbsp;·&nbsp; Next review:{" "}
                 <span className="font-medium text-gray-700">November 2026</span>{" "}
                 &nbsp;·&nbsp; Approved by:{" "}
-                <span className="font-medium text-gray-700">Academic Board</span>
+                <span className="font-medium text-gray-700">
+                  Academic Board
+                </span>
               </p>
               <a
+                download="Tuition Refund & Compensation Policy.pdf"
                 href="/3.3 Tuition Refund & Compensation Policy.pdf"
                 className="inline-flex items-center gap-2 bg-watney-blue-primary hover:bg-watney-blue-dark text-white font-medium py-3 px-6 rounded-lg transition-colors"
               >

@@ -53,7 +53,6 @@ export default function SafeguardingPreventPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-               
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Commitment, scope and key principles
                   </h2>
@@ -118,7 +117,6 @@ export default function SafeguardingPreventPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-               
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Roles, safe recruitment and reporting concerns
                   </h2>
@@ -131,9 +129,9 @@ export default function SafeguardingPreventPolicyPage() {
                         Email: info@watneycollege.co.uk · Phone: 02080046463
                         <br />
                         Responsible for leading safeguarding practice,
-                        coordinating responses and reporting to external agencies
-                        as needed. Deputy DSLs may be appointed for operational
-                        coverage.
+                        coordinating responses and reporting to external
+                        agencies as needed. Deputy DSLs may be appointed for
+                        operational coverage.
                       </p>
                     </div>
                     <div className="bg-teal-50 border border-teal-200 rounded-2xl p-6">
@@ -141,9 +139,9 @@ export default function SafeguardingPreventPolicyPage() {
                         Safe recruitment
                       </h3>
                       <p className="text-sm text-teal-700 leading-relaxed">
-                        Enhanced DBS checks for all staff in regulated activities
-                        · Reference checks and ID verification · Safeguarding
-                        training as part of staff induction.
+                        Enhanced DBS checks for all staff in regulated
+                        activities · Reference checks and ID verification ·
+                        Safeguarding training as part of staff induction.
                       </p>
                     </div>
                   </div>
@@ -176,9 +174,9 @@ export default function SafeguardingPreventPolicyPage() {
                         <CheckCircle2 className="w-3.5 h-3.5 text-watney-blue-primary" />
                       </div>
                       <span className="text-gray-700">
-                        All concerns will be documented, acted on confidentially,
-                        and appropriate referrals may be made to local
-                        safeguarding boards or social services
+                        All concerns will be documented, acted on
+                        confidentially, and appropriate referrals may be made to
+                        local safeguarding boards or social services
                       </span>
                     </li>
                   </ul>
@@ -212,7 +210,6 @@ export default function SafeguardingPreventPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-    
                   <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
                     Prevent Duty, online safety and training
                   </h2>
@@ -237,8 +234,8 @@ export default function SafeguardingPreventPolicyPage() {
                         The College promotes safe and responsible use of
                         technology. Misuse of ICT systems, cyberbullying and
                         exposure to harmful content are addressed through
-                        digital literacy sessions, acceptable use policies and IT
-                        monitoring.
+                        digital literacy sessions, acceptable use policies and
+                        IT monitoring.
                       </p>
                     </div>
                   </div>
@@ -249,8 +246,8 @@ export default function SafeguardingPreventPolicyPage() {
                       Student support
                     </h3>
                     <p className="text-sm text-teal-700 leading-relaxed">
-                      Access to pastoral support through the Student Support Team
-                      · Counselling referrals where needed · Safeguarding
+                      Access to pastoral support through the Student Support
+                      Team · Counselling referrals where needed · Safeguarding
                       signposting displayed across the campus and VLE (Klaspad).
                     </p>
                   </div>
@@ -260,14 +257,15 @@ export default function SafeguardingPreventPolicyPage() {
                     </h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
                       All staff undergo annual safeguarding refresher training,
-                      Prevent training, and induction on safeguarding procedures.
-                      Training records are maintained securely by HR.
+                      Prevent training, and induction on safeguarding
+                      procedures. Training records are maintained securely by
+                      HR.
                     </p>
                   </div>
                   <p className="text-sm text-gray-600">
-                    This policy is reviewed annually or in response to legislative
-                    changes. The DSL is responsible for initiating reviews and
-                    ensuring compliance.
+                    This policy is reviewed annually or in response to
+                    legislative changes. The DSL is responsible for initiating
+                    reviews and ensuring compliance.
                   </p>
                 </div>
               </div>
@@ -332,16 +330,16 @@ export default function SafeguardingPreventPolicyPage() {
                             <span className="text-base font-bold text-slate-800 group-hover:text-watney-blue-primary transition-colors">
                               {row[0]}
                             </span>
-                           </td>
+                          </td>
                           <td className="py-5 px-8">
                             <span className="inline-flex items-center text-sm font-semibold text-slate-700 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 group-hover:bg-white group-hover:border-blue-200 transition-all">
                               {row[1]}
                             </span>
-                           </td>
-                         </tr>
+                          </td>
+                        </tr>
                       ))}
                     </tbody>
-                   </table>
+                  </table>
                 </div>
               </div>
             </div>
@@ -364,7 +362,8 @@ export default function SafeguardingPreventPolicyPage() {
                 <span className="font-medium text-gray-700">November 2026</span>
               </p>
               <a
-                href="#"
+                href="/Safeguarding & Prevent Policy.pdf"
+                download="Safeguarding and Prevent Policy.pdf"
                 className="inline-flex items-center gap-2 bg-watney-blue-primary hover:bg-watney-blue-dark text-white font-medium py-3 px-6 rounded-lg transition-colors"
               >
                 <Download className="w-4 h-4" />
