@@ -220,21 +220,21 @@ export default function Footer() {
               and Wales
             </p>
             <div className="flex items-center flex-row  space-x-6 text-sm ">
-              <Link
+              {/* <Link
                 href="/privacy-policy"
                 className="text-white transition-colors"
               >
                 Privacy Policy
-              </Link>
+              </Link> */}
               <Link
                 href="/terms-and-conditions"
                 className="text-white transition-colors"
               >
                 Terms & Conditions
               </Link>
-              <Link href="/cookies" className="text-white transition-colors">
+              {/* <Link href="/cookies" className="text-white transition-colors">
                 Cookies
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

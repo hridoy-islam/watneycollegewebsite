@@ -102,17 +102,36 @@ const affiliates = [
     logo: "/affiliates/everycare.png",
     link: "https://everycare.co.uk/romford/",
   },
+  {
+    name: "ICare Resource",
+    service:
+      "ICare Resource Limited delivers trusted homecare and supported living services, promoting independence, dignity, and personalised care across the UK.",
+    logo: "/affiliates/icaresourceltd.png",
+    link: "https://icareresourceltd.com/",
+  },
+  {
+    name: "Caremax Support Services Ltd",
+    service:
+      "Caremax Support Services Ltd provides specialist residential and supported living services for individuals with autism, epilepsy, mental health needs, and learning disabilities. ",
+    logo: "/affiliates/caremax_caring.png",
+    link: "https://caremaxsupport.co.uk/",
+  },
+  {
+    name: "Elizabeth Court Rest Home",
+    service:
+      "Elizabeth Court Rest Home (ECRH) is a residential care facility located in Bexhill-on-Sea, East Sussex. It provides personalized care for seniors, ranging from standard residential support to specialized dementia and end-of-life care.",
+    logo: "/affiliates/ECRH.png",
+    link: "https://ecrh.co.uk/",
+  },
 ];
-
-export default function AffiliatePage() {
+ export default function AffiliatePage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative overflow-hidden">
-        
         {/* Hero Section */}
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="absolute right-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
-        <div className="absolute left-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
+          <div className="absolute left-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Users className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
             <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
@@ -130,7 +149,7 @@ export default function AffiliatePage() {
 
         <section id="affiliates" className="py-20 bg-gray-50 relative">
           <div className="absolute right-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-180 z-10"></div>
-        <div className="absolute left-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
+          <div className="absolute left-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
           <div className="container mx-auto px-4">
             <motion.div
               className=" mx-auto text-center mb-12"
