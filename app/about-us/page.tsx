@@ -112,9 +112,7 @@ export default function AboutPage() {
                   practical skills, preparing students to succeed in a rapidly
                   evolving global workforce. Watney College is a private limited
                   company (Company No. 12858207) registered in England and
-                  Wales. The College has submitted an application for
-                  registration with the Office for Students (OfS). UKPRN:
-                  10087811.
+                  Wales.
                 </p>
               </div>
 
@@ -292,19 +290,7 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4 text-gray-700 leading-relaxed">
-                    <p>
-                      Watney College has submitted an application for
-                      registration with the
-                      <span className="font-semibold text-gray-900">
-                        {" "}
-                        Office for Students (OfS)
-                      </span>{" "}
-                      under the Approved category. Our{" "}
-                      <span className="font-semibold text-gray-900">
-                        UKPRN is 10087811
-                      </span>
-                      .
-                    </p>
+                    
                     <p>
                       We are accredited by{" "}
                       <span className="font-semibold text-gray-900">ASIC</span>{" "}

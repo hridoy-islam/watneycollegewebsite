@@ -284,52 +284,7 @@ export default function GovernanceAndManagementPage() {
             </div>
           </section>
 
-          {/* OPTION 1: Clean Card with Icon (Recommended) */}
-          <section className="relative py-8 bg-white z-20">
-            <div className="container mx-auto px-4 max-w-5xl">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="bg-gradient-to-r from-blue-50/80 via-white to-blue-50/80 rounded-2xl p-6 border border-blue-100 shadow-sm"
-              >
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-watney-blue-primary/10 flex items-center justify-center">
-                      <ShieldCheck className="w-6 h-6 text-watney-blue-primary" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
-                      <span className="text-xs font-bold uppercase tracking-wider text-watney-blue-primary bg-watney-blue-primary/10 px-3 py-1 rounded-full">
-                        Regulatory Status
-                      </span>
-                      <span className="text-xs text-gray-500 font-mono">
-                        UKPRN: 10087811
-                      </span>
-                      <span className="text-xs text-gray-500 font-mono">
-                        Company No: 12858207
-                      </span>
-                    </div>
-                    <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-                      Watney College is a UK-registered private company limited
-                      by shares, incorporated in England and Wales. The College
-                      has applied for registration with the Office for Students
-                      (OfS).
-                      <span className="font-semibold text-amber-600 block sm:inline sm:ml-1">
-                        We are not yet a registered higher education provider.
-                      </span>
-                      <span className="block text-gray-500 text-xs mt-2 italic">
-                        This statement will be updated when registration is
-                        confirmed.
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </section>
+         
 
           {/* SECTION: Board of Directors */}
           <section className="relative py-24 overflow-hidden">

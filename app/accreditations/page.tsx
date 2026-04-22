@@ -191,29 +191,7 @@ export default function AccreditationPage() {
             </motion.div>
           </div>
         </section>
-        <section className="relative py-10 bg-gray-50 overflow-hidden">
-          {/* OfS Notice */}
-          <div className="mt-12 max-w-3xl mx-auto text-center">
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <div className="flex items-center justify-center mb-3">
-                <Award className="w-5 h-5 text-watney-blue-primary mr-2" />
-                <h4 className="text-lg font-semibold text-gray-900">
-                  Regulatory Status
-                </h4>
-              </div>
-
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Watney College has submitted an application for registration
-                with the{" "}
-                <span className="font-medium">Office for Students (OfS)</span>.
-              </p>
-
-              <p className="text-sm text-gray-700 mt-2">
-                UKPRN: <span className="font-semibold">10087811</span>
-              </p>
-            </div>
-          </div>
-        </section>
+      
         {/* Footer or CTA Section */}
         {/* <section className="py-20  bg-soft-sky text-black text-center">
           <div className="container mx-auto px-4">
