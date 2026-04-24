@@ -25,6 +25,7 @@ import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { courses } from "@/app/courses/data/courseData";
 import AdultCareDiplomaTabs from "../components/AdultCareDiplomaTabs";
 import AdultSocialCareTabs from "../components/AdultSocialCareTabs";
+import GeneralEnglishTabs from "../components/GeneralEnglishTab";
 
 export default function CourseDetailPage() {
   const searchParams = useSearchParams();
@@ -37,6 +38,7 @@ export default function CourseDetailPage() {
   const [activeTab, setActiveTab] = useState("overview");
   const isAdultCareDiploma = course?.slug === "level-4-diploma-in-adult-care";
   const isAdultSocialCare = course?.slug === "level-2-adult-social-care";
+  const isGeneralEnglish = course?.slug === "general-english-programme-b1-c1";
 
   if (!course) {
     return (
@@ -200,7 +202,7 @@ export default function CourseDetailPage() {
                 <div className="p-6 lg:p-8">
                   {isAdultSocialCare ? (
                     <AdultSocialCareTabs />
-                  ) : isAdultCareDiploma ? (
+                  ) : isGeneralEnglish?(<GeneralEnglishTabs/>):isAdultCareDiploma ? (
                     <AdultCareDiplomaTabs />
                   ) : (
                     <>
@@ -294,24 +296,6 @@ export default function CourseDetailPage() {
                 </div>
               </Tabs>
             </div>
-            {/* Compliance & Student Information */}
-<div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-  <h4 className="text-lg font-semibold text-gray-900 mb-3">
-    Student Information
-  </h4>
-
-  <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
-    {/* Complaints */}
-    <p>
-      If you have a concern about this course, view our Student Complaints Procedure.
-    </p>
-
-    {/* Course Change Notice */}
-    <p>
-      In the unlikely event of a significant change or closure of this course, Watney College will notify you in writing and implement the arrangements set out in our Student Protection Plan.
-    </p>
-  </div>
-</div>
           </div>
 
           {/* Sidebar */}
@@ -328,10 +312,13 @@ export default function CourseDetailPage() {
                       {/* Logic: Display fee from data, or a placeholder if not set */}
                       {course.courseFee ? course.courseFee : "-"}
                     </span>
-                    <span className="text-white text-sm">/ per year</span>
                   </div>
+                    <span className="text-white text-sm">
+                      per year -fixed for duration of programme Employer
+                      reimbursement may be available through the Government's
+                      Learning and Development Support Scheme (LDSS).
+                    </span>
                 </div>
-                <div className="text-3xl font-bold mb-2">Enroll Now</div>
 
                 <a
                   href={course.link}
@@ -341,13 +328,6 @@ export default function CourseDetailPage() {
                 >
                   🚀 Apply Now
                 </a>
-
-                <div className="text-center mt-4">
-                  <span className="text-sm text-purple-200">Need help? </span>
-                  <button className="text-sm text-white underline">
-                    Contact us
-                  </button>
-                </div>
               </CardContent>
             </Card>
 
@@ -369,13 +349,6 @@ export default function CourseDetailPage() {
                   >
                     <Book className="w-4 h-4 text-purple-600" />
                     <span className="text-sm">Book Consultation</span>
-                  </button>
-                  <button
-                    className="w-full flex items-center justify-start space-x-3 text-left p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                    onClick={() => (window.location.href = "tel:+442080046463")}
-                  >
-                    <Phone className="w-4 h-4 text-purple-600" />
-                    <span className="text-sm">Schedule Call</span>
                   </button>
                 </div>
               </CardContent>

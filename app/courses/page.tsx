@@ -63,7 +63,7 @@ export default function CoursesPage() {
   const router = useRouter();
 
   // const categories = ["all", "Business", "English", "Healthcare"];
-  const categories = ["all", "Healthcare"];
+  const categories = ["all", "Healthcare","English"];
 
   const filteredCourses = courses.filter((course) => {
     const matchesSearch =

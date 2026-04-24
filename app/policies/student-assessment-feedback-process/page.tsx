@@ -121,7 +121,7 @@ export default function StudentAssessmentFeedbackPage() {
                           <span className="text-gray-600">
                             {" "}
                             Written clearly and delivered through appropriate
-                            channels such as the VLE or assessment feedback
+                            channels such as the WCSMS (VLE) or assessment feedback
                             forms.
                           </span>
                         </div>
@@ -347,7 +347,7 @@ export default function StudentAssessmentFeedbackPage() {
                     </h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
                       Students receive feedback through the Virtual Learning
-                      Environment (VLE), official assessment feedback forms, and
+                      Environment WCSMS (VLE), official assessment feedback forms, and
                       tutorial discussions where appropriate. Students are
                       encouraged to review feedback carefully and use it to
                       improve subsequent work.

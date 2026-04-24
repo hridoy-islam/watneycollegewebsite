@@ -248,7 +248,7 @@ export default function SafeguardingPreventPolicyPage() {
                     <p className="text-sm text-teal-700 leading-relaxed">
                       Access to pastoral support through the Student Support
                       Team · Counselling referrals where needed · Safeguarding
-                      signposting displayed across the campus and VLE (Klaspad).
+                      signposting displayed across the campus and WCSMS (VLE).
                     </p>
                   </div>
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">

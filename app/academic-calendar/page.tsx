@@ -38,9 +38,7 @@ export default function AcademicCalendarPage() {
               <span className="bg-watney-blue-primary/10 border border-watney-blue-primary/20 rounded-full px-4 py-1.5 text-xs text-watney-blue-primary font-medium">
                 UKPRN: 10087811
               </span>
-              <span className="bg-watney-blue-primary/10 border border-watney-blue-primary/20 rounded-full px-4 py-1.5 text-xs text-watney-blue-primary font-medium">
-                All dates verified against curriculum plans
-              </span>
+              
             </div>
           </motion.div>
         </div>

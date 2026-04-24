@@ -245,6 +245,65 @@ export default function AdultSocialCareTabs() {
           totalGLH={144}
           
         />
+
+
+        <TermTable
+    termTitle="(Weeks 8-13, 15/06/2026 - 21/07/2026)"
+    termSubtitle="Mandatory Units — Advanced and Specialist Knowledge Phase"
+    rows={[
+      {
+        week: "8",
+        unit: "8a Communication",
+        code: "L/651/1135",
+        credits: 3,
+        glh: 24,
+      },
+      {
+        week: "8",
+        unit: "8b Handling Information",
+        code: "J/651/1142",
+        credits: 1,
+        glh: 8,
+      },
+      {
+        week: "9",
+        unit: "Privacy and Dignity",
+        code: "M/651/1136",
+        credits: 3,
+        glh: 24,
+      },
+      {
+        week: "10",
+        unit: "Awareness of Mental Health and Dementia",
+        code: "T/651/1138",
+        credits: 3,
+        glh: 24,
+      },
+      {
+        week: "11",
+        unit: "Health, Safety, and Principles of Basic Life Support",
+        code: "H/651/1141",
+        credits: 3,
+        glh: 24,
+      },
+      {
+        week: "12",
+        unit: "Infection Prevention and Control (IPC)",
+        code: "K/651/1143",
+        credits: 2,
+        glh: 16,
+      },
+      {
+        week: "13",
+        unit: "An Awareness of Learning Disability and Autism",
+        code: "L/651/1144",
+        credits: 3,
+        glh: 24,
+      },
+    ]}
+    totalCredits={18}
+    totalGLH={144}
+  />
       </TabsContent>
     </>
   );

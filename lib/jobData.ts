@@ -65,7 +65,7 @@ export const jobs: Job[] = [
       "Watney College is a dynamic higher education provider offering flexible, student-focused learning. We foster diversity, personal development, and academic achievement, ensuring students benefit from innovation and choice in their education.\n\nThe teaching role involves designing and delivering engaging lessons, developing learning materials, and ensuring students meet learning outcomes. Teaching can be face-to-face or online, with a focus on interactive learning, assessment, and academic support.",
     responsibilities: [
       "Deliver lectures, seminars, and tutorials, maintaining accurate attendance records",
-      "Use VLEs, MS Teams, and digital tools to enhance learning",
+      "Use WCSMS (VLE), MS Teams, and digital tools to enhance learning",
       "Develop and update teaching materials, ensuring content aligns with module specifications",
       "Engage students in sessions and encourage active participation",
       "Suggest improvements to enhance the student academic experience",
@@ -117,7 +117,7 @@ export const jobs: Job[] = [
       "Watney College is a dynamic higher education provider offering flexible, student-focused learning. We foster diversity, personal development, and academic achievement, ensuring students benefit from innovation and choice in their education.\n\nThe teaching role involves designing and delivering engaging lessons, developing learning materials, and ensuring students meet learning outcomes. Teaching can be face-to-face or online, with a focus on interactive learning, assessment, and academic support.",
     responsibilities: [
       "Deliver lectures, seminars, and tutorials, maintaining accurate attendance records",
-      "Use VLEs, MS Teams, and digital tools to enhance learning",
+      "Use WCSMS (VLE), MS Teams, and digital tools to enhance learning",
       "Develop and update teaching materials, ensuring content aligns with module specifications",
       "Engage students in sessions and encourage active participation",
       "Suggest improvements to enhance the student academic experience",
