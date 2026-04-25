@@ -373,10 +373,10 @@ export const courses = [
       "Workplace communication",
       "CEFR-aligned progression",
     ],
-    courseFee: "£TBC",
+    courseFee: "",
     duration:
       "Duration: 6 months | GLH: 60–120 hours per level | Mode: Face-to-face",
-    link: "#",
+    link: "https://app.watneycollege.co.uk/courses/apply/69ec50faaf946e5c9dac2512",
     overview:
       "Programme Overview\nThe General English Programme (B1–C1) is designed to support learners in developing independent and effective communication skills in English across social, academic, and professional contexts.\n\nAt these levels, the programme focuses on:\n• Expanding fluency and accuracy in spoken and written communication\n• Developing the ability to understand and produce more complex texts\n• Strengthening critical thinking, discussion, and argumentation skills\n• Improving confidence in real-world and workplace communication\n\nThe programme is aligned with the Common European Framework of Reference for Languages (CEFR), ensuring structured progression from intermediate to advanced proficiency.\n\nAssessment\n• Continuous assessment through:\n  o Speaking activities and discussions\n  o Listening and reading tasks\n  o Written assignments\n  o Weekly or periodic progress tests\n• Informal and formal feedback provided regularly\n• Progress measured against CEFR descriptors for B1–C1",
     curriculum: [
