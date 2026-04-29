@@ -314,7 +314,7 @@ export default function page() {
                 {
                   title: "Student Handbook",
                   description:
-                    "Your essential guide to life at Watney College — covering policies, expectations, support services and your rights as a student. Your handbook is available in your student account via the Watney College Student Management System (WCSMS). Click here to login to your account to access the Student Handbook.",
+                    "Your essential guide to life at Watney College - covering policies, expectations, support services and your rights as a student. Your handbook is available in your student account via the Watney College Student Management System (WCSMS). Click here to login to your account to access the Student Handbook.",
                   icon: <BookOpen className="w-6 h-6" />,
                   href: "#",
                 },
