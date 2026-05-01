@@ -40,33 +40,30 @@ export default function ProspectusPage() {
         <section className="relative bg-ocean-breeze py-24 text-white">
           <div className="container mx-auto px-6 text-center z-50">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black z-50">
-              Request Your{" "}
-              <span className="text-watney-blue-primary">Watney College</span>{" "}
-              Prospectus
+             Download the Watney College Prospectus{" "}
+              <span className="text-watney-blue-primary">2025/26</span>{" "}
+          
             </h1>
             <p className="text-lg mb-8 text-gray-600 leading-relaxed">
-              Discover our range of courses, campus life, student support, and
-              career opportunities. Download or request a physical copy of our
-              official prospectus today.
+             Explore our programmes in Healthcare and Adult Social Care, entry requirements, fees, and student support.
             </p>
           </div>
         </section>
         {/* Prospectus Options */}
         <section className="py-20">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+          <div className="container mx-auto ">
+            <div className="grid grid-cols-1  gap-10  mx-auto">
               {/* Digital Prospectus Options */}
               <Card className="border-l-4 border-primary shadow-lg hover:shadow-xl transition-shadow">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-2xl text-watney-blue-primary">
-                      Watney College Prospectus
+                      Watney College Prospectus 2025/26
                     </CardTitle>
                     
                   </div>
                   <CardDescription className="text-lg">
-                    Explore our programs in Business, Technology, Healthcare,
-                    and Education.
+                   Watney College is a London-based private higher education provider delivering vocational qualifications in healthcare and adult social care. Our 2025/26 prospectus covers all current programmes, tuition fees, admissions criteria, campus facilities, and student support services.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -81,7 +78,7 @@ export default function ProspectusPage() {
                         Download Prospectus 2025/2026 (PDF)
                       </a>
                     </li>
-                    <li className="flex items-start space-x-3">
+                    {/* <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <a
                         href="#"
@@ -98,13 +95,13 @@ export default function ProspectusPage() {
                       >
                         View Campus Virtual Tour
                       </a>
-                    </li>
+                    </li> */}
                   </ul>
                 </CardContent>
               </Card>
 
               {/* Request Physical Copy */}
-              <Card className="bg-gradient-to-br from-primary to-primary/90 text-white shadow-lg">
+              {/* <Card className="bg-gradient-to-br from-primary to-primary/90 text-white shadow-lg">
                 <CardHeader>
                   <CardTitle className="text-2xl">
                     Request a Physical Copy
@@ -127,7 +124,7 @@ export default function ProspectusPage() {
                     Request a Prospectus <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
           </div>
         </section>
