@@ -373,7 +373,7 @@ export const courses = [
       "Workplace communication",
       "CEFR-aligned progression",
     ],
-    courseFee: "",
+    courseFee: "£4950",
     duration:
       "Duration: 6 months | GLH: 60–120 hours per level | Mode: Face-to-face",
     link: "https://app.watneycollege.co.uk/courses/apply/69ec50faaf946e5c9dac2512",
