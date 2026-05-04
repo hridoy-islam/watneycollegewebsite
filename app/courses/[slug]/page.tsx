@@ -314,9 +314,7 @@ export default function CourseDetailPage() {
                     </span>
                   </div>
                     <span className="text-white text-sm">
-                      per year -fixed for duration of programme Employer
-                      reimbursement may be available through the Government's
-                      Learning and Development Support Scheme (LDSS).
+                     {course.feeDetails ? course.feeDetails : ""}
                     </span>
                 </div>
 
