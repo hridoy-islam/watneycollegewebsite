@@ -107,7 +107,7 @@ const directors = [
     type: "Executive",
   },
   {
-    name: "Farhama Akter",
+    name: "Farhana Akter",
     role: "Director",
     expertise: "Accounting and Healthcare Sector Operations",
     type: "Executive",
