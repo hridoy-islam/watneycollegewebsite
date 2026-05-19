@@ -117,7 +117,7 @@ export default function CareerEmployabilityPage() {
       </section>
 
       {/* Career & Employability Section */}
-      <section className="relative overflow-hidden py-20 lg:py-28 bg-gray-50">
+      <section className="relative overflow-hidden py-20 lg:py-28 bg-gray-100">
         {/* decorative shapes */}
         <div
           className="absolute right-[-100px] top-[-100px] w-[520px] h-[520px] pointer-events-none"
@@ -263,7 +263,7 @@ export default function CareerEmployabilityPage() {
       <hr className="border-t border-gray-200 mx-6 max-w-6xl lg:mx-auto" />
 
       {/* ── PROGRESSION PATHWAY ─────────────────────────────────────── */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-100">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-[2fr_3fr] gap-16 items-start">
 
