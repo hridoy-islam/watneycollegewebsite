@@ -226,11 +226,11 @@ export default function StudentEngagementStrategyPage() {
                       development · Promote collaborative problem-solving.
                     </p>
                   </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold  mb-2">
                       Theme 3 — Work-based learning engagement
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm  leading-relaxed">
                       Collect structured feedback from placement students ·
                       Integrate employer and student feedback into programme
                       review · Monitor placement experiences in healthcare

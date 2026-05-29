@@ -97,11 +97,11 @@ export default function InformationAccuracyCompletenessPolicyPage() {
                       awarding bodies.
                     </p>
                   </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold  mb-2">
                       Course information must accurately state
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm leading-relaxed">
                       Award title · Validation or awarding body · Mode of
                       delivery · Duration · Entry requirements · Assessment
                       methods · Tuition fees and additional mandatory costs.

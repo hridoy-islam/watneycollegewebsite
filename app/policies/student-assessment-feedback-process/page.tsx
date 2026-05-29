@@ -353,11 +353,11 @@ export default function StudentAssessmentFeedbackPage() {
                       improve subsequent work.
                     </p>
                   </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold  mb-2">
                       Appeals and clarification
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm  leading-relaxed">
                       Students who believe an assessment decision is incorrect
                       may request clarification or pursue a formal appeal in
                       accordance with the Academic Appeals Policy.

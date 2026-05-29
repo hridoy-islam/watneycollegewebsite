@@ -93,11 +93,11 @@ export default function WhistleblowingPolicyPage() {
                       Act 1996 · Data Protection Act 2018
                     </p>
                   </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold  mb-2">
                       What counts as whistleblowing
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm  leading-relaxed">
                       A disclosure the individual reasonably believes is in the
                       public interest and tends to show: criminal offence ·
                       financial malpractice · regulatory breach · academic
@@ -302,11 +302,11 @@ export default function WhistleblowingPolicyPage() {
                   </div>
                 </div>
                 <div className="space-y-6">
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold  mb-2">
                       External disclosure
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm  leading-relaxed">
                       Nothing in this policy prevents individuals from making a
                       protected disclosure to a prescribed regulator under UK
                       law where appropriate.

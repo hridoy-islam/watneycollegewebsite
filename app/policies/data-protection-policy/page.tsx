@@ -213,11 +213,11 @@ export default function DataProtectionPolicyPage() {
                         (0) 2080046463.
                       </p>
                     </div>
-                    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                      <h3 className="font-semibold text-amber-800 mb-2">
+                    <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                      <h3 className="font-semibold  mb-2">
                         Breach reporting
                       </h3>
-                      <p className="text-sm text-amber-700 leading-relaxed">
+                      <p className="text-sm  leading-relaxed">
                         Where a data breach could result in harm to individuals,
                         the College will notify the relevant supervisory authority
                         and affected individuals within{" "}

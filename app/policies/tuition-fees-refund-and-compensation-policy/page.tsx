@@ -100,11 +100,11 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                       consumer protection obligations.
                     </p>
                   </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold  mb-2">
                       Bursaries
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm  leading-relaxed">
                       Watney College does not currently provide bursaries or
                       financial aid packages. The College continuously evaluates
                       its financial support options and may introduce bursary
@@ -258,11 +258,11 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                       before processing.
                     </p>
                   </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold  mb-2">
                       Dispute resolution
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm  leading-relaxed">
                       Students who disagree with a refund decision may submit a
                       complaint through the College's Complaints Policy. The
                       process is designed to provide an equitable resolution
@@ -325,11 +325,11 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                       differences arising from continuation arrangements.
                     </p>
                   </div>
-                  <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-red-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold   mb-2">
                       Costs not eligible for compensation
                     </h3>
-                    <p className="text-sm text-red-700 leading-relaxed">
+                    <p className="text-sm  leading-relaxed">
                       Inconvenience or personal distress · Loss of earnings or
                       employment opportunities · Speculative financial losses ·
                       Costs not directly linked to the disruption experienced.

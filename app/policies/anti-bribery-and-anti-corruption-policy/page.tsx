@@ -92,11 +92,11 @@ export default function AntiBriberyAntiCorruptionPolicyPage() {
                       Employment Rights Act 1996 · Data Protection Act 2018
                     </p>
                   </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold  mb-2">
                       What counts as an improper advantage
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm  leading-relaxed">
                       Cash payments · Gifts · Hospitality beyond reasonable
                       proportion · Commission payments · Facilitation payments ·
                       Undisclosed referral incentives
@@ -235,11 +235,11 @@ export default function AntiBriberyAntiCorruptionPolicyPage() {
                       from detriment.
                     </p>
                   </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold  mb-2">
                       Consequences of breach
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm  leading-relaxed">
                       Confirmed breaches may result in disciplinary proceedings,
                       termination of employment or contract, referral to law
                       enforcement, and revocation of academic awards where

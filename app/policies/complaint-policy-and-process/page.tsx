@@ -95,11 +95,11 @@ export default function ComplaintPolicyProcessPage() {
                       · Clear governance oversight.
                     </p>
                   </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold  mb-2">
                       This policy does not apply to
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm  leading-relaxed">
                       Academic judgment · Assessment marks (unless procedural
                       irregularity alleged) · Employment grievances · Protected
                       disclosures. These are redirected to the appropriate
@@ -240,11 +240,11 @@ export default function ComplaintPolicyProcessPage() {
                   </p>
                 </div>
                 <div className="space-y-6">
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold mb-2">
                       Safeguarding and serious matters
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm  leading-relaxed">
                       Where a complaint raises safeguarding or criminal concerns,
                       it may be referred immediately to the Safeguarding Lead,
                       disciplinary procedures, or appropriate external

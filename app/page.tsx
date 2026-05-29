@@ -57,6 +57,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Hero from "@/components/hero";
 import { courses } from "./courses/data/courseData";
+import { useRouter } from "next/navigation";
 
 export default function page() {
   function Counter({
@@ -71,7 +72,7 @@ export default function page() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     const [count, setCount] = useState(0);
-
+    const router = useRouter();
     useEffect(() => {
       if (isInView) {
         let start = 0;
@@ -192,50 +193,50 @@ export default function page() {
     },
   ];
 
- const features = [
-   {
-     icon: <Users className="w-8 h-8 text-primary" />,
-     title: "Experienced Academic Staff",
-     description:
-       "Learn from dedicated tutors committed to supporting your progress and achievement throughout your studies.",
-     bg: "bg-primary/10 text-primary",
-   },
-   {
-     icon: <Star className="w-8 h-8 text-primary" />,
-     title: "Flexible Learning Options",
-     description:
-       "Choose from online, hybrid, or in-person learning formats that fit your schedule.",
-     bg: "bg-primary/10 text-primary",
-   },
-   {
-     icon: <Award className="w-8 h-8 text-primary" />,
-     title: "Accessible Education",
-     description:
-       "Quality education at transparent, competitive fees with no hidden costs.",
-     bg: "bg-primary/10 text-primary",
-   },
-   {
-     icon: <BookOpen className="w-8 h-8 text-primary" />,
-     title: "Student Support",
-     description:
-       "Dedicated support throughout your studies including academic guidance and personal tutoring.",
-     bg: "bg-primary/10 text-primary",
-   },
-   {
-     icon: <MapPin className="w-8 h-8 text-primary" />,
-     title: "London Location",
-     description:
-       "Study in one of the world's most vibrant educational and cultural cities.",
-     bg: "bg-primary/10 text-primary",
-   },
-   {
-     icon: <Globe className="w-8 h-8 text-primary" />,
-     title: "International Community",
-     description:
-       "Learn alongside students from a range of backgrounds in a welcoming, inclusive environment.",
-     bg: "bg-primary/10 text-primary",
-   },
- ];
+  const features = [
+    {
+      icon: <Users className="w-8 h-8 text-primary" />,
+      title: "Experienced Academic Staff",
+      description:
+        "Learn from dedicated tutors committed to supporting your progress and achievement throughout your studies.",
+      bg: "bg-primary/10 text-primary",
+    },
+    {
+      icon: <Star className="w-8 h-8 text-primary" />,
+      title: "Flexible Learning Options",
+      description:
+        "Choose from online, hybrid, or in-person learning formats that fit your schedule.",
+      bg: "bg-primary/10 text-primary",
+    },
+    {
+      icon: <Award className="w-8 h-8 text-primary" />,
+      title: "Accessible Education",
+      description:
+        "Quality education at transparent, competitive fees with no hidden costs.",
+      bg: "bg-primary/10 text-primary",
+    },
+    {
+      icon: <BookOpen className="w-8 h-8 text-primary" />,
+      title: "Student Support",
+      description:
+        "Dedicated support throughout your studies including academic guidance and personal tutoring.",
+      bg: "bg-primary/10 text-primary",
+    },
+    {
+      icon: <MapPin className="w-8 h-8 text-primary" />,
+      title: "London Location",
+      description:
+        "Study in one of the world's most vibrant educational and cultural cities.",
+      bg: "bg-primary/10 text-primary",
+    },
+    {
+      icon: <Globe className="w-8 h-8 text-primary" />,
+      title: "International Community",
+      description:
+        "Learn alongside students from a range of backgrounds in a welcoming, inclusive environment.",
+      bg: "bg-primary/10 text-primary",
+    },
+  ];
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -250,6 +251,8 @@ export default function page() {
       selectedCategory === "all" || course.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
+  const router = useRouter();
 
   return (
     <div>
@@ -314,9 +317,9 @@ export default function page() {
                 {
                   title: "Student Handbook",
                   description:
-                    "Your essential guide to life at Watney College - covering policies, expectations, support services and your rights as a student. Your handbook is available in your student account via the Watney College Student Management System (WCSMS). Click here to login to your account to access the Student Handbook.",
+                    "Your essential guide to life at Watney College - covering policies, expectations, support services and your rights as a student. Your handbook is available in your student account via the Watney College Student Management System (WCSMS).",
                   icon: <BookOpen className="w-6 h-6" />,
-                  href: "#",
+                  href: "https://app.watneycollege.co.uk/",
                 },
                 {
                   title: "Academic Calendar",
@@ -365,6 +368,15 @@ export default function page() {
                         </div>
                       </Link>
                     )}
+
+                    {card.title === "Student Handbook" && (
+                      <Link href={card.href} className="inline">
+                        <span className="text-primary font-medium hover:underline">
+                          Click here
+                        </span>{" "}
+                        to login to your account to access the Student Handbook.
+                      </Link>
+                    )}
                   </div>
                 </div>
               ))}
@@ -400,7 +412,6 @@ export default function page() {
                   points: [
                     "NQual Level 2 Adult Social Care",
                     "NQual Level 4 Diploma in Adult Care",
-                    "ATHE Level 4 Healthcare",
                   ],
                 },
                 {
@@ -424,6 +435,7 @@ export default function page() {
                     "Industry Engagement",
                     "Career Pathways",
                   ],
+                  href: "/employers-and-partners",
                 },
                 {
                   title: "Professional Certifications",
@@ -459,7 +471,14 @@ export default function page() {
                   ],
                 },
               ].map((card, index) => (
-                <Card key={index}>
+                <Card
+                  key={index}
+                  onClick={card.href ? () => router.push(card.href) : undefined}
+                  className={
+                    card.href ? "cursor-pointer hover:shadow-lg transition" : ""
+                  }
+                >
+                  {" "}
                   <CardHeader>
                     <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                       {card.icon}
@@ -473,7 +492,6 @@ export default function page() {
                       {card.description}
                     </CardDescription>
                   </CardHeader>
-
                   <CardContent>
                     <div className="space-y-2 text-lg text-gray-600">
                       {card.points.map((point, i) => (

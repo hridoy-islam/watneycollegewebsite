@@ -195,7 +195,7 @@ export default function AcademicRegulationsPage() {
                         "Failure to engage with studies",
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-center gap-2">
-                          <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                          <AlertCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
                           <span className="text-gray-800">{item}</span>
                         </li>
                       ))}
@@ -215,11 +215,11 @@ export default function AcademicRegulationsPage() {
                     Misconduct, fitness to study and appeals
                   </h2>
                   <div className="space-y-6">
-                    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                      <h3 className="font-semibold text-amber-800 mb-2">
+                    <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                      <h3 className="font-semibold  mb-2">
                         Academic misconduct includes
                       </h3>
-                      <p className="text-sm text-amber-700 leading-relaxed">
+                      <p className="text-sm  leading-relaxed">
                         Plagiarism · Contract cheating · Fabrication · Collusion
                         · Unauthorised AI misuse · Impersonation. Penalties are
                         proportionate and consistent. Severe cases may result in

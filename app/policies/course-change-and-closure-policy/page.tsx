@@ -73,18 +73,18 @@ export default function CourseChangeClosurePolicyPage() {
                   </div>
                 </div>
                 <div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold  mb-2">
                       Major changes
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm leading-relaxed">
                       Changes that may materially affect students, including:
                       significant amendments to learning outcomes, changes to
                       assessment strategy, change of awarding or validating
                       body, substantial changes to mode of delivery, relocation
                       of delivery site, or structural curriculum redesign.
                     </p>
-                    <p className="text-sm text-amber-700 leading-relaxed mt-3">
+                    <p className="text-sm  leading-relaxed mt-3">
                       Major changes require formal approval by the Academic
                       Board and must be reported to the Board of Governors.
                     </p>
@@ -114,11 +114,11 @@ export default function CourseChangeClosurePolicyPage() {
                         realignment.
                       </p>
                     </div>
-                    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                      <h3 className="font-semibold text-amber-800 mb-2">
+                    <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                      <h3 className="font-semibold  mb-2">
                         Formal impact assessment required
                       </h3>
-                      <p className="text-sm text-amber-700 leading-relaxed">
+                      <p className="text-sm leading-relaxed">
                         Prior to any closure decision, an impact assessment must
                         consider academic standards, financial sustainability,
                         student numbers, equality implications, reputational

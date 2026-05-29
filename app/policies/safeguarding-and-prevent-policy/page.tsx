@@ -96,11 +96,11 @@ export default function SafeguardingPreventPolicyPage() {
                       line with GDPR and confidentiality guidelines.
                     </p>
                   </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h3 className="font-semibold text-amber-800 mb-2">
+                  <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">
+                    <h3 className="font-semibold  mb-2">
                       Types of abuse
                     </h3>
-                    <p className="text-sm text-amber-700 leading-relaxed">
+                    <p className="text-sm  leading-relaxed">
                       Physical · Emotional or psychological · Sexual · Neglect
                       and acts of omission · Financial or material ·
                       Discriminatory · Radicalisation and extremism (Prevent
