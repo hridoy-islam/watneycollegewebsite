@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Watney College Website
 
-## Getting Started
+Official website repository for Watney College, providing information about courses, admissions, student support services, and educational opportunities.
 
-First, run the development server:
+## 🌐 Branch Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This repository contains separate branches for different Watney College locations.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Branch  | Website                  |
+| ------- | ------------------------ |
+| `main`  | **Watney College UK**    |
+| `dubai` | **Watney College Dubai** |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🚀 Overview
 
-## Learn More
+The Watney College website is built with Next.js and provides a modern, responsive, and SEO-friendly experience for prospective students, current learners, and educational partners.
 
-To learn more about Next.js, take a look at the following resources:
+### Key Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Responsive Design
+* SEO Optimized Pages
+* Course Information
+* Online Application Forms
+* Student Support Information
+* Contact & Inquiry Forms
+* Fast Performance with Server-Side Rendering
+* Modern UI/UX
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠️ Technology Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Frontend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+
+### Development Tools
+
+* ESLint
+* Prettier
+* Git & GitHub
+
+### Deployment
+
+* Vercel
+* Node.js Environment
