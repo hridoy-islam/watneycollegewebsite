@@ -483,7 +483,7 @@ export default function AboutPage() {
                           achieve that dream they’ve always held.
                         </p>
                         <p className="font-medium text-gray-800">
-                          — Dr. S. Alam, Principal, Watney College
+                          — Dr ATM Alam, Principal, Watney College
                         </p>
                       </blockquote>
                     </div>
