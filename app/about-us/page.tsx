@@ -485,6 +485,7 @@ export default function AboutPage() {
                         <p className="font-medium text-gray-800">
                           — Dr ATM Alam, Principal, Watney College
                         </p>
+                        
                       </blockquote>
                     </div>
                   </div>
