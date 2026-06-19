@@ -71,9 +71,10 @@ export default function ProspectusPage() {
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <a
-                        href="/Watney College Prospectus - Vol.1.pdf"
+                        href="/Watney College Prospect -vol2.pdf"
                         className="text-gray-700 hover:text-primary text-lg hover:underline"
                         download
+                        
                       >
                         Download Prospectus 2025/2026 (PDF)
                       </a>
