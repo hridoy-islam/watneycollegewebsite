@@ -5,6 +5,7 @@ import { Providers } from "./providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Inter } from "next/font/google";
+import { Toaster } from "@/components/ui/toaster";
 
 // const nunito = Nunito({
 //   subsets: ["latin"],
@@ -84,6 +85,8 @@ export default function RootLayout({
         <Header />
         <div className="pt-24 min-h-screen">
           <Providers>{children}</Providers>
+                    <Toaster />
+
         </div>
         <Footer />
       </body>

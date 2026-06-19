@@ -318,14 +318,13 @@ export default function CourseDetailPage() {
                     </span>
                 </div>
 
-                <a
-                  href={course.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full bg-white text-primary hover:bg-gray-100 font-semibold py-2 text-lg text-center rounded"
+                <Button
+                  
+                  onClick={()=> router.push(`/courses/${course.slug}/${course.courseId}`)}
+                  className="block w-full bg-white text-primary hover:bg-gray-100 font-semibold h-12 text-lg text-center rounded"
                 >
                   🚀 Apply Now
-                </a>
+                </Button>
               </CardContent>
             </Card>
 

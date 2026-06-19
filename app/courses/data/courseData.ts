@@ -224,6 +224,8 @@ export const courses = [
         feeDetails:"per year -fixed for duration of programme Employer reimbursement may be available through the Government's Learning and Development Support Scheme (LDSS).",
 
     link: "https://app.watneycollege.co.uk/courses/apply/689e02749443d6e90e5b14a7",
+            courseId:"689e02749443d6e90e5b14a7",
+
     overview:
       "This Level 2 Adult Social Care Certificate is designed to improve portability and reduce the need for repeat training and assessment when individual move roles. Skills for Care was commissioned by the Department of Health and Social Care (DHSC) to develop a specification for the development of the new Level 2 Adult Social Care Certificate qualification, based on the existing Care Certificate standards. The NQual Level 2 Adult Social Care Certificate qualification is supported by Skills for Care and the Department of Health and Social Care. This qualification is guided by the Skills for Care & Development Assessment Principles and Additional Assessment Principles Guidance.",
     curriculum: [
@@ -315,6 +317,8 @@ export const courses = [
     duration:
       "Duration: 1 year  |  Mode: Blended (in-person and remote)  |  Start: September and January",
     link: "https://app.watneycollege.co.uk/courses/apply/689dedb69443d6e90e5b146c",
+        courseId:"689dedb69443d6e90e5b146c",
+
     overview: `This Level 4 Diploma in Adult Care is designed to provide learners with knowledge and skills relating to care practices. It will provide individuals with the chance to develop knowledge and gain skills to seek employment or progression onto higher level qualifications. The purpose of this qualification is to prepare individuals for progression in the care sector. The units specified within this document cover a variety of areas and topics relevant to the sector, including leadership and management in health care. This qualification is supported by Skills for Care and developed using the Development Assessment Principles. This qualification is approved by Skills for Care.`,
     curriculum: [
       "Lead Communication in Adult Care Settings",
@@ -382,6 +386,7 @@ export const courses = [
     duration:
       "Duration: 6 months | GLH: 60–120 hours per level | Mode: Face-to-face",
     link: "https://app.watneycollege.co.uk/courses/apply/69ec50faaf946e5c9dac2512",
+    courseId:"69ec50faaf946e5c9dac2512",
     overview:
       "Programme Overview\nThe General English Programme (B1–C1) is designed to support learners in developing independent and effective communication skills in English across social, academic, and professional contexts.\n\nAt these levels, the programme focuses on:\n• Expanding fluency and accuracy in spoken and written communication\n• Developing the ability to understand and produce more complex texts\n• Strengthening critical thinking, discussion, and argumentation skills\n• Improving confidence in real-world and workplace communication\n\nThe programme is aligned with the Common European Framework of Reference for Languages (CEFR), ensuring structured progression from intermediate to advanced proficiency.\n\nAssessment\n• Continuous assessment through:\n  o Speaking activities and discussions\n  o Listening and reading tasks\n  o Written assignments\n  o Weekly or periodic progress tests\n• Informal and formal feedback provided regularly\n• Progress measured against CEFR descriptors for B1–C1",
     curriculum: [
