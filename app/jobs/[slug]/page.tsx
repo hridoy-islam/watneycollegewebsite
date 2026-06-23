@@ -22,8 +22,11 @@ export function generateStaticParams() {
   }));
 }
 
-export default function JobDetailPage({ params }: { params: { slug: string } }) {
-  const job = getJobBySlug(params.slug);
+// Change this to async and await params
+export default async function JobDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  // Await the params
+  const { slug } = await params;
+  const job = getJobBySlug(slug);
 
   if (!job) {
     notFound();
@@ -112,14 +115,6 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                       Remote Working: {job.remoteWorking}
                     </div>
                   )}
-
-                  {/* Company */}
-                  {/* {job.company && (
-        <div className="flex items-center text-slate-600">
-          <Building2 className="w-5 h-5 mr-2 text-slate-400" />
-          {job.company}
-        </div>
-      )} */}
                 </div>
 
 

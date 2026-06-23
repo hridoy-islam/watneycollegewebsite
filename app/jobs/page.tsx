@@ -31,48 +31,42 @@ export default function JobPage() {
       </div>
 
       {/* Jobs Listing (above the pattern) */}
-      <div className="relative z-30 rounded-lg overflow-hidden space-y-4 container py-8">
-        {jobs.map((job, index) => (
-          <div key={job.id} className="bg-white shadow-md rounded-md border border-gray-300">
-            <Link href={`/jobs/${job.slug}`}>
-              <div className="p-6 hover:bg-slate-50 transition-colors cursor-pointer group">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <h2 className="text-xl font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
-                        {job.title}
-                      </h2>
-                      <Badge variant="secondary" className="bg-blue-100 text-blue-800 hover:bg-blue-100">
-                        {job.type}
-                      </Badge>
-                    </div>
+    <div className="relative z-30 rounded-lg overflow-hidden space-y-4 container py-8">
+  {[...jobs]
+    .sort((a, b) => a.title.localeCompare(b.title))
+    .map((job, index) => (
+      <div key={job.id} className="bg-white shadow-md rounded-md border border-gray-300">
+        <Link href={`/jobs/${job.slug}`}>
+          <div className="p-6 hover:bg-slate-50 transition-colors cursor-pointer group">
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <h2 className="text-xl font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    {job.title}
+                  </h2>
 
-                    <p className="text-slate-600 mb-4 line-clamp-2">{job.description}</p>
-
-                    {/* <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
-                      <div className="flex items-center">
-                        <MapPin className="w-4 h-4 mr-1.5 text-slate-400" />
-                        {job.location}
-                      </div>
-                      <div className="flex items-center">
-                        <DollarSign className="w-4 h-4 mr-1.5 text-slate-400" />
-                        {job.salary}
-                      </div>
-                      <div className="flex items-center">
-                        <Briefcase className="w-4 h-4 mr-1.5 text-slate-400" />
-                        {job.category}
-                      </div>
-                    </div> */}
-                  </div>
-
-                  <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-blue-600 flex-shrink-0 mt-1" />
+                  <Badge 
+                    variant="secondary" 
+                    className="bg-blue-100 text-blue-800 hover:bg-blue-100"
+                  >
+                    {job.type}
+                  </Badge>
                 </div>
+
+                <p className="text-slate-600 mb-4 line-clamp-2">
+                  {job.description}
+                </p>
               </div>
-            </Link>
-            {index < jobs.length - 1 && <Separator />}
+
+              <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-blue-600 flex-shrink-0 mt-1" />
+            </div>
           </div>
-        ))}
+        </Link>
+
+        {index < jobs.length - 1 && <Separator />}
       </div>
+    ))}
+</div>
     </div>
   );
 }

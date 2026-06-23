@@ -158,7 +158,64 @@ export const jobs: Job[] = [
     location: "80-82 Nelson Street, London, E1 2DY",
     remoteWorking: "Hybrid - work remotely up to 2 days per week",
     // company: "WATNEY COLLEGE LIMITED"
-  },
+  },{
+  id: "3",
+  slug: "admin-and-marketing-executive",
+  title: "Admin and Marketing Executive",
+  type: "Part-Time",
+  salary: "", // Not specified
+  description:
+    "Watney College is a London-based higher education provider delivering nationally recognised qualifications in health and social care, alongside other vocational and professional programmes. We are committed to accessible, high-quality education, strong student support, and close partnerships with employers across the healthcare sector.\n\nAs the College continues to grow, the Admin and Marketing Executive role supports both operational and marketing functions. The position combines office administration, student and applicant coordination, and marketing support, providing an opportunity to contribute to the smooth running of the College while supporting student recruitment activities.",
+  responsibilities: [
+    "Manage day-to-day administrative activities, including correspondence, diary management, meeting scheduling, and general office support",
+    "Maintain accurate student and applicant records, filing systems, and documentation in line with data protection requirements",
+    "Support office and financial administration, including invoicing, expense tracking, purchase orders, and supplier communications",
+    "Coordinate internal and external meetings, prepare agendas, record minutes, and monitor follow-up actions",
+    "Assist with student admissions and onboarding, including application processing, enrolment documentation, and account setup",
+    "Support planning and delivery of marketing and student recruitment campaigns across paid, organic, email, and social media channels",
+    "Maintain marketing calendars, campaign schedules, and project trackers",
+    "Coordinate with internal teams and external partners to ensure recruitment materials and course information are accurate",
+    "Assist with campaign setup and monitoring across Google Ads, Meta, and LinkedIn platforms",
+    "Help organise open days, information sessions, and student recruitment events",
+    "Draft, schedule, and publish content across social media, email marketing platforms, and the College website",
+    "Maintain a consistent and professional brand presence across marketing materials",
+    "Keep website and course content accurate, relevant, and updated",
+    "Act as a professional point of contact for prospective students, applicants, and partners",
+    "Coordinate communication between applicants, students, employer partners, and internal teams",
+    "Build positive relationships with students, partners, and stakeholders",
+    "Prepare enquiry, recruitment, and campaign performance reports",
+    "Maintain CRM systems and contact databases with accurate information",
+    "Monitor application pipelines, deadlines, deliverables, and key performance indicators",
+    "Escalate issues where appropriate and support continuous improvement"
+  ],
+  requirements: [
+    "Degree or equivalent qualification in business, administration, marketing, communications, or related discipline, or relevant professional experience",
+    "Excellent organisational skills with the ability to manage multiple priorities and deadlines",
+    "Strong written and verbal communication skills with a professional approach",
+    "Proficiency in Microsoft Office and/or Google Workspace",
+    "Experience with social media platforms, email marketing systems, or CRM software is advantageous",
+    "Understanding of or interest in the education or healthcare training sector is desirable",
+    "Proactive, dependable, and detail-oriented approach to work",
+    "Ability to work independently while contributing effectively within a collaborative team environment"
+  ],
+  benefits: [
+    "Newly created role with opportunity to shape and develop the position as the College grows",
+    "Direct exposure to higher education operations, student admissions, marketing, and recruitment",
+    "Close collaboration with the College management team in a supportive environment",
+    "Continuous professional development and increasing responsibility opportunities",
+    "Flexible part-time working arrangements with salary and benefits calculated on a pro rata basis"
+  ],
+  postedDate: "2026-06-09",
+  deadline: "2026-12-31",
+  link: "https://app.watneycollege.co.uk/jobs/apply/6a3aada6af946e5c9db69bdf",
+
+  // New fields
+  hours: "Part time",
+  location: "London (Whitechapel)",
+  remoteWorking: "Flexible part-time working arrangements",
+  // category: "Administration & Marketing",
+  // company: "WATNEY COLLEGE LIMITED"
+}
 ];
 
 export function getJobBySlug(slug: string): Job | undefined {
