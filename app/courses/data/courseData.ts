@@ -314,7 +314,7 @@ export const courses = [
 
     duration:
       "Duration: 1 year  |  Mode: Blended (in-person and remote)  |  Start: September and January",
-    link: "https://app.watneycollege.co.uk/courses/apply/689dedb69443d6e90e5b146c",
+    link: "https://app.watneycollege.co.uk/courses/apply/68712a9975b500d8c2796b2d",
     overview: `This Level 4 Diploma in Adult Care is designed to provide learners with knowledge and skills relating to care practices. It will provide individuals with the chance to develop knowledge and gain skills to seek employment or progression onto higher level qualifications. The purpose of this qualification is to prepare individuals for progression in the care sector. The units specified within this document cover a variety of areas and topics relevant to the sector, including leadership and management in health care. This qualification is supported by Skills for Care and developed using the Development Assessment Principles. This qualification is approved by Skills for Care.`,
     curriculum: [
       "Lead Communication in Adult Care Settings",

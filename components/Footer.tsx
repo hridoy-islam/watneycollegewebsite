@@ -20,7 +20,7 @@ export default function Footer() {
     { name: "Policies", href: "/policies" },
     {
       name: "Access And Participation Statement",
-      href: "/access-and-participation",
+      href: "/access-and-participation-statement",
     },
     { name: "Student Protection Plan", href: "/student-protection-plan" },
     { name: "Governance and Management", href: "/governance-and-management" },

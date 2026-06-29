@@ -37,8 +37,7 @@ export default function CourseChangeClosurePolicyPage() {
             <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-3xl">
               The formal framework through which Watney College manages
               significant course changes and course closures, safeguarding
-              students' academic interests and ensuring compliance with OfS
-              requirements.
+              students' academic interests and ensuring compliance.
             </p>
           </div>
         </section>

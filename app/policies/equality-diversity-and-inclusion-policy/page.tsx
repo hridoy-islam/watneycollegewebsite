@@ -92,8 +92,8 @@ export default function EqualityDiversityInclusionPolicyPage() {
                       Regulatory alignment
                     </h3>
                     <p className="text-sm text-teal-700 leading-relaxed">
-                      Aligned with: Equality Act 2010 · OfS regulatory framework
-                      · UK Quality Code for Higher Education · Awarding body
+                      Aligned with: Equality Act 2010 ·
+                       UK Quality Code for Higher Education · Awarding body
                       requirements (NQual, ATHE, OTHM, Focus Awards, ESB).
                     </p>
                   </div>
