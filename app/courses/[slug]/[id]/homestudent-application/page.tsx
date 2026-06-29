@@ -17,8 +17,6 @@ import { useToast } from '@/components/ui/use-toast';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
 import { EmergencyContact } from './components/emergencyContact';
 import axiosInstance from '@/lib/axios';
-import { useSelector, useDispatch } from 'react-redux';
-import type { AppDispatch } from '@/redux/store';
 
 import {
   validateStep,
@@ -42,10 +40,30 @@ export default function HomeStudentApplication() {
   const [reviewModalOpen, setReviewModalOpen] = useState(false);
   const { toast } = useToast();
   const [parsedResume, setParsedResume] = useState<string | null>(null);
-  const dispatch = useDispatch<AppDispatch>();
   const [loading, setLoading] = useState<boolean>(true);
   const [courseSubmitted, setCourseSubmitted] = useState(false);
+const isFormSubmitted = useRef(false);
 
+// Add this useEffect to restore form data from localStorage on mount and refresh
+useEffect(() => {
+  const savedFormData = localStorage.getItem(APPLICATION_FORM_KEY);
+  if (savedFormData) {
+    try {
+      const parsedData = JSON.parse(savedFormData);
+      setFormData(parsedData);
+      
+      // Check if the form was previously submitted
+      if (parsedData._formSubmitted) {
+        isFormSubmitted.current = true;
+        setFormSubmitted(true);
+        setCourseSubmitted(parsedData._courseSubmitted || false);
+      }
+    } catch (error) {
+      console.error('Error parsing saved form data:', error);
+    }
+  }
+  setLoading(false);
+}, []);
   const nameMatch = parsedResume?.match(
     /\b([A-Z][a-z]+(?:\s[A-Z][a-z]+)*)\s([A-Z][a-z]+)\b/
   );
@@ -96,7 +114,6 @@ export default function HomeStudentApplication() {
   const postCode = postCodeMatch ? postCodeMatch[0] : '';
   const country = countryMatch ? countryMatch[1] : '';
   const academicInstitution = institutionMatch ? institutionMatch[0] : '';
-  const { user } = useSelector((state: any) => state.auth);
 
   const personalDetailsData = {
     passportNumber: passportIdMatch ? passportIdMatch[0] : '',
@@ -118,6 +135,7 @@ export default function HomeStudentApplication() {
   const savedStudentType = localStorage.getItem('studentType');
   const savedCourseId = localStorage.getItem('courseId');
   const savedTermId = localStorage.getItem('termId');
+
 const courseSubmitCalled = useRef(false);
   useEffect(() => {
     setFormData((prev: any) => {
@@ -130,58 +148,30 @@ const courseSubmitCalled = useRef(false);
     });
   }, [savedCourseId, savedStudentType, savedTermId]);
 
-  const fetchedData = async () => {
-    try {
-      setLoading(true);
-      const response = await axiosInstance.get(`/users/${user._id}`);
-      const userData = response.data.data;
 
-      const localStoredDataRaw = localStorage.getItem(APPLICATION_FORM_KEY);
-      const localStoredData = localStoredDataRaw ? JSON.parse(localStoredDataRaw) : {};
 
-      setFetchData((prev: any) => ({
-        ...prev,
-        ...userData,
-        studentType: userData.studentType || savedStudentType
-      }));
-
-      setFormData((prev: any) => ({
-        ...prev,
-        ...userData,
-        ...localStoredData,
-        studentType: userData.studentType || savedStudentType,
-        courseDetailsData: {
-          ...(prev.courseDetailsData || {}),
-          ...(userData.courseDetailsData || {}),
-          ...(localStoredData.courseDetailsData || {}),
-          course: savedCourseId || '',
-          intake: savedTermId || ''
-        }
-      }));
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
+useEffect(() => {
+  setFormData((prev: any) => {
+    const updated = {
+      ...prev,
+      studentType: savedStudentType,
+      courseDetailsData: {
+        ...(prev.courseDetailsData || {}),
+        course: savedCourseId || '',
+        intake: savedTermId || ''
+      }
+    };
+    // Don't overwrite existing localStorage data unless necessary
+    const existingData = localStorage.getItem(APPLICATION_FORM_KEY);
+    if (!existingData) {
+      localStorage.setItem(APPLICATION_FORM_KEY, JSON.stringify(updated));
     }
-  };
+    return updated;
+  });
+}, [savedCourseId, savedStudentType, savedTermId]);
 
-  useEffect(() => {
-    fetchedData();
-  }, []);
 
-  useEffect(() => {
-    if (Object.keys(fetchData).length === 0) return;
 
-    const localStoredDataRaw = localStorage.getItem(APPLICATION_FORM_KEY);
-    const localStoredData = localStoredDataRaw ? JSON.parse(localStoredDataRaw) : {};
-    const validationAggregate = { ...fetchData, ...localStoredData };
-
-    const firstIncompleteStep = findFirstIncompleteStep(validationAggregate);
-
-    if (firstIncompleteStep !== -1 && currentStep !== firstIncompleteStep) {
-      setCurrentStep(firstIncompleteStep);
-    }
-  }, [fetchData]);
 
   const handleStepClick = (stepId: number) => {
     setCurrentStep(stepId);
@@ -274,17 +264,15 @@ const courseSubmitCalled = useRef(false);
   const handleTermsSave = (data: any) => {
     saveToLocalStorage(data);
     markStepAsCompleted(11);
-    handleSubmit();
+    submitApplicationCourse();
   };
 
   const navigate = useRouter();
 
   const handleDashboardRedirect = () => {
-    if (user?.role === 'admin') {
+    
       navigate.push('/');
-    } else if (user?.role === 'student') {
-      navigate.push('/');
-    }
+    
   };
 
   const handleReviewClick = () => {
@@ -292,29 +280,59 @@ const courseSubmitCalled = useRef(false);
   };
 
 const submitApplicationCourse = async () => {
-  if (courseSubmitCalled.current) return;       
-  if (savedCourseId && savedTermId && user?._id) {
-    courseSubmitCalled.current = true;           
+  if (courseSubmitCalled.current || isFormSubmitted.current) return;
+  
+  // Get all profile data from localStorage and formData
+  const localStoredDataRaw = localStorage.getItem(APPLICATION_FORM_KEY);
+  const localStoredData = localStoredDataRaw ? JSON.parse(localStoredDataRaw) : {};
+  const finalizedData = { ...formData, ...localStoredData };
+  
+  // Trim and lowercase email before submission
+  if (finalizedData.email) {
+    finalizedData.email = finalizedData.email.trim().toLowerCase();
+  }
+  
+  if (savedCourseId && savedTermId) {
+    courseSubmitCalled.current = true;
+    isFormSubmitted.current = true;
+    
     try {
-      await axiosInstance.post('/application-course', {
+      // Send all profile data along with course application
+      await axiosInstance.post('/applicants', {
         courseId: savedCourseId,
         intakeId: savedTermId,
-        studentId: user._id
+        ...finalizedData,
+        email: finalizedData.email,
       });
-      localStorage.removeItem('termId');
-      localStorage.removeItem('courseId');
+      
+      
+      localStorage.setItem(APPLICATION_FORM_KEY, JSON.stringify({
+        ...finalizedData,
+        _formSubmitted: true,
+        _courseSubmitted: true
+      }));
+      
+      // Clean up other localStorage items but keep the form data with submission flag
       localStorage.removeItem('studentType');
       localStorage.removeItem('courseId');
       localStorage.removeItem('slug');
-      localStorage.removeItem(APPLICATION_FORM_KEY);
+      localStorage.removeItem('termId');
+      
       setCourseSubmitted(true);
+      setFormSubmitted(true);
+      
+      toast({
+        description: 'Application submitted successfully.'
+      });
     } catch (err: any) {
-      courseSubmitCalled.current = false;         
+      courseSubmitCalled.current = false;
+      isFormSubmitted.current = false;
       console.error('Error submitting application course:', err);
       toast({
         title: err.response?.data?.message || 'Application failed.',
         className: 'bg-destructive text-white border-none'
       });
+      // Only clear on error
       localStorage.removeItem('studentType');
       localStorage.removeItem('courseId');
       localStorage.removeItem('slug');
@@ -324,48 +342,6 @@ const submitApplicationCourse = async () => {
   }
 };
 
-  useEffect(() => {
-    submitApplicationCourse();
-  }, []);
-
-  const handleSubmit = async () => {
-    try {
-      const localStoredDataRaw = localStorage.getItem(APPLICATION_FORM_KEY);
-      const localStoredData = localStoredDataRaw ? JSON.parse(localStoredDataRaw) : {};
-      const finalizedData = { ...formData, ...localStoredData };
-
-      await dispatch(
-        updateUserProfile({
-          userId: user._id,
-          profileData: {
-            ...finalizedData,
-            studentId: user._id,
-           isCompleted: true,
-            isValided:true
-          }
-        })
-      );
-
-      dispatch(updateAuthIsCompleted(true));
-
-      localStorage.removeItem('studentType');
-      localStorage.removeItem('courseId');
-      localStorage.removeItem('slug');
-      localStorage.removeItem('termId');
-      localStorage.removeItem(APPLICATION_FORM_KEY);
-
-      toast({
-        description: 'Application saved successfully.'
-      });
-    } catch (error: any) {
-      toast({
-        title: error?.response?.data?.message || 'Something went wrong.',
-        className: 'destructive border-none text-white'
-      });
-    }
-
-    setFormSubmitted(true);
-  };
 
   const renderStep = () => {
     const stepValue =
@@ -376,7 +352,7 @@ const submitApplicationCourse = async () => {
       case 1:
         return (
           <PersonalDetailsStep
-            defaultValues={{ ...fetchData, ...formData }}
+            defaultValues={formData}
             onSaveAndContinue={handlePersonalDetailsSaveAndContinue}
             onSave={handlePersonalDetailsSave}
             setCurrentStep={setCurrentStep}
@@ -399,7 +375,7 @@ const submitApplicationCourse = async () => {
       case 3:
         return (
           <EmergencyContact
-            defaultValues={{ ...fetchData, ...formData }}
+            defaultValues={formData}
             onSaveAndContinue={handleEmergencySaveAndContinue}
             setCurrentStep={setCurrentStep}
           />
@@ -421,7 +397,7 @@ const submitApplicationCourse = async () => {
       case 5:
         return (
           <EmploymentStep
-            defaultValues={{ ...fetchData, ...formData }}
+            defaultValues={formData}
             onSaveAndContinue={handleEmploymentSaveAndContinue}
             setCurrentStep={setCurrentStep}
           />
@@ -430,7 +406,7 @@ const submitApplicationCourse = async () => {
       case 6:
         return (
           <ComplianceStep
-            defaultValues={{ ...fetchData, ...formData }}
+            defaultValues={formData}
             onSaveAndContinue={handleComplianceSaveAndContinue}
             setCurrentStep={setCurrentStep}
           />
@@ -439,7 +415,7 @@ const submitApplicationCourse = async () => {
       case 7:
         return (
           <EthnicityStep
-            defaultValues={{ ...fetchData, ...formData }}
+            defaultValues={formData}
             onSaveAndContinue={handleEthnicitySaveAndContinue}
             setCurrentStep={setCurrentStep}
           />
@@ -448,7 +424,7 @@ const submitApplicationCourse = async () => {
       case 8:
         return (
           <RefereeDetailsStep
-            defaultValues={{ ...fetchData, ...formData }}
+            defaultValues={formData}
             onSaveAndContinue={handleRefereeSaveAndContinue}
             setCurrentStep={setCurrentStep}
           />
@@ -457,7 +433,7 @@ const submitApplicationCourse = async () => {
       case 9:
         return (
           <DocumentsStep
-            defaultValues={{ ...fetchData, ...formData }}
+            defaultValues={formData}
             onSaveAndContinue={handleDocumentsSaveAndContinue}
             setCurrentStep={setCurrentStep}
             onSave={handleDocumentSave}
@@ -466,7 +442,7 @@ const submitApplicationCourse = async () => {
       case 10:
         return (
           <FundingInformation
-            defaultValues={{ ...fetchData, ...formData }}
+            defaultValues={formData}
             onSaveAndContinue={handleFundingInformationSaveAndContinue}
             setCurrentStep={setCurrentStep}
           />
@@ -475,10 +451,10 @@ const submitApplicationCourse = async () => {
       case 11:
         return (
           <TermsSubmitStep
-            defaultValues={{ ...fetchData, ...formData }}
+            defaultValues={formData}
             onSave={handleTermsSave}
             onReview={handleReviewClick}
-            onSubmit={handleSubmit}
+            onSubmit={submitApplicationCourse}
             setCurrentStep={setCurrentStep}
             onSaveAndContinue={handleTermsSave}
           />

@@ -186,7 +186,7 @@ export function ComplianceStep({
                           placeholder: (provided) => ({
                             ...provided,
                             fontSize: '0.75rem',
-                            color: '#9CA3AF'
+                            color: '#9CA3AF',
                           })
                         }}
                       />

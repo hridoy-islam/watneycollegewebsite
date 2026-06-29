@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export interface Course {
   _id: string;
@@ -74,9 +75,23 @@ export default function CourseSelectionForm({
   courseIdFromUrl,
   isPreselectedCourse
 }: CourseSelectionFormProps) {
-
+  const courseId = localStorage.getItem('courseId');
+  const slug = localStorage.getItem('slug');
 
   const router = useRouter()
+
+// useEffect(() => {
+//   if (!courseId || !slug) return;
+
+//   if (formData.studentType === 'international') {
+//     router.push(`/courses/${slug}/${courseId}/internationalstudent-application`);
+//   } else {
+//     router.push(`/courses/${slug}/${courseId}/homestudent-application`);
+//   }
+
+// }, [formData.studentType, courseId, slug, router]);
+
+
   return (
     <div className="relative flex min-h-screen items-center justify-center bg-white p-2">
       

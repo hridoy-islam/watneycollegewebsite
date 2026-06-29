@@ -1,26 +1,26 @@
-import { useEffect } from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Controller, useForm, useWatch } from 'react-hook-form';
-import * as z from 'zod';
-import { Button } from '@/components/ui/button';
-import { CardContent } from '@/components/ui/card';
+import { useEffect } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useForm, useWatch } from "react-hook-form";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import { CardContent } from "@/components/ui/card";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
-import { Textarea } from '@/components/ui/textarea';
-import { countries, nationalities } from '@/types';
-import Select from 'react-select';
-import DatePicker from 'react-datepicker';
-import { CustomDatePicker } from '@/components/CustomDatePicker';
-import Loader from '@/components/loader';
-import 'react-datepicker/dist/react-datepicker.css';
+import { Textarea } from "@/components/ui/textarea";
+import { countries, nationalities } from "@/types";
+import Select from "react-select";
+import DatePicker from "react-datepicker";
+import { CustomDatePicker } from "@/components/CustomDatePicker";
+import Loader from "@/components/loader";
+import "react-datepicker/dist/react-datepicker.css";
 
 // Schema
 
@@ -28,46 +28,46 @@ const personalDetailsSchema = z
   .object({
     studentType: z.string().optional(), // used for conditional validation
     title: z.string().optional(),
-    firstName: z.string().min(1, { message: 'First name is required' }),
-    lastName: z.string().min(1, { message: 'Last name is required' }),
+    firstName: z.string().min(1, { message: "First name is required" }),
+    lastName: z.string().min(1, { message: "Last name is required" }),
     initial: z.string().optional(),
     dateOfBirth: z.any().optional(), // use z.string() if needed
-    email: z.string().email({ message: 'Invalid email address' }),
-    phone: z.string().min(1, { message: 'Phone number is required' }),
-    gender: z.string().min(1, { message: 'Please select a gender' }),
+    email: z.string().email({ message: "Invalid email address" }),
+    phone: z.string().min(1, { message: "Phone number is required" }),
+    gender: z.string().min(1, { message: "Please select a gender" }),
     countryOfResidence: z
       .string()
-      .min(1, { message: 'Please select Country of Residence' }),
+      .min(1, { message: "Please select Country of Residence" }),
     nationality: z.string().optional(),
-    ethnicity: z.string().min(1, { message: 'Please select an ethnicity' }),
+    ethnicity: z.string().min(1, { message: "Please select an ethnicity" }),
     customEthnicity: z.string().optional(),
     countryOfBirth: z
       .string()
-      .min(1, { message: 'Please select country of birth' }),
+      .min(1, { message: "Please select country of birth" }),
     maritalStatus: z
       .string()
-      .min(1, { message: 'Please select marital status' }),
-    applicationLocation: z.string().optional()
+      .min(1, { message: "Please select marital status" }),
+    applicationLocation: z.string().optional(),
   })
   .superRefine((data, ctx) => {
     if (
-      data.ethnicity === 'Other' &&
-      (!data.customEthnicity || data.customEthnicity.trim() === '')
+      data.ethnicity === "Other" &&
+      (!data.customEthnicity || data.customEthnicity.trim() === "")
     ) {
       ctx.addIssue({
-        path: ['customEthnicity'],
+        path: ["customEthnicity"],
         code: z.ZodIssueCode.custom,
-        message: 'Please specify your ethnicity'
+        message: "Please specify your ethnicity",
       });
     }
 
     // If studentType is not 'eu', then require these fields
-    if (data.studentType !== 'eu') {
-      if (!data.applicationLocation || data.applicationLocation.trim() === '') {
+    if (data.studentType !== "eu") {
+      if (!data.applicationLocation || data.applicationLocation.trim() === "") {
         ctx.addIssue({
-          path: ['applicationLocation'],
+          path: ["applicationLocation"],
           code: z.ZodIssueCode.custom,
-          message: 'Required Field'
+          message: "Required Field",
         });
       }
     }
@@ -88,28 +88,28 @@ export function PersonalDetailsStep({
   onSaveAndContinue,
   onSave,
   setCurrentStep,
-  loading
+  loading,
 }: Props) {
   const form = useForm<PersonalDetailsData>({
     resolver: zodResolver(personalDetailsSchema),
     defaultValues: {
-      title: '',
-      firstName: '',
-      lastName: '',
-      initial: '',
-      gender: '',
-      phone: '',
-      dateOfBirth: '',
-      email: '',
-      ethnicity: '',
-      countryOfBirth: '',
-      maritalStatus: '',
-      countryOfResidence: '',
+      title: "",
+      firstName: "",
+      lastName: "",
+      initial: "",
+      gender: "",
+      phone: "",
+      dateOfBirth: "",
+      email: "",
+      ethnicity: "",
+      countryOfBirth: "",
+      maritalStatus: "",
+      countryOfResidence: "",
 
-      applicationLocation: '',
-      studentType: defaultValues?.studentType || '',
-      ...defaultValues
-    }
+      applicationLocation: "",
+      studentType: defaultValues?.studentType || "",
+      ...defaultValues,
+    },
   });
 
   useEffect(() => {
@@ -118,7 +118,7 @@ export function PersonalDetailsStep({
     }
   }, [defaultValues, form]);
 
-  const ethnicity = useWatch({ control: form.control, name: 'ethnicity' });
+  const ethnicity = useWatch({ control: form.control, name: "ethnicity" });
 
   function handleBack() {
     setCurrentStep(1);
@@ -129,47 +129,47 @@ export function PersonalDetailsStep({
   }
 
   const genderOptions = [
-    { value: 'male', label: 'Male' },
-    { value: 'female', label: 'Female' },
-    { value: 'other', label: 'Other' },
-    { value: 'prefer-not-to-say', label: 'Prefer not to say' }
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+    { value: "other", label: "Other" },
+    { value: "prefer-not-to-say", label: "Prefer not to say" },
   ];
 
   const ethnicityOptions = [
-    { value: 'white', label: 'White' },
-    { value: 'asian', label: 'Asian' },
-    { value: 'black', label: 'Black' },
-    { value: 'mixed', label: 'Mixed' },
-    { value: 'other', label: 'Other' }
+    { value: "white", label: "White" },
+    { value: "asian", label: "Asian" },
+    { value: "black", label: "Black" },
+    { value: "mixed", label: "Mixed" },
+    { value: "other", label: "Other" },
   ];
 
   const countryOptions = countries.map((country) => ({
     value: country,
-    label: country
+    label: country,
   }));
   const nationalityOptions = countries.map((nationality) => ({
     value: nationality,
-    label: nationality
+    label: nationality,
   }));
 
   const maritalStatusOptions = [
-    { value: 'single', label: 'Single' },
-    { value: 'married', label: 'Married or in civil partnership' },
-    { value: 'divorced', label: 'Divorced' },
-    { value: 'widowed', label: 'Widowed' }
+    { value: "single", label: "Single" },
+    { value: "married", label: "Married or in civil partnership" },
+    { value: "divorced", label: "Divorced" },
+    { value: "widowed", label: "Widowed" },
   ];
 
   const visaOptions = [
-    { value: 'yes', label: 'Yes' },
-    { value: 'no', label: 'No' }
+    { value: "yes", label: "Yes" },
+    { value: "no", label: "No" },
   ];
   const titleOptions = [
-    { value: 'Mr', label: 'Mr' },
-    { value: 'Mrs', label: 'Mrs' },
-    { value: 'Miss', label: 'Miss' },
-    { value: 'Ms', label: 'Ms' },
-    { value: 'Dr', label: 'Dr' },
-    { value: 'Prof', label: 'Prof' }
+    { value: "Mr", label: "Mr" },
+    { value: "Mrs", label: "Mrs" },
+    { value: "Miss", label: "Miss" },
+    { value: "Ms", label: "Ms" },
+    { value: "Dr", label: "Dr" },
+    { value: "Prof", label: "Prof" },
   ];
 
   return (
@@ -198,18 +198,23 @@ export function PersonalDetailsStep({
                           <Select
                             options={titleOptions}
                             value={titleOptions.find(
-                              (opt) => opt.value === value
+                              (opt) => opt.value === value,
                             )}
                             onChange={(option) => onChange(option?.value)}
                             className="react-select-container"
                             classNamePrefix="react-select"
+                            menuPortalTarget={document.body}
                             placeholder="Select your formal title as it appears on official documents."
                             styles={{
                               placeholder: (provided) => ({
                                 ...provided,
-                                fontSize: '0.75rem',
-                                color: '#9CA3AF'
-                              })
+                                fontSize: "0.75rem",
+                                color: "#9CA3AF",
+                              }),
+                              menuPortal: (base) => ({
+                                ...base,
+                                zIndex: 99909,
+                              }),
                             }}
                           />
                         )}
@@ -268,7 +273,7 @@ export function PersonalDetailsStep({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>
-                        Last Name (Surname){' '}
+                        Last Name (Surname){" "}
                         <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
@@ -301,10 +306,23 @@ export function PersonalDetailsStep({
                         <FormControl>
                           <CustomDatePicker
                             selected={selectedDate}
-                            onChange={(date) => field.onChange(date)}
+                            onChange={(date) => {
+                              if (date) {
+                                const utcDate = new Date(
+                                  Date.UTC(
+                                    date.getFullYear(),
+                                    date.getMonth(),
+                                    date.getDate(),
+                                  ),
+                                ).toISOString();
+
+                                field.onChange(utcDate);
+                              } else {
+                                field.onChange(null);
+                              }
+                            }}
                             placeholder="Enter your date of birth using the format DD/MM/YYYY."
                             // disabled = {true}
-                     
                           />
                         </FormControl>
                         <p className="mt-1 text-xs text-gray-400">
@@ -330,7 +348,6 @@ export function PersonalDetailsStep({
                           {...field}
                           placeholder="Enter a valid email address that you check regularly. All communication will be sent here."
                           className="!placeholder:text-gray-500  placeholder:text-xs placeholder:text-gray-500"
-                          disabled
                         />
                       </FormControl>
                       <p className="mt-1 text-xs text-gray-400">
@@ -381,7 +398,7 @@ export function PersonalDetailsStep({
                           value={
                             field.value
                               ? genderOptions.find(
-                                  (option) => option.value === field.value
+                                  (option) => option.value === field.value,
                                 )
                               : null
                           }
@@ -393,9 +410,9 @@ export function PersonalDetailsStep({
                           styles={{
                             placeholder: (provided) => ({
                               ...provided,
-                              fontSize: '0.75rem',
-                              color: '#9CA3AF'
-                            })
+                              fontSize: "0.75rem",
+                              color: "#9CA3AF",
+                            }),
                           }}
                         />
                       </FormControl>
@@ -415,7 +432,7 @@ export function PersonalDetailsStep({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>
-                        Country Of Residence{' '}
+                        Country Of Residence{" "}
                         <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
@@ -424,7 +441,7 @@ export function PersonalDetailsStep({
                           value={
                             field.value
                               ? countryOptions.find(
-                                  (option) => option.value === field.value
+                                  (option) => option.value === field.value,
                                 )
                               : null
                           }
@@ -436,9 +453,9 @@ export function PersonalDetailsStep({
                           styles={{
                             placeholder: (provided) => ({
                               ...provided,
-                              fontSize: '0.75rem',
-                              color: '#9CA3AF'
-                            })
+                              fontSize: "0.75rem",
+                              color: "#9CA3AF",
+                            }),
                           }}
                         />
                       </FormControl>
@@ -466,7 +483,7 @@ export function PersonalDetailsStep({
                           value={
                             field.value
                               ? ethnicityOptions.find(
-                                  (option) => option.value === field.value
+                                  (option) => option.value === field.value,
                                 )
                               : null
                           }
@@ -483,14 +500,14 @@ export function PersonalDetailsStep({
                 />
 
                 {/* Custom Ethnicity */}
-                {ethnicity === 'other' && (
+                {ethnicity === "other" && (
                   <FormField
                     control={form.control}
                     name="customEthnicity"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>
-                          Specify Ethnicity{' '}
+                          Specify Ethnicity{" "}
                           <span className="text-red-500">*</span>
                         </FormLabel>
                         <FormControl>
@@ -521,7 +538,7 @@ export function PersonalDetailsStep({
                           value={
                             field.value
                               ? countryOptions.find(
-                                  (option) => option.value === field.value
+                                  (option) => option.value === field.value,
                                 )
                               : null
                           }
@@ -533,9 +550,9 @@ export function PersonalDetailsStep({
                           styles={{
                             placeholder: (provided) => ({
                               ...provided,
-                              fontSize: '0.75rem',
-                              color: '#9CA3AF'
-                            })
+                              fontSize: "0.75rem",
+                              color: "#9CA3AF",
+                            }),
                           }}
                         />
                       </FormControl>
@@ -554,14 +571,16 @@ export function PersonalDetailsStep({
                   name="maritalStatus"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Marital Status <span className="text-red-500">*</span></FormLabel>
+                      <FormLabel>
+                        Marital Status <span className="text-red-500">*</span>
+                      </FormLabel>
                       <FormControl>
                         <Select
                           options={maritalStatusOptions}
                           value={
                             field.value
                               ? maritalStatusOptions.find(
-                                  (option) => option.value === field.value
+                                  (option) => option.value === field.value,
                                 )
                               : null
                           }
@@ -573,9 +592,9 @@ export function PersonalDetailsStep({
                           styles={{
                             placeholder: (provided) => ({
                               ...provided,
-                              fontSize: '0.75rem',
-                              color: '#9CA3AF'
-                            })
+                              fontSize: "0.75rem",
+                              color: "#9CA3AF",
+                            }),
                           }}
                         />
                       </FormControl>
@@ -596,7 +615,7 @@ export function PersonalDetailsStep({
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>
-                          From where are you making your application?{' '}
+                          From where are you making your application?{" "}
                           <span className="text-red-500">*</span>
                         </FormLabel>
                         <FormControl>
@@ -605,7 +624,7 @@ export function PersonalDetailsStep({
                             value={
                               field.value
                                 ? countryOptions.find(
-                                    (option) => option.value === field.value
+                                    (option) => option.value === field.value,
                                   )
                                 : null
                             }
@@ -617,9 +636,9 @@ export function PersonalDetailsStep({
                             styles={{
                               placeholder: (provided) => ({
                                 ...provided,
-                                fontSize: '0.75rem',
-                                color: '#9CA3AF'
-                              })
+                                fontSize: "0.75rem",
+                                color: "#9CA3AF",
+                              }),
                             }}
                           />
                         </FormControl>

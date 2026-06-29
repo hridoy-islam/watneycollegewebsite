@@ -6,7 +6,7 @@ import axiosInstance from "@/lib/axios";
 import ApplicationForm from "./components/application-form";
 import CourseSelectionForm from "./components/course-selection-form";
 import { BlinkingDots } from "@/components/blinking-dots";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 export interface Course {
   _id: string;
@@ -30,7 +30,8 @@ function CourseRegistration() {
   const [showApplication, setShowApplication] = useState(false);
   const { slug, id: courseIdFromUrl } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-
+  const router = useRouter();
+  
   useEffect(() => {
     async function fetchInitialData() {
       try {
@@ -75,33 +76,34 @@ function CourseRegistration() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
 
-    const selectedTerm = startDates.find(
-      (term) => term.termName === formData.termName,
-    );
-    const termId = selectedTerm?._id;
+  const selectedTerm = startDates.find(
+    (term) => term.termName === formData.termName,
+  );
+  const termId = selectedTerm?._id;
 
-    const selectedCourse = courses.find(
-      (course) => course.name === formData.courseName,
-    );
-    const courseId = selectedCourse?._id;
+  const selectedCourse = courses.find(
+    (course) => course.name === formData.courseName,
+  );
+  const courseId = selectedCourse?._id;
 
-    if (courseId && termId && formData.studentType) {
-      localStorage.setItem("slug", Array.isArray(slug) ? slug[0] : slug || "");
-      localStorage.setItem("courseId", courseId);
-      localStorage.setItem("termId", termId);
-      localStorage.setItem("studentType", formData.studentType);
+  if (courseId && termId && formData.studentType) {
+    localStorage.setItem("slug", Array.isArray(slug) ? slug[0] : slug || "");
+    localStorage.setItem("courseId", courseId);
+    localStorage.setItem("termId", termId);
+    localStorage.setItem("studentType", formData.studentType);
 
-      setShowApplication(true);
+    // Navigate based on student type
+    if (formData.studentType === 'international') {
+      router.push(`/courses/${slug}/${courseId}/internationalstudent-application`);
+    } else {
+      router.push(`/courses/${slug}/${courseId}/homestudent-application`);
     }
-  };
+  }
+};
 
-  // Check if course ID from URL matches any course
-  // const isPreselectedCourse = Boolean(
-  //   courseIdFromUrl && courses.find((course) => course._id === courseIdFromUrl)
-  // );
 
   const isPreselectedCourse = Boolean(
     !isLoading &&
@@ -117,14 +119,29 @@ function CourseRegistration() {
     );
   }
 
-  return showApplication ? (
-    <div className="container mx-auto">
-      <ApplicationForm
-        formData={formData}
-        onBack={() => setShowApplication(false)}
-      />
-    </div>
-  ) : (
+  // return showApplication ? (
+  //   <div className="container mx-auto">
+  //     <ApplicationForm
+  //       formData={formData}
+  //       onBack={() => setShowApplication(false)}
+  //     />
+  //   </div>
+  // ) : (
+  //   <div className="container mx-auto">
+  //     <CourseSelectionForm
+  //       formData={formData}
+  //       setFormData={setFormData}
+  //       courses={courses}
+  //       startDates={startDates}
+  //       handleCourseChange={handleCourseChange}
+  //       handleSubmit={handleSubmit}
+  //       courseIdFromUrl={courseIdFromUrl}
+  //       isPreselectedCourse={isPreselectedCourse}
+  //     />
+  //   </div>
+  // );
+
+  return (
     <div className="container mx-auto">
       <CourseSelectionForm
         formData={formData}

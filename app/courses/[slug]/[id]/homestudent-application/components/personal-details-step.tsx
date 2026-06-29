@@ -321,7 +321,6 @@ export function PersonalDetailsStep({
                           {...field}
                           placeholder="Enter a valid email address that you check regularly. All communication will be sent here."
                           className="!placeholder:text-gray-500  placeholder:text-xs placeholder:text-gray-500"
-                          disabled
                         />
                       </FormControl>
                       <p className="mt-1 text-xs text-gray-400">

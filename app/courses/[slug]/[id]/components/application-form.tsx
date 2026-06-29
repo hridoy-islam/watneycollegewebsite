@@ -45,58 +45,29 @@ export default function ApplicationForm({
 }: ApplicationFormProps) {
   const [showStudentApplication, setShowStudentApplication] = useState(false);
   const [showRegisterDialog, setShowRegisterDialog] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const navigate = useRouter();
-  const { user } = useSelector((state: any) => state.auth);
- const courseId = localStorage.getItem('courseId');
-  const slug = localStorage.getItem('slug');
-
-  // Format student type for display
-  const getFormattedStudentType = (type: string) => {
-    return type === 'international'
-      ? 'Overseas'
-      : type === 'eu'
-        ? 'Home Student'
-        : type;
-  };
 
   // useEffect(() => {
   //   if (!user) return;
 
-  //   if (user.isCompleted) {
-  //     const courseId = localStorage.getItem('courseId');
-  //     if (courseId) {
-  //       navigate(`/dashboard/course-application/${courseId}`);
-  //     }
-  //   } else if (!user.authorized) {
-  //     navigate('/dashboard/student-guideline');
+  //   if (!user.authorized) {
+  //     navigate.push(`/courses/${slug}/${courseId}/student-guideline`);
   //   } else {
-  //     if (formData.studentType === 'international') {
-  //       navigate('/dashboard/international/student-form');
+  //     if (user.isCompleted) {
+  //       const courseId = localStorage.getItem('courseId');
+  //       if (courseId) {
+  //         navigate.push(`/courses/${slug}/${courseId}/course-application`);
+  //       }
+  //     } else if (formData.studentType === 'international') {
+  //       navigate.push(`/courses/${slug}/${courseId}/internationalstudent-application`);
   //     } else {
-  //       navigate('/dashboard/eu/student-form');
+  //       navigate.push(`/courses/${slug}/${courseId}/homestudent-application`);
   //     }
   //   }
-  // }, [user,formData,  navigate]);
+  // }, [user, formData, navigate]);
 
-  useEffect(() => {
-    if (!user) return;
 
-    if (!user.authorized) {
-      navigate.push(`/courses/${slug}/${courseId}/student-guideline`);
-    } else {
-      if (user.isCompleted) {
-        const courseId = localStorage.getItem('courseId');
-        if (courseId) {
-          navigate.push(`/courses/${slug}/${courseId}/course-application`);
-        }
-      } else if (formData.studentType === 'international') {
-        navigate.push(`/courses/${slug}/${courseId}/internationalstudent-application`);
-      } else {
-        navigate.push(`/courses/${slug}/${courseId}/homestudent-application`);
-      }
-    }
-  }, [user, formData, navigate]);
+
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
