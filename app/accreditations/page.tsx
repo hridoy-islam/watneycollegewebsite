@@ -99,10 +99,10 @@ export default function AccreditationPage() {
                 // },
                 {
                   title: "ASIC",
-                  logo: "/asic.svg",
+                  logo: "/asic.jpeg",
                   link: "https://www.asic.org.uk/",
                   description:
-                    "The Accreditation Service for International Schools, Colleges, and Universities (ASIC) is a UK-based, internationally recognized quality assurance body that accredits private post-secondary institutions globally",
+                    "Watney College holds UK Accreditation from ASIC (Accreditation Service for International Schools, Colleges, and Universities).",
                 },
                 {
                   title: "ESB",
