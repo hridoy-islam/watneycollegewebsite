@@ -27,7 +27,7 @@ type PageState = "loading" | "invalid" | "expired" | "ready" | "confirmed" | "re
 type ActionType = "accept" | "reject";
 
 interface OfferDetails {
-  applicationId: string;
+  applicantId: string;
   offerType: string;
   applicantName: string;
   applicantEmail: string;
@@ -184,75 +184,87 @@ export default function OfferLetterPage() {
   const [actionType, setActionType] = useState<ActionType>("accept");
   const [confirming, setConfirming] = useState(false);
 
-  useEffect(() => {
-    const init = async () => {
-      // 1. Extract ONLY necessary params from URL (applicationId and letterType)
-      const keys = Array.from(searchParams.keys());
-      const applicationId = searchParams.get("applicationId") || keys[5]; // Fallback if still using positional keys
-      const rawLetterType = searchParams.get("letterType") || searchParams.get("offerType") || keys[6]; 
+useEffect(() => {
+  const init = async () => {
+    // Backend emits params in this exact order (see createEmailIntoDB):
+    // name, email, dob, intake, courseName, applicantId, offerType, token
+    const rawKeys = Array.from(searchParams.keys());
 
-      if (!applicationId || !rawLetterType) {
+    const [
+      rawName,
+      rawEmail,
+      rawDob,
+      rawIntake,
+      rawCourseName,
+      rawApplicantId,
+      rawOfferType,
+      rawToken,
+    ] = rawKeys;
+
+    // formatForUrl() replaced spaces with '-' before encoding, so reverse that
+    // for free-text fields only — NOT for dob (DD-MM-YYYY) or IDs/tokens.
+    const decodeText = (val?: string) =>
+      val ? decodeURIComponent(val).replace(/-/g, " ").trim() : "";
+    const decodeRaw = (val?: string) => (val ? decodeURIComponent(val) : "");
+
+    const applicantId = decodeRaw(rawApplicantId);
+    const rawLetterType = decodeRaw(rawOfferType);
+
+    if (!applicantId || !rawLetterType || !rawToken) {
+      setPageState("invalid");
+      return;
+    }
+
+    try {
+      const [appRes] = await Promise.all([
+        axiosInstance.get(`/applicants/${applicantId}`),
+      ]);
+
+      const apiData = appRes.data?.data;
+
+      if (!apiData) {
         setPageState("invalid");
         return;
       }
 
-      try {
-        // 2. Fetch all required data simultaneously
-        const [appRes] = await Promise.all([
-          axiosInstance.get(`/application-course/${applicationId}`),
-        //   axiosInstance.get(`/email?applicationId=${applicationId}`).catch(() => null) // Catch email errors safely
-        ]);
-
-        const apiData = appRes.data?.data;
-        const student = apiData?.studentId;
-
-        if (!apiData) {
-          setPageState("invalid");
-          return;
-        }
-
-        // Check if an offer type was already confirmed on the backend
-        if (apiData.offerType) {
-          setPageState("expired");
-          return;
-        }
-
-        // 3. Format dynamic fields
-        const formattedDob = student?.dateOfBirth 
-          ? new Date(student.dateOfBirth).toLocaleDateString('en-GB') // e.g., 20/06/2026
-          : "N/A";
-
-        const fullName = [student?.title, student?.firstName, student?.lastName]
-          .filter(Boolean)
-          .join(" ");
-
-        // Determine email (prioritizing the dedicated /email route, fallback to student object)
-        const fetchedEmail = student?.email||"N/A";
-
-        // 4. Construct parsed details using API response
-        const parsed: OfferDetails = {
-          applicationId: applicationId as string,
-          offerType: (rawLetterType as string).toLowerCase(),
-          applicantName: fullName,
-          applicantEmail: fetchedEmail,
-          applicantPhone: student?.phone || "N/A",
-          applicantDob: formattedDob,
-          studentType: student?.studentType?.toUpperCase() || "N/A",
-          refId: apiData.refId || "N/A",
-          intake: apiData.intakeId?.termName || "N/A",
-          courseName: apiData.courseId?.name || "N/A",
-        };
-
-        setDetails(parsed);
-        setPageState("ready");
-      } catch (err) {
-        console.error("Error verifying offer link:", err);
-        setPageState("invalid");
+      if (apiData.offerType) {
+        setPageState("expired");
+        return;
       }
-    };
 
-    init();
-  }, [searchParams]);
+      const formattedDob = apiData?.dateOfBirth
+        ? new Date(apiData.dateOfBirth).toLocaleDateString("en-GB")
+        : "N/A";
+
+      const fullName = [apiData?.title, apiData?.firstName, apiData?.lastName]
+        .filter(Boolean)
+        .join(" ");
+
+      const fetchedEmail = apiData?.email || "N/A";
+
+      const parsed: OfferDetails = {
+        applicantId,
+        offerType: rawLetterType.toLowerCase(),
+        applicantName: fullName,
+        applicantEmail: fetchedEmail,
+        applicantPhone: apiData?.phone || "N/A",
+        applicantDob: formattedDob,
+        studentType: apiData?.studentType?.toUpperCase() || "N/A",
+        refId: apiData.refId || "N/A",
+        intake: apiData.intakeId?.termName || "N/A",
+        courseName: apiData.courseId?.name || "N/A",
+      };
+
+      setDetails(parsed);
+      setPageState("ready");
+    } catch (err) {
+      console.error("Error verifying offer link:", err);
+      setPageState("invalid");
+    }
+  };
+
+  init();
+}, [searchParams]);
 
   const handleConfirm = async () => {
     if (!details) return;
@@ -260,7 +272,7 @@ export default function OfferLetterPage() {
     try {
       const payloadOfferType = actionType === "accept" ? details.offerType : "reject";
       await axiosInstance.patch(
-        `/application-course/${details.applicationId}`,
+        `/applicants/${details.applicantId}`,
         { offerType: payloadOfferType }
       );
       setShowModal(false);
