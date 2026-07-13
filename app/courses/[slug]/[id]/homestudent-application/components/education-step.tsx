@@ -230,7 +230,7 @@ const educationEntrySchema = z.object({
                     <span className="text-red-500">*</span>
                   </TableHead>
                   <TableHead>
-                    Date of Award (MM/DD/YYYY){' '}
+                    Date of Award (DD/MM/YYYY){' '}
                     <span className="text-red-500">*</span>
                   </TableHead>
                   <TableHead>

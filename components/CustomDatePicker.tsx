@@ -6,16 +6,15 @@ interface CustomDatePickerProps {
   onChange: (date: Date | null) => void;
   disabled?: boolean;
   placeholder?: string;
-     futureDate?: boolean;
+  futureDate?: boolean;
 }
 
 export function CustomDatePicker({
   selected,
   onChange,
-  disabled ,
+  disabled,
   placeholder = 'Select date',
-  futureDate = true 
-
+  futureDate = true
 }: CustomDatePickerProps) {
   const years = Array.from(
     { length: 100 },
@@ -36,15 +35,28 @@ export function CustomDatePicker({
     'Dec'
   ];
 
+  // Normalize the locally-selected date to UTC midnight so downstream
+  // .toISOString() calls don't shift the day backward/forward across timezones.
+  const handleChange = (date: Date | null) => {
+    if (!date) {
+      onChange(null);
+      return;
+    }
+    const utcDate = new Date(
+      Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
+    );
+    onChange(utcDate);
+  };
+
   return (
     <div className="relative z-[1000] w-full">
       <DatePicker
         selected={selected}
-        onChange={onChange}
+        onChange={handleChange}
         dateFormat="dd/MM/yyyy"
         disabled={disabled}
         popperClassName="z-[1001]"
-        maxDate={futureDate ? new Date(): undefined  }
+        maxDate={futureDate ? new Date() : undefined}
         portalId="root-portal"
         className="w-full"
         wrapperClassName="w-full block"

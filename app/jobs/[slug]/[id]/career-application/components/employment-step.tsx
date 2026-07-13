@@ -20,26 +20,23 @@ import {
   CardTitle
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { CustomDatePicker } from '@/components/CustomDatePicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import Select from 'react-select';
 
 // Zod Schema for Employment Form
 const employmentSchema = z
   .object({
-    isEmployed: z
-      .string()
-      .min(1, { message: 'Please specify if you are currently employed' }),
-
-    hasPreviousEmployment: z
-      .string()
-      .min(1, { message: 'Please specify if you have previous employment' }),
-
+    isEmployed: z.string(),
+    hasPreviousEmployment: z.string(),
     currentEmployment: z
       .object({
         employer: z.string().optional(),
         jobTitle: z.string().optional(),
         startDate: z.date().nullable().optional(),
         employmentType: z.string().optional(),
+        responsibilities: z.string().optional()
       })
       .optional(),
     previousEmployments: z
@@ -49,10 +46,13 @@ const employmentSchema = z
           jobTitle: z.string({ required_error: 'Job title is required.' }),
           startDate: z.date().nullable().optional(),
           endDate: z.date().nullable().optional(),
-          employmentType: z.string().optional(),
+          reasonForLeaving: z.string(),
+          responsibilities: z.string()
         })
       )
       .optional(),
+    hasEmploymentGaps: z.string().optional(),
+    employmentGapsExplanation: z.string().optional()
   })
   .superRefine((data, ctx) => {
     // Validate current employment if employed
@@ -73,6 +73,7 @@ const employmentSchema = z
         'jobTitle',
         'startDate',
         'employmentType',
+        'responsibilities'
       ];
 
       requiredFields.forEach((field) => {
@@ -103,7 +104,8 @@ const employmentSchema = z
           'jobTitle',
           'startDate',
           'endDate',
-          'employmentType'
+          'reasonForLeaving',
+          'responsibilities'
         ];
 
         requiredFields.forEach((field) => {
@@ -121,6 +123,28 @@ const employmentSchema = z
         });
       });
     }
+
+    if (
+      data.hasPreviousEmployment === 'yes' &&
+      !data.hasEmploymentGaps?.trim()
+    ) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Please specify if there were employment gaps.',
+        path: ['hasEmploymentGaps']
+      });
+    }
+
+    if (
+      data.hasEmploymentGaps === 'yes' &&
+      !data.employmentGapsExplanation?.trim()
+    ) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Explanation for employment gaps is required.',
+        path: ['employmentGapsExplanation']
+      });
+    }
   });
 
 type EmploymentData = z.infer<typeof employmentSchema>;
@@ -136,8 +160,33 @@ export function EmploymentStep({
       isEmployed: '',
       hasPreviousEmployment: '',
       previousEmployments: [],
+      hasEmploymentGaps: ''
     }
   });
+
+  useEffect(() => {
+    if (defaultValues) {
+      form.reset({
+        ...defaultValues,
+        currentEmployment: {
+          ...defaultValues.currentEmployment,
+          startDate: defaultValues.currentEmployment?.startDate
+            ? new Date(defaultValues.currentEmployment.startDate)
+            : undefined
+        },
+        previousEmployments:
+          defaultValues.previousEmployments?.map((employment) => ({
+            ...employment,
+            startDate: employment.startDate
+              ? new Date(employment.startDate)
+              : undefined,
+            endDate: employment.endDate
+              ? new Date(employment.endDate)
+              : undefined
+          })) || []
+      });
+    }
+  }, [defaultValues, form]);
 
   const { fields, append } = useFieldArray({
     control: form.control,
@@ -145,17 +194,10 @@ export function EmploymentStep({
   });
 
   const watchIsEmployed = form.watch('isEmployed');
+  const watchHasGaps = form.watch('hasEmploymentGaps');
 
   const onSubmit = (data: EmploymentData) => {
     onSaveAndContinue(data);
-  };
-
-  const handleBack = () => {
-    if (defaultValues?.studentType === 'international') {
-      setCurrentStep({ step: 4, subStep: 2 });
-    } else {
-      setCurrentStep({ step: 4, subStep: 1 });
-    }
   };
 
   // Initially show only the first question
@@ -167,6 +209,8 @@ export function EmploymentStep({
     setShowFullForm(true);
   };
 
+  const currentlyEmployed = form.watch('isEmployed');
+
   useEffect(() => {
     if (form.watch('hasPreviousEmployment') === 'yes' && fields.length === 0) {
       append({
@@ -174,7 +218,8 @@ export function EmploymentStep({
         jobTitle: '',
         startDate: undefined,
         endDate: undefined,
-        employmentType: '' // Initialize with empty string
+        reasonForLeaving: '',
+        responsibilities: ''
       });
     }
   }, [form.watch('hasPreviousEmployment')]);
@@ -193,34 +238,24 @@ export function EmploymentStep({
     { value: 'Freelance', label: 'Freelance' }
   ];
 
+  const contactPermissionOptions = [
+    { value: 'yes', label: 'Yes' },
+    { value: 'no', label: 'No' }
+  ];
+
   const previousEmploymentOptions = [
     { value: 'yes', label: 'Yes' },
     { value: 'no', label: 'No' }
   ];
 
-  useEffect(() => {
-    if (defaultValues) {
-      form.reset({
-        ...defaultValues,
-        currentEmployment: {
-          ...defaultValues.currentEmployment,
-          startDate: defaultValues.currentEmployment?.startDate
-            ? new Date(defaultValues.currentEmployment.startDate)
-            : undefined
-        },
-        previousEmployments:
-          defaultValues.previousEmployments?.map((employment: any) => ({
-            ...employment,
-            startDate: employment.startDate
-              ? new Date(employment.startDate)
-              : undefined,
-            endDate: employment.endDate
-              ? new Date(employment.endDate)
-              : undefined
-          })) || []
-      });
-    }
-  }, [defaultValues, form]);
+  const employmentGapOptions = [
+    { value: 'yes', label: 'Yes' },
+    { value: 'no', label: 'No' }
+  ];
+
+  function handleBack() {
+    setCurrentStep(4);
+  }
 
   return (
     <Card className="border-none shadow-none ">
@@ -260,7 +295,7 @@ export function EmploymentStep({
                         }
                         onChange={(option) => {
                           field.onChange(option ? option.value : '');
-                          handleEmploymentStatusChange(option?.value || '');
+                          handleEmploymentStatusChange(option?.value);
                         }}
                         className="text-sm"
                       />
@@ -277,11 +312,11 @@ export function EmploymentStep({
                 <>
                   {/* Current Employment Section */}
                   {watchIsEmployed === 'yes' && (
-                    <div className="rounded-lg border border-gray-200 p-2 md:p-4 shadow-sm">
+                    <div className="rounded-lg border border-gray-200  p-6 shadow-sm">
                       <h3 className="mb-4 text-xl font-medium">
                         Current Employment
                       </h3>
-                      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         {/* Employer Name */}
                         <FormField
                           name="currentEmployment.employer"
@@ -354,6 +389,7 @@ export function EmploymentStep({
                                     selected={selectedDate}
                                     onChange={(date) => field.onChange(date)}
                                     placeholder="Employment Start Date"
+                                    
                                   />
                                 </FormControl>
                                 <p className="text-xs  text-gray-400">
@@ -402,11 +438,36 @@ export function EmploymentStep({
                             </FormItem>
                           )}
                         />
+
+                        {/* Main Responsibilities */}
+                        <FormField
+                          name="currentEmployment.responsibilities"
+                          control={form.control}
+                          render={({ field }) => (
+                            <FormItem className="sm:col-span-2 lg:col-span-3">
+                              <FormLabel>
+                                Main Responsibilities{' '}
+                                <span className="text-red-500">*</span>
+                              </FormLabel>
+                              <FormControl>
+                                <Textarea
+                                  {...field}
+                                  className="!placeholder:text-gray-400 min-h-[80px] border border-gray-200   placeholder:text-xs  placeholder:text-gray-400"
+                                  placeholder="Job Duties"
+                                />
+                              </FormControl>
+                              <p className="mt-1 text-xs text-gray-400">
+                                Briefly describe your key responsibilities{' '}
+                              </p>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
                       </div>
                     </div>
                   )}
 
-                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     <FormField
                       name="hasPreviousEmployment"
                       control={form.control}
@@ -454,9 +515,9 @@ export function EmploymentStep({
                       {fields.map((fieldItem, index) => (
                         <div
                           key={fieldItem.id}
-                          className="mb-6 rounded-md border border-gray-200 p-4 md:p-6 shadow-sm"
+                          className="mb-6 rounded-md border border-gray-200 p-4 shadow-sm"
                         >
-                          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                             {/* Employer */}
                             <FormField
                               name={`previousEmployments.${index}.employer`}
@@ -474,7 +535,8 @@ export function EmploymentStep({
                                     />
                                   </FormControl>
                                   <p className="text-xs  text-gray-400">
-                                    Enter the name of your employer
+                                    Enter the name of your current employer
+                                    (e.g., NHS Trust){' '}
                                   </p>
                                   <FormMessage />
                                 </FormItem>
@@ -492,13 +554,11 @@ export function EmploymentStep({
                                     <span className="text-red-500">*</span>
                                   </FormLabel>
                                   <FormControl>
-                                    <Input
-                                      {...field}
-                                      placeholder="Position"
-                                    />
+                                    <Input {...field} placeholder="Position" />
                                   </FormControl>
                                   <p className="text-xs  text-gray-400">
-                                    State your job title
+                                    State your current job title (e.g., Support
+                                    Worker)
                                   </p>
                                   <FormMessage />
                                 </FormItem>
@@ -527,10 +587,12 @@ export function EmploymentStep({
                                           field.onChange(date)
                                         }
                                         placeholder="Employment Start Date"
+                                         futureDate={true}
                                       />
                                     </FormControl>
                                     <p className="text-xs  text-gray-400">
                                       Select the date you started this position
+                                      (e.g. 11/01/2000)
                                     </p>{' '}
                                     <FormMessage />
                                   </FormItem>
@@ -560,10 +622,11 @@ export function EmploymentStep({
                                           field.onChange(date)
                                         }
                                         placeholder="Employment End Date"
+                                         futureDate={true}
                                       />
                                     </FormControl>
                                     <p className="mt-1 text-xs text-gray-400">
-                                      Select the end date
+                                      Select the end date (e.g. 11/01/2000)
                                     </p>
                                     <FormMessage />
                                   </FormItem>
@@ -571,42 +634,50 @@ export function EmploymentStep({
                               }}
                             />
 
-                            {/* ADDED: Employment Type for Previous Employment */}
+                            {/* Reason for Leaving */}
                             <FormField
-                              name={`previousEmployments.${index}.employmentType`}
+                              name={`previousEmployments.${index}.reasonForLeaving`}
                               control={form.control}
                               render={({ field }) => (
                                 <FormItem>
                                   <FormLabel>
-                                    Employment Type{' '}
+                                    Reason for Leaving{' '}
                                     <span className="text-red-500">*</span>
                                   </FormLabel>
-
                                   <FormControl>
-                                    <Select
-                                      options={employmentTypeOptions}
-                                      placeholder="Select Type of Employment"
-                                      isClearable
-                                      value={
-                                        employmentTypeOptions.find(
-                                          (option) =>
-                                            option.value === field.value
-                                        ) || null
-                                      }
-                                      onChange={(option) =>
-                                        field.onChange(
-                                          option ? option.value : ''
-                                        )
-                                      }
-                                      className="text-sm"
+                                    <Input
+                                      {...field}
+                                      placeholder="Enter the reason"
                                     />
                                   </FormControl>
-
                                   <p className="mt-1 text-xs text-gray-400">
-                                    Select from options: Full-Time, Part-Time,
-                                    Contract, Freelance
+                                    Reason for Leaving the Position
                                   </p>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
 
+                            {/* Responsibilities */}
+                            <FormField
+                              name={`previousEmployments.${index}.responsibilities`}
+                              control={form.control}
+                              render={({ field }) => (
+                                <FormItem className="sm:col-span-2 lg:col-span-3 ">
+                                  <FormLabel>
+                                    Main Responsibilities{' '}
+                                    <span className="text-red-500">*</span>
+                                  </FormLabel>
+                                  <FormControl>
+                                    <Textarea
+                                      {...field}
+                                      className="min-h-[80px] border border-gray-200"
+                                      placeholder="Job Duties"
+                                    />
+                                  </FormControl>
+                                  <p className="mt-1 text-xs text-gray-400">
+                                    Briefly describe your key responsibilities{' '}
+                                  </p>
                                   <FormMessage />
                                 </FormItem>
                               )}
@@ -624,20 +695,110 @@ export function EmploymentStep({
                             jobTitle: '',
                             startDate: undefined,
                             endDate: undefined,
-                            employmentType: '' // Ensure new entries get this field
+                            reasonForLeaving: '',
+                            responsibilities: '',
                           })
                         }
                         className="bg-watney text-white hover:bg-watney/90"
                       >
-                        Add More Experience
+                        Add More Experiance
                       </Button>
                     </div>
                   )}
+
+                  {form.watch('hasPreviousEmployment') === 'yes' && (
+                    <>
+                      <FormField
+                        control={form.control}
+                        name="hasEmploymentGaps"
+                        render={({ field }) => (
+                          <FormItem className="max-w-md">
+                            <FormLabel>
+                              Any gaps of more than 1 month in the last 5 years?{' '}
+                              <span className="text-red-500">*</span>
+                            </FormLabel>
+
+                            <Select
+                              options={employmentGapOptions}
+                              placeholder="Select"
+                              isClearable
+                              value={
+                                employmentGapOptions.find(
+                                  (option) => option.value === field.value
+                                ) || null
+                              }
+                              onChange={(option) =>
+                                field.onChange(option ? option.value : '')
+                              }
+                              className="text-sm"
+                            />
+
+                            <p className="mt-1 text-xs text-gray-400">
+                              Have you had any periods of 1 month or more
+                              without employment in the past 5 years?
+                            </p>
+
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      {watchHasGaps === 'yes' && (
+                        <FormField
+                          name="employmentGapsExplanation"
+                          control={form.control}
+                          render={({ field }) => (
+                            <FormItem className="">
+                              <FormLabel>
+                                Please explain the reason{' '}
+                                <span className="text-red-500">*</span>
+                              </FormLabel>
+                              <FormControl>
+                                <Textarea
+                                  {...field}
+                                  className="min-h-[100px] border-gray-200"
+                                  placeholder="Explanation for Gaps
+"
+                                />
+                              </FormControl>
+                              <p className="mt-1 text-xs text-gray-400">
+                                Briefly explain the reason for any gaps (e.g.,
+                                study break, health reasons, relocation)
+                              </p>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      )}
+                    </>
+                  )}
+                  {/* <FormField
+                    name="declaration"
+                    control={form.control}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>
+                          <label className="flex items-center space-x-2">
+                            <input
+                              type="checkbox"
+                              checked={field.value}
+                              onChange={(e) => field.onChange(e.target.checked)}
+                            />
+                            <span>
+                              I confirm that the information provided is
+                              accurate.
+                            </span>
+                          </label>
+                        </FormLabel>
+                      </FormItem>
+                    )}
+                  /> */}
 
                   {/* Navigation Buttons */}
                   <div className="flex justify-between pt-4">
                     <Button
                       type="button"
+                      variant="outline"
                       className="bg-watney text-white hover:bg-watney/90"
                       onClick={() => {
                         if (showFullForm) {

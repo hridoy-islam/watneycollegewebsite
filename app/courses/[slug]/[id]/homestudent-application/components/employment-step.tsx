@@ -347,7 +347,7 @@ export function EmploymentStep({
                             return (
                               <FormItem>
                                 <FormLabel>
-                                  Start Date (MM/DD/YYYY){' '}
+                                  Start Date (DD/MM/YYYY){' '}
                                   <span className="text-red-500">*</span>
                                 </FormLabel>
                                 <FormControl>
@@ -518,7 +518,7 @@ export function EmploymentStep({
                                 return (
                                   <FormItem>
                                     <FormLabel>
-                                      Start Date (MM/DD/YYYY){' '}
+                                      Start Date (DD/MM/YYYY){' '}
                                       <span className="text-red-500">*</span>
                                     </FormLabel>
                                     <FormControl>
@@ -551,7 +551,7 @@ export function EmploymentStep({
                                 return (
                                   <FormItem>
                                     <FormLabel>
-                                      End Date (MM/DD/YYYY){' '}
+                                      End Date (DD/MM/YYYY){' '}
                                       <span className="text-red-500">*</span>
                                     </FormLabel>
                                     <FormControl>

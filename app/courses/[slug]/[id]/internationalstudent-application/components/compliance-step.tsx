@@ -244,7 +244,7 @@ export function ComplianceStep({
                   return (
                     <FormItem className="mt-2 flex w-full flex-col">
                       <FormLabel>
-                        Date of first entry in UK (MM/DD/YYYY)
+                        Date of first entry in UK (DD/MM/YYYY)
                       </FormLabel>
                       <FormControl>
                         <CustomDatePicker

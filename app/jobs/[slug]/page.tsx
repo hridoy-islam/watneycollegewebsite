@@ -1,4 +1,5 @@
-import { notFound } from 'next/navigation';
+"use client";
+import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { getJobBySlug, getSuggestedJobs, jobs } from '@/lib/jobData';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,25 +12,20 @@ import {
   Calendar,
   CheckCircle2,
   ArrowLeft,
-  Building2,
   Clock
 } from 'lucide-react';
 import moment from 'moment';
 
-export function generateStaticParams() {
-  return jobs.map((job) => ({
-    slug: job.slug,
-  }));
-}
 
-export default function JobDetailPage({ params }: { params: { slug: string } }) {
-  const job = getJobBySlug(params.slug);
 
-  if (!job) {
-    notFound();
-  }
-
+export default function JobDetailPage() {
+  const params = useParams();
+    const slug = params?.slug as string;
+  const job = jobs.find((j) => j.slug === slug);
+  const router = useRouter();
+ 
   const suggestedJobs = getSuggestedJobs(job.id);
+
 
   return (
     <div className="min-h-screen ">
@@ -44,7 +40,6 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <Card className="border-slate-200">
-
               <CardHeader className="space-y-4">
                 {/* Job Title */}
                 <div className="flex flex-row flex-wrap gap-2 items-center">
@@ -63,9 +58,7 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                 </div>
 
                 {/* Job Details */}
-
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {/* Salary */}
                   {job.salary && (
                     <div className="flex items-center text-slate-600">
                       <DollarSign className="w-5 h-5 mr-2 text-slate-400" />
@@ -73,7 +66,6 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                     </div>
                   )}
 
-                  {/* Posting Date */}
                   {job.postedDate && (
                     <div className="flex items-center text-slate-600">
                       <Calendar className="w-5 h-5 mr-2 text-slate-400" />
@@ -81,7 +73,6 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                     </div>
                   )}
 
-                  {/* Deadline */}
                   {job.deadline && (
                     <div className="flex items-center text-slate-600">
                       <Briefcase className="w-5 h-5 mr-2 text-slate-400" />
@@ -89,7 +80,6 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                     </div>
                   )}
 
-                  {/* Hours */}
                   {job.hours && (
                     <div className="flex items-center text-slate-600">
                       <Clock className="w-5 h-5 mr-2 text-slate-400" />
@@ -97,7 +87,6 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                     </div>
                   )}
 
-                  {/* Location */}
                   {job.location && (
                     <div className="flex items-center text-slate-600">
                       <MapPin className="w-5 h-5 mr-2 text-slate-400" />
@@ -105,34 +94,23 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                     </div>
                   )}
 
-                  {/* Remote Working */}
                   {job.remoteWorking && (
                     <div className="flex items-start text-slate-600">
                       <Briefcase className="w-6 h-6 mr-2 text-slate-400" />
                       Remote Working: {job.remoteWorking}
                     </div>
                   )}
-
-                  {/* Company */}
-                  {/* {job.company && (
-        <div className="flex items-center text-slate-600">
-          <Building2 className="w-5 h-5 mr-2 text-slate-400" />
-          {job.company}
-        </div>
-      )} */}
                 </div>
 
-
                 {/* Apply Button */}
-                {job.link && (
-                  <Button asChild className="py-5 text-lg">
-                    <a href={job.link} target="_blank" rel="noopener noreferrer">
-                      Apply Now
-                    </a>
-                  </Button>
-                )}
+                {job.jobId && (
+  <Button asChild className="py-5 text-lg">
+    <Link href={`/jobs/${slug}/${job.jobId}/career-application`}>
+      Apply Now
+    </Link>
+  </Button>
+)}
               </CardHeader>
-
 
               <CardContent className="space-y-8">
                 {/* Job Description */}
@@ -187,19 +165,15 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                 )}
 
                 {/* Final Call-to-Action */}
-                <div className="p-6 text-center space-y-4">
-
-                  <Button asChild className="px-8">
-                    <a
-                      href={job.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Apply Now
-                    </a>
-                  </Button>
-
-                </div>
+                {job.jobId && (
+  <div className="p-6 text-center space-y-4">
+    <Button asChild className="px-8">
+      <Link href={`/jobs/${slug}/${job.jobId}/career-application`}>
+        Apply Now
+      </Link>
+    </Button>
+  </div>
+)}
               </CardContent>
             </Card>
           </div>
@@ -218,7 +192,6 @@ export default function JobDetailPage({ params }: { params: { slug: string } }) 
                         <h4 className="font-semibold text-slate-900 mb-2 hover:text-blue-600">
                           {suggestedJob.title}
                         </h4>
-
                         <Badge variant="secondary" className="mt-2 bg-blue-100 text-blue-800 text-xs">
                           {suggestedJob.type}
                         </Badge>
