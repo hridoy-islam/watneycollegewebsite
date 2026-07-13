@@ -180,7 +180,7 @@ export default function AdultSocialCareTabs() {
       {/* === Career Tab (Programme Structure) === */}
       <TabsContent value="career" className="space-y-4">
         <TermTable
-          termTitle="(Weeks 1-7, 01/04/2026 - 20/05/2026)"
+          termTitle="(Weeks 1-7)"
           termSubtitle="Mandatory Units — Foundation and Core Knowledge Phase"
           rows={[
             {
@@ -248,7 +248,7 @@ export default function AdultSocialCareTabs() {
 
 
         <TermTable
-    termTitle="(Weeks 8-13, 15/06/2026 - 21/07/2026)"
+    termTitle="(Weeks 8-13)"
     termSubtitle="Mandatory Units — Advanced and Specialist Knowledge Phase"
     rows={[
       {

@@ -26,6 +26,7 @@ import { courses } from "@/app/courses/data/courseData";
 import AdultCareDiplomaTabs from "../components/AdultCareDiplomaTabs";
 import AdultSocialCareTabs from "../components/AdultSocialCareTabs";
 import GeneralEnglishTabs from "../components/GeneralEnglishTab";
+import NQualLevel3DiplomaAdultCareTabs from "../components/NQualLevel3DiplomaAdultCareTabs";
 
 export default function CourseDetailPage() {
   const searchParams = useSearchParams();
@@ -39,6 +40,7 @@ export default function CourseDetailPage() {
   const isAdultCareDiploma = course?.slug === "level-4-diploma-in-adult-care";
   const isAdultSocialCare = course?.slug === "level-2-adult-social-care";
   const isGeneralEnglish = course?.slug === "general-english-programme-b1-c1";
+  const isNQualLevel3 = course?.slug === "level-3-diploma-in-adult-care";
 
   if (!course) {
     return (
@@ -204,6 +206,8 @@ export default function CourseDetailPage() {
                     <AdultSocialCareTabs />
                   ) : isGeneralEnglish?(<GeneralEnglishTabs/>):isAdultCareDiploma ? (
                     <AdultCareDiplomaTabs />
+                  ) : isNQualLevel3 ? (
+                    <NQualLevel3DiplomaAdultCareTabs />
                   ) : (
                     <>
                       {/* === Original Dynamic Tabs for Other Courses === */}
