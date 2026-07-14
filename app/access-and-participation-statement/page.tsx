@@ -179,9 +179,10 @@ export default function AccessAndParticipationPage() {
                   className="btn-watney-primary hover:btn-watney-primary/90 text-md sm:text-lg h-auto py-4 px-6 w-full sm:w-auto"
                 >
                   <Link
-                    href="/A2-ACCESS-AND-PARTICIPATION-STATEMENT.pdf"
+                    href="/ACCESS-AND-PARTICIPATION-STATEMENT.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
+                    download={'Access and Participation Statement.pdf'}
                     className="flex items-center text-center justify-center whitespace-normal h-auto"
                   >
                     Download the full Access and Participation Statement (PDF)
