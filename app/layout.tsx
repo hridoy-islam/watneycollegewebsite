@@ -81,7 +81,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="relative">
+      <body className="relative" suppressHydrationWarning>
         <Header />
         <div className="pt-24 min-h-screen">
           <Providers>{children}</Providers>
