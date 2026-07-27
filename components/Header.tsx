@@ -17,6 +17,8 @@ export default function Header() {
    
     { name: "Accreditations", path: "/accreditations" },
 
+    { name: "News & Insights", path: "/news-and-insights" },
+
     { name: "Contact", path: "/contact" },
   ];
 

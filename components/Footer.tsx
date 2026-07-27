@@ -50,6 +50,7 @@ export default function Footer() {
     { name: "Career & Employability", href: "/career-employability" },
     { name: "Prospectus 2025-26", href: "/prospectus" },
     { name: "Jobs", href: "/jobs" },
+    { name: "News & Insights", href: "/news-and-insights" },
   ];
 
   const aboutLinks = [
