@@ -89,7 +89,7 @@ const directors = [
     type: "Executive",
   },
   {
-    name: "Dr ATM Alam",
+    name: "Dr S Alam",
     role: "Principal",
     expertise: "Electronic Engineering and Computer Science",
     type: "Executive",
