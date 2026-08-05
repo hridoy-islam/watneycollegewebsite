@@ -91,8 +91,8 @@ export default function NQualLevel3DiplomaAdultCareTabs() {
   const term1OptionalCredits = term1Optional.reduce((s, r) => s + r.credits, 0); // 7
   const term1TotalGLH = term1MandatoryGLH + term1OptionalGLH; // 208
   const term1TotalCredits = term1MandatoryCredits + term1OptionalCredits; // 26
-  const term1SixtyPercent = 125;
-  const term1CP = 131;
+  // const term1SixtyPercent = 125;
+  // const term1CP = 131;
  
   // ===== Term 2 =====
   const term2Mandatory = [
@@ -116,8 +116,8 @@ export default function NQualLevel3DiplomaAdultCareTabs() {
   const term2OptionalCredits = term2Optional.reduce((s, r) => s + r.credits, 0); // 12
   const term2TotalGLH = term2MandatoryGLH + term2OptionalGLH; // 256
   const term2TotalCredits = term2MandatoryCredits + term2OptionalCredits; // 32
-  const term2SixtyPercent = 153;
-  const term2CP = 161;
+  // const term2SixtyPercent = 153;
+  // const term2CP = 161;
   
   return (
     <>
@@ -335,7 +335,7 @@ export default function NQualLevel3DiplomaAdultCareTabs() {
                     <td className="border p-2 text-center">{term1TotalGLH}</td>
                     <td className="border p-2 text-center">{term1TotalCredits}</td>
                   </tr>
-                  <tr>
+                  {/* <tr>
                     <td className="border p-2"></td>
                     <td className="border p-2">60%</td>
                     <td className="border p-2 text-center">{term1SixtyPercent}</td>
@@ -346,7 +346,7 @@ export default function NQualLevel3DiplomaAdultCareTabs() {
                     <td className="border p-2">CP 1</td>
                     <td className="border p-2 text-center">{term1CP}</td>
                     <td className="border p-2"></td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
             </div>
@@ -414,7 +414,7 @@ export default function NQualLevel3DiplomaAdultCareTabs() {
                     <td className="border p-2 text-center">{term2TotalGLH}</td>
                     <td className="border p-2 text-center">{term2TotalCredits}</td>
                   </tr>
-                  <tr>
+                  {/* <tr>
                     <td className="border p-2"></td>
                     <td className="border p-2">60%</td>
                     <td className="border p-2 text-center">{term2SixtyPercent}</td>
@@ -425,7 +425,7 @@ export default function NQualLevel3DiplomaAdultCareTabs() {
                     <td className="border p-2">CP 2</td>
                     <td className="border p-2 text-center">{term2CP}</td>
                     <td className="border p-2"></td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
             </div>
