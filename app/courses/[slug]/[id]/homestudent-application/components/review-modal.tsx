@@ -464,6 +464,7 @@ export function ReviewModal({
               proofOfAddress: getDataValue('proofOfAddress'),
               photoId: getDataValue('photoId'),
               photograph: getDataValue('image') || 'Not Provided',
+              shareCodeDoc: getDataValue('shareCodeDoc'),
               englishCertificate: getDataValue('englishQualification', 'englishCertificate')
             })}
           </div>

@@ -467,7 +467,7 @@ useEffect(() => {
               transition={{ duration: 0.5, delay: 0.25 }}
               className="flex justify-end gap-4 pt-2"
             >
-              <Button
+              {/* <Button
                 variant="outline"
                 size="lg"
                 className="border-red-200 text-red-600 bg-red-600 hover:bg-red-500  px-8"
@@ -477,7 +477,7 @@ useEffect(() => {
                 }}
               >
                 Reject Offer
-              </Button>
+              </Button> */}
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-white px-8"

@@ -6,7 +6,9 @@ import {
   FileText,
   ExternalLink,
   Upload,
-  CheckCircle
+  CheckCircle,
+  Plus,
+  X
 } from 'lucide-react';
 import { ImageUploader } from './document-uploader';
 import { useSelector } from 'react-redux';
@@ -21,7 +23,8 @@ export const documentSchema = z.object({
     .nonempty({ message: 'Proof of address is required' }),
   qualification: z.array(z.string()).optional(),
   workExperience: z.array(z.string()).optional(),
-  personalStatement: z.array(z.string()).optional()
+  personalStatement: z.array(z.string()).optional(),
+  shareCodeDoc: z.array(z.string()).optional()
 });
 
 export type DocumentFile = z.infer<typeof documentSchema>;
@@ -45,7 +48,8 @@ export function DocumentsStep({
     photoId: defaultValues?.photoId ?? [],
     qualification: defaultValues?.qualification ?? [],
     workExperience: defaultValues?.workExperience ?? [],
-    personalStatement: defaultValues?.personalStatement ?? []
+    personalStatement: defaultValues?.personalStatement ?? [],
+    shareCodeDoc: defaultValues?.shareCodeDoc ?? []
   });
 
   // Ref to always have the latest documents
@@ -66,7 +70,27 @@ export function DocumentsStep({
     Record<string, string>
   >({});
 
+  const [shareCodeInput, setShareCodeInput] = useState('');
+
   const { user } = useSelector((state: any) => state.auth);
+
+  const handleAddShareCode = () => {
+    const code = shareCodeInput.trim();
+    if (!code) return;
+    if ((documents.shareCodeDoc || []).includes(code)) return;
+    setDocuments((prev) => ({
+      ...prev,
+      shareCodeDoc: [...(prev.shareCodeDoc || []), code]
+    }));
+    setShareCodeInput('');
+  };
+
+  const handleRemoveShareCode = (code: string) => {
+    setDocuments((prev) => ({
+      ...prev,
+      shareCodeDoc: (prev.shareCodeDoc || []).filter((item) => item !== code)
+    }));
+  };
 
   const handleRemoveFile = (field: keyof DocumentFile, fileName: string) => {
     if (field === 'image') {
@@ -455,7 +479,77 @@ export function DocumentsStep({
         )}
       </div>
 
-      {/* Navigation Buttons */}
+          {/* Share Code section */}
+          <div className="mt-4 rounded-xl border-2 border-gray-100 bg-gray-50 p-4 sm:p-6">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex-1">
+                <div className="mb-2 flex items-center space-x-3">
+                  <div className="rounded-lg bg-gray-100 p-2">
+                    <FileText className="h-5 w-5 text-gray-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-gray-900 sm:text-lg">
+                      Share Code
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      Add any share codes you have (e.g., UKVI share codes)
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
+                  <input
+                    type="text"
+                    value={shareCodeInput}
+                    onChange={(e) => setShareCodeInput(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault();
+                        handleAddShareCode();
+                      }
+                    }}
+                    placeholder="Enter a share code"
+                    className="h-10 w-full rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-watney focus:outline-none sm:max-w-xs"
+                  />
+                  <Button
+                    type="button"
+                    onClick={handleAddShareCode}
+                    className="flex items-center justify-center space-x-2 rounded-lg bg-watney px-4 py-2 text-sm text-white transition-colors hover:bg-watney/90"
+                  >
+                    <Plus className="h-4 w-4" />
+                    <span>Add Code</span>
+                  </Button>
+                </div>
+
+                {documents.shareCodeDoc && documents.shareCodeDoc.length > 0 && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {documents.shareCodeDoc.map((code, index) => (
+                      <div
+                        key={`${code}-${index}`}
+                        className="flex items-center gap-2 rounded-full border border-gray-200 bg-white py-1 pl-3 pr-1.5"
+                      >
+                        <span className="text-sm font-medium text-gray-800">
+                          {code}
+                        </span>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          type="button"
+                          onClick={() => handleRemoveShareCode(code)}
+                          className="h-6 w-6 rounded-full p-0 text-gray-400 hover:bg-red-50 hover:text-red-500"
+                          title="Remove share code"
+                        >
+                          <X className="h-3.5 w-3.5" />
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation Buttons */}
       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-between">
         <Button
           type="button"
