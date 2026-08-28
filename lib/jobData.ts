@@ -262,57 +262,52 @@ export const jobs: Job[] = [
     location: "80-82 Nelson Street, London, E1 2DY",
     remoteWorking: ""
   },
-  {
+ {
     id: "5",
-    slug: "lecturer-and-assessor",
-    title: "Lecturer & Assessor",
+    slug: "lecturer-assessor-it-ai",
+    title: "Lecturer & Assessor — IT / AI",
     type: "Permanent",
-    salary: "£40,000 annual (prorata basis)",
+   salary: "£40,000 annual (prorata basis) — Negotiable",
     description:
-      "Watney College is a growing independent college in East London committed to delivering high-quality further and higher education. We offer a range of professional and vocational qualifications accredited by recognised awarding bodies such as Nqual, ATHE and OTHM. We are working towards partnerships with UK universities and registration with the Office for Students (OfS), aiming to establish ourselves as a trusted higher education provider.\n\nWe are seeking a Lecturer & Assessor to coordinate with the Programme Leader within their module specification and ensure high-quality lectures and learning are delivered to students in IT/AI.",
+      "About Watney College\nWatney College is a growing independent college in East London delivering further and higher education. We currently hold accreditation with ESB, Highfield and Focus Awards, and are working towards Office for Students (OfS) registration and university partnerships as we expand into higher education, including delivery of ATHE Level 3 qualifications.\n\nThe Role\nWe're looking for a Lecturer & Assessor to deliver high-quality teaching and assessment on our AI & Automation Practitioner apprenticeship (Level 4), working closely with the Programme Leader to plan, teach and assess against the programme specification.",
     responsibilities: [
-      "Coordinate with the Programme Leader within their module specification and ensure high-quality lectures and learning are delivered to students.",
-      "Prepare lecture materials with lesson plans, scheme of work and assessment materials according to the HEI/AB programme specification and deadlines.",
-      "Carry out personal tutoring systems and report outcomes in the given format to the programme leader at the end of each week.",
-      "Plan arrangements to conduct formative and summative assessment for students on time through assigned teaching modules and provide constructive feedback within the time frame provided.",
-      "Assess the work submitted by learners, checking authenticity, validity and sufficiency of evidence produced against the relevant assessment criteria and learning outcomes.",
-      "Provide timely, constructive and criterion-referenced feedback to learners to support improvement and progression.",
-      "Participate in internal verification and quality assurance processes, including responding to Internal Verifier feedback and implementing agreed actions where required.",
-      "Support the promotion and strengthening of the teaching, learning and assessment within the College campus.",
-      "Assist with the Programme Leader and Head of Academic to carry out annual programme monitoring and review as per the partner HEI/FEC and QAA standards.",
-      "Attend Programme Committee meetings regularly and work on follow up measures and decisions taken by the Programme Committee.",
-      "Attend Standardisation meetings at different stages of assessment set by the College's Assessment and Progression Board.",
-      "Maintain one's own Continuing Professional Development and attend internal and external training arranged by the Academic department.",
-      "Provide feedback forms to students to complete and submit the completed forms to the College Oversight Board for monitoring and review.",
-      "Provide full cooperation for all WC PSRBs visits – such as OfS, Pearson and UK HEI, UK FECs visits apart from usual lecture working hours.",
-      "Assess the work submitted by learners, checking authenticity and sufficiency of evidence produced against the relevant criteria.",
-      "Deal with the marking of late submissions, re-submissions and mitigating circumstances in line with UK HEI assessment practices and guidance.",
-      "Any other academic duties assigned by the Programme Leader and the Head of Academic where necessary."
+      "Deliver lectures and learning aligned with the Programme Leader's module specification",
+      "Prepare lesson plans, schemes of work and assessment materials to programme deadlines",
+      "Run personal tutoring and report weekly outcomes to the Programme Leader",
+      "Plan and deliver formative and summative assessments on schedule",
+      "Assess learner work for authenticity, validity and sufficiency against assessment criteria, and provide timely, constructive feedback",
+      "Handle late submissions, resubmissions and mitigating circumstances per UK HEI guidance",
+      "Take part in internal verification and quality assurance, acting on Internal Verifier feedback",
+      "Support annual programme monitoring and review with the Programme Leader and Head of Academic",
+      "Attend Programme Committee and Standardisation meetings, and follow up on agreed actions",
+      "Collect student feedback forms and submit them to the College Oversight Board",
+      "Support PSRB visits (OfS, Pearson, partner HEIs/FECs), including outside usual teaching hours where needed",
+      "Maintain your own CPD and attend College training",
+      "Take on other academic duties as reasonably assigned by the Programme Leader or Head of Academic"
     ],
    requirements: [
-  "The Post holder must have good interpersonal, organisational and communication skills in English.",
-  "Should have appropriate skills, knowledge and aptitudes related to their relevant academic work.",
-  "Must have an undergraduate qualification in Computer Science and relevant training (preferable) according to the department they are assigned to.",
-  "Must possess a completed and recognised assessor qualification (Level 3, 4 or 5).",
-  "The person must have related qualifications (must be in the next level of their teaching programme), education and training according to the discipline they work with, i.e. PCE, PGC in Education or Level 5 DET.",
-  "Able to assist with the programme leaders and lecturers and in flexibility in terms of urgent accomplishment of certain works for QAA, AO, HEI and FEC visits.",
-  "The Post holder must have good numeracy skills.",
-  "The Post holder must not have any unspent criminal convictions as per the Rehabilitation of Offenders Act 1974.",
-  "Must be able to travel and stay in other destinations (if required) for regular basis arrangements and for any urgent needs."
-],
+      "Strong interpersonal, organisational and communication skills",
+      "Good numeracy skills",
+      "An undergraduate degree in Computer Science (or closely related), plus relevant training for your subject area",
+      "Familiarity with AI/automation tools and concepts (e.g. low-/no-code platforms, prompt engineering, workflow automation) relevant to teaching this programme",
+      "A completed assessor qualification (Level 3, 4 or 5)",
+      "A teaching qualification appropriate to your discipline (e.g. PCE, PGCE, or Level 5 DET) — or working towards the next level",
+      "Flexibility to support urgent QAA, awarding body, HEI or FEC visit requirements",
+      "No unspent convictions under the Rehabilitation of Offenders Act 1974"
+    ],
     benefits: [
-      "Be part of a growing and ambitious institution at a pivotal stage in its development.",
-      "Opportunity to shape the college's future direction and impact student outcomes.",
-      "Collaborative and inclusive working environment.",
-      "Professional development and leadership opportunities."
+      "Be part of a growing, ambitious college at a pivotal stage of its development",
+      "Help shape the College's direction and student outcomes",
+      "A collaborative, inclusive working environment",
+      "Genuine professional development and leadership opportunities"
     ],
     postedDate: "2026-07-30",
     deadline: "2026-12-31",
     link: "https://app.watneycollege.co.uk/jobs/apply/6a6b14e7af946e5c9db8f63a",
     hours: "As per requirement – full time/ part time adjustments",
     location: "80-82 Nelson Street, London, E1 2DY",
-    remoteWorking: "On-site with flexibility as per agreement"
-  }
+    remoteWorking: "Hybrid"
+}
 ];
 
 export function getJobBySlug(slug: string): Job | undefined {

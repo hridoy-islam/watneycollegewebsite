@@ -132,19 +132,21 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
               <CardContent className="space-y-8">
                 {/* Job Description */}
                 <section>
-                  <h3 className="text-2xl font-semibold mb-3 text-slate-900">Job Description</h3>
-                  <p className="text-slate-700 leading-relaxed">{job.description}</p>
+                  <h3 className="text-2xl font-semibold mb-3 ">Job Description</h3>
+              <p className=" leading-relaxed whitespace-pre-line">
+  {job.description.replace(/\\n/g, "\n")}
+</p>
                 </section>
 
                 {/* Responsibilities */}
                 {job.responsibilities?.length > 0 && (
                   <section>
-                    <h3 className="text-2xl font-semibold mb-3 text-slate-900">Responsibilities</h3>
+                    <h3 className="text-2xl font-semibold mb-3 ">Responsibilities</h3>
                     <ul className="space-y-3">
                       {job.responsibilities.map((responsibility, index) => (
                         <li key={index} className="flex items-start">
                           <CheckCircle2 className="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-slate-700">{responsibility}</span>
+                          <span className="">{responsibility}</span>
                         </li>
                       ))}
                     </ul>
@@ -154,12 +156,12 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
                 {/* Requirements */}
                 {job.requirements?.length > 0 && (
                   <section>
-                    <h3 className="text-2xl font-semibold mb-3 text-slate-900">Requirements</h3>
+                    <h3 className="text-2xl font-semibold mb-3 ">Requirements</h3>
                     <ul className="space-y-3">
                       {job.requirements.map((requirement, index) => (
                         <li key={index} className="flex items-start">
                           <CheckCircle2 className="w-5 h-5 mr-3 text-blue-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-slate-700">{requirement}</span>
+                          <span className="">{requirement}</span>
                         </li>
                       ))}
                     </ul>
@@ -169,12 +171,12 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
                 {/* Benefits */}
                 {job.benefits?.length > 0 && (
                   <section>
-                    <h3 className="text-2xl font-semibold mb-3 text-slate-900">Benefits</h3>
+                    <h3 className="text-2xl font-semibold mb-3 ">Benefits</h3>
                     <ul className="space-y-3">
                       {job.benefits.map((benefit, index) => (
                         <li key={index} className="flex items-start">
                           <CheckCircle2 className="w-5 h-5 mr-3 text-slate-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-slate-700">{benefit}</span>
+                          <span className="">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -210,7 +212,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
                   suggestedJobs.map((suggestedJob) => (
                     <Link key={suggestedJob.id} href={`/jobs/${suggestedJob.slug}`}>
                       <div className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all cursor-pointer">
-                        <h4 className="font-semibold text-slate-900 mb-2 hover:text-blue-600">
+                        <h4 className="font-semibold  mb-2 hover:text-blue-600">
                           {suggestedJob.title}
                         </h4>
 
