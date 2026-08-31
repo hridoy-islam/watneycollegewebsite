@@ -267,7 +267,7 @@ export const jobs: Job[] = [
     slug: "lecturer-assessor-it-ai",
     title: "Lecturer & Assessor — IT / AI",
     type: "Permanent",
-   salary: "£40,000 annual (prorata basis) — Negotiable",
+   salary: "Negotiable",
     description:
       "About Watney College\nWatney College is a growing independent college in East London delivering further and higher education. We currently hold accreditation with ESB, Highfield and Focus Awards, and are working towards Office for Students (OfS) registration and university partnerships as we expand into higher education, including delivery of ATHE Level 3 qualifications.\n\nThe Role\nWe're looking for a Lecturer & Assessor to deliver high-quality teaching and assessment on our AI & Automation Practitioner apprenticeship (Level 4), working closely with the Programme Leader to plan, teach and assess against the programme specification.",
     responsibilities: [
