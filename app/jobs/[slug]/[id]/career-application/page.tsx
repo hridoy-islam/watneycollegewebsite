@@ -34,8 +34,8 @@ const careerFormSteps = [
 ];
 
 export default function CareerApplicationForm() {
-  const params = useParams();
-  const id = params?.id as string;
+  const {id} = useParams();
+
 
   const [currentStep, setCurrentStep] = useState(1);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);

@@ -6,19 +6,19 @@ interface BlinkingDotsProps {
 }
 
 export function BlinkingDots({
-  size = 'medium',
-  color = 'bg-blue-600'
+  size = 'large',
+  color = 'bg-watney-blue-primary',
 }: BlinkingDotsProps) {
   const sizeClasses = {
     small: 'w-1.5 h-1.5',
     medium: 'w-2.5 h-2.5',
-    large: 'w-4 h-4'
+    large: 'w-4 h-4',
   };
 
   const containerSizeClasses = {
     small: 'space-x-1',
     medium: 'space-x-2',
-    large: 'space-x-3'
+    large: 'space-x-3',
   };
 
   return (
@@ -29,8 +29,10 @@ export function BlinkingDots({
         <div
           key={index}
           className={`${sizeClasses[size]} ${color} animate-blink rounded-full`}
-          style={{ animationDelay: `${index * 0.2}s` }}
-        ></div>
+          style={{
+            animationDelay: `${index * 0.2}s`,
+          }}
+        />
       ))}
     </div>
   );
