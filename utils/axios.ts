@@ -1,11 +1,14 @@
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api";
-// const API_URL = "https://api.robofxtrader.com/api";
 
-const Axios: AxiosInstance = axios.create({
+
+const axiosInstance = axios.create({
   baseURL: API_URL,
   withCredentials: true,
+  headers: {
+    'Content-Type': 'application/json'
+  }
 });
 
-export default Axios;
+export default axiosInstance;
