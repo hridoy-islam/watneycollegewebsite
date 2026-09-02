@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import axiosInstance from '@/utils/axios';
+import axios from 'axios';
 import { Badge } from '@/components/ui/badge';
 import { Briefcase, ChevronRight } from 'lucide-react';
 import { Separator } from '@radix-ui/react-select';
@@ -17,7 +17,7 @@ export default function JobPage() {
   const fetchData = async (page: number, limit: number) => {
     try {
       setInitialLoading(true);
-      const res = await axiosInstance.get('/jobs', {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/jobs`, {
         params: { page, limit, status: 1 },
       });
       const data = res.data?.data;

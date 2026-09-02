@@ -2,7 +2,7 @@
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import axiosInstance from '@/utils/axios';
+import axios from 'axios';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -30,7 +30,7 @@ export default function JobDetailPage() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await axiosInstance.get('/jobs');
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/jobs`);
         const data = res.data?.data;
         let result: any[] = [];
         if (data && Array.isArray(data.result)) {
