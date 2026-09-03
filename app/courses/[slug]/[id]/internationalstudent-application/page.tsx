@@ -29,7 +29,7 @@ import { updateAuthIsCompleted } from '@/redux/features/authSlice';
 import { FundingInformation } from './components/fundingInformation';
 import { EthnicityStep } from './components/EthnicityStep';
 import { RefereeDetailsStep } from './components/referee-details-step';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const APPLICATION_FORM_KEY = 'international_student_application_data';
 
@@ -52,13 +52,19 @@ useEffect(() => {
   if (savedFormData) {
     try {
       const parsedData = JSON.parse(savedFormData);
-      setFormData(parsedData);
-      
-      // Check if the form was previously submitted
+
+      // If previously submitted, purge stale form data but keep the flag
       if (parsedData._formSubmitted) {
+        const submissionState = {
+        
+        };
+        localStorage.setItem(APPLICATION_FORM_KEY, JSON.stringify(submissionState));
+        setFormData(submissionState);
         isFormSubmitted.current = true;
         setFormSubmitted(true);
         setCourseSubmitted(parsedData._courseSubmitted || false);
+      } else {
+        setFormData(parsedData);
       }
     } catch (error) {
       console.error('Error parsing saved form data:', error);
@@ -144,13 +150,20 @@ useEffect(() => {
   if (savedFormData) {
     try {
       const parsedData = JSON.parse(savedFormData);
-      setFormData(parsedData);
-      
-      // Check if the form was previously submitted
+
+      // If previously submitted, purge stale form data but keep the flag
       if (parsedData._formSubmitted) {
+        const submissionState = {
+          _formSubmitted: true,
+          _courseSubmitted: parsedData._courseSubmitted || false
+        };
+        localStorage.setItem(APPLICATION_FORM_KEY, JSON.stringify(submissionState));
+        setFormData(submissionState);
         isFormSubmitted.current = true;
         setFormSubmitted(true);
         setCourseSubmitted(parsedData._courseSubmitted || false);
+      } else {
+        setFormData(parsedData);
       }
     } catch (error) {
       console.error('Error parsing saved form data:', error);
@@ -162,23 +175,20 @@ useEffect(() => {
 
 
 useEffect(() => {
-  setFormData((prev: any) => {
-    const updated = {
-      ...prev,
-      studentType: savedStudentType,
-      courseDetailsData: {
-        ...(prev.courseDetailsData || {}),
-        course: savedCourseId || '',
-        intake: savedTermId || ''
-      }
-    };
-    // Don't overwrite existing localStorage data unless necessary
-    const existingData = localStorage.getItem(APPLICATION_FORM_KEY);
-    if (!existingData) {
-      localStorage.setItem(APPLICATION_FORM_KEY, JSON.stringify(updated));
+  if (isFormSubmitted.current) return;
+  const raw = localStorage.getItem(APPLICATION_FORM_KEY);
+  const existing = raw ? JSON.parse(raw) : {};
+  const updated = {
+    ...existing,
+    studentType: savedStudentType,
+    courseDetailsData: {
+      ...(existing.courseDetailsData || {}),
+      course: savedCourseId || '',
+      intake: savedTermId || ''
     }
-    return updated;
-  });
+  };
+  localStorage.setItem(APPLICATION_FORM_KEY, JSON.stringify(updated));
+  setFormData(updated);
 }, [savedCourseId, savedStudentType, savedTermId]);
 
   const handleStepClick = (stepId: number) => {
@@ -192,11 +202,11 @@ useEffect(() => {
   };
 
   const saveToLocalStorage = (data: any) => {
-    setFormData((prev: any) => {
-      const updated = { ...prev, ...data };
-      localStorage.setItem(APPLICATION_FORM_KEY, JSON.stringify(updated));
-      return updated;
-    });
+    const raw = localStorage.getItem(APPLICATION_FORM_KEY);
+    const existing = raw ? JSON.parse(raw) : {};
+    const updated = { ...existing, ...data };
+    localStorage.setItem(APPLICATION_FORM_KEY, JSON.stringify(updated));
+    setFormData(updated);
   };
 
   const handlePersonalDetailsSave = (data: any) => {
@@ -276,6 +286,18 @@ useEffect(() => {
   };
 
   const navigate = useRouter();
+  const pathname = usePathname();
+  const prevPathnameRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (
+      prevPathnameRef.current !== null &&
+      prevPathnameRef.current !== pathname
+    ) {
+      localStorage.removeItem(APPLICATION_FORM_KEY);
+    }
+    prevPathnameRef.current = pathname;
+  }, [pathname]);
 
   const handleDashboardRedirect = () => {
    
@@ -313,11 +335,9 @@ const submitApplicationCourse = async () => {
       });
       
       
-      // Save submission state to localStorage before clearing
+      // Save submission state to localStorage, clearing the form data
       localStorage.setItem(APPLICATION_FORM_KEY, JSON.stringify({
-        ...finalizedData,
-        _formSubmitted: true,
-        _courseSubmitted: true
+      
       }));
       
       // Clean up other localStorage items but keep the form data with submission flag
@@ -328,7 +348,9 @@ const submitApplicationCourse = async () => {
       
       setCourseSubmitted(true);
       setFormSubmitted(true);
-      
+            setFormData({});
+            setFetchData({});
+
       toast({
         description: 'Application submitted successfully.'
       });
@@ -345,7 +367,6 @@ const submitApplicationCourse = async () => {
       localStorage.removeItem('courseId');
       localStorage.removeItem('slug');
       localStorage.removeItem('termId');
-      localStorage.removeItem(APPLICATION_FORM_KEY);
     }
   }
 };
