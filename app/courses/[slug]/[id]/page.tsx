@@ -37,7 +37,7 @@ function CourseRegistration() {
       try {
         const [termsRes, coursesRes] = await Promise.all([
           axiosInstance.get("/terms?status=1&limit=all"),
-          axiosInstance.get("/courses?status=1&limit=all"),
+          axiosInstance.get("/courses?status=active&limit=all"),
         ]);
 
         setStartDates(termsRes?.data?.data?.result || []);
@@ -54,6 +54,7 @@ function CourseRegistration() {
               ...prev,
               courseName: selectedCourse.name,
               courseId: selectedCourse._id,
+              termName: selectedCourse.intakeId?.termName || "",
             }));
           }
         }

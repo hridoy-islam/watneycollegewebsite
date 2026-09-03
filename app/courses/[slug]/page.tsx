@@ -1,50 +1,85 @@
 "use client";
 
-import { use, useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ArrowLeft,
-  MapPin,
   Clock,
-  Calendar,
   Star,
-  Users,
-  Award,
-  Share,
-  Heart,
-  Download,
-  Book,
-  Phone,
-  ExternalLink,
   Tag,
+  ExternalLink,
+  Book,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { courses } from "@/app/courses/data/courseData";
-import AdultCareDiplomaTabs from "../components/AdultCareDiplomaTabs";
-import AdultSocialCareTabs from "../components/AdultSocialCareTabs";
-import GeneralEnglishTabs from "../components/GeneralEnglishTab";
+import { useParams, useRouter } from "next/navigation";
+import axiosInstance from "@/utils/axios";
+import { BlinkingDots } from "@/components/blinking-dots";
+
 
 export default function CourseDetailPage() {
-  const searchParams = useSearchParams();
   const router = useRouter();
   const params = useParams();
   const slug = params?.slug as string;
-  // Now you can use 'slug' to find your course:
-  const course = courses.find((c) => c.slug === slug);
 
+  const [course, setCourse] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [relatedCourses, setRelatedCourses] = useState<any[]>([]);
   const [activeTab, setActiveTab] = useState("overview");
-  const isAdultCareDiploma = course?.slug === "level-4-diploma-in-adult-care";
-  const isAdultSocialCare = course?.slug === "level-2-adult-social-care";
-  const isGeneralEnglish = course?.slug === "general-english-programme-b1-c1";
+
+  useEffect(() => {
+    const fetchCourse = async () => {
+      setLoading(true);
+      try {
+        const res = await axiosInstance.get("/courses", {
+          params: { status: "active", slug },
+        });
+        const payload = res.data?.data || {};
+        const resultData = payload.result || payload || [];
+        const arr = Array.isArray(resultData) ? resultData : resultData.result || [];
+        setCourse(arr[0] || null);
+      } catch (err) {
+        console.error("Failed to fetch course", err);
+        setCourse(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+    if (slug) fetchCourse();
+  }, [slug]);
+
+  useEffect(() => {
+    const fetchRelated = async () => {
+      try {
+        const res = await axiosInstance.get("/courses", {
+          params: { status: "active", limit: 3 },
+        });
+        const payload = res.data?.data || {};
+        const resultData = payload.result || payload || [];
+        const arr = Array.isArray(resultData) ? resultData : resultData.result || [];
+        setRelatedCourses(arr.filter((c: any) => c.slug !== slug).slice(0, 2));
+      } catch (err) {
+        console.error("Failed to fetch related", err);
+        setRelatedCourses([]);
+      }
+    };
+    if (course) fetchRelated();
+  }, [course, slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-primary/5 flex items-center justify-center">
+        <div className="text-center text-black"><BlinkingDots/></div>
+      </div>
+    );
+  }
 
   if (!course) {
     return (
       <div className="min-h-screen bg-primary/5 flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-700">Course not found</h2>
+          <h2 className="text-2xl font-bold text-black">Course not found</h2>
           <Button
             variant="link"
             onClick={() => router.back()}
@@ -57,7 +92,7 @@ export default function CourseDetailPage() {
     );
   }
 
-  // Helper: Render stars based on rating
+  // Helper for stars (kept for UI consistency)
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
@@ -89,44 +124,35 @@ export default function CourseDetailPage() {
           <div className="lg:col-span-2 space-y-8">
             {/* Course Header */}
             <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <Badge
-                  variant="secondary"
-                  className="bg-purple-100 text-primary"
-                >
-                  {course.category}
-                </Badge>
-                <Badge variant="outline">{course.level}</Badge>
-              </div>
+              
 
-              <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                {course.title}
+              <h1 className="text-3xl lg:text-4xl font-bold  mb-2">
+                {course.name || course.title}
               </h1>
+              {course.intakeId?.termName && (
+                <p className="text-xl font-semibold  mb-4">{course.intakeId.termName}</p>
+              )}
 
-              <p className="text-lg text-gray-600 mb-6">{course.description}</p>
+              <div
+                className="text-lg text-black mb-6 whitespace-pre-line"
+                dangerouslySetInnerHTML={{
+                  __html: (course.description || "")
+                    .replace(/<[^>]*>?/gm, "")
+                    .slice(0, 150) + ((course.description || "").replace(/<[^>]*>?/gm, "").length > 150 ? "…" : ""),
+                }}
+              />
 
-              <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500">
+              <div className="flex flex-wrap items-center gap-6 text-sm text-black">
                 <div className="flex items-center">
                   <Tag className="w-4 h-4 mr-1" />
-                  {course.category}
+                  {course.categoryId?.title || course.category || "General"}
                 </div>
                 {course.duration && (
-                  <div className="flex items-start gap-2 text-gray-600  px-4 py-3 rounded-lg">
+                  <div className="flex items-start gap-2 text-black px-4 py-3 rounded-lg">
                     <Clock className="w-4 h-4 mt-1 text-primary" />
                     <span className="leading-relaxed">{course.duration}</span>
                   </div>
                 )}
-                {/* <div className="flex items-center">
-                  <Users className="w-4 h-4 mr-1" />
-                  {course.students}
-                </div> */}
-                {/* <div className="flex items-center">
-                  {renderStars(course.rating)}
-                  <span className="ml-1">
-                    {course.rating} ({course.id === 1 ? 156 : course.id})
-                    reviews
-                  </span>
-                </div> */}
               </div>
             </div>
 
@@ -136,13 +162,13 @@ export default function CourseDetailPage() {
               <div className="relative p-8 lg:p-12 flex items-center">
                 <div className="flex-1">
                   <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
-                    {course.title}
+                    {course.name || course.title}
                   </h2>
                 </div>
                 <div className="hidden lg:block">
                   <img
-                    src={course.image}
-                    alt={course.title}
+                    src={course.image || "/placeholder.svg"}
+                    alt={course.name || course.title || "Course"}
                     className="w-64 h-64 object-cover rounded-lg shadow-lg"
                   />
                 </div>
@@ -160,26 +186,10 @@ export default function CourseDetailPage() {
   "
                 >
                   {[
-                    {
-                      value: "overview",
-                      label: "Overview",
-                      shortLabel: "Overview",
-                    },
-                    {
-                      value: "curriculum",
-                      label: "Programme Information",
-                      shortLabel: "Program Info",
-                    },
-                    {
-                      value: "requirements",
-                      label: "Entry Requirement",
-                      shortLabel: "Requirement",
-                    },
-                    {
-                      value: "career",
-                      label: "Programme Structure",
-                      shortLabel: "Structure",
-                    },
+                    { value: "overview", label: "Overview", shortLabel: "Overview" },
+                    { value: "curriculum", label: "Programme Information", shortLabel: "Program Info" },
+                    { value: "requirements", label: "Entry Requirement", shortLabel: "Requirement" },
+                    { value: "career", label: "Programme Structure", shortLabel: "Structure" },
                   ].map((tab) => (
                     <TabsTrigger
                       key={tab.value}
@@ -191,108 +201,141 @@ export default function CourseDetailPage() {
       "
                       style={{ minWidth: "max-content" }}
                     >
-                      {/* Small screen label */}
                       <span className="sm:hidden">{tab.shortLabel}</span>
-                      {/* Large screen label */}
                       <span className="hidden sm:inline">{tab.label}</span>
                     </TabsTrigger>
                   ))}
                 </TabsList>
 
                 <div className="p-6 lg:p-8">
-                  {isAdultSocialCare ? (
-                    <AdultSocialCareTabs />
-                  ) : isGeneralEnglish?(<GeneralEnglishTabs/>):isAdultCareDiploma ? (
-                    <AdultCareDiplomaTabs />
-                  ) : (
-                    <>
-                      {/* === Original Dynamic Tabs for Other Courses === */}
-                      <TabsContent value="overview" className="space-y-6">
-                        <h3 className="text-2xl font-bold text-gray-900">
-                          Course Overview
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed whitespace-pre-line">
-                          {course.overview}
-                        </p>
-
-                        <div>
-                          <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                            Key Features
-                          </h4>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {course.tags.map((tag, idx) => (
-                              <div
-                                key={idx}
-                                className="flex items-start space-x-3"
-                              >
-                                <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                                <span className="text-gray-600">{tag}</span>
-                              </div>
-                            ))}
+                  <TabsContent value="overview" className="space-y-6">
+                        <h3 className="text-2xl font-bold text-black">Course Overview</h3>
+                        <div
+                          className="text-black leading-relaxed whitespace-pre-line"
+                          dangerouslySetInnerHTML={{ __html: course.description || "" }}
+                        />
+                        {(course.keyFeatures || []).filter((tag: string) => tag && tag.trim()).length > 0 && (
+                          <div>
+                            <h4 className="text-xl font-semibold text-gray-900 mb-4">Key Features</h4>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              {(course.keyFeatures || [])
+                                .filter((tag: string) => tag && tag.trim())
+                                .map((tag: string, idx: number) => (
+                                  <div key={idx} className="flex items-start space-x-3">
+                                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                                    <span className="text-gray-600">{tag}</span>
+                                  </div>
+                                ))}
+                            </div>
                           </div>
-                        </div>
+                        )}
                       </TabsContent>
 
                       <TabsContent value="curriculum" className="space-y-6">
-                        <h3 className="text-2xl font-bold text-gray-900">
-                          Programme Information
-                        </h3>
-                        <p className="text-gray-600">
-                          This course includes the following units and
-                          assessments:
-                        </p>
-                        <ul className="space-y-3 mt-4">
-                          {course.curriculum.map((item, index) => (
-                            <li
-                              key={index}
-                              className="bg-gray-50 p-4 rounded-lg"
-                            >
-                              <p className="text-gray-800">{item}</p>
-                            </li>
-                          ))}
-                        </ul>
+                        <h3 className="text-2xl font-bold text-black">Programme Information</h3>
+                        {(course.programmeInfo || [])
+                          .filter((info: any) => info.heading && info.heading.trim())
+                          .map((info: any, idx: number) => (
+                          <div key={info._id || idx} className="mb-6">
+                            <h4 className="text-xl font-semibold text-black mb-2">{info.heading}</h4>
+                            {info.subHeading && <p className="text-black mb-3 italic">{info.subHeading}</p>}
+                            {info.keyPoints && info.keyPoints.length > 0 && (
+                              <ul className="space-y-2 text-black">
+                                {info.keyPoints.map((pt: string, i: number) => (
+                                  <li key={i} className="flex items-start space-x-2">
+                                    <span className="text-primary font-bold">•</span>
+                                    <span>{pt}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        ))}
                       </TabsContent>
 
                       <TabsContent value="requirements" className="space-y-6">
-                        <h3 className="text-2xl font-bold text-gray-900">
-                          Requirements
-                        </h3>
-                        <ul className="space-y-2 text-gray-600">
-                          {course.requirements.map((req, index) => (
-                            <li
-                              key={index}
-                              className="flex items-start space-x-2"
-                            >
-                              <span className="text-primary">•</span>
-                              <span>{req}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <h3 className="text-2xl font-bold text-black">Entry Requirements</h3>
+                        {(course.entryRequirements || [])
+                          .filter((req: any) => req.heading && req.heading.trim())
+                          .map((req: any, idx: number) => (
+                          <div key={req._id || idx} className="mb-6">
+                            <h4 className="text-xl font-semibold text-black mb-2">{req.heading}</h4>
+                            {req.subHeading && <p className="text-black mb-3">{req.subHeading}</p>}
+                            {req.keyPoints && req.keyPoints.length > 0 && (
+                              <ul className="space-y-2 text-black">
+                                {req.keyPoints.map((pt: string, i: number) => (
+                                  <li key={i} className="flex items-start space-x-2">
+                                    <span className="text-primary font-bold">•</span>
+                                    <span>{pt}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        ))}
                       </TabsContent>
 
                       <TabsContent value="career" className="space-y-6">
-                        <h3 className="text-2xl font-bold text-gray-900">
-                          Programme Structure
-                        </h3>
-                        <p className="text-gray-700 leading-relaxed">
-                          Successful graduates are well-prepared for a variety
-                          of professional roles, including:
-                        </p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                          {course.career.map((role, index) => (
-                            <div
-                              key={index}
-                              className="bg-white shadow-sm border border-gray-200 p-4 rounded-lg text-center hover:shadow-md transition"
-                            >
-                              <p className="font-semibold text-gray-800">
-                                {role}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
+                        <h3 className="text-2xl font-bold text-black">Programme Structure</h3>
+                        {(course.programmeStructure || [])
+                          .filter((term: any) => term.title && term.title.trim() && (term.rows || []).some((r: any) => r.title && r.title.trim()))
+                          .map((term: any, idx: number) => (
+                          <div key={term._id || idx} className="mb-8">
+                            <h4 className="text-xl font-bold text-black mb-1">{term.title}</h4>
+                            {term.subtitle && <p className="text-black mb-4 italic">{term.subtitle}</p>}
+                            {term.keyPoints && term.keyPoints.length > 0 && (
+                              <ul className="list-disc pl-5 text-sm text-black space-y-1 mb-4">
+                                {term.keyPoints.map((pt: string, i: number) => (
+                                  <li key={i}>{pt}</li>
+                                ))}
+                              </ul>
+                            )}
+                            {term.rows && term.rows.length > 0 && (
+                              <div className="overflow-x-auto mb-4">
+                                <table className="min-w-full text-sm border-collapse">
+                                  <thead>
+                                    <tr className="bg-gray-50">
+                                      <th className="border p-2 text-left font-semibold">Week</th>
+                                      <th className="border p-2 text-left font-semibold">Unit</th>
+                                      <th className="border p-2 text-left font-semibold">Title</th>
+                                      <th className="border p-2 text-center font-semibold">Credits</th>
+                                      <th className="border p-2 text-center font-semibold">GLH</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {term.rows.map((row: any, rIdx: number) => (
+                                      <tr key={row._id || rIdx} className={rIdx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                                        <td className="border p-2">{row.week}</td>
+                                        <td className="border p-2 font-mono text-xs">{row.unit || ""}</td>
+                                        <td className="border p-2">{row.title}</td>
+                                        <td className="border p-2 text-center">{row.credits}</td>
+                                        <td className="border p-2 text-center">{row.glh}</td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
+                            )}
+                            {(term.totalCredits || term.totalGLH) && (
+                              <div className="mt-3 p-3 bg-blue-50 rounded-md text-sm font-medium">
+                                <strong>Term Total:</strong> {term.totalCredits} credits, {term.totalGLH} GLH
+                              </div>
+                            )}
+                            {term.conditionUnits && term.conditionUnits.length > 0 && (
+                              <div className="mt-4 p-4 bg-yellow-50 rounded-md">
+                                <h5 className="font-semibold text-black mb-2">Condition-Specific Awareness Units</h5>
+                                <ul className="list-disc pl-5 text-sm space-y-1">
+                                  {term.conditionUnits.map((unit: any, uIdx: number) => (
+                                    <li key={uIdx}>
+                                      <strong>{unit.title}</strong> | {unit.code} | {unit.credits} credits | {unit.glh} GLH
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        ))}
                       </TabsContent>
-                    </>
-                  )}
                 </div>
               </Tabs>
             </div>
@@ -300,27 +343,17 @@ export default function CourseDetailPage() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Price Card */}
             <Card className="bg-gradient-to-br from-primary to-primary/80 text-white border-0 shadow-lg">
               <CardContent className="p-6">
                 <div className="bg-white/10 p-6 border-b border-white/10 rounded-md mb-6">
-                  <div className="text-white text-sm font-medium mb-1">
-                    Tuition Fee
-                  </div>
+                  <div className="text-white text-sm font-medium mb-1">Tuition Fee</div>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold">
-                      {/* Logic: Display fee from data, or a placeholder if not set */}
-                      {course.courseFee ? course.courseFee : "-"}
-                    </span>
+                    <span className="text-4xl font-bold">{course.courseFee || "-"}</span>
                   </div>
-                    <span className="text-white text-sm">
-                     {course.feeDetails ? course.feeDetails : ""}
-                    </span>
+                  <span className="text-white text-sm">{course.feeDetails || ""}</span>
                 </div>
-
                 <Button
-                  
-                  onClick={()=> router.push(`/courses/${course.slug}/${course.courseId}`)}
+                  onClick={() => router.push(`/courses/${course.slug}/${course._id}`)}
                   className="block w-full bg-white text-primary hover:bg-gray-100 font-semibold h-12 text-lg text-center rounded"
                 >
                   🚀 Apply Now
@@ -328,18 +361,13 @@ export default function CourseDetailPage() {
               </CardContent>
             </Card>
 
-            {/* Quick Actions */}
             <Card>
               <CardContent className="p-6">
-                <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
+                <h4 className="font-semibold text-black mb-4 flex items-center">
                   <ExternalLink className="w-4 h-4 mr-2 text-purple-600" />
                   Quick Actions
                 </h4>
                 <div className="space-y-3">
-                  {/* <button className="w-full flex items-center justify-start space-x-3 text-left p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                    <Download className="w-4 h-4 text-purple-600" />
-                    <span className="text-sm">Download Brochure</span>
-                  </button> */}
                   <button
                     className="w-full flex items-center justify-start space-x-3 text-left p-3 rounded-lg hover:bg-gray-50 transition-colors"
                     onClick={() => router.push("/contact")}
@@ -351,36 +379,28 @@ export default function CourseDetailPage() {
               </CardContent>
             </Card>
 
-            {/* Related Courses */}
             <Card>
               <CardContent className="p-6">
-                <h4 className="font-semibold text-gray-900 mb-4">
-                  You Might Also Like
-                </h4>
+                <h4 className="font-semibold text-black mb-4">You Might Also Like</h4>
                 <div className="space-y-4">
-                  {courses
-                    .filter(
-                      (c) =>
-                        c.id !== course.id && c.category === course.category,
-                    )
-                    .slice(0, 2)
-                    .map((related) => (
-                      <div
-                        key={related.id}
-                        className="border-b pb-3 last:border-b-0 cursor-pointer hover:bg-gray-50 p-2 rounded"
-                        onClick={() => router.push(`/courses/${related.slug}`)}
-                      >
-                        <h5 className="font-medium text-gray-900">
-                          {related.title}
-                        </h5>
-                        <p className=" text-gray-700 text-xs">
-                          {course.description.split(" ").slice(0, 10).join(" ")}
-                          {related.description.split(" ").length > 10
-                            ? "…"
-                            : ""}
-                        </p>
-                      </div>
-                    ))}
+                  {relatedCourses.map((related: any) => (
+                    <div
+                      key={related._id || related.slug}
+                      className="border-b pb-3 last:border-b-0 cursor-pointer hover:bg-watney-blue-primary/20 p-2  bg-watney-blue-primary/10 rounded"
+                      onClick={() => router.push(`/courses/${related.slug}`)}
+                    >
+                      <h5 className="font-medium text-black">
+                        {related.name || related.title}
+                        {related.intakeId?.termName ? (
+                          <span className="ml-1  text-black">- {related.intakeId.termName}</span>
+                        ) : null}
+                      </h5>
+                      <p className="text-black text-xs">
+                        {String(related.description || "").replace(/<[^>]*>?/gm, "").split(" ").slice(0, 10).join(" ")}
+                        {String(related.description || "").replace(/<[^>]*>?/gm, "").split(" ").length > 10 ? "…" : ""}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>

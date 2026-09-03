@@ -91,7 +91,7 @@ export default function CourseSelectionForm({
 
 // }, [formData.studentType, courseId, slug, router]);
 
-
+console.log(formData, 'formData in course selection form');
   return (
     <div className="relative flex min-h-screen items-center justify-center bg-white p-2">
       
@@ -115,13 +115,16 @@ export default function CourseSelectionForm({
 
         {/* Conditional Heading */}
         <motion.div variants={itemVariants} className="mb-3">
-          {isPreselectedCourse ? (
+          {(isPreselectedCourse || formData.courseName) ? (
             <>
               <h2 className="mb-2 text-2xl font-bold text-gray-900 md:text-3xl">
                 Apply for
                 <span className="mt-1 block bg-gradient-to-r from-watney to-blue-700 bg-clip-text text-transparent">
-                  {formData.courseName}
+                  {formData.courseName || ""}
                 </span>
+                {formData.termName && (
+                  <span className="mt-1 block text-xl font-bold ">{formData.termName}</span>
+                )}
               </h2>
             </>
           ) : (
@@ -167,37 +170,6 @@ export default function CourseSelectionForm({
                   </Select>
                 </motion.div>
               )}
-
-              {/* Term Name */}
-              <motion.div className="group" whileHover={{ scale: 1.01 }}>
-                <label
-                  htmlFor="termName"
-                  className="mb-1 block text-left text-sm font-semibold text-gray-700"
-                >
-                  I am interested to start in
-                </label>
-                <Select
-                  value={formData.termName}
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, termName: value })
-                  }
-                >
-                  <SelectTrigger className="relative flex w-full items-center rounded-lg border border-gray-300 bg-white py-4 pl-10 pr-3 text-sm text-gray-800 focus:ring-2 focus:ring-watney">
-                    <Calendar
-                      className="absolute left-3 top-1/2 -translate-y-1/2 text-watney"
-                      size={16}
-                    />
-                    <SelectValue placeholder="Select Your Intake" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {startDates?.map((term) => (
-                      <SelectItem key={term._id} value={term.termName}>
-                        {term.termName}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </motion.div>
 
               {/* Student Type */}
               <motion.div className="group" whileHover={{ scale: 1.01 }}>

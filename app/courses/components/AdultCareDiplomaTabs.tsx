@@ -87,7 +87,7 @@ const TermTable = ({
 };
 
 // Main Component
-export default function AdultCareDiplomaTabs() {
+export default function AdultCareDiplomaTabs({ course }: { course?: any }) {
   return (
     <>
       {/* === Overview Tab === */}

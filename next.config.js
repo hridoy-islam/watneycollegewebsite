@@ -3,6 +3,21 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true, // ✅ Skips type checking
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+        pathname: '/watney/**',
+      },
+     
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        pathname: '/600x400',
+      },
+    ],
+  },
   env: {
     NEXTAUTH_SECRET:
       "a700e108609605671fb5e33419636e8417c7dadcbf4b4116dfc002860a291e19",

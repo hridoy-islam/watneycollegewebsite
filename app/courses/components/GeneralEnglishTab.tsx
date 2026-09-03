@@ -3,7 +3,7 @@
 
 import { TabsContent } from "@/components/ui/tabs";
 
-export default function GeneralEnglishTabs() {
+export default function GeneralEnglishTabs({ course }: { course?: any }) {
   return (
     <>
       {/* === Overview Tab === */}

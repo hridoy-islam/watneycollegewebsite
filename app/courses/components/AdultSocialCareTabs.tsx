@@ -55,7 +55,7 @@ const TermTable = ({
   );
 };
 
-export default function AdultSocialCareTabs() {
+export default function AdultSocialCareTabs({ course }: { course?: any }) {
   return (
     <>
       {/* === Overview Tab === */}
