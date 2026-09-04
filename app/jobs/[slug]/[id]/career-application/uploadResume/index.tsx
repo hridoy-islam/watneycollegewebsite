@@ -1,13 +1,26 @@
+'use client';
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import axiosInstance from '@/lib/axios';
 import { useSelector } from 'react-redux';
 
-const CareerResumeUpload: React.FC = () => {
+type CareerResumeUploadProps = {
+  onContinue?: (parsedText?: string, fileUrl?: string) => void;
+  onSkip?: () => void;
+  setCurrentStep?: (step: number) => void;
+};
+
+const CareerResumeUpload: React.FC<CareerResumeUploadProps> = ({
+  onContinue,
+  onSkip,
+  setCurrentStep
+}) => {
   const [resume, setResume] = useState<File | null>(null);
-  const navigate = useNavigate();
-  const { user } = useSelector((state: any) => state.auth);
+  const [isDragging, setIsDragging] = useState(false);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setResume(e.target.files[0]);
@@ -19,39 +32,95 @@ const CareerResumeUpload: React.FC = () => {
   };
 
   const handleSkip = () => {
-    navigate('/dashboard/career-application');
+    if (onSkip) {
+      onSkip();
+    } else {
+      router.push('/dashboard/career-application');
+    }
+    if (setCurrentStep) setCurrentStep(2);
   };
 
   const handleContinue = async () => {
-    if (!resume) return;
+    if (!resume) {
+      console.error('No resume file or user ID found');
+      return;
+    }
+    
     setLoading(true);
 
     const formData = new FormData();
-    formData.append('entityId', user._id);
+    formData.append('entityId', 'applicant'); // Replace with actual entity ID if needed
     formData.append('file_type', 'resumeDoc');
     formData.append('file', resume);
 
     try {
+      console.log('Sending request to /documents...');
       const response = await axiosInstance.post('/documents', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
-        }
+        },
+        timeout: 30000 // 30 second timeout
       });
+
+      console.log('Upload response:', response.data);
 
       const textContent = response.data?.data?.fileContent;
       const fileUrl = response.data?.data?.fileUrl;
 
-      await axiosInstance.patch(`/users/${user._id}`, {
-        cvResume: fileUrl
-      });
+      if (!fileUrl) {
+        throw new Error('No file URL in response');
+      }
 
-      navigate('/dashboard/career-application', {
-        state: { parsedResume: textContent }
-      });
-    } catch (error) {
+      
+      if (onContinue) {
+        onContinue(textContent, fileUrl);
+      } else {
+        router.push('/dashboard/career-application');
+      }
+      if (setCurrentStep) setCurrentStep(2);
+    } catch (error: any) {
       console.error('Error uploading resume:', error);
+      console.error('Error details:', {
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status
+      });
+      
+      // Show user-friendly error message
+      alert('Failed to upload resume. Please try again.');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLLabelElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLLabelElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLLabelElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+    
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      const file = e.dataTransfer.files[0];
+      // Validate file type
+      const validTypes = ['.pdf', '.doc', '.docx'];
+      const fileExtension = '.' + file.name.split('.').pop()?.toLowerCase();
+      
+      if (validTypes.includes(fileExtension)) {
+        setResume(file);
+      } else {
+        alert('Please upload a PDF, DOC, or DOCX file');
+      }
     }
   };
 
@@ -64,16 +133,28 @@ const CareerResumeUpload: React.FC = () => {
         </h2>
 
         {!resume ? (
-          <label className="block cursor-pointer rounded-xl border-2 border-dashed border-gray-300 p-6 text-center transition hover:bg-gray-50">
+          <label
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+            className={`block cursor-pointer rounded-xl border-2 border-dashed p-6 text-center transition hover:bg-gray-50 ${
+              isDragging ? 'border-watney bg-blue-50' : 'border-gray-300'
+            }`}
+          >
             <input
               type="file"
               accept=".pdf,.doc,.docx"
               onChange={handleFileChange}
               className="hidden"
             />
-            <span className="text-gray-500">
-              Click to upload resume (PDF, DOC)
-            </span>
+            <div className="space-y-1">
+              <span className="text-gray-500">
+                Drop your resume here or <span className="text-watney font-medium">browse</span>
+              </span>
+              <span className="block text-xs text-gray-400">
+                Supports PDF, DOC, DOCX
+              </span>
+            </div>
           </label>
         ) : (
           <div className="flex items-center justify-between rounded-lg border border-gray-300 bg-gray-50 p-4">

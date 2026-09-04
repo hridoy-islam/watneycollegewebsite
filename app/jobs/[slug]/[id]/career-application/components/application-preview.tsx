@@ -82,7 +82,7 @@ export function ApplicationPreview({
   setCurrentStep: (step: number) => void;
   submitting?: boolean;
 }) {
-  const handleBack = () => setCurrentStep(10);
+  const handleBack = () => setCurrentStep(11);
 
   const summaryConsent = {
     declarationCorrectUpload: defaultValues.declarationCorrectUpload,

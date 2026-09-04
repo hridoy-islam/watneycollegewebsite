@@ -70,7 +70,7 @@ export function EmergencyContact({
   }
 
   function handleBack() {
-    setCurrentStep(6);
+    setCurrentStep(7);
   }
 
   useEffect(() => {

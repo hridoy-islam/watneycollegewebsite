@@ -94,7 +94,7 @@ const capitalizeWords = (str: string | undefined): string => {
     onSaveAndContinue(formattedData);
   };
    function handleBack() {
-    setCurrentStep(7);
+    setCurrentStep(8);
   }
 
   const renderRefereeFields = (

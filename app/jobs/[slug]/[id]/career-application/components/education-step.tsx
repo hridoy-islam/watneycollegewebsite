@@ -185,7 +185,7 @@ export function EducationStep({
 
   function handleBack() {
     if (currentPage === 1) {
-      setCurrentStep(3);
+      setCurrentStep(4);
     } else {
       setCurrentPage(1);
     }

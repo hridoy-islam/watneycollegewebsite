@@ -58,7 +58,7 @@ const isValidImageUrl = (url) => {
 
   const handleSkip = () => {
     setProfilePictureUrl(null);
-    setCurrentStep(2); // Go to next step
+    setCurrentStep(3); // Go to next step
   };
 
   return (

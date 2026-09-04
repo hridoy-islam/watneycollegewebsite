@@ -21,7 +21,6 @@ import { Input } from '@/components/ui/input';
 import { useEffect, useState } from 'react';
 import type { TCareer } from '@/types/career';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import Select from 'react-select';
 import { countries, nationalities } from '@/types';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -106,7 +105,13 @@ type PersonalDetailsFormValues = z.infer<typeof personalDetailsSchema>;
 export function PersonalDetailsStep({
   defaultValues,
   onSaveAndContinue,
-  setCurrentStep
+  setCurrentStep,
+  parsedResume
+}: {
+  defaultValues?: any;
+  onSaveAndContinue: (data: any) => void;
+  setCurrentStep: (step: number) => void;
+  parsedResume?: string | null;
 }) {
   const form = useForm<PersonalDetailsFormValues>({
     resolver: zodResolver(personalDetailsSchema),
@@ -177,7 +182,7 @@ export function PersonalDetailsStep({
   };
 
   const handleBack = () => {
-    setCurrentStep(1);
+    setCurrentStep(2);
   };
 
   // const handleSkip = () => {
@@ -212,6 +217,67 @@ export function PersonalDetailsStep({
   }));
 
   console.log(defaultValues, 'defaultValues in personal details step');
+
+  // Regex parsing from uploaded resume
+  useEffect(() => {
+    if (!parsedResume) return;
+    const text = parsedResume;
+
+    // Title
+    const titleMatch = text.match(/\b(Mr|Mrs|Miss|Ms|Dr|Prof)\b/i);
+    if (titleMatch) {
+      const titleVal = titleMatch[1].charAt(0).toUpperCase() + titleMatch[1].slice(1).toLowerCase();
+      form.setValue('title', titleVal);
+    }
+
+    // Name: try to find first and last name patterns
+    const nameMatch = text.match(/\b([A-Z][a-z]+)\s+([A-Z][a-z]+)\b/);
+    if (nameMatch) {
+      form.setValue('firstName', nameMatch[1]);
+      form.setValue('lastName', nameMatch[2]);
+    }
+
+    // Email
+    const emailMatch = text.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
+    if (emailMatch) {
+      form.setValue('email', emailMatch[0]);
+    }
+
+    // Phone
+    const phoneMatch = text.match(/\+?\d[\d\s\-]{7,}\d/);
+    if (phoneMatch) {
+      form.setValue('phone', phoneMatch[0].trim());
+    }
+
+    // Address line with number
+    const addressLine1Match = text.match(/(\d+[^\n]*?[A-Za-z][^\n]*?(?:Road|Street|Lane|Avenue|Drive|Way|Court|Park|Place)\b[^\n]*)/i);
+    if (addressLine1Match) {
+      form.setValue('postalAddressLine1', addressLine1Match[1].trim());
+    } else {
+      const genericAddressMatch = text.match(/(\d+[^\n]*?\b[A-Za-z]{3,}[^\n]*?)/);
+      if (genericAddressMatch) {
+        form.setValue('postalAddressLine1', genericAddressMatch[1].trim());
+      }
+    }
+
+    // City
+    const cityMatch = text.match(/\b(London|Manchester|Birmingham|Leeds|Glasgow|Liverpool|Bristol|Sheffield|Edinburgh|Cardiff)\b/i);
+    if (cityMatch) {
+      form.setValue('postalCity', cityMatch[1]);
+    }
+
+    // Postcode
+    const postCodeMatch = text.match(/\b([A-Z]{1,2}\d{1,2}[A-Z]?\s?\d[A-Z]{2})\b/);
+    if (postCodeMatch) {
+      form.setValue('postalPostCode', postCodeMatch[1]);
+    }
+
+    // Country
+    const countryMatch = text.match(/\b(United Kingdom|UK|England|Wales|Scotland|Northern Ireland)\b/i);
+    if (countryMatch) {
+      form.setValue('postalCountry', countryMatch[1]);
+    }
+  }, [parsedResume, form]);
 
   const watchNationality = form.watch('nationality');
 

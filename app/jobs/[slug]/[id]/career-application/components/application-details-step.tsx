@@ -151,7 +151,7 @@ export function ApplicationDetailsStep({
   }
 
   const handleBack = () => {
-    setCurrentStep(2);
+    setCurrentStep(3);
   };
 
   return (

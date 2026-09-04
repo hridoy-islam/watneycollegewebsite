@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useEffect, useState, useRef } from 'react';
+import { useParams, useRouter, usePathname } from 'next/navigation';
 import { ProfilePictureStep } from './components/profile-picture-step';
 import { PersonalDetailsStep } from './components/personal-details-step';
 import { DisabilityInfoStep } from './components/disability-info-step';
@@ -17,20 +17,22 @@ import { Card, CardDescription, CardTitle } from '@/components/ui/card';
 import axiosInstance from '@/lib/axios';
 import type { TCareer } from '@/types/career';
 import { EmergencyContact } from './components/emergencyContact';
+import CareerResumeUpload from './uploadResume/index';
 import { ApplicationPreview } from './components/application-preview';
 // Define form steps for career application
 const careerFormSteps = [
-  { id: 1, label: 'Profile Picture' },
-  { id: 2, label: 'Personal Details' },
-  { id: 3, label: 'Application Details' },
-  { id: 4, label: 'Education' },
-  { id: 5, label: 'Employment' },
-  { id: 6, label: 'Disability Info' },
-  { id: 7, label: 'Emergency Contact' },
-  { id: 8, label: 'Referee Details' },
-  { id: 9, label: 'Documents' },
-  { id: 10, label: 'Consent & Permissions' },
-  { id: 11, label: 'Preview & Submit' }
+  { id: 1, label: 'Upload Resume' },
+  { id: 2, label: 'Profile Picture' },
+  { id: 3, label: 'Personal Details' },
+  { id: 4, label: 'Application Details' },
+  { id: 5, label: 'Education' },
+  { id: 6, label: 'Employment' },
+  { id: 7, label: 'Disability Info' },
+  { id: 8, label: 'Emergency Contact' },
+  { id: 9, label: 'Referee Details' },
+  { id: 10, label: 'Documents' },
+  { id: 11, label: 'Consent & Permissions' },
+  { id: 12, label: 'Preview & Submit' }
 ];
 
 export default function CareerApplicationForm() {
@@ -56,6 +58,8 @@ export default function CareerApplicationForm() {
   const [submitting, setSubmitting] = useState(false);
   const { toast } = useToast();
   const navigate = useRouter();
+  const pathname = usePathname();
+  const prevPathnameRef = useRef<string | null>(null);
   const [parsedResume, setParsedResume] = useState<string | null>(null);
 
   useEffect(() => {
@@ -63,6 +67,14 @@ export default function CareerApplicationForm() {
       localStorage.setItem('applicationId', id);
     }
   }, [id]);
+
+  useEffect(() => {
+    if (prevPathnameRef.current !== null && prevPathnameRef.current !== pathname) {
+      localStorage.removeItem('career_form_data');
+      localStorage.removeItem('applicationId');
+    }
+    prevPathnameRef.current = pathname;
+  }, [pathname]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -86,50 +98,50 @@ export default function CareerApplicationForm() {
 
   const handleProfilePictureSaveAndContinue = (data: any) => {
     setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(1);
-    setCurrentStep(2);
-  };
-
-  const handlePersonalDetailsSaveAndContinue = (data: any) => {
-    setFormData((prev) => ({ ...prev, ...data }));
     markStepAsCompleted(2);
     setCurrentStep(3);
   };
 
-  const handleApplicationDetailsSaveAndContinue = (data: any) => {
+  const handlePersonalDetailsSaveAndContinue = (data: any) => {
     setFormData((prev) => ({ ...prev, ...data }));
     markStepAsCompleted(3);
     setCurrentStep(4);
   };
 
-  const handleEducationSaveAndContinue = (data: any) => {
+  const handleApplicationDetailsSaveAndContinue = (data: any) => {
     setFormData((prev) => ({ ...prev, ...data }));
     markStepAsCompleted(4);
     setCurrentStep(5);
   };
 
-  const handleEmploymentSaveAndContinue = (data: any) => {
+  const handleEducationSaveAndContinue = (data: any) => {
     setFormData((prev) => ({ ...prev, ...data }));
     markStepAsCompleted(5);
     setCurrentStep(6);
   };
 
-  const handleDisabilityInfoSaveAndContinue = (data: any) => {
+  const handleEmploymentSaveAndContinue = (data: any) => {
     setFormData((prev) => ({ ...prev, ...data }));
     markStepAsCompleted(6);
     setCurrentStep(7);
   };
 
-  const handleEmergencySaveAndContinue = (data: any) => {
+  const handleDisabilityInfoSaveAndContinue = (data: any) => {
     setFormData((prev) => ({ ...prev, ...data }));
     markStepAsCompleted(7);
     setCurrentStep(8);
   };
 
-  const handleRefereeDetailsSaveAndContinue = (data: any) => {
+  const handleEmergencySaveAndContinue = (data: any) => {
     setFormData((prev) => ({ ...prev, ...data }));
     markStepAsCompleted(8);
     setCurrentStep(9);
+  };
+
+  const handleRefereeDetailsSaveAndContinue = (data: any) => {
+    setFormData((prev) => ({ ...prev, ...data }));
+    markStepAsCompleted(9);
+    setCurrentStep(10);
   };
 
   const handleDocumentSave = (data: any) => {
@@ -138,8 +150,8 @@ export default function CareerApplicationForm() {
 
   const handleDocumentsSaveAndContinue = (data: any) => {
     setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(9);
-    setCurrentStep(10);
+    markStepAsCompleted(10);
+    setCurrentStep(11);
   };
 
   const handleDashboardRedirect = () => {
@@ -150,8 +162,8 @@ export default function CareerApplicationForm() {
 
   const handleConsentSaveAndContinue = (data: any) => {
     setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(10);
-    setCurrentStep(11);
+    markStepAsCompleted(11);
+    setCurrentStep(12);
   };
 
   const handleSubmit = async (declarationData: any) => {
@@ -199,21 +211,39 @@ export default function CareerApplicationForm() {
     switch (currentStep) {
       case 1:
         return (
+          <CareerResumeUpload
+            onContinue={(parsedText, fileUrl) => {
+              setParsedResume(parsedText || null);
+              setFormData((prev) => ({ ...prev, cvResume: fileUrl || '' }));
+              setCurrentStep(2);
+              markStepAsCompleted(1);
+            }}
+            onSkip={() => {
+              setParsedResume(null);
+              setCurrentStep(2);
+              markStepAsCompleted(1);
+            }}
+            setCurrentStep={setCurrentStep}
+          />
+        );
+      case 2:
+        return (
           <ProfilePictureStep
             defaultValues={formData}
             onSaveAndContinue={handleProfilePictureSaveAndContinue}
             setCurrentStep={setCurrentStep}
           />
         );
-      case 2:
+      case 3:
         return (
           <PersonalDetailsStep
             defaultValues={formData}
             onSaveAndContinue={handlePersonalDetailsSaveAndContinue}
             setCurrentStep={setCurrentStep}
+            parsedResume={parsedResume}
           />
         );
-      case 3:
+      case 4:
         return (
           <ApplicationDetailsStep
             defaultValues={formData}
@@ -221,7 +251,7 @@ export default function CareerApplicationForm() {
             setCurrentStep={setCurrentStep}
           />
         );
-      case 4:
+      case 5:
         return (
           <EducationStep
             defaultValues={formData}
@@ -229,7 +259,7 @@ export default function CareerApplicationForm() {
             setCurrentStep={setCurrentStep}
           />
         );
-      case 5:
+      case 6:
         return (
           <EmploymentStep
             defaultValues={formData}
@@ -237,7 +267,7 @@ export default function CareerApplicationForm() {
             setCurrentStep={setCurrentStep}
           />
         );
-      case 6:
+      case 7:
         return (
           <DisabilityInfoStep
             defaultValues={formData}
@@ -245,7 +275,7 @@ export default function CareerApplicationForm() {
             setCurrentStep={setCurrentStep}
           />
         );
-      case 7:
+      case 8:
         return (
           <EmergencyContact
             defaultValues={formData}
@@ -253,7 +283,7 @@ export default function CareerApplicationForm() {
             setCurrentStep={setCurrentStep}
           />
         );
-      case 8:
+      case 9:
         return (
           <RefereeDetailsStep
             defaultValues={formData}
@@ -261,7 +291,7 @@ export default function CareerApplicationForm() {
             setCurrentStep={setCurrentStep}
           />
         );
-      case 9:
+      case 10:
         return (
           <DocumentStep
             defaultValues={formData}
@@ -270,7 +300,7 @@ export default function CareerApplicationForm() {
              onSave={handleDocumentSave}
           />
         );
-      case 10:
+      case 11:
         return (
           <ReviewStep
             defaultValues={formData}
@@ -279,7 +309,7 @@ export default function CareerApplicationForm() {
             setCurrentStep={setCurrentStep}
           />
         );
-      case 11:
+      case 12:
         return (
           <ApplicationPreview
             defaultValues={formData}

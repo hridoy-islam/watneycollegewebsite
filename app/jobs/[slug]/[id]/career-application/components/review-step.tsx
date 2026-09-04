@@ -94,7 +94,7 @@ export function ReviewStep({
   const dataProcessingAccepted = form.watch('dataProcessingAccepted');
 
   function handleBack() {
-    setCurrentStep(9);
+    setCurrentStep(10);
   }
 
   const { watch } = form;

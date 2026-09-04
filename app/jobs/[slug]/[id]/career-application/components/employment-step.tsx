@@ -254,7 +254,7 @@ export function EmploymentStep({
   ];
 
   function handleBack() {
-    setCurrentStep(4);
+    setCurrentStep(5);
   }
 
   return (
