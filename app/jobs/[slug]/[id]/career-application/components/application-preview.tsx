@@ -60,8 +60,8 @@ function renderSection(title: string, data: any, showTitle = true) {
           <tbody className="divide-y divide-gray-200">
             {rows.map(([label, value], index) => (
               <tr key={index}>
-                <td className="break-words px-2 md:px-6 py-4 text-sm font-medium text-gray-900">{label}</td>
-                <td className="break-words px-2 md:px-6 py-4 text-sm text-gray-500">{value}</td>
+                <td className="break-words px-2 md:px-6 py-4 text-sm font-medium text-black">{label}</td>
+                <td className="break-words px-2 md:px-6 py-4 text-sm text-black">{value}</td>
               </tr>
             ))}
           </tbody>
@@ -98,7 +98,7 @@ export function ApplicationPreview({
     <Card className="border-none shadow-none">
       <CardHeader>
         <h1 className="text-xl sm:text-2xl font-semibold">Application Preview</h1>
-        <p className="text-gray-400 text-sm sm:text-base">Review all your information before submitting</p>
+        <p className="text-black text-sm sm:text-base">Review all your information before submitting</p>
       </CardHeader>
       <CardContent className="space-y-6">
         {renderSection('Personal Details', {

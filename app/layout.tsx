@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import SiteChrome from "@/components/site-chrome";
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -82,13 +81,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="relative" suppressHydrationWarning>
-        <Header />
-        <div className="pt-24 min-h-screen">
+        <SiteChrome>
           <Providers>{children}</Providers>
-                    <Toaster />
-
-        </div>
-        <Footer />
+          <Toaster />
+        </SiteChrome>
       </body>
     </html>
   );

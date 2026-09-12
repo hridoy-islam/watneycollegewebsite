@@ -44,7 +44,7 @@ export default function ProspectusPage() {
               <span className="text-watney-blue-primary">2025/26</span>{" "}
           
             </h1>
-            <p className="text-lg mb-8 text-gray-600 leading-relaxed">
+            <p className="text-lg mb-8 text-black leading-relaxed">
              Explore our programmes in Healthcare and Adult Social Care, entry requirements, fees, and student support.
             </p>
           </div>
@@ -72,7 +72,7 @@ export default function ProspectusPage() {
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <a
                         href="/Watney College Prospectus - Vol.1.pdf"
-                        className="text-gray-700 hover:text-primary text-lg hover:underline"
+                        className="text-black hover:text-primary text-lg hover:underline"
                         download
                       >
                         Download Prospectus 2025/2026 (PDF)
@@ -82,7 +82,7 @@ export default function ProspectusPage() {
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <a
                         href="#"
-                        className="text-gray-700 hover:text-primary text-lg hover:underline"
+                        className="text-black hover:text-primary text-lg hover:underline"
                       >
                         International Student Guide
                       </a>
@@ -91,7 +91,7 @@ export default function ProspectusPage() {
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <a
                         href="#"
-                        className="text-gray-700 hover:text-primary text-lg hover:underline"
+                        className="text-black hover:text-primary text-lg hover:underline"
                       >
                         View Campus Virtual Tour
                       </a>
@@ -131,10 +131,10 @@ export default function ProspectusPage() {
         {/* CTA Section */}
         <section className="py-16 bg-soft-sky">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl font-bold text-black mb-4">
               Have Questions?
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-lg text-black mb-8">
               Our admissions team is here to help you every step of the way.
             </p>
             <Button
@@ -163,7 +163,7 @@ export default function ProspectusPage() {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-black mb-1">
                     First Name *
                   </label>
                   <input
@@ -173,7 +173,7 @@ export default function ProspectusPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-black mb-1">
                     Last Name *
                   </label>
                   <input
@@ -185,7 +185,7 @@ export default function ProspectusPage() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-black mb-1">
                     Email Address *
                   </label>
                   <input
@@ -196,7 +196,7 @@ export default function ProspectusPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-black mb-1">
                     Phone Number *
                   </label>
                   <input
@@ -208,7 +208,7 @@ export default function ProspectusPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-black mb-1">
                   Address *
                 </label>
                 <textarea
@@ -220,7 +220,7 @@ export default function ProspectusPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-black mb-1">
                   Interested In *
                 </label>
                 <select
@@ -235,7 +235,7 @@ export default function ProspectusPage() {
                 </select>
               </div>
 
-              <div className="text-sm text-gray-500">
+              <div className="text-sm text-black">
                 <p>
                   By submitting this form, you agree to our{" "}
                   <a href="/privacy" className="text-primary hover:underline">

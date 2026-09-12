@@ -1,87 +1,70 @@
 import { useEffect, useState } from 'react';
 import axiosInstance from '@/lib/axios';
 import React from 'react';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle
-} from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import moment from 'moment';
-import { useSelector } from 'react-redux';
-import { nationalities } from '@/types';
+import { useApplicantId } from '@/components/application/applicant-subject';
+import { fetchApplicant, toId } from '@/lib/applicant-api';
 
-interface ReviewModalProps {
-  open: boolean;
-  onClose: () => void;
+interface ReviewStepProps {
   formData: any;
-  userId?: string;
+  /** Back to the terms step. */
+  onBack: () => void;
+  /** Fires the actual submission. */
+  onSubmit: () => Promise<void> | void;
 }
 
-export function ReviewModal({
-  open,
-  onClose,
-  formData,
-  userId
-}: ReviewModalProps) {
+export function ReviewStep({ formData, onBack, onSubmit }: ReviewStepProps) {
+  const [submitting, setSubmitting] = useState(false);
   const [courseName, setCourseName] = useState<string>('');
   const [termName, setTermName] = useState<string>('');
   const [fetchData, setFetchData] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  const { user } = useSelector((state: any) => state.auth);
-  const [localData, setLocalData] = useState<any>({});
+  const [loading, setLoading] = useState<boolean>(true);
+  // The applicant the form is being filled in for - the one signed in, the one
+  // an agent picked, or nobody yet while an agent drafts a new applicant.
+  const applicantId = useApplicantId();
 
-  // Fetch user data and course/term names when the modal opens
+  const courseId = toId(formData?.courseId);
+  const intakeId = toId(formData?.intakeId);
+
+  // Pull the saved applicant record plus the course/intake names once.
   useEffect(() => {
-    if (open) {
-      // Get data from localStorage
-      const raw = localStorage.getItem('home_student_application_data');
-      setLocalData(raw ? JSON.parse(raw) : {});
-
-      const fetchDataAsync = async () => {
-        setLoading(true);
-        try {
-          // Fetch user data if userId is provided
-          if (user._id) {
-            const userResponse = await axiosInstance.get(`/users/${user._id}`);
-            setFetchData(userResponse.data.data);
-          }
-
-          // Fetch course and term names from formData
-          if (formData?.courseDetailsData) {
-            if (formData.courseDetailsData.course) {
-              const courseResponse = await axiosInstance.get(
-                `/courses/${formData.courseDetailsData.course}`
-              );
-              setCourseName(courseResponse.data.data.name || '');
-            }
-            if (formData.courseDetailsData.intake) {
-              const termResponse = await axiosInstance.get(
-                `/terms/${formData.courseDetailsData.intake}`
-              );
-              setTermName(termResponse.data.data.termName || '');
-            }
-          }
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        } finally {
-          setLoading(false);
+    const fetchDataAsync = async () => {
+      setLoading(true);
+      try {
+        if (applicantId) {
+          setFetchData(await fetchApplicant(applicantId));
         }
-      };
-      fetchDataAsync();
-    }
-  }, [open, formData?.courseDetailsData, userId]);
 
-  // Reset data when modal closes
-  useEffect(() => {
-    if (!open) {
-      setCourseName('');
-      setTermName('');
-      setFetchData(null);
-      setLocalData({});
+        if (courseId) {
+          const courseResponse = await axiosInstance.get(
+            `/courses/${courseId}`
+          );
+          setCourseName(courseResponse.data.data.name || '');
+        }
+        if (intakeId) {
+          const termResponse = await axiosInstance.get(`/terms/${intakeId}`);
+          setTermName(termResponse.data.data.termName || '');
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDataAsync();
+  }, [courseId, intakeId, applicantId]);
+
+  const handleSubmit = async () => {
+    if (submitting) return;
+    setSubmitting(true);
+    try {
+      await onSubmit();
+    } finally {
+      setSubmitting(false);
     }
-  }, [open]);
+  };
 
   // Helper to get the data value with proper merging
   const getDataValue = (key: string, subKey?: string) => {
@@ -92,7 +75,7 @@ export function ReviewModal({
     };
 
     // Try each source and return the first one that has actual content
-    const sources = [fetchData, formData, localData];
+    const sources = [fetchData, formData];
     
     for (const source of sources) {
       const value = getNestedValue(source, key, subKey);
@@ -156,7 +139,7 @@ export function ReviewModal({
               </a>
             ))}
             {nonUrls.length > 0 && (
-              <span className="text-gray-500">{nonUrls.length} file(s) uploaded</span>
+              <span className="text-black">{nonUrls.length} file(s) uploaded</span>
             )}
           </div>
         );
@@ -252,10 +235,10 @@ export function ReviewModal({
             <tbody className="divide-y divide-gray-200">
               {rows.map(([label, value], index) => (
                 <tr key={index}>
-                  <td className="break-words px-2 md:px-6 py-4 text-sm font-medium text-gray-900 w-1/3">
+                  <td className="break-words px-2 md:px-6 py-4 text-sm font-medium text-black w-1/3">
                     {label as string}
                   </td>
-                  <td className="break-words px-2 md:px-6 py-4 text-sm text-gray-500 w-2/3">
+                  <td className="break-words px-2 md:px-6 py-4 text-sm text-black w-2/3">
                     {value as React.ReactNode}
                   </td>
                 </tr>
@@ -269,32 +252,26 @@ export function ReviewModal({
 
   if (loading) {
     return (
-      <Dialog open={open} onOpenChange={onClose}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Loading...</DialogTitle>
-          </DialogHeader>
-          <div className="flex items-center justify-center py-8">
-            <p>Loading application data...</p>
-          </div>
-        </DialogContent>
-      </Dialog>
+      <div className="flex items-center justify-center py-16">
+        <p className="text-sm text-black">Loading application data...</p>
+      </div>
     );
   }
 
   return (
-    <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="flex h-[80vh] max-w-4xl flex-col gap-0 overflow-hidden mt-8">
-        <DialogHeader className="p-6 pb-2">
-          <DialogTitle className="text-xl font-bold">
-            Application Summary
-          </DialogTitle>
-        </DialogHeader>
-        <div
-          className="flex-1 overflow-y-auto p-6"
-          style={{ maxHeight: 'calc(80vh - 120px)' }}
-        >
-          <div className="space-y-6">
+    <div className="w-full">
+      <div className="px-2 pt-4 md:px-6">
+        <h2 className="text-xl font-bold text-black sm:text-2xl">
+          Review Your Application
+        </h2>
+        <p className="mt-1 text-sm text-black sm:text-base">
+          Check every section below. Go back if anything needs changing - once
+          you submit, the application is final.
+        </p>
+      </div>
+
+      <div className="max-h-[60vh] overflow-y-auto p-2 md:p-6">
+        <div className="space-y-4 sm:space-y-6">
             {/* Personal Details */}
             {renderSection('Personal Details', {
               title: getDataValue('title'),
@@ -306,6 +283,7 @@ export function ReviewModal({
               email: getDataValue('email'),
               phone: getDataValue('phone'),
               ethnicity: getDataValue('ethnicity'),
+              customEthnicity: getDataValue('customEthnicity'),
               nationality: getDataValue('nationality'),
               studentType: getDataValue('studentType'),
               countryOfBirth: getDataValue('countryOfBirth'),
@@ -352,8 +330,7 @@ export function ReviewModal({
               })}
 
             {/* Course Details */}
-            {formData?.courseDetailsData?.course &&
-            formData?.courseDetailsData?.intake
+            {courseId && intakeId
               ? renderSection('Course Details', {
                   course: courseName || 'N/A',
                   intake: termName || 'N/A'
@@ -422,7 +399,7 @@ export function ReviewModal({
                     )
                   )
                 ) : (
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-black">
                     No previous employment records found.
                   </p>
                 )}
@@ -442,6 +419,35 @@ export function ReviewModal({
               studentFinance: getDataValue('studentFinance'),
             })}
 
+            {/* Equality & Diversity */}
+            {renderSection('Equality & Diversity', {
+              ethnicityGroup: getDataValue('ethnicityGroup'),
+              ethnicityValue: getDataValue('ethnicityValue'),
+              ethnicityOther: getDataValue('ethnicityOther'),
+              religion: getDataValue('religion'),
+              sexualOrientation: getDataValue('sexualOrientation'),
+              genderIdentitySameAtBirth: getDataValue(
+                'genderIdentitySameAtBirth'
+              )
+            })}
+
+            {/* Referees */}
+            {['referee1', 'referee2'].map((refKey, index) =>
+              getDataValue(refKey) ? (
+                <React.Fragment key={refKey}>
+                  {renderSection(`Referee #${index + 1}`, {
+                    name: getDataValue(refKey, 'name'),
+                    organisation: getDataValue(refKey, 'organisation'),
+                    relationship: getDataValue(refKey, 'relationship'),
+                    address: getDataValue(refKey, 'address'),
+                    postCode: getDataValue(refKey, 'postCode'),
+                    email: getDataValue(refKey, 'email'),
+                    phone: getDataValue(refKey, 'phone')
+                  })}
+                </React.Fragment>
+              ) : null
+            )}
+
             {renderSection('Funding Information', {
               fundingType: getDataValue('fundingType'),
               ...(getDataValue('fundingType') === 'Bursary/Grant' && {
@@ -457,27 +463,48 @@ export function ReviewModal({
 
             {/* Documents - Updated with proper data handling */}
             {renderSection('Documents', {
+              photograph: getDataValue('image') || 'Not Provided',
               passport: getDataValue('passport'),
+              proofOfAddress: getDataValue('proofOfAddress'),
+              shareCodeDoc: getDataValue('shareCodeDoc'),
               bankStatement: getDataValue('bankStatement'),
               workExperience: getDataValue('workExperience'),
-              personalStatement: getDataValue('personalStatement'),
-              proofOfAddress: getDataValue('proofOfAddress'),
-              photoId: getDataValue('photoId'),
-              photograph: getDataValue('image') || 'Not Provided',
-              shareCodeDoc: getDataValue('shareCodeDoc'),
+              qualification: getDataValue('qualification'),
+              dbsDocument: getDataValue('dbsDocument'),
+              paySlip: getDataValue('paySlip'),
               englishCertificate: getDataValue('englishQualification', 'englishCertificate')
+            })}
+
+            {/* Terms & Declaration */}
+            {renderSection('Terms & Declaration', {
+              criminalConviction: getDataValue('criminalConviction'),
+              ...(getDataValue('criminalConviction') === true && {
+                convictionDetails: getDataValue('convictionDetails')
+              }),
+              acceptTerms: getDataValue('acceptTerms'),
+              acceptDataProcessing: getDataValue('acceptDataProcessing')
             })}
           </div>
         </div>
-        <div className="flex justify-end p-4">
-          <Button
-            onClick={onClose}
-            className="bg-watney text-white hover:bg-watney/90"
-          >
-            Close
-          </Button>
-        </div>
-      </DialogContent>
-    </Dialog>
+      <div className="flex flex-col gap-3 border-t p-4 sm:flex-row sm:justify-between md:px-6">
+        <Button
+          type="button"
+          variant="outline"
+          onClick={onBack}
+          disabled={submitting}
+          className="w-full justify-center bg-watney text-white hover:bg-watney/90 sm:w-auto"
+        >
+          Back
+        </Button>
+        <Button
+          type="button"
+          onClick={handleSubmit}
+          disabled={submitting}
+          className="w-full justify-center bg-green-600 text-white hover:bg-green-700 sm:w-auto"
+        >
+          {submitting ? 'Submitting...' : 'Submit Application'}
+        </Button>
+      </div>
+    </div>
   );
 }

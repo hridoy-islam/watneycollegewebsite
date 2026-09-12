@@ -100,7 +100,7 @@ export default function CourseDetailPage() {
         className={`w-4 h-4 ${
           i < Math.floor(rating)
             ? "fill-yellow-400 text-yellow-400"
-            : "text-gray-300"
+            : "text-black"
         }`}
       />
     ));
@@ -216,14 +216,14 @@ export default function CourseDetailPage() {
                         />
                         {(course.keyFeatures || []).filter((tag: string) => tag && tag.trim()).length > 0 && (
                           <div>
-                            <h4 className="text-xl font-semibold text-gray-900 mb-4">Key Features</h4>
+                            <h4 className="text-xl font-semibold text-black mb-4">Key Features</h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                               {(course.keyFeatures || [])
                                 .filter((tag: string) => tag && tag.trim())
                                 .map((tag: string, idx: number) => (
                                   <div key={idx} className="flex items-start space-x-3">
                                     <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                                    <span className="text-gray-600">{tag}</span>
+                                    <span className="text-black">{tag}</span>
                                   </div>
                                 ))}
                             </div>

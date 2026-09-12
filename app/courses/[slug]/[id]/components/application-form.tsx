@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
@@ -16,18 +18,7 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui/table';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle
-} from '@/components/ui/dialog';
-import RegistrationForm from './registration-form';
-import LoginForm from './login-form';
-import { MoveLeft } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { useSelector } from 'react-redux';
+import { LogIn, MoveLeft, UserPlus } from 'lucide-react';
 
 interface ApplicationFormProps {
   formData: {
@@ -39,52 +30,35 @@ interface ApplicationFormProps {
   onBack: () => void;
 }
 
+/**
+ * Shown on a course page to an applicant who is not signed in. Sign in and
+ * sign up are full pages now - no dialog - and both carry a redirect back to
+ * this course so the application resumes where it left off.
+ */
+
 export default function ApplicationForm({
   formData,
   onBack
 }: ApplicationFormProps) {
-  const [showStudentApplication, setShowStudentApplication] = useState(false);
-  const [showRegisterDialog, setShowRegisterDialog] = useState(false);
-  const navigate = useRouter();
-
-  // useEffect(() => {
-  //   if (!user) return;
-
-  //   if (!user.authorized) {
-  //     navigate.push(`/courses/${slug}/${courseId}/student-guideline`);
-  //   } else {
-  //     if (user.isCompleted) {
-  //       const courseId = localStorage.getItem('courseId');
-  //       if (courseId) {
-  //         navigate.push(`/courses/${slug}/${courseId}/course-application`);
-  //       }
-  //     } else if (formData.studentType === 'international') {
-  //       navigate.push(`/courses/${slug}/${courseId}/internationalstudent-application`);
-  //     } else {
-  //       navigate.push(`/courses/${slug}/${courseId}/homestudent-application`);
-  //     }
-  //   }
-  // }, [user, formData, navigate]);
-
-
-
+  const pathname = usePathname() || '/courses';
+  const redirect = encodeURIComponent(pathname);
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      <div className=" space-y-8 px-4 py-8">
+      <div className="space-y-8 px-4 py-8">
         {/* Course Details Card - Top Section */}
         <Card className="border border-gray-200 shadow-md">
           <CardHeader className="flex flex-row items-start justify-between">
             <div>
               <CardTitle>Selected Course Details</CardTitle>
               <CardDescription>
-                Please verify your course selection before proceeding
+                Sign in or create an account to continue with your application
               </CardDescription>
             </div>
             <Button
               variant="outline"
               onClick={onBack}
-              className="h-8 bg-watney text-white  hover:text-white hover:bg-watney/90"
+              className="h-8 bg-watney text-white hover:bg-watney/90 hover:text-white"
             >
               <MoveLeft className="mr-2 h-4 w-4" />
               Back
@@ -96,7 +70,6 @@ export default function ApplicationForm({
                 <TableRow>
                   <TableHead>Course Name</TableHead>
                   <TableHead>Term</TableHead>
-                  <TableHead>Student Type</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -105,74 +78,64 @@ export default function ApplicationForm({
                     {formData.courseName || 'Not selected'}
                   </TableCell>
                   <TableCell>{formData.termName || 'Not selected'}</TableCell>
-                  <TableCell>
-                    {getFormattedStudentType(formData.studentType) ||
-                      'Not selected'}
-                  </TableCell>
                 </TableRow>
               </TableBody>
             </Table>
           </CardContent>
         </Card>
 
-        {/* Login and Re gister Section - Centered */}
-        <div className="w-full  py-8">
-          <div className="flex flex-col items-center">
-            <div className="grid w-full  grid-cols-1 gap-6  md:grid-cols-2">
-              {/* Login Section - Left Side */}
-              <Card className="border border-gray-200 shadow-md">
-                <CardHeader className="bg-watney text-white">
-                  <CardTitle>Login</CardTitle>
-                </CardHeader>
-                <CardContent className="pt-6">
-                  <LoginForm />
-                </CardContent>
-              </Card>
+        {/* Sign in / sign up */}
+        <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2">
+          <Card className="border border-gray-200 shadow-md">
+            <CardHeader className="rounded-t-lg bg-watney text-white">
+              <CardTitle className="text-lg">
+                I already have an account
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col justify-between gap-6 p-6">
+              <p className="text-sm text-black">
+                Sign in with the email address and password you registered with
+                and we will take you straight back to this application.
+              </p>
+              <div className="space-y-3">
+                <Link href={`/login?redirect=${redirect}`} className="block">
+                  <Button className="w-full gap-2 bg-watney text-white hover:bg-watney/90">
+                    <LogIn className="h-4 w-4" />
+                    Sign in
+                  </Button>
+                </Link>
+                <p className="text-center text-sm">
+                  <Link
+                    href="/forgot-password"
+                    className="text-black hover:underline"
+                  >
+                    Forgot your password?
+                  </Link>
+                </p>
+              </div>
+            </CardContent>
+          </Card>
 
-              {/* Register Section - Right Side */}
-              <Card className="border border-gray-200 shadow-md">
-                <CardHeader className="bg-watney text-white">
-                  <CardTitle>Create a new user</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col items-center justify-center p-6">
-                  <div className="mb-8 mt-4 w-full max-w-xs text-center">
-                    <Button
-                      className="w-full bg-watney text-white hover:bg-watney/90"
-                      onClick={() => setShowRegisterDialog(true)}
-                    >
-                      New User
-                    </Button>
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    You will be asked to create a Username (your email address)
-                    and Password on the next screen. Please make a note of your
-                    username and password as you will need these to log back in
-                    to your application.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+          <Card className="border border-gray-200 shadow-md">
+            <CardHeader className="rounded-t-lg bg-watney text-white">
+              <CardTitle className="text-lg">I am a new user</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col justify-between gap-6 p-6">
+              <p className="text-sm text-black">
+                You will be asked to create a username (your email address) and
+                a password. Please make a note of both - you will need them to
+                log back in to your application.
+              </p>
+              <Link href={`/signup?redirect=${redirect}`} className="block">
+                <Button className="w-full gap-2 bg-watney text-white hover:bg-watney/90">
+                  <UserPlus className="h-4 w-4" />
+                  Create an account
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
         </div>
       </div>
-
-      {/* Registration Dialog */}
-      <Dialog open={showRegisterDialog} onOpenChange={setShowRegisterDialog}>
-        <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-[800px] mt-10">
-          <DialogHeader>
-            <DialogTitle>Register</DialogTitle>
-            <DialogDescription>
-              Create a new account to apply for this course
-            </DialogDescription>
-          </DialogHeader>
-          <RegistrationForm
-            formSubmitted={false}
-            setFormSubmitted={() => {}}
-            setActiveTab={() => setShowRegisterDialog(false)}
-            onSuccess={() => setShowRegisterDialog(false)}
-          />
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }

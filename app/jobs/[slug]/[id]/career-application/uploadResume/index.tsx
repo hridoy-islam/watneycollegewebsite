@@ -127,7 +127,7 @@ const CareerResumeUpload: React.FC<CareerResumeUploadProps> = ({
   return (
     <div className="flex min-h-[calc(100vh-150px)] items-center justify-center">
       <div className="w-[500px] space-y-6 rounded-2xl bg-white p-6 shadow-md">
-        <h2 className="text-md text-start font-medium text-gray-800">
+        <h2 className="text-md text-start font-medium text-black">
           Upload your resume to fill in your application details quickly and
           accurately automatically.
         </h2>
@@ -148,10 +148,10 @@ const CareerResumeUpload: React.FC<CareerResumeUploadProps> = ({
               className="hidden"
             />
             <div className="space-y-1">
-              <span className="text-gray-500">
+              <span className="text-black">
                 Drop your resume here or <span className="text-watney font-medium">browse</span>
               </span>
-              <span className="block text-xs text-gray-400">
+              <span className="block text-xs text-black">
                 Supports PDF, DOC, DOCX
               </span>
             </div>
@@ -171,7 +171,7 @@ const CareerResumeUpload: React.FC<CareerResumeUploadProps> = ({
                   clipRule="evenodd"
                 />
               </svg>
-              <span className="text-xs text-gray-700">{resume.name}</span>
+              <span className="text-xs text-black">{resume.name}</span>
             </div>
             <button
               onClick={handleRemove}
@@ -220,7 +220,7 @@ const CareerResumeUpload: React.FC<CareerResumeUploadProps> = ({
           <button
             type="button"
             onClick={handleSkip}
-            className="w-full rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100"
+            className="w-full rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-black transition hover:bg-gray-100"
           >
             Skip for now
           </button>

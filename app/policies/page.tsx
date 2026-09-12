@@ -130,11 +130,11 @@ export default function PoliciesPage() {
         <section className="relative py-20 bg-ocean-breeze overflow-hidden ">
           <div className="container mx-auto relative text-center">
             <FileText className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-black">
               Watney College{" "}
               <span className="text-watney-blue-primary">Policies</span>
             </h1>
-            <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-5xl">
+            <p className="text-lg text-black mx-auto leading-relaxed max-w-5xl">
               These policies govern the relationship between Watney College and
               its students. All prospective and current students should read
               these documents before and during enrolment. All documents are
@@ -153,10 +153,10 @@ export default function PoliciesPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold text-gray-800 mb-3">
+              <h2 className="text-3xl font-bold text-black mb-3">
                 Download Policies
               </h2>
-              <p className="text-gray-600">
+              <p className="text-black">
                 Click any policy below to download the PDF.
               </p>
             </motion.div>
@@ -165,7 +165,7 @@ export default function PoliciesPage() {
               {policyGroups.map((group, groupIndex) => (
                 <div key={groupIndex} className="space-y-4">
                   <motion.h3
-                    className="text-xl font-bold text-gray-800 border-b pb-2 mb-4"
+                    className="text-xl font-bold text-black border-b pb-2 mb-4"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -198,17 +198,17 @@ export default function PoliciesPage() {
                                   <Icon className="w-5 h-5 text-watney-blue-primary" />
                                 </div>
                                 <div className="flex flex-col text-left">
-                                  <span className="font-medium text-gray-900 group-hover:text-watney-blue-primary transition-colors">
+                                  <span className="font-medium text-black group-hover:text-watney-blue-primary transition-colors">
                                     {policy.title}
                                   </span>
                                   {policy.notice && (
-                                    <span className="text-sm text-gray-500 mt-1 leading-relaxed">
+                                    <span className="text-sm text-black mt-1 leading-relaxed">
                                       {policy.notice}
                                     </span>
                                   )}
                                 </div>
                               </div>
-                              <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-watney-blue-primary transition-colors flex-shrink-0" />
+                              <ArrowRight className="w-5 h-5 text-black group-hover:text-watney-blue-primary transition-colors flex-shrink-0" />
                             </a>
                           </motion.li>
                         );

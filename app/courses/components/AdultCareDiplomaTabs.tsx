@@ -26,8 +26,8 @@ const TermTable = ({
 }) => {
   return (
     <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6 mb-8">
-      <h4 className="text-xl font-bold text-gray-800 mb-3">{termTitle}</h4>
-      <p className="text-gray-600 mb-4 italic">{termSubtitle}</p>
+      <h4 className="text-xl font-bold text-black mb-3">{termTitle}</h4>
+      <p className="text-black mb-4 italic">{termSubtitle}</p>
 
       <div className="overflow-x-auto mb-4">
         <table className="min-w-full text-sm border-collapse">
@@ -61,7 +61,7 @@ const TermTable = ({
       {/* Condition-Specific Units (Only for Term 3) */}
       {conditionUnits && (
         <div className="mt-4 p-4 bg-yellow-50 rounded-md">
-          <h5 className="font-semibold text-gray-800 mb-2">
+          <h5 className="font-semibold text-black mb-2">
             Condition-Specific Awareness Units (Integrated throughout Term 3):
           </h5>
           <ul className="list-disc pl-5 text-sm space-y-1">
@@ -75,8 +75,8 @@ const TermTable = ({
       )}
 
       <div className="mt-4">
-        <h5 className="font-semibold text-gray-800 mb-2">Key Learning Outcomes:</h5>
-        <ul className="list-disc pl-5 text-sm text-gray-700 space-y-1">
+        <h5 className="font-semibold text-black mb-2">Key Learning Outcomes:</h5>
+        <ul className="list-disc pl-5 text-sm text-black space-y-1">
           {outcomes.map((outcome, idx) => (
             <li key={idx}>{outcome}</li>
           ))}
@@ -93,18 +93,18 @@ export default function AdultCareDiplomaTabs({ course }: { course?: any }) {
       {/* === Overview Tab === */}
       <TabsContent value="overview" className="space-y-6">
         <div className="">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Programme Overview</h3>
-          <p className="text-gray-700 leading-relaxed mb-4">
+          <h3 className="text-2xl font-bold text-black mb-4">Programme Overview</h3>
+          <p className="text-black leading-relaxed mb-4">
             The NQual Level 4 Diploma in Adult Care is designed to provide learners with knowledge and skills relating to care practices. It will provide individuals with the chance to develop knowledge and gain skills to seek employment or progression onto higher level qualifications.
           </p>
-          <p className="text-gray-700 leading-relaxed mb-4">
+          <p className="text-black leading-relaxed mb-4">
             The purpose of this qualification is to prepare individuals for progression in the care sector. The units specified within this document cover a variety of areas and topics relevant to the sector, including leadership and management in health care.
           </p>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-black leading-relaxed">
             This qualification is supported by Skills for Care and developed using the Development Assessment Principles. This qualification is approved by Skills for Care.
           </p>
         </div>
-        <p className="text-gray-700 leading-relaxed pt-5">
+        <p className="text-black leading-relaxed pt-5">
            <span className="font-semibold">Assessment:</span> Portfolio of evidence, internally assessed and verified. No written examinations. Assessed against NQual qualification standards regulated by Ofqual.
           </p>
       </TabsContent>
@@ -112,7 +112,7 @@ export default function AdultCareDiplomaTabs({ course }: { course?: any }) {
       {/* === Curriculum Tab (Programme Information) === */}
       <TabsContent value="curriculum" className="space-y-6">
         <div className="">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Programme Information</h3>
+          <h3 className="text-2xl font-bold text-black mb-4">Programme Information</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
               <strong>Qualification Code:</strong> 610/2969/5
@@ -139,26 +139,26 @@ export default function AdultCareDiplomaTabs({ course }: { course?: any }) {
       {/* === Requirements Tab === */}
       <TabsContent value="requirements" className="space-y-6">
         <div className="">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Entry Requirements</h3>
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
+          <h3 className="text-2xl font-bold text-black mb-4">Entry Requirements</h3>
+          <ul className="list-disc pl-5 space-y-2 text-black">
             <li>Applicants should hold a Level 3 qualification or equivalent, or have relevant experience in adult social care.</li>
             <li>Minimum age 18</li>
           </ul>
 
           <h4 className="text-xl font-semibold mt-6 mb-2">RPL / RPEL and Attainment</h4>
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
+          <ul className="list-disc pl-5 space-y-2 text-black">
             <li>Learners with a minimum of three years of experience at a sub-decision-making level will be considered for entry.</li>
             <li>Credit transfer may be granted to students who have completed a Level 4 qualification in the same discipline from other Ofqual-recognised awarding organisations.</li>
           </ul>
 
           <h4 className="text-xl font-semibold mt-6 mb-2">Progression</h4>
-          <p className="text-gray-700">Level 5 Diploma in Leadership and Management in Adult Care Services</p>
+          <p className="text-black">Level 5 Diploma in Leadership and Management in Adult Care Services</p>
         </div>
       </TabsContent>
 
       {/* === Career Tab (Programme Structure) === */}
       <TabsContent value="career" className="space-y-4">
-        <h3 className="text-2xl font-bold text-gray-900">Programme Structure</h3>
+        <h3 className="text-2xl font-bold text-black">Programme Structure</h3>
 
         <TermTable
           termTitle="Term 1 (Weeks 1-12): Foundation and Professional Practice"

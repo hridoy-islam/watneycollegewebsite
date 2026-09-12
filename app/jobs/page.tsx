@@ -46,10 +46,10 @@ export default function JobPage() {
       <section className="relative py-20 bg-ocean-breeze z-10">
         <div className="container mx-auto px-4 relative z-20 text-center">
           <Briefcase className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-          <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+          <h1 className="text-5xl md:text-6xl font-black mb-6 text-black">
             Explore <span className="text-watney-blue-primary">Career Opportunities</span>
           </h1>
-          <p className="mb-12 text-lg text-gray-600 leading-relaxed mx-auto max-w-3xl">
+          <p className="mb-12 text-lg text-black leading-relaxed mx-auto max-w-3xl">
             Join our team of passionate professionals dedicated to making a lasting impact.
             Discover roles that challenge, inspire, and empower you to grow in a supportive environment.
           </p>
@@ -65,9 +65,9 @@ export default function JobPage() {
       {/* Jobs Listing */}
       <div className="relative z-30 rounded-lg overflow-hidden space-y-4 container py-8">
         {initialLoading ? (
-          <div className="text-center text-slate-500 py-12">Loading...</div>
+          <div className="text-center text-black py-12">Loading...</div>
         ) : jobs.length === 0 ? (
-          <div className="text-center text-slate-500 py-12">No jobs available at the moment.</div>
+          <div className="text-center text-black py-12">No jobs available at the moment.</div>
         ) : (
           <>
             {jobs.map((job: any, index: number) => (
@@ -77,7 +77,7 @@ export default function JobPage() {
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-wrap items-center gap-2 mb-2">
-                          <h2 className="text-xl font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
+                          <h2 className="text-xl font-semibold text-black group-hover:text-blue-600 transition-colors">
                             {job.jobTitle || job.title}
                           </h2>
                           <Badge variant="secondary" className="bg-blue-100 text-blue-800 hover:bg-blue-100">
@@ -86,12 +86,12 @@ export default function JobPage() {
                         </div>
 
                         {job.designationId?.title && (
-                          <p className="text-sm text-slate-500 mb-1">{job.designationId.title}</p>
+                          <p className="text-sm text-black mb-1">{job.designationId.title}</p>
                         )}
 
-                        <div className="text-slate-600 mb-4 line-clamp-2" dangerouslySetInnerHTML={{ __html: job.jobDetail || job.description || job.detail || '' }} />
+                        <div className="text-black mb-4 line-clamp-2" dangerouslySetInnerHTML={{ __html: job.jobDetail || job.description || job.detail || '' }} />
                       </div>
-                      <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-blue-600 flex-shrink-0 mt-1" />
+                      <ChevronRight className="w-5 h-5 text-black group-hover:text-blue-600 flex-shrink-0 mt-1" />
                     </div>
                   </div>
                 </Link>

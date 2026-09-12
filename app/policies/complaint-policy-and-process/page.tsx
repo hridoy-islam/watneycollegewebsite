@@ -29,11 +29,11 @@ export default function ComplaintPolicyProcessPage() {
             <div className="w-20 h-20 flex items-center justify-center mx-auto mb-6">
               <MessageSquare className="w-20 h-20 text-watney-blue-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-black">
               Complaint Policy{" "}
               <span className="text-watney-blue-primary">and Process</span>
             </h1>
-            <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-3xl">
+            <p className="text-lg text-black mx-auto leading-relaxed max-w-3xl">
               The formal framework through which complaints concerning Watney
               College's services, conduct, administration or academic provision
               may be raised, investigated and resolved fairly, transparently and
@@ -50,10 +50,10 @@ export default function ComplaintPolicyProcessPage() {
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
                   
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     Scope, principles and who can complain
                   </h2>
-                  <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <div className="space-y-4 text-black leading-relaxed">
                     <p>
                       This policy applies to current and former students,
                       applicants, parents and sponsors, employers, agents,
@@ -62,7 +62,7 @@ export default function ComplaintPolicyProcessPage() {
                       institutional transparency, accountability, quality
                       enhancement and regulatory compliance.
                     </p>
-                    <div className="font-semibold text-gray-800 mt-4">
+                    <div className="font-semibold text-black mt-4">
                       This policy covers dissatisfaction relating to:
                     </div>
                     <ul className="space-y-2 mt-2">
@@ -77,7 +77,7 @@ export default function ComplaintPolicyProcessPage() {
                           <div className="flex-shrink-0 w-6 h-6 rounded-full bg-watney-blue-light/50 border border-watney-blue/30 flex items-center justify-center mt-0.5">
                             <CheckCircle2 className="w-3.5 h-3.5 text-watney-blue-primary" />
                           </div>
-                          <span className="text-gray-700">{item}</span>
+                          <span className="text-black">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -85,10 +85,10 @@ export default function ComplaintPolicyProcessPage() {
                 </div>
                 <div className="space-y-6">
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Principles
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       Fairness and impartiality · Independence of review ·
                       Transparency of process · Timeliness · Confidentiality ·
                       Protection from victimisation · Proportionality of outcome
@@ -117,7 +117,7 @@ export default function ComplaintPolicyProcessPage() {
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
                   
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     Three-stage complaints procedure
                   </h2>
                   <div className="space-y-4">
@@ -126,10 +126,10 @@ export default function ComplaintPolicyProcessPage() {
                         <span className="text-watney-blue-primary font-bold text-sm">1</span>
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-800">
+                        <div className="font-semibold text-black">
                           Stage 1 — Informal resolution
                         </div>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-black">
                           Complainants are encouraged to seek informal resolution
                           within 10 working days. The College will attempt to
                           resolve matters promptly at local level. A summary note
@@ -142,10 +142,10 @@ export default function ComplaintPolicyProcessPage() {
                         <span className="text-watney-blue-primary font-bold text-sm">2</span>
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-800">
+                        <div className="font-semibold text-black">
                           Stage 2 — Formal investigation
                         </div>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-black">
                           Formal complaint submitted in writing. Acknowledged
                           within 5 working days. Investigation normally concludes
                           within 20 working days. Outcome letter includes
@@ -159,10 +159,10 @@ export default function ComplaintPolicyProcessPage() {
                         <span className="text-watney-blue-primary font-bold text-sm">3</span>
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-800">
+                        <div className="font-semibold text-black">
                           Stage 3 — Final internal review
                         </div>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-black">
                           Requested within 10 working days on grounds of
                           procedural irregularity, conflict of interest, new
                           material evidence, or disproportionate outcome. Panel
@@ -175,10 +175,10 @@ export default function ComplaintPolicyProcessPage() {
                 </div>
                 <div className="space-y-6">
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Admissibility
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       Complaints are normally admissible where submitted within
                       20 working days of the matter arising, within defined
                       scope, not previously concluded, and with sufficient
@@ -211,10 +211,10 @@ export default function ComplaintPolicyProcessPage() {
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
                  
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     Remedies, safeguarding referrals and monitoring
                   </h2>
-                  <div className="font-semibold text-gray-800 mb-3">
+                  <div className="font-semibold text-black mb-3">
                     Where a complaint is upheld, remedies may include:
                   </div>
                   <ul className="space-y-2">
@@ -230,11 +230,11 @@ export default function ComplaintPolicyProcessPage() {
                         <div className="flex-shrink-0 w-6 h-6 rounded-full bg-watney-blue-light/50 border border-watney-blue/30 flex items-center justify-center mt-0.5">
                           <CheckCircle2 className="w-3.5 h-3.5 text-watney-blue-primary" />
                         </div>
-                        <span className="text-gray-700">{item}</span>
+                        <span className="text-black">{item}</span>
                       </li>
                     ))}
                   </ul>
-                  <p className="text-sm text-gray-600 mt-4">
+                  <p className="text-sm text-black mt-4">
                     Financial remedies align with the Tuition Fee Refund and
                     Compensation Policy.
                   </p>
@@ -254,10 +254,10 @@ export default function ComplaintPolicyProcessPage() {
                     </p>
                   </div>
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Monitoring
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       The Quality Assurance Committee reports on volume, nature,
                       resolution timelines and trends. Annual analysis is
                       reviewed by the Academic Board. Systemic or regulatory risk
@@ -274,7 +274,7 @@ export default function ComplaintPolicyProcessPage() {
           <section className="py-20 bg-slate-50">
             <div className="container mx-auto px-6 max-w-5xl">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
                   Governance{" "}
                   <span className="text-watney-blue-primary">
                     Reporting Line
@@ -287,13 +287,13 @@ export default function ComplaintPolicyProcessPage() {
                   <table className="w-full text-left border-collapse">
                     <thead>
                       <tr className="bg-slate-50/50 border-b border-slate-200">
-                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-black">
                           Level
                         </th>
-                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-black">
                           Body
                         </th>
-                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-black">
                           Role
                         </th>
                       </tr>
@@ -331,17 +331,17 @@ export default function ComplaintPolicyProcessPage() {
                           className="group hover:bg-blue-50/40 transition-colors duration-150"
                         >
                           <td className="py-5 px-8">
-                            <span className="text-base font-bold text-slate-800 group-hover:text-watney-blue-primary transition-colors">
+                            <span className="text-base font-bold text-black group-hover:text-watney-blue-primary transition-colors">
                               {row.level}
                             </span>
                           </td>
                           <td className="py-5 px-8">
-                            <span className="text-sm font-semibold text-slate-700 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 group-hover:bg-white group-hover:border-blue-200 transition-all">
+                            <span className="text-sm font-semibold text-black bg-slate-100 px-3 py-1 rounded-md border border-slate-200 group-hover:bg-white group-hover:border-blue-200 transition-all">
                               {row.body}
                             </span>
                           </td>
                           <td className="py-5 px-8">
-                            <span className="text-sm font-medium text-slate-600">
+                            <span className="text-sm font-medium text-black">
                               {row.role}
                             </span>
                           </td>
@@ -358,17 +358,17 @@ export default function ComplaintPolicyProcessPage() {
           <div className="py-12 bg-gray-50 border-t border-gray-200">
             <div className="container mx-auto px-4 text-center">
               <div className="w-12 h-12 bg-white rounded-lg border border-gray-200 flex items-center justify-center mx-auto mb-4">
-                <FileText className="w-6 h-6 text-gray-500" />
+                <FileText className="w-6 h-6 text-black" />
               </div>
-              <p className="text-gray-500 text-sm mb-6">
+              <p className="text-black text-sm mb-6">
                 Last reviewed:{" "}
-                <span className="font-medium text-gray-700">
+                <span className="font-medium text-black">
                   5 November 2025
                 </span>{" "}
                 &nbsp;·&nbsp; Version:{" "}
-                <span className="font-medium text-gray-700">1.2</span>{" "}
+                <span className="font-medium text-black">1.2</span>{" "}
                 &nbsp;·&nbsp; Next review:{" "}
-                <span className="font-medium text-gray-700">November 2026</span>
+                <span className="font-medium text-black">November 2026</span>
               </p>
               <a
                 href="#"

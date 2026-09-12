@@ -159,7 +159,7 @@ export default function PreventDutyStatementPage() {
                 Prevent Duty{" "}
                 <span className="text-watney-blue-primary">Statement</span>
               </h1>
-              <p className="text-lg mb-8 text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg mb-8 text-black max-w-3xl mx-auto">
                 Watney College is committed to its statutory obligations under
                 the Counter-Terrorism and Security Act 2015. We fulfil our
                 Prevent Duty through a structured programme of risk assessment,
@@ -201,7 +201,7 @@ export default function PreventDutyStatementPage() {
               Our Prevent Duty{" "}
               <span className="text-watney-blue-primary">Commitments</span>
             </h2>
-            <p className="text-gray-600 text-[15px] leading-relaxed max-w-3xl mx-auto">
+            <p className="text-black text-[15px] leading-relaxed max-w-3xl mx-auto">
               As a registered higher education provider, Watney College has due
               regard to the need to prevent students and staff from being drawn
               into terrorism, in accordance with the Prevent Duty Guidance for
@@ -230,7 +230,7 @@ export default function PreventDutyStatementPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-[13px] leading-relaxed text-gray-600">
+                    <CardDescription className="text-[13px] leading-relaxed text-black">
                       {item.description}
                     </CardDescription>
                   </CardContent>
@@ -260,7 +260,7 @@ export default function PreventDutyStatementPage() {
               Fundamental British Values{" "}
               <span className="text-watney-blue-primary">in our provision</span>
             </h2>
-            <p className="text-gray-600 text-[15px] leading-relaxed max-w-3xl mx-auto">
+            <p className="text-black text-[15px] leading-relaxed max-w-3xl mx-auto">
               Across our healthcare and vocational programmes — including the
               ATHE Level 4 Healthcare Diploma and the NQual Level 2 Adult Social
               Care Certificate — the four fundamental British values are
@@ -282,7 +282,7 @@ export default function PreventDutyStatementPage() {
                   <h4 className="text-sm font-bold text-watney-blue-primary mb-1">
                     {bfv.label}
                   </h4>
-                  <p className="text-[13px] text-gray-600 leading-relaxed">
+                  <p className="text-[13px] text-black leading-relaxed">
                     {bfv.desc}
                   </p>
                 </div>
@@ -311,7 +311,7 @@ export default function PreventDutyStatementPage() {
               Prevent risk{" "}
               <span className="text-watney-blue-primary">assessment</span>
             </h2>
-            <p className="text-gray-600 text-[15px] leading-relaxed max-w-3xl mx-auto">
+            <p className="text-black text-[15px] leading-relaxed max-w-3xl mx-auto">
               The College maintains a written Prevent risk assessment reviewed
               annually and whenever provision materially changes. The assessment
               identifies risks specific to our student population and delivery
@@ -321,7 +321,7 @@ export default function PreventDutyStatementPage() {
 
           <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm bg-white z-50">
             <table className="w-full text-left border-collapse text-[14px] z-20">
-              <thead className="bg-gray-50 text-gray-600 z-20">
+              <thead className="bg-gray-50 text-black z-20">
                 <tr className="z-20">
                   <th className="p-4 font-bold uppercase tracking-wide text-xs border-b border-gray-200 text-black">
                     Risk area
@@ -337,14 +337,14 @@ export default function PreventDutyStatementPage() {
                   </th>
                 </tr>
               </thead>
-              <tbody className="text-gray-700 z-20">
+              <tbody className="text-black z-20">
                 {riskTableData.map((row, i) => (
                   <tr
                     key={i}
                     className="border-b border-gray-100 last:border-0 z-20"
                   >
                     <td className="p-4 font-medium text-black">{row.area}</td>
-                    <td className="p-4 text-gray-600 leading-relaxed">
+                    <td className="p-4 text-black leading-relaxed">
                       {row.context}
                     </td>
                     <td className="p-4">
@@ -354,7 +354,7 @@ export default function PreventDutyStatementPage() {
                         {row.rating}
                       </span>
                     </td>
-                    <td className="p-4 text-gray-600 leading-relaxed">
+                    <td className="p-4 text-black leading-relaxed">
                       {row.control}
                     </td>
                   </tr>
@@ -383,7 +383,7 @@ export default function PreventDutyStatementPage() {
             <h2 className="text-4xl lg:text-5xl text-black font-bold mb-4">
               Prevent <span className="text-watney-blue-primary">Lead</span>
             </h2>
-            <p className="text-gray-600 text-[15px] leading-relaxed max-w-3xl mx-auto">
+            <p className="text-black text-[15px] leading-relaxed max-w-3xl mx-auto">
               Watney College has appointed a named Prevent Lead at senior
               management level responsible for the College's Prevent policy,
               risk assessment, staff training coordination and external liaison.
@@ -398,10 +398,10 @@ export default function PreventDutyStatementPage() {
               <p className="text-[15px] font-bold text-black">
                 Syed Jahedul Islam
               </p>
-              <p className="text-sm text-gray-500 mb-3">
+              <p className="text-sm text-black mb-3">
                 Designated Prevent Lead, Watney College
               </p>
-              <p className="text-[14px] text-gray-600 leading-relaxed">
+              <p className="text-[14px] text-black leading-relaxed">
                 The Prevent Lead reports to the Board of Directors and presents
                 an annual Prevent assurance report. The Audit, Remuneration and
                 Risk Committee (ARRC) receives Prevent risk updates as part of
@@ -450,7 +450,7 @@ export default function PreventDutyStatementPage() {
               Reporting a{" "}
               <span className="text-watney-blue-primary">concern</span>
             </h2>
-            <p className="text-gray-600 text-[15px] leading-relaxed max-w-3xl mx-auto">
+            <p className="text-black text-[15px] leading-relaxed max-w-3xl mx-auto">
               If you have a concern about a student's vulnerability to
               radicalisation, or about extremist content or behaviour
               encountered in connection with College activity, report it

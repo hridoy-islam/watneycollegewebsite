@@ -6,15 +6,28 @@ import axiosInstance from '@/lib/axios';
 interface UserCredentials {
   email: string;
   password: string;
+  /** Applicants authenticate against their own collection. */
+  role?: string;
 }
 
 interface forgetCredentials {
   email: string;
+  /** Applicants live in their own collection - see UserCredentials. */
+  role?: string;
 }
 
 interface validateOtpCredentials {
   email: string;
   otp: string;
+  role?: string;
+}
+
+interface ResetPasswordCredentials {
+  userId: string;
+  password: string;
+  role?: string;
+  /** The short lived reset token handed back by /auth/validate. */
+  token?: string;
 }
 
 interface ChangePasswordCredentials {
@@ -148,7 +161,7 @@ export const requestOtp = createAsyncThunk<
   { rejectValue: string }
 >('auth/forget', async (userCredentials, { rejectWithValue }) => {
   try {
-    const request = await axios.post(
+    const request = await axios.patch(
       `${process.env.NEXT_PUBLIC_API_URL}/auth/forget`,
       userCredentials,
       {
@@ -173,7 +186,7 @@ export const validateRequestOtp = createAsyncThunk<
   ValidateOtpResponse,
   validateOtpCredentials
 >('auth/validate', async (userCredentials) => {
-  const request = await axios.post(
+  const request = await axios.patch(
     `${process.env.NEXT_PUBLIC_API_URL}/auth/validate`,
     userCredentials,
     {
@@ -186,6 +199,37 @@ export const validateRequestOtp = createAsyncThunk<
   const response = await request.data;
 
   return response;
+});
+
+/**
+ * Sets a new password after the OTP has been validated. Hits the auth module
+ * (`PATCH /auth/reset`) rather than `/users/:id`, so an applicant - who is not
+ * a User - can reset their password too; `role` picks the collection.
+ */
+export const resetPassword = createAsyncThunk<
+  ChangePasswordResponse,
+  ResetPasswordCredentials,
+  { rejectValue: string }
+>('auth/reset', async (credentials, { rejectWithValue }) => {
+  try {
+    const { token, ...payload } = credentials;
+    const request = await axios.patch(
+      `${process.env.NEXT_PUBLIC_API_URL}/auth/reset`,
+      payload,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {})
+        }
+      }
+    );
+    return request.data;
+  } catch (error: any) {
+    if (error.response?.data?.message) {
+      return rejectWithValue(error.response.data.message);
+    }
+    return rejectWithValue(error.message || 'Could not reset the password');
+  }
 });
 
 // patch new password

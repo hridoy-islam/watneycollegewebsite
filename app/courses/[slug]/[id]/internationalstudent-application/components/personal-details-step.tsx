@@ -219,7 +219,7 @@ export function PersonalDetailsStep({
                           />
                         )}
                       />
-                      <p className="text-xs  text-gray-400">
+                      <p className="text-xs  text-black">
                         Example: Mr., Ms., Mrs., Dr., etc
                       </p>
                       <FormMessage />
@@ -239,10 +239,10 @@ export function PersonalDetailsStep({
                         <Input
                           {...field}
                           placeholder="Enter your given name as it appears in your passport or national ID."
-                          className="!placeholder:text-gray-500  placeholder:text-xs placeholder:text-gray-500"
+                          className="!placeholder:text-black  placeholder:text-xs placeholder:text-black"
                         />
                       </FormControl>
-                      <p className="text-xs  text-gray-400">Example: Ridoy</p>
+                      <p className="text-xs  text-black">Example: Ridoy</p>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -258,10 +258,10 @@ export function PersonalDetailsStep({
                         <Input
                           {...field}
                           placeholder="If you have a middle name, enter only the first letter."
-                          className="!placeholder:text-gray-500  placeholder:text-xs placeholder:text-gray-500"
+                          className="!placeholder:text-black  placeholder:text-xs placeholder:text-black"
                         />
                       </FormControl>
-                      <p className="text-xs  text-gray-400">Example: H</p>
+                      <p className="text-xs  text-black">Example: H</p>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -280,10 +280,10 @@ export function PersonalDetailsStep({
                         <Input
                           {...field}
                           placeholder="If you have a middle name, enter only the first letter. Leave blank if not applicable."
-                          className="!placeholder:text-gray-500  placeholder:text-xs placeholder:text-gray-500"
+                          className="!placeholder:text-black  placeholder:text-xs placeholder:text-black"
                         />
                       </FormControl>
-                      <p className="text-xs  text-gray-400">Example: Islam</p>
+                      <p className="text-xs  text-black">Example: Islam</p>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -325,7 +325,7 @@ export function PersonalDetailsStep({
                             // disabled = {true}
                           />
                         </FormControl>
-                        <p className="mt-1 text-xs text-gray-400">
+                        <p className="mt-1 text-xs text-black">
                           Example: DD/MM/YYYY or 24/01/1995
                         </p>
                         <FormMessage />
@@ -347,10 +347,10 @@ export function PersonalDetailsStep({
                           type="email"
                           {...field}
                           placeholder="Enter a valid email address that you check regularly. All communication will be sent here."
-                          className="!placeholder:text-gray-500  placeholder:text-xs placeholder:text-gray-500"
+                          className="!placeholder:text-black  placeholder:text-xs placeholder:text-black"
                         />
                       </FormControl>
-                      <p className="mt-1 text-xs text-gray-400">
+                      <p className="mt-1 text-xs text-black">
                         Example: jhondou@gmail.co
                       </p>
                       <FormMessage />
@@ -371,10 +371,10 @@ export function PersonalDetailsStep({
                           type="tel"
                           {...field}
                           placeholder="Include your country code if applying from outside the UK."
-                          className="!placeholder:text-gray-500  placeholder:text-xs placeholder:text-gray-500"
+                          className="!placeholder:text-black  placeholder:text-xs placeholder:text-black"
                         />
                       </FormControl>
-                      <p className="mt-1 text-xs text-gray-400">
+                      <p className="mt-1 text-xs text-black">
                         Example: +8801675792314 (for Bangladesh)
                       </p>
 
@@ -416,7 +416,7 @@ export function PersonalDetailsStep({
                           }}
                         />
                       </FormControl>
-                      <p className="mt-1 text-xs text-gray-400">
+                      <p className="mt-1 text-xs text-black">
                         Example: Male, Female, Non-binary, Prefer not to say,
                         Other
                       </p>
@@ -459,7 +459,7 @@ export function PersonalDetailsStep({
                           }}
                         />
                       </FormControl>
-                      <p className="mt-1 text-xs text-gray-400">
+                      <p className="mt-1 text-xs text-black">
                         Example: Bangladesh
                       </p>
 
@@ -513,7 +513,7 @@ export function PersonalDetailsStep({
                         <FormControl>
                           <Textarea
                             {...field}
-                            className="!placeholder:text-gray-500 border-gray-200 p-1  text-sm placeholder:text-xs placeholder:text-gray-500"
+                            className="!placeholder:text-black border-gray-200 p-1  text-sm placeholder:text-xs placeholder:text-black"
                             placeholder="This is collected for equal opportunity monitoring. It will not affect your application."
                           />
                         </FormControl>
@@ -556,7 +556,7 @@ export function PersonalDetailsStep({
                           }}
                         />
                       </FormControl>
-                      <p className="mt-1 text-xs text-gray-400">
+                      <p className="mt-1 text-xs text-black">
                         Example: Bangladesh
                       </p>
 
@@ -599,7 +599,7 @@ export function PersonalDetailsStep({
                         />
                       </FormControl>
 
-                      <p className="mt-1 text-xs text-gray-400">
+                      <p className="mt-1 text-xs text-black">
                         Options: Single, Married, Civil Partnership, Divorced,
                         Widowed, Prefer not to say
                       </p>
@@ -642,7 +642,7 @@ export function PersonalDetailsStep({
                             }}
                           />
                         </FormControl>
-                        <p className="mt-1 text-xs text-gray-400">
+                        <p className="mt-1 text-xs text-black">
                           Example: Canada
                         </p>
                         <FormMessage />

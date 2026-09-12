@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { useRef, useState } from "react";
+import UserNav from "@/components/user-nav";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -110,15 +111,15 @@ export default function Header() {
         </nav>
 
         {/* "Apply Now" Button for Desktop */}
-        <div className="hidden lg:block space-x-4">
+        <div className="hidden lg:flex items-center gap-4">
 
-          <a
+          {/* <a
             href="https://app.watneycollege.co.uk"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Button className="bg-[#942a24] hover:bg-[#942a24]/90"  >Student Login</Button>
-          </a>
+          </a> */}
           {/* <a
             href="https://system.klaspad.com/"
             target="_blank"
@@ -128,9 +129,11 @@ export default function Header() {
           </a> */}
 
 
-          <Link href="/courses">
+          {/* <Link href="/courses">
             <Button className="btn-watney-primary ">Apply Now</Button>
-          </Link>
+          </Link> */}
+
+          <UserNav />
         </div>
 
         {/* Mobile Menu Button */}
@@ -232,7 +235,7 @@ export default function Header() {
               )}
             </nav>
 
-            <div className="mt-8">
+            <div className="mt-8 space-y-4">
               <Link href="/courses">
                 <Button
                   className="w-full btn-watney-primary"
@@ -241,6 +244,8 @@ export default function Header() {
                   Apply Now
                 </Button>
               </Link>
+
+              <UserNav inline onNavigate={() => setIsMobileMenuOpen(false)} />
             </div>
           </div>
         </div>

@@ -14,11 +14,15 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import ReactSelect from 'react-select';
+import { AgentCodeField } from '../../components/agent-code-field';
+import { toId } from '@/lib/applicant-api';
 
 const complianceSchema = z
   .object({
     niNumber: z.string().optional(),
     hearAboutUs: z.string().optional(),
+    applicantAgentCode: z.string().optional(),
+    agentId: z.string().optional(),
     ltrCode: z.string().optional(),
     immigrationStatus: z.string().min(1, { message: 'Please select status' }),
     disability: z.string().min(1, { message: 'Please select an option' }),
@@ -35,6 +39,23 @@ const complianceSchema = z
         message: 'Disability details are required when disability is "yes".',
         path: ['disabilityDetails']
       });
+    }
+
+    // An agent referral only counts once the code matches a real agent.
+    if (data.hearAboutUs === 'agent') {
+      if (!data.applicantAgentCode?.trim()) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Agent code is required when you heard about us from an agent.',
+          path: ['applicantAgentCode']
+        });
+      } else if (!data.agentId) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Enter a valid agent code - no agent matches this code yet.',
+          path: ['applicantAgentCode']
+        });
+      }
     }
   });
 
@@ -54,6 +75,8 @@ export function ComplianceStep({
       disability: defaultValues?.disability || '',
       disabilityDetails: defaultValues?.disabilityDetails || '',
       hearAboutUs: defaultValues?.hearAboutUs || '',
+      applicantAgentCode: defaultValues?.applicantAgentCode || '',
+      agentId: toId(defaultValues?.agentId),
       studentFinance: defaultValues?.studentFinance || ''
     }
   });
@@ -61,7 +84,16 @@ export function ComplianceStep({
   const watchDisability = form.watch('disability');
 
   function onSubmit(data: ComplianceData) {
-    onSaveAndContinue(data);
+    const isAgentReferral = data.hearAboutUs === 'agent';
+
+    onSaveAndContinue({
+      ...data,
+      applicantAgentCode: isAgentReferral
+        ? data.applicantAgentCode?.trim()
+        : '',
+      // Never send an empty string - the backend casts this to an ObjectId.
+      agentId: (isAgentReferral && data.agentId) || null
+    });
   }
 
   // function handleSave() {
@@ -73,17 +105,18 @@ export function ComplianceStep({
     setCurrentStep(5);
   }
 
+
   const hearAboutUsOptions = [
     { label: 'Google Search', value: 'google' },
     { label: 'Facebook', value: 'facebook' },
     { label: 'Instagram', value: 'instagram' },
     { label: 'LinkedIn', value: 'linkedin' },
     { label: 'YouTube', value: 'youtube' },
-    { label: 'Word of Mouth', value: 'word_of_mouth' },
-    { label: 'Friend or Family', value: 'friend_family' },
+    { label: 'Agent', value: 'agent' },
+    { label: 'Word of Mouth', value: 'word of mouth' },
+    { label: 'Friend or Family', value: 'friend family' },
     { label: 'University Fair', value: 'university' },
     { label: 'Online Advertisement', value: 'online' },
-    { label: 'Education Agent', value: 'agent' },
     { label: 'School/College', value: 'school/college' },
     { label: 'Other', value: 'other' }
   ];
@@ -145,7 +178,7 @@ export function ComplianceStep({
                         }}
                       />
                     </FormControl>
-                    <p className="mt-1 text-xs text-gray-400">
+                    <p className="mt-1 text-xs text-black">
                       Example: UK Citizen, Tier 4 Student Visa, etc.
                     </p>
                     <FormMessage />
@@ -163,11 +196,11 @@ export function ComplianceStep({
                       <Input
                         {...field}
                         placeholder="If you have one, please enter your NI number."
-                        className="!placeholder:text-gray-500  placeholder:text-xs placeholder:text-gray-500"
+                        className="!placeholder:text-black  placeholder:text-xs placeholder:text-black"
                       />
                     </FormControl>
 
-                    <p className="mt-1 text-xs text-gray-400">
+                    <p className="mt-1 text-xs text-black">
                       Example: JM456789B
                     </p>
 
@@ -187,11 +220,11 @@ export function ComplianceStep({
                       <Input
                         {...field}
                         placeholder="Required if you have EU Settled or Pre-Settled Status."
-                        className="!placeholder:text-gray-500  placeholder:text-xs placeholder:text-gray-500"
+                        className="!placeholder:text-black  placeholder:text-xs placeholder:text-black"
                       />
                     </FormControl>
 
-                    <p className="mt-1 text-xs text-gray-400">
+                    <p className="mt-1 text-xs text-black">
                       Example: LTR123456789
                     </p>
 
@@ -224,13 +257,15 @@ export function ComplianceStep({
                         }}
                       />
                     </FormControl>
-                    <p className="mt-1 text-xs text-gray-400">
+                    <p className="mt-1 text-xs text-black">
                       Example: Website
                     </p>
                     <FormMessage />
                   </FormItem>
                 )}
               />
+
+              <AgentCodeField form={form} />
               <FormField
                 control={form.control}
                 name="studentFinance"
@@ -259,7 +294,7 @@ export function ComplianceStep({
                         }}
                       />
                     </FormControl>
-                    <p className="mt-1 text-xs text-gray-400">
+                    <p className="mt-1 text-xs text-black">
                       Example: Yes / No
                     </p>
                     <FormMessage />
@@ -267,8 +302,8 @@ export function ComplianceStep({
                 )}
               />
 
-               <div className="col-span-1 mt-4 space-y-4 rounded-md bg-gray-50 p-4 text-sm text-gray-700 md:col-span-2">
-                <h3 className="font-semibold text-gray-900">
+               <div className="col-span-1 mt-4 space-y-4 rounded-md bg-gray-50 p-4 text-sm text-black md:col-span-2">
+                <h3 className="font-semibold text-black">
                   Equality Act 2010 Declaration
                 </h3>
                 <p>
@@ -315,7 +350,7 @@ export function ComplianceStep({
                         }}
                       />
                     </FormControl>
-                    <p className="mt-1 text-xs text-gray-400">
+                    <p className="mt-1 text-xs text-black">
                       Example: Yes, No, Prefer not to say
                     </p>
                     <FormMessage />
@@ -337,11 +372,11 @@ export function ComplianceStep({
                         <Textarea
                           {...field}
                           placeholder="Please provide your disabiility details"
-                          className="!placeholder:text-gray-500  border-gray-200 placeholder:text-xs placeholder:text-gray-500"
+                          className="!placeholder:text-black  border-gray-200 placeholder:text-xs placeholder:text-black"
                         />
                       </FormControl>
 
-                      <p className="mt-1 text-xs text-gray-400">
+                      <p className="mt-1 text-xs text-black">
                         Example: I have a visual impairment that affects my
                         ability to read small text.
                       </p>
@@ -352,7 +387,7 @@ export function ComplianceStep({
                 />
               )}
 
-                <div className="col-span-1 mt-4 space-y-4 rounded-md bg-gray-50 p-4 text-sm text-gray-700 md:col-span-2">
+                <div className="col-span-1 mt-4 space-y-4 rounded-md bg-gray-50 p-4 text-sm text-black md:col-span-2">
                
                
                 <p>

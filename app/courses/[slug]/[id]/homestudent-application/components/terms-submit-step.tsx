@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
+import { Lock, LockOpen, Send } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Form,
@@ -42,18 +43,21 @@ type TermsData = z.infer<typeof termsSchema>;
 
 interface TermsSubmitStepProps {
   defaultValues?: Partial<TermsData>;
-  onSave: (data: TermsData) => void;
-  onReview: () => void;
-  onSubmit: () => void;
+  /** Saves the declarations, then hands over to the review step. */
+  onSaveAndContinue: (data: TermsData) => void;
+  /** Saves the declarations and submits - the review is skipped. */
+  onSubmitApplication?: (data: TermsData) => Promise<void> | void;
+  setCurrentStep: (step: number) => void;
+  /** Mirrors "everything is answered" up to the progress bar. */
+  onReadyChange?: (ready: boolean) => void;
 }
 
 export function TermsSubmitStep({
   defaultValues,
-  onSave,
-  onReview,
-  onSubmit,
   onSaveAndContinue,
-  setCurrentStep
+  onSubmitApplication,
+  setCurrentStep,
+  onReadyChange
 }: any) {
   const form = useForm<TermsData>({
     resolver: zodResolver(termsSchema),
@@ -79,15 +83,46 @@ export function TermsSubmitStep({
     }
   };
 
+  const [submitting, setSubmitting] = useState(false);
+
   const handleSave = (data: TermsData) => {
     onSaveAndContinue(data);
+  };
+
+  /**
+   * Straight to submission. Reviewing first is optional - the declarations on
+   * this step are what has to be answered, and they already are.
+   */
+  const handleSubmitWithoutReview = async (data: TermsData) => {
+    if (submitting) return;
+    setSubmitting(true);
+    try {
+      await onSubmitApplication?.(data);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleBack = () => {
     setCurrentStep(10);
   };
 
-  const isValid = form.formState.isValid;
+  const acceptTerms = form.watch('acceptTerms');
+  const acceptDataProcessing = form.watch('acceptDataProcessing');
+  const criminalConviction = form.watch('criminalConviction');
+  const convictionDetails = form.watch('convictionDetails');
+
+  // Everything on the final step is answered - this is what enables Submit and
+  // what takes the progress bar to 100%.
+  const isReadyToSubmit =
+    hasScrolledToBottom &&
+    !!acceptTerms &&
+    !!acceptDataProcessing &&
+    (!criminalConviction || !!convictionDetails?.trim());
+
+  useEffect(() => {
+    onReadyChange?.(isReadyToSubmit);
+  }, [isReadyToSubmit, onReadyChange]);
 
   return (
     <Form {...form}>
@@ -286,29 +321,52 @@ export function TermsSubmitStep({
               Back
             </Button>
 
-            {/* Right side buttons */}
-            <div className="grid w-full gap-3 sm:flex sm:w-auto sm:space-x-3">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={onReview}
-                className="w-full bg-watney text-white hover:bg-watney/90 sm:w-auto"
-              >
-                Review Application
-              </Button>
+            {/* Both unlock once every declaration on this step is answered.
+                Reviewing first is optional - Submit goes straight through. */}
+            <div className="grid gap-3 sm:flex sm:items-center">
               <Button
                 type="submit"
-                disabled={!hasScrolledToBottom}
+                disabled={!isReadyToSubmit || submitting}
                 className={`w-full sm:w-auto ${
-                  hasScrolledToBottom
+                  isReadyToSubmit
+                    ? 'bg-watney hover:bg-watney/90'
+                    : 'cursor-not-allowed bg-watney/50'
+                } text-white`}
+              >
+                <span className="flex items-center justify-center gap-2">
+                  {isReadyToSubmit ? (
+                    <LockOpen className="h-4 w-4" />
+                  ) : (
+                    <Lock className="h-4 w-4" />
+                  )}
+                  Review Application
+                </span>
+              </Button>
+
+              <Button
+                type="button"
+                onClick={form.handleSubmit(handleSubmitWithoutReview)}
+                disabled={!isReadyToSubmit || submitting}
+                className={`w-full sm:w-auto ${
+                  isReadyToSubmit
                     ? 'bg-green-600 hover:bg-green-700'
                     : 'cursor-not-allowed bg-green-600/50'
                 } text-white`}
               >
-                Submit
+                <span className="flex items-center justify-center gap-2">
+                  <Send className="h-4 w-4" />
+                  {submitting ? 'Submitting...' : 'Submit Application'}
+                </span>
               </Button>
             </div>
           </div>
+
+          {!isReadyToSubmit && (
+            <p className="pt-2 text-right text-xs text-black">
+              Read through the terms above and accept both declarations to
+              unlock the review and submission.
+            </p>
+          )}
         </div>
       </form>
     </Form>

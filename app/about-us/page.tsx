@@ -71,11 +71,11 @@ export default function AboutPage() {
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <BookOpen className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+            <h1 className="text-5xl md:text-6xl font-black mb-6 text-black">
               About{" "}
               <span className="text-watney-blue-primary">Watney College</span>
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed  mx-auto">
+            <p className="text-lg text-black leading-relaxed  mx-auto">
               A progressive institution in the heart of London, dedicated to
               empowering students through exceptional education and practical
               career-focused training.
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 <h2 className="text-4xl  font-bold mb-6">
                   About <span className="text-gradient-watney">Us</span>
                 </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg text-black leading-relaxed">
                   Watney College is a progressive institution dedicated to
                   delivering positive outcomes for students through exceptional
                   education and training opportunities at both Further and
@@ -147,11 +147,11 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
                 Recognized{" "}
                 <span className="text-gradient-watney">Accreditations</span>
               </h2>
-              <p className="text-gray-600 text-lg mx-auto">
+              <p className="text-black text-lg mx-auto">
                 Our programs are accredited by respected awarding bodies,
                 ensuring quality and global recognition.
               </p>
@@ -249,7 +249,7 @@ export default function AboutPage() {
 
                         {/* Description */}
                         <CardContent className="flex-grow">
-                          <CardDescription className="text-gray-700 text-base text-center">
+                          <CardDescription className="text-black text-base text-center">
                             {acc.description}
                           </CardDescription>
                         </CardContent>
@@ -289,20 +289,20 @@ export default function AboutPage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4 text-gray-700 leading-relaxed">
+                  <div className="space-y-4 text-black leading-relaxed">
                     
                     <p>
                       We are accredited by{" "}
-                      <span className="font-semibold text-gray-900">ASIC</span>{" "}
+                      <span className="font-semibold text-black">ASIC</span>{" "}
                       and deliver regulated qualifications through{" "}
-                      <span className="font-semibold text-gray-900">NQual</span>{" "}
+                      <span className="font-semibold text-black">NQual</span>{" "}
                       and
-                      <span className="font-semibold text-gray-900">
+                      <span className="font-semibold text-black">
                         {" "}
                         ATHE
                       </span>{" "}
                       awarding bodies, both of which are regulated by{" "}
-                      <span className="font-semibold text-gray-900">
+                      <span className="font-semibold text-black">
                         Ofqual
                       </span>
                       .
@@ -341,10 +341,10 @@ export default function AboutPage() {
 
               {/* Vision Content */}
               <div className="order-2 lg:order-1 space-y-4 text-center lg:text-left z-50">
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                <h2 className="text-3xl sm:text-4xl font-bold text-black">
                   Our Vision
                 </h2>
-                <p className="text-gray-600 leading-relaxed text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+                <p className="text-black leading-relaxed text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
                   Our vision is for an integrated employment and skills system
                   for the region, through which we can stimulate economic
                   growth, deliver better outcomes for residents and businesses,
@@ -377,10 +377,10 @@ export default function AboutPage() {
 
               {/* Mission Content */}
               <div className="order-2 space-y-4 text-center lg:text-left">
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                <h2 className="text-3xl sm:text-4xl font-bold text-black">
                   Our Mission
                 </h2>
-                <p className="text-gray-600 leading-relaxed text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+                <p className="text-black leading-relaxed text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
                   To empower individuals through high-quality, accessible
                   education that promotes personal growth, cultivates critical
                   thinking, and inspires lifelong learning.
@@ -398,10 +398,10 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-black mb-4">
                 Our <span className="text-watney-blue-primary">Objectives</span>
               </h2>
-              <p className="text-xl text-gray-600 mx-auto max-w-3xl">
+              <p className="text-xl text-black mx-auto max-w-3xl">
                 Guiding our mission to deliver high-quality, employer-aligned
                 education in line with UK Higher Education standards.
               </p>
@@ -429,7 +429,7 @@ export default function AboutPage() {
                         <div className="mt-1 flex-shrink-0">
                           <CheckCircle className="w-5 h-5 text-watney-blue-primary" />
                         </div>
-                        <p className="text-gray-700 leading-relaxed">
+                        <p className="text-black leading-relaxed">
                           {objective}
                         </p>
                       </div>
@@ -461,11 +461,11 @@ export default function AboutPage() {
 
                     {/* Content */}
                     <div className="text-center sm:text-left">
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
+                      <h3 className="text-xl sm:text-2xl font-bold text-black mb-4">
                         Message From the Principal
                       </h3>
 
-                      <blockquote className="text-gray-600 leading-relaxed space-y-4 text-sm sm:text-base">
+                      <blockquote className="text-black leading-relaxed space-y-4 text-sm sm:text-base">
                         <p>
                           On behalf of Watney College, I’d like to welcome all
                           who are planning to enrich their professional and
@@ -482,7 +482,7 @@ export default function AboutPage() {
                           education, advance in their careers, or finally
                           achieve that dream they’ve always held.
                         </p>
-                        <p className="font-medium text-gray-800">
+                        <p className="font-medium text-black">
                           — Dr ATM Alam, Principal, Watney College
                         </p>
                         
@@ -508,7 +508,7 @@ export default function AboutPage() {
                 What Sets Us{" "}
                 <span className="text-gradient-watney">Apart?</span>
               </h2>
-              <p className="text-xl text-gray-600 mx-auto">
+              <p className="text-xl text-black mx-auto">
                 We combine academic excellence with real-world readiness to
                 ensure every student thrives.
               </p>
@@ -565,7 +565,7 @@ export default function AboutPage() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-gray-600 text-lg">{feature.desc}</p>
+                      <p className="text-black text-lg">{feature.desc}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -585,7 +585,7 @@ export default function AboutPage() {
               <h2 className="text-4xl font-bold mb-6">
                 Why Choose Watney College?
               </h2>
-              <p className="text-xl mb-8 text-gray-600">
+              <p className="text-xl mb-8 text-black">
                 With our strong partnerships and accreditations, you can trust
                 that you are receiving a world-class education.
               </p>

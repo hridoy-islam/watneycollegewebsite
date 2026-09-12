@@ -26,10 +26,10 @@ const ethnicityOptions = [
   { group: 'White or White British', value: 'gypsy_traveller', label: 'Gypsy or Traveller' },
   { group: 'White or White British', value: 'other_white', label: 'Other White Background' },
 
-  { group: 'Mixed', value: 'white_black_caribbean', label: 'White & Black Caribbean' },
-  { group: 'Mixed', value: 'white_black_african', label: 'White & Black African' },
-  { group: 'Mixed', value: 'white_asian', label: 'White & Asian' },
-  { group: 'Mixed', value: 'other_mixed', label: 'Other mixed background' },
+  { group: 'Mixed', value: 'white black caribbean', label: 'White & Black Caribbean' },
+  { group: 'Mixed', value: 'white black african', label: 'White & Black African' },
+  { group: 'Mixed', value: 'white asian', label: 'White & Asian' },
+  { group: 'Mixed', value: 'other mixed', label: 'Other mixed background' },
 
   { group: 'Asian or Asian British', value: 'indian', label: 'Indian' },
   { group: 'Asian or Asian British', value: 'pakistani', label: 'Pakistani' },
@@ -45,8 +45,8 @@ const ethnicityOptions = [
   { group: 'Chinese or Chinese British', value: 'chinese', label: 'Chinese' },
 
   { group: 'Other Ethnic Background', value: 'arab', label: 'Arab' },
-  { group: 'Other Ethnic Background', value: 'other_ethnic', label: 'Other Ethnic Background' },
-  { group: 'Prefer Not to Say', value: 'prefer_not_to_say', label: 'Prefer Not to Say' }
+  { group: 'Other Ethnic Background', value: 'other ethnic', label: 'Other Ethnic Background' },
+  { group: 'Prefer Not to Say', value: 'prefer not to_say', label: 'Prefer Not to Say' }
 ];
 
 const ethnicGroups = [
@@ -61,39 +61,39 @@ const ethnicGroups = [
 
 // 2. Religion Options
 const religionOptions = [
-  { value: 'no_religion', label: 'No Religion' },
+  { value: 'no religion', label: 'No Religion' },
   { value: 'buddhist', label: 'Buddhist' },
   { value: 'christian', label: 'Christian' },
-  { value: 'christian_church_of_scotland', label: 'Christian – Church of Scotland' },
-  { value: 'christian_roman_catholic', label: 'Christian – Roman Catholic' },
-  { value: 'christian_presbyterian', label: 'Christian – Presbyterian Church in Ireland' },
-  { value: 'christian_church_of_ireland', label: 'Christian – Church of Ireland' },
-  { value: 'christian_methodist', label: 'Christian – Methodist Church in Ireland' },
-  { value: 'christian_other', label: 'Christian – Other Denomination' },
+  { value: 'christian church of scotland', label: 'Christian – Church of Scotland' },
+  { value: 'christian roman catholic', label: 'Christian – Roman Catholic' },
+  { value: 'christian presbyterian', label: 'Christian – Presbyterian Church in Ireland' },
+  { value: 'christian church of ireland', label: 'Christian – Church of Ireland' },
+  { value: 'christian methodist', label: 'Christian – Methodist Church in Ireland' },
+  { value: 'christian other', label: 'Christian – Other Denomination' },
   { value: 'hindu', label: 'Hindu' },
   { value: 'jewish', label: 'Jewish' },
   { value: 'muslim', label: 'Muslim' },
   { value: 'sikh', label: 'Sikh' },
   { value: 'spiritual', label: 'Spiritual' },
-  { value: 'other_religion', label: 'Any other Religion or Belief' },
-  { value: 'prefer_not_to_say', label: 'Prefer Not to Say / Information Refused' }
+  { value: 'other religion', label: 'Any other Religion or Belief' },
+  { value: 'prefer not to say', label: 'Prefer Not to Say / Information Refused' }
 ];
 
 // 3. Sexual Orientation Options
 const sexualOrientationOptions = [
   { value: 'bisexual', label: 'Bisexual' },
-  { value: 'gay_man', label: 'Gay Man' },
-  { value: 'gay_woman_lesbian', label: 'Gay Woman/Lesbian' },
+  { value: 'gay man', label: 'Gay Man' },
+  { value: 'gay woman_lesbian', label: 'Gay Woman/Lesbian' },
   { value: 'heterosexual', label: 'Heterosexual' },
   { value: 'other', label: 'Other' },
-  { value: 'prefer_not_to_say', label: 'Prefer Not to Say / Information Refused' }
+  { value: 'prefer not to say', label: 'Prefer Not to Say / Information Refused' }
 ];
 
 // 4. Gender Identity Options
 const genderIdentityOptions = [
   { value: 'yes', label: 'Yes' },
   { value: 'no', label: 'No' },
-  { value: 'prefer_not_to_say', label: 'Prefer Not to Say / Information Refused' }
+  { value: 'prefer not to say', label: 'Prefer Not to Say / Information Refused' }
 ];
 
 // --- Schema Definition ---
@@ -108,11 +108,11 @@ const equalitySchema = z
   })
   .superRefine((data, ctx) => {
     const isOtherSelected = [
-      'other_white',
-      'other_mixed',
-      'other_asian',
-      'other_black',
-      'other_ethnic'
+      'other white',
+      'other mixed',
+      'other asian',
+      'other black',
+      'other ethnic'
     ].includes(data.ethnicityValue || '');
 
     if (isOtherSelected && !data.ethnicityOther?.trim()) {
@@ -154,11 +154,11 @@ export function EthnicityStep({
     .map((option) => ({ value: option.value, label: option.label }));
 
   const requiresOther = [
-    'other_white',
-    'other_mixed',
-    'other_asian',
-    'other_black',
-    'other_ethnic'
+    'other white',
+    'other mixed',
+    'other asian',
+    'other black',
+    'other ethnic'
   ].includes(selectedValue);
 
   useEffect(() => {
@@ -208,7 +208,7 @@ export function EthnicityStep({
               {/* Header Info - Full Width */}
               <div className="col-span-1 md:col-span-2 flex flex-col items-start space-y-2 mb-4">
                 <h2 className="text-2xl font-semibold">Equality & Diversity Monitoring</h2>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-black">
                   This information helps us ensure our recruitment practices are
                   fair and inclusive. Your response is optional and will not affect
                   your application.
@@ -217,7 +217,7 @@ export function EthnicityStep({
 
               {/* --- Section 8: Ethnicity (Spans 2 columns to allow split inside) --- */}
               <div className="col-span-1 md:col-span-2 space-y-4">
-                 <h3 className="text-xl font-semibold text-gray-900">Ethnicity</h3>
+                 <h3 className="text-xl font-semibold text-black">Ethnicity</h3>
                  
                  {/* Inner Grid for Ethnicity Fields */}
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -291,7 +291,7 @@ export function EthnicityStep({
                               <Textarea
                                 {...field}
                                 placeholder="e.g., Polish, Nigerian, Filipino, etc."
-                                className="min-h-[100px] border border-gray-300 p-4 text-lg resize-none placeholder:text-gray-400"
+                                className="min-h-[100px] border border-gray-300 p-4 text-lg resize-none placeholder:text-black"
                               />
                             </FormControl>
                             <FormMessage />
@@ -304,7 +304,7 @@ export function EthnicityStep({
 
               {/* --- Section 9: Religion (1 Column) --- */}
               <div className="space-y-4">
-                 <h3 className="text-xl font-semibold text-gray-900">Religion or Belief</h3>
+                 <h3 className="text-xl font-semibold text-black">Religion or Belief</h3>
                  <FormField
                   control={form.control}
                   name="religion"
@@ -333,7 +333,7 @@ export function EthnicityStep({
 
               {/* --- Section 10: Sexual Orientation (1 Column) --- */}
               <div className="space-y-4">
-                 <h3 className="text-xl font-semibold text-gray-900">Sexual Orientation</h3>
+                 <h3 className="text-xl font-semibold text-black">Sexual Orientation</h3>
                  <FormField
                   control={form.control}
                   name="sexualOrientation"
@@ -362,7 +362,7 @@ export function EthnicityStep({
 
               {/* --- Section 11: Gender Identity (Full Width) --- */}
               <div className=" space-y-4">
-                 <h3 className="text-xl font-semibold text-gray-900">Gender Identity</h3>
+                 <h3 className="text-xl font-semibold text-black">Gender Identity</h3>
                  <FormField
                   control={form.control}
                   name="genderIdentitySameAtBirth"

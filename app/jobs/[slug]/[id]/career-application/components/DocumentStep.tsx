@@ -165,7 +165,7 @@ const renderUploadedFiles = (field: keyof DocumentFile) => {
                   href={fileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-2 text-xs font-medium text-gray-900 transition-colors hover:text-watney/90"
+                  className="flex items-center space-x-2 text-xs font-medium text-black transition-colors hover:text-watney/90"
                 >
                   <span className="truncate text-xs max-w-[150px] sm:max-w-[200px] md:max-w-[300px] block">
                     {fileName}
@@ -178,7 +178,7 @@ const renderUploadedFiles = (field: keyof DocumentFile) => {
               variant="ghost"
               size="sm"
               onClick={() => handleRemoveFile(field, fileUrl)}
-              className="h-8 w-8 flex-shrink-0 p-0 text-gray-400 hover:bg-red-50 hover:text-red-500"
+              className="h-8 w-8 flex-shrink-0 p-0 text-black hover:bg-red-50 hover:text-red-500"
             >
               <Trash2 className="h-4 w-4" />
             </Button>
@@ -205,7 +205,7 @@ const renderUploadedFiles = (field: keyof DocumentFile) => {
                   href={fileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-2 text-sm font-medium text-gray-900 transition-colors hover:text-watney/90"
+                  className="flex items-center space-x-2 text-sm font-medium text-black transition-colors hover:text-watney/90"
                 >
                   <span className="truncate max-w-[150px] sm:max-w-[200px] md:max-w-[300px] block" title={fileName}>
                     {fileName}
@@ -218,7 +218,7 @@ const renderUploadedFiles = (field: keyof DocumentFile) => {
               variant="ghost"
               size="sm"
               onClick={() => handleRemoveFile(field, fileUrl)}
-              className="h-8 w-8 flex-shrink-0 p-0 text-gray-400 hover:bg-red-50 hover:text-red-500"
+              className="h-8 w-8 flex-shrink-0 p-0 text-black hover:bg-red-50 hover:text-red-500"
             >
               <Trash2 className="h-4 w-4" />
             </Button>
@@ -249,7 +249,7 @@ const renderUploadedFiles = (field: keyof DocumentFile) => {
                     href={fileUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-sm font-medium text-gray-900 transition-colors hover:text-watney/90"
+                    className="flex items-center space-x-2 text-sm font-medium text-black transition-colors hover:text-watney/90"
                   >
                     <span className="truncate max-w-[150px] sm:max-w-[200px] md:max-w-[300px] block" title={fileName}>
                       {fileName}
@@ -262,7 +262,7 @@ const renderUploadedFiles = (field: keyof DocumentFile) => {
                 variant="ghost"
                 size="sm"
                 onClick={() => handleRemoveFile(field, fileUrl)}
-                className="h-8 w-8 flex-shrink-0 p-0 text-gray-400 hover:bg-red-50 hover:text-red-500"
+                className="h-8 w-8 flex-shrink-0 p-0 text-black hover:bg-red-50 hover:text-red-500"
               >
                 <Trash2 className="h-4 w-4" />
               </Button>
@@ -380,25 +380,25 @@ const renderUploadedFiles = (field: keyof DocumentFile) => {
         <CardHeader className="">
           <div className="space-y-4">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">
+              <h2 className="text-2xl font-bold text-black">
                 Document Upload
               </h2>
-              <p className="mt-1 text-gray-600">
+              <p className="mt-1 text-black">
                 Please upload all required documents to complete your
                 application
               </p>
             </div>
             <div className="rounded-lg border border-gray-200 bg-white p-4">
-              <h3 className="mb-3 flex items-center font-semibold text-gray-900">
+              <h3 className="mb-3 flex items-center font-semibold text-black">
                 <CheckCircle className="mr-2 h-5 w-5 text-blue-600" />
                 Document Requirements
               </h3>
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
-                  <p className="mb-2 font-medium text-gray-700">
+                  <p className="mb-2 font-medium text-black">
                     Required Documents:
                   </p>
-                  <ul className="space-y-1 text-sm text-gray-600">
+                  <ul className="space-y-1 text-sm text-black">
                     <li className="flex items-center">
                       <div className="mr-2 h-2 w-2 rounded-full bg-red-500"></div>
                       Resume
@@ -415,10 +415,10 @@ const renderUploadedFiles = (field: keyof DocumentFile) => {
                   </ul>
                 </div>
                 <div>
-                  <p className="mb-2 font-medium text-gray-700">
+                  <p className="mb-2 font-medium text-black">
                     Optional Documents:
                   </p>
-                  <ul className="space-y-1 text-sm text-gray-600">
+                  <ul className="space-y-1 text-sm text-black">
                     <li className="flex items-center">
                       <div className="mr-2 h-2 w-2 rounded-full bg-gray-400"></div>
                       Work experience documents
@@ -480,14 +480,14 @@ const renderUploadedFiles = (field: keyof DocumentFile) => {
                                     ? "text-red-600"
                                     : hasFiles
                                       ? "text-green-600"
-                                      : "text-gray-600"
+                                      : "text-black"
                                 }`}
                               />
                             </div>
 
                             {/* Text Content */}
                             <div>
-                              <h3 className="flex flex-wrap items-center gap-y-1 text-sm font-semibold text-gray-900 sm:text-base">
+                              <h3 className="flex flex-wrap items-center gap-y-1 text-sm font-semibold text-black sm:text-base">
                                <span>{label}</span>{" "}
                                 {required && (
                                   <span className="ml-1.5 text-red-500">*</span>
@@ -496,13 +496,13 @@ const renderUploadedFiles = (field: keyof DocumentFile) => {
                                   <CheckCircle className="ml-2 h-4 w-4 text-green-600" />
                                 )}
                               </h3>
-                              <p className="mt-1 text-xs text-gray-600 sm:text-sm">
+                              <p className="mt-1 text-xs text-black sm:text-sm">
                                 {instructions}
                               </p>
-                              <p className="mt-1 text-xs text-gray-500">
+                              <p className="mt-1 text-xs text-black">
                                 Accepted formats: {formats}
                               </p>
-                              <p className="mt-1 text-xs font-semibold text-gray-800">
+                              <p className="mt-1 text-xs font-semibold text-black">
                                                               <span>{uploadLabel}</span>{" "}
  
                               </p>

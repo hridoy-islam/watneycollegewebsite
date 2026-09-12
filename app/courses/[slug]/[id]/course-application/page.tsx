@@ -9,10 +9,11 @@ import { BlinkingDots } from "@/components/blinking-dots";
 import { motion } from "framer-motion";
 import { MoveLeft } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
+import { fetchApplicant, toId } from "@/lib/applicant-api";
 
 export default function CourseApplicationPage() {
   const [course, setCourse] = useState<{ id: string; name: string } | null>();
-  const [terms, setTerms] = useState<{ id: string; termName: string }[]>([]);
+  const [terms, setTerms] = useState<{ _id: string; termName: string }[]>([]);
   const [selectedCourse, setSelectedCourse] = useState<string>("");
   const [selectedTerm, setSelectedTerm] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
@@ -21,7 +22,15 @@ export default function CourseApplicationPage() {
   const { toast } = useToast();
   const { id } = useParams();
   const { user } = useSelector((state: any) => state.auth);
+  const [applicantIntakeId, setApplicantIntakeId] = useState<string>("");
   const navigate = useRouter();
+
+  useEffect(() => {
+    if (!user?._id) return;
+    fetchApplicant(user._id)
+      .then((applicant) => setApplicantIntakeId(toId(applicant?.intakeId)))
+      .catch((err) => console.error("Error loading applicant data:", err));
+  }, [user?._id]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,10 +46,10 @@ export default function CourseApplicationPage() {
         const termsData = termsRes.data?.data.result || [];
         setTerms(termsData);
 
-        const termIdFromStorage = localStorage.getItem("termId");
-        if (termIdFromStorage) {
+        // The intake already stored on the applicant record preselects the term.
+        if (applicantIntakeId) {
           const matchingTerm = termsData.find(
-            (term: any) => term._id === termIdFromStorage,
+            (term: any) => term._id === applicantIntakeId,
           );
           if (matchingTerm) {
             setSelectedTerm(matchingTerm._id);
@@ -55,7 +64,7 @@ export default function CourseApplicationPage() {
     };
 
     fetchData();
-  }, [id]);
+  }, [id, applicantIntakeId]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,11 +84,6 @@ export default function CourseApplicationPage() {
         studentId: user._id,
       });
 
-      // Clear the relevant data from localStorage after successful submission
-      localStorage.removeItem("termId");
-      localStorage.removeItem("courseId");
-      localStorage.removeItem("studentType");
-
       navigate.push("/");
       toast({ title: "Successfully applied!" });
       setSelectedCourse("");
@@ -89,9 +93,6 @@ export default function CourseApplicationPage() {
         title: err.response?.data?.message || "Application failed.",
         className: "bg-destructive text-white border-none",
       });
-      localStorage.removeItem("termId");
-      localStorage.removeItem("courseId");
-      localStorage.removeItem("studentType");
     } finally {
       setSubmitting(false);
     }
@@ -137,13 +138,7 @@ export default function CourseApplicationPage() {
         <div className="flex w-full justify-start">
           <Button
             className="bg-watney text-white hover:bg-watney/90"
-            onClick={() => {
-              localStorage.removeItem("termId");
-              localStorage.removeItem("courseId");
-              localStorage.removeItem("studentType");
-
-              navigate.push("/");
-            }}
+            onClick={() => navigate.push("/")}
           >
             {" "}
             <MoveLeft /> Back
@@ -151,13 +146,13 @@ export default function CourseApplicationPage() {
         </div>
         {user.role !== "admin" && (
           <motion.div variants={itemVariants} className="mb-3">
-            <h1 className="mb-2 text-3xl font-bold text-gray-900 md:text-4xl">
+            <h1 className="mb-2 text-3xl font-bold text-black md:text-4xl">
               Enroll the Course
               <span className="mt-1 block bg-gradient-to-r from-watney to-blue-700 bg-clip-text text-transparent">
                 Unlock Your Potential with Expert-Led Learning
               </span>
             </h1>
-            <p className="mx-auto max-w-2xl text-base font-medium text-gray-600">
+            <p className="mx-auto max-w-2xl text-base font-medium text-black">
               Take the next step in your learning journey. Enroll the course
               today and gain skills that make a difference.
             </p>
@@ -174,15 +169,15 @@ export default function CourseApplicationPage() {
           <form onSubmit={handleSubmit} className="space-y-6 text-left">
             {/* Course Display */}
             <motion.div className="group" whileHover={{ scale: 1.01 }}>
-              <label className="mb-1 block text-sm font-semibold text-gray-700">
+              <label className="mb-1 block text-sm font-semibold text-black">
                 Course
               </label>
               {course ? (
-                <h1 className="text-base font-medium text-gray-800">
+                <h1 className="text-base font-medium text-black">
                   {course.name}
                 </h1>
               ) : (
-                <h1 className="italic text-gray-500">
+                <h1 className="italic text-black">
                   Course information not available
                 </h1>
               )}
@@ -190,7 +185,7 @@ export default function CourseApplicationPage() {
 
             {/* Term Selection */}
             <motion.div className="group" whileHover={{ scale: 1.01 }}>
-              <label className="mb-1 block text-sm font-semibold text-gray-700">
+              <label className="mb-1 block text-sm font-semibold text-black">
                 Intake / Term
               </label>
               <Select
@@ -201,7 +196,7 @@ export default function CourseApplicationPage() {
                 onChange={(selectedOption) =>
                   setSelectedTerm(selectedOption?.value || "")
                 }
-                isDisabled={!!localStorage.getItem("termId")}
+                isDisabled={!!applicantIntakeId}
                 placeholder="Select an intake"
                 className="react-select-container"
                 classNamePrefix="react-select"

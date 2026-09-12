@@ -140,18 +140,18 @@ export default function CoursesPage() {
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <GraduationCap className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+            <h1 className="text-5xl md:text-6xl font-black mb-6 text-black">
               Explore Our{" "}
               <span className="text-watney-blue-primary">Courses</span>
             </h1>
-            <p className="mb-12 text-lg text-gray-600 leading-relaxed mx-auto">
+            <p className="mb-12 text-lg text-black leading-relaxed mx-auto">
               Discover world-class programs designed to advance your career and
               unlock new opportunities.
             </p>
             <div className="max-w-4xl mx-auto bg-white rounded-lg p-6 shadow-lg">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-1 relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black w-5 h-5" />
                   <Input
                     placeholder="Search courses..."
                     value={searchTerm}
@@ -190,7 +190,7 @@ export default function CoursesPage() {
         <section className="py-20 bg-white">
           <div className="container text-primary">
             {loading ? (
-              <div className="text-center py-12 text-gray-500">
+              <div className="text-center py-12 text-black">
                 <BlinkingDots />
               </div>
             ) : (
@@ -222,12 +222,12 @@ export default function CoursesPage() {
                           <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors">
                             {course.name || course.title}
                             {course.intakeId?.termName && (
-                              <span className="block text-sm font-medium text-gray-800 mt-1">
+                              <span className="block text-sm font-medium text-black mt-1">
                                 {course.intakeId.termName}
                               </span>
                             )}
                           </CardTitle>
-                          <CardDescription className="text-gray-600">
+                          <CardDescription className="text-black">
                             {(() => {
                               const plain = stripHtml(course.description || "");
                               const words = plain.split(" ").slice(0, 20).join(" ");
@@ -238,7 +238,7 @@ export default function CoursesPage() {
 
                         <CardContent>
                           <div className="space-y-4">
-                            <div className="flex items-center justify-between text-sm text-gray-500">
+                            <div className="flex items-center justify-between text-sm text-black">
                               <div className="flex items-center">
                                 <Tag className="w-4 h-4 mr-1" />
                                 {course.categoryId?.title || "General"}
@@ -266,11 +266,11 @@ export default function CoursesPage() {
                     animate={{ opacity: 1 }}
                     className="text-center py-12"
                   >
-                    <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold text-gray-600 mb-2">
+                    <BookOpen className="w-16 h-16 text-black mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold text-black mb-2">
                       No courses found
                     </h3>
-                    <p className="text-gray-500">
+                    <p className="text-black">
                       Try adjusting your search or filter criteria
                     </p>
                   </motion.div>

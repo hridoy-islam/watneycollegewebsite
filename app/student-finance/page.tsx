@@ -124,7 +124,7 @@ export default function StudentFinancePage() {
             <h1 className="text-5xl lg:text-6xl text-black font-bold mb-6">
               Student <span className="text-watney-blue-primary">Finance</span>
             </h1>
-            <p className="text-lg mb-8 text-gray-600 mx-auto">
+            <p className="text-lg mb-8 text-black mx-auto">
               Student Finance England loans will become available once Watney College completes OfS registration and designation for public funding. Current programmes are funded through self-payment or employer sponsorship. We will update this page as soon as designation is confirmed.
             </p>
             {/* <Button size="lg" className="btn-watney-primary  text-white hover:bg-watney-blue-primary/90">
@@ -166,7 +166,7 @@ export default function StudentFinancePage() {
 
         <tbody className="bg-white divide-y divide-gray-100">
           <tr>
-            <td className="px-6 py-4 text-gray-700">
+            <td className="px-6 py-4 text-black">
               NQual Level 2 Adult Social Care Certificate
             </td>
             <td className="px-6 py-4 font-semibold text-watney-blue-primary">
@@ -175,7 +175,7 @@ export default function StudentFinancePage() {
           </tr>
 
           <tr>
-            <td className="px-6 py-4 text-gray-700">
+            <td className="px-6 py-4 text-black">
               NQual Level 4 Diploma in Adult Care
             </td>
             <td className="px-6 py-4 font-semibold text-watney-blue-primary">
@@ -184,18 +184,18 @@ export default function StudentFinancePage() {
           </tr>
 
           <tr>
-            <td className="px-6 py-4 text-gray-700">
+            <td className="px-6 py-4 text-black">
               ATHE Level 4 Healthcare Management
             </td>
             <td className="px-6 py-4 font-semibold text-watney-blue-primary">
-              £6,500 per year <span className="text-xs text-gray-500">(from September 2026)</span>
+              £6,500 per year <span className="text-xs text-black">(from September 2026)</span>
             </td>
           </tr>
 
           <tr>
-            <td className="px-6 py-4 text-gray-700">UK HND</td>
+            <td className="px-6 py-4 text-black">UK HND</td>
             <td className="px-6 py-4 font-semibold text-watney-blue-primary">
-              £6,180 per year <span className="text-xs text-gray-500">(from September 2026)</span>
+              £6,180 per year <span className="text-xs text-black">(from September 2026)</span>
             </td>
           </tr>
         </tbody>
@@ -248,7 +248,7 @@ export default function StudentFinancePage() {
             ))}
           </motion.div>
         </div>
-        <div className="mt-8 max-w-4xl mx-auto bg-gray-50 border border-gray-200 rounded-xl p-6 text-sm text-gray-700 leading-relaxed">
+        <div className="mt-8 max-w-4xl mx-auto bg-gray-50 border border-gray-200 rounded-xl p-6 text-sm text-black leading-relaxed">
   <p>
     <span className="font-semibold">Cancellation and Refund Rights —</span>{" "}
     You have a 14-day cancellation period from the date of enrolment. Further
@@ -279,7 +279,7 @@ export default function StudentFinancePage() {
             <h2 className="text-4xl text-black font-bold mb-4">
               Types of <span className="text-gradient-watney">Financial Support</span>
             </h2>
-            <p className="text-lg text-gray-600  mx-auto">
+            <p className="text-lg text-black  mx-auto">
               Explore the different types of financial support available to help fund your education.
             </p>
           </motion.div>
@@ -334,7 +334,7 @@ export default function StudentFinancePage() {
             <h2 className="text-4xl text-gradient-watney font-bold mb-4">
               Application Process
             </h2>
-            <p className="text-lg text-gray-600 mx-auto">
+            <p className="text-lg text-black mx-auto">
               Follow these steps to apply for student finance and secure funding for your studies.
             </p>
           </motion.div>
@@ -354,7 +354,7 @@ export default function StudentFinancePage() {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl text-watney-blue-primary font-semibold mb-2">{step.title}</h3>
-                    <p className="text-gray-600">{step.description}</p>
+                    <p className="text-black">{step.description}</p>
                   </div>
                 </div>
                 {index < applicationSteps.length - 1 && (

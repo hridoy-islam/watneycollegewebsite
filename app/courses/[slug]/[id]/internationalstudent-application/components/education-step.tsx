@@ -31,7 +31,7 @@ import moment from 'moment';
 import { CustomDatePicker } from '@/components/CustomDatePicker';
 import Select from 'react-select';
 import { ImageUploader } from './document-uploader';
-import { useSelector } from 'react-redux';
+import { useApplicantId } from '@/components/application/applicant-subject';
 
 export function EducationStep({
   defaultValues,
@@ -51,7 +51,9 @@ export function EducationStep({
     field: null
   });
 
-  const { user } = useSelector((state) => state.auth);
+  // The applicant the form is being filled in for - the one signed in, the one
+  // an agent picked, or nobody yet while an agent drafts a new applicant.
+  const applicantId = useApplicantId();
 
   const educationEntrySchema = z.object({
     institution: z.string().min(1, { message: 'Institution name is required' }),
@@ -313,7 +315,7 @@ export function EducationStep({
                   }}
                   menuPortalTarget={document.body}
                 />
-                <p className="text-xs text-gray-400">Example: IELTS</p>
+                <p className="text-xs text-black">Example: IELTS</p>
                 <FormMessage />
               </FormItem>
             )}
@@ -334,7 +336,7 @@ export function EducationStep({
                     placeholder="Enter your score"
                   />
                 </FormControl>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-black">
                   Example: 7.5 (IELTS), 90 (TOEFL), 65 (PTE)
                 </p>
                 <FormMessage />
@@ -358,7 +360,7 @@ export function EducationStep({
                       onChange={(date) => field.onChange(date)}
                     />
                   </FormControl>
-                  <p className="text-xs text-gray-400">Example: 01/16/2022</p>
+                  <p className="text-xs text-black">Example: 01/16/2022</p>
                   <FormMessage />
                 </FormItem>
               );
@@ -514,7 +516,7 @@ const renderAcademicQualificationsStep = () => (
                                 placeholder="Grade (e.g., 3.91)"
                               />
                             </FormControl>
-                            <p className="mt-1 text-xs text-gray-400">
+                            <p className="mt-1 text-xs text-black">
                               Example: 3.91
                             </p>
                             <FormMessage />
@@ -535,7 +537,7 @@ const renderAcademicQualificationsStep = () => (
                                 placeholder="Institution name"
                               />
                             </FormControl>
-                            <p className="text-xs text-gray-400">
+                            <p className="text-xs text-black">
                               Example: University of Manchester
                             </p>
                             <FormMessage />
@@ -559,7 +561,7 @@ const renderAcademicQualificationsStep = () => (
                                   onChange={(date) => formField.onChange(date)}
                                 />
                               </FormControl>
-                              <p className="text-xs text-gray-400">
+                              <p className="text-xs text-black">
                                 Example: 01/16/2022
                               </p>
                               <FormMessage />
@@ -586,7 +588,7 @@ const renderAcademicQualificationsStep = () => (
                             >
                               Upload Certificate
                             </Button>
-                            <p className="text-xs text-gray-500 mt-1">
+                            <p className="text-xs text-black mt-1">
                               PDF, JPG, PNG (≤5MB)
                             </p>
                             {formField.value && (
@@ -630,7 +632,7 @@ const renderAcademicQualificationsStep = () => (
               >
                 {/* Qualification */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-black mb-1">
                     Qualification <span className="text-red-500">*</span>
                   </label>
                   <FormField
@@ -653,7 +655,7 @@ const renderAcademicQualificationsStep = () => (
 
                 {/* Grade */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-black mb-1">
                     Grade <span className="text-red-500">*</span>
                   </label>
                   <FormField
@@ -664,7 +666,7 @@ const renderAcademicQualificationsStep = () => (
                         <FormControl>
                           <Input {...formField} placeholder="e.g., 3.91" />
                         </FormControl>
-                        <p className="text-xs text-gray-400">Example: 3.91</p>
+                        <p className="text-xs text-black">Example: 3.91</p>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -673,7 +675,7 @@ const renderAcademicQualificationsStep = () => (
 
                 {/* Institution */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-black mb-1">
                     Institution <span className="text-red-500">*</span>
                   </label>
                   <FormField
@@ -688,7 +690,7 @@ const renderAcademicQualificationsStep = () => (
                             placeholder="University name"
                           />
                         </FormControl>
-                        <p className="text-xs text-gray-400">
+                        <p className="text-xs text-black">
                           Example: University of Manchester
                         </p>
                         <FormMessage />
@@ -699,7 +701,7 @@ const renderAcademicQualificationsStep = () => (
 
                 {/* Award Date */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-black mb-1">
                     Date of Award <span className="text-red-500">*</span>
                   </label>
                   <FormField
@@ -718,7 +720,7 @@ const renderAcademicQualificationsStep = () => (
                               className="w-full"
                             />
                           </FormControl>
-                          <p className="text-xs text-gray-400">
+                          <p className="text-xs text-black">
                             Example: 01/16/2022
                           </p>
                           <FormMessage />
@@ -730,7 +732,7 @@ const renderAcademicQualificationsStep = () => (
 
                 {/* Certificate Upload */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-black mb-1">
                     Certificate <span className="text-red-500">*</span>
                   </label>
                   <FormField
@@ -750,7 +752,7 @@ const renderAcademicQualificationsStep = () => (
                         >
                           Upload Certificate
                         </Button>
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="text-xs text-black mt-1">
                           PDF, JPG, PNG (≤5MB)
                         </p>
                         {formField.value && (
@@ -825,7 +827,7 @@ const renderAcademicQualificationsStep = () => (
           setUploadState({ isOpen, field: uploadState.field })
         }
         onUploadComplete={handleUploadComplete}
-        entityId={user?._id}
+        entityId={applicantId}
       />
     </Card>
   );

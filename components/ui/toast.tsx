@@ -29,7 +29,7 @@ const toastVariants = cva(
       variant: {
         default: 'border bg-watney text-white border-none',
         destructive:
-          'destructive group border-none bg-destructive text-destructive-foreground'
+          'bg-red-600 group border-none text-white'
       }
     },
     defaultVariants: {
@@ -37,6 +37,7 @@ const toastVariants = cva(
     }
   }
 );
+
 
 const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Root>,

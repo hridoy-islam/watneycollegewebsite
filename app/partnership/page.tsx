@@ -145,7 +145,7 @@ export default function PartnershipPage() {
             <h2 className="text-4xl font-bold mb-6">
               Our Partnership <span className="text-primary">Mission</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+            <p className="text-xl text-black max-w-4xl mx-auto">
               At Watney College, we are committed to creating meaningful partnerships that benefit both students and institutions. Through our global network, we ensure that potential students are getting the best education from world-class institutes and universities without compromising on quality and contribute to their academic excellence.
             </p>
           </motion.div>
@@ -167,7 +167,7 @@ export default function PartnershipPage() {
                     <CardTitle className="text-xl">{pillar.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600">{pillar.description}</p>
+                    <p className="text-black">{pillar.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -189,7 +189,7 @@ export default function PartnershipPage() {
             <h2 className="text-4xl font-bold mb-6">
               Partnership <span className="text-primary">Programs</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-black max-w-3xl mx-auto">
               Discover our comprehensive partnership programs designed to connect students with their dream institutions.
             </p>
           </motion.div>
@@ -211,14 +211,14 @@ export default function PartnershipPage() {
                     {program.title.split(' ')[0]}
                   </Badge>
                   <h3 className="text-3xl font-bold mb-4">{program.title}</h3>
-                  <p className="text-lg text-gray-600 mb-6">{program.description}</p>
+                  <p className="text-lg text-black mb-6">{program.description}</p>
                   
                   <div className="space-y-3 mb-8">
                     <h4 className="font-semibold text-lg">Key Benefits:</h4>
                     {program.benefits.map((benefit, idx) => (
                       <div key={idx} className="flex items-start">
                         <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-600">{benefit}</span>
+                        <span className="text-black">{benefit}</span>
                       </div>
                     ))}
                   </div>
@@ -259,7 +259,7 @@ export default function PartnershipPage() {
             <h2 className="text-4xl font-bold mb-6">
               Mutual <span className="text-primary">Benefits</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-black max-w-3xl mx-auto">
               Our partnerships create value for both educational institutions and students worldwide.
             </p>
           </motion.div>
@@ -284,7 +284,7 @@ export default function PartnershipPage() {
                     {universityBenefits.map((benefit, idx) => (
                       <div key={idx} className="flex items-start">
                         <CheckCircle className="w-5 h-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-600">{benefit}</span>
+                        <span className="text-black">{benefit}</span>
                       </div>
                     ))}
                   </div>
@@ -305,7 +305,7 @@ export default function PartnershipPage() {
                     {studentBenefits.map((benefit, idx) => (
                       <div key={idx} className="flex items-start">
                         <CheckCircle className="w-5 h-5 text-pink-600 mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-600">{benefit}</span>
+                        <span className="text-black">{benefit}</span>
                       </div>
                     ))}
                   </div>

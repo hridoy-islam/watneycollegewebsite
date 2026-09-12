@@ -1,6 +1,6 @@
 import type React from 'react';
 import { motion } from 'framer-motion';
-import { BookAIcon, Calendar, MapPin, MoveLeft } from 'lucide-react';
+import { BookAIcon, Loader2, MapPin, MoveLeft } from 'lucide-react';
 import {
   Select,
   SelectContent,
@@ -10,9 +10,7 @@ import {
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
 
 export interface Course {
   _id: string;
@@ -63,6 +61,7 @@ interface CourseSelectionFormProps {
   handleSubmit: (e: React.FormEvent) => void;
   courseIdFromUrl?: string;
   isPreselectedCourse: boolean;
+  isSubmitting?: boolean;
 }
 
 export default function CourseSelectionForm({
@@ -73,25 +72,11 @@ export default function CourseSelectionForm({
   handleCourseChange,
   handleSubmit,
   courseIdFromUrl,
-  isPreselectedCourse
+  isPreselectedCourse,
+  isSubmitting = false
 }: CourseSelectionFormProps) {
-  const courseId = localStorage.getItem('courseId');
-  const slug = localStorage.getItem('slug');
+  const router = useRouter();
 
-  const router = useRouter()
-
-// useEffect(() => {
-//   if (!courseId || !slug) return;
-
-//   if (formData.studentType === 'international') {
-//     router.push(`/courses/${slug}/${courseId}/internationalstudent-application`);
-//   } else {
-//     router.push(`/courses/${slug}/${courseId}/homestudent-application`);
-//   }
-
-// }, [formData.studentType, courseId, slug, router]);
-
-console.log(formData, 'formData in course selection form');
   return (
     <div className="relative flex min-h-screen items-center justify-center bg-white p-2">
       
@@ -117,7 +102,7 @@ console.log(formData, 'formData in course selection form');
         <motion.div variants={itemVariants} className="mb-3">
           {(isPreselectedCourse || formData.courseName) ? (
             <>
-              <h2 className="mb-2 text-2xl font-bold text-gray-900 md:text-3xl">
+              <h2 className="mb-2 text-2xl font-bold text-black md:text-3xl">
                 Apply for
                 <span className="mt-1 block bg-gradient-to-r from-watney to-blue-700 bg-clip-text text-transparent">
                   {formData.courseName || ""}
@@ -145,7 +130,7 @@ console.log(formData, 'formData in course selection form');
                 <motion.div className="group" whileHover={{ scale: 1.01 }}>
                   <label
                     htmlFor="courseName"
-                    className="mb-1 block text-left text-sm font-semibold text-gray-700"
+                    className="mb-1 block text-left text-sm font-semibold text-black"
                   >
                     I would like to study for
                   </label>
@@ -153,7 +138,7 @@ console.log(formData, 'formData in course selection form');
                     value={formData.courseName}
                     onValueChange={handleCourseChange}
                   >
-                    <SelectTrigger className="relative flex w-full items-center rounded-lg border border-gray-300 bg-white py-4 pl-10 pr-3 text-sm text-gray-800 focus:ring-2 focus:ring-watney">
+                    <SelectTrigger className="relative flex w-full items-center rounded-lg border border-gray-300 bg-white py-4 pl-10 pr-3 text-sm text-black focus:ring-2 focus:ring-watney">
                       <BookAIcon
                         className="absolute left-3 top-1/2 -translate-y-1/2 text-watney"
                         size={16}
@@ -175,7 +160,7 @@ console.log(formData, 'formData in course selection form');
               <motion.div className="group" whileHover={{ scale: 1.01 }}>
                 <label
                   htmlFor="studentType"
-                  className="mb-1 block text-left text-sm font-semibold text-gray-700"
+                  className="mb-1 block text-left text-sm font-semibold text-black"
                 >
                   My location
                 </label>
@@ -185,7 +170,7 @@ console.log(formData, 'formData in course selection form');
                     setFormData({ ...formData, studentType: value })
                   }
                 >
-                  <SelectTrigger className="relative flex w-full items-center rounded-lg border border-gray-300 bg-white py-4 pl-10 pr-3 text-sm text-gray-800 focus:ring-2 focus:ring-watney">
+                  <SelectTrigger className="relative flex w-full items-center rounded-lg border border-gray-300 bg-white py-4 pl-10 pr-3 text-sm text-black focus:ring-2 focus:ring-watney">
                     <MapPin
                       className="absolute left-3 top-1/2 -translate-y-1/2 text-watney"
                       size={16}
@@ -207,15 +192,23 @@ console.log(formData, 'formData in course selection form');
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full rounded-lg bg-gradient-to-r from-watney to-blue-800 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-watney to-blue-800 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50"
               disabled={
+                isSubmitting ||
                 !formData.studentType ||
                 !formData.termName ||
                 !formData.courseName
               }
               type="submit"
             >
-              APPLY
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  SAVING...
+                </>
+              ) : (
+                'APPLY'
+              )}
             </motion.button>
           </form>
         </motion.div>

@@ -93,10 +93,10 @@ export default function ContactPage() {
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Mail className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+            <h1 className="text-5xl md:text-6xl font-black mb-6 text-black">
               Get In <span className="text-watney-blue-primary">Touch</span>
             </h1>
-            <p className="text-lg  text-gray-600 leading-relaxed  mx-auto">
+            <p className="text-lg  text-black leading-relaxed  mx-auto">
               We're here to help! Contact Watney College for any inquiries,
               support, or information.
             </p>
@@ -108,7 +108,7 @@ export default function ContactPage() {
             <div className="grid lg:grid-cols-2 gap-12  z-50">
               {/* Contact Information */}
               <div className="space-y-8  z-50">
-                <h2 className="text-4xl font-black text-gray-900 mb-6">
+                <h2 className="text-4xl font-black text-black mb-6">
                   Contact{" "}
                   <span className="text-gradient-watney">Information</span>
                 </h2>
@@ -118,10 +118,10 @@ export default function ContactPage() {
                       <MapPin className="w-6 h-6 text-watney-blue-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      <h3 className="text-lg font-bold text-black mb-1">
                         Our Location
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-black">
                         80-82 Nelson Street Whitechapel, London, E1 2DY, United
                         Kingdom
                       </p>
@@ -132,10 +132,10 @@ export default function ContactPage() {
                       <Phone className="w-6 h-6 text-watney-blue-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      <h3 className="text-lg font-bold text-black mb-1">
                         Phone Support
                       </h3>
-                      <a href="tel:+44 (0) 2080046463" className="text-gray-600">
+                      <a href="tel:+44 (0) 2080046463" className="text-black">
                         +44 (0) 2080046463
                       </a>
                     </div>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                       <Mail className="w-6 h-6 text-watney-blue-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      <h3 className="text-lg font-bold text-black mb-1">
                         Email Us
                       </h3>
                       <a
@@ -154,7 +154,7 @@ export default function ContactPage() {
                       >
                         info@watneycollege.co.uk
                       </a>
-                      <p className="text-gray-500 text-sm">
+                      <p className="text-black text-sm">
                         We aim to respond within 24 hours
                       </p>
                     </div>
@@ -164,10 +164,10 @@ export default function ContactPage() {
                       <Clock className="w-6 h-6 text-watney-blue-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      <h3 className="text-lg font-bold text-black mb-1">
                         Office Hours
                       </h3>
-                      <p className="text-gray-600">Mon-Fri: 9AM - 6PM</p>
+                      <p className="text-black">Mon-Fri: 9AM - 6PM</p>
                     </div>
                   </div>
                 </div>
@@ -175,16 +175,16 @@ export default function ContactPage() {
 
               {/* Contact Form */}
               <div className="bg-watney-blue-light rounded-3xl p-8 shadow-xl border border-watney-blue-accent  z-50">
-                <h2 className="text-3xl font-black text-gray-900 mb-6 text-center">
+                <h2 className="text-3xl font-black text-black mb-6 text-center">
                   Send Us a Message
                 </h2>
                 {isSubmitted ? (
                   <div className="text-center py-12">
                     <Mail className="w-20 h-20 text-watney-blue-primary mx-auto mb-6" />
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    <h3 className="text-2xl font-bold text-black mb-4">
                       Thank You for Your Message!
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-black">
                       We have received your inquiry and will get back to you
                       shortly.
                     </p>
@@ -194,7 +194,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-gray-900 font-medium mb-2"
+                        className="block text-black font-medium mb-2"
                       >
                         Your Name
                       </label>
@@ -212,7 +212,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-gray-900 font-medium mb-2"
+                        className="block text-black font-medium mb-2"
                       >
                         Your Email
                       </label>
@@ -230,7 +230,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="subject"
-                        className="block text-gray-900 font-medium mb-2"
+                        className="block text-black font-medium mb-2"
                       >
                         Subject
                       </label>
@@ -248,7 +248,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="message"
-                        className="block text-gray-900 font-medium mb-2"
+                        className="block text-black font-medium mb-2"
                       >
                         Your Message
                       </label>
@@ -282,7 +282,7 @@ export default function ContactPage() {
                     </Button>
                   </form>
                 )}
-                 <div className="mt-6 bg-white border border-gray-200 rounded-xl p-4 text-sm text-gray-600 leading-relaxed">
+                 <div className="mt-6 bg-white border border-gray-200 rounded-xl p-4 text-sm text-black leading-relaxed">
     <p>
       To submit a complaint, please see our{" "}
       

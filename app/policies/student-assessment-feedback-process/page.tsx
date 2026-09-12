@@ -34,11 +34,11 @@ export default function StudentAssessmentFeedbackPage() {
             <div className="w-20 h-20 flex items-center justify-center mx-auto mb-6">
               <MessageSquare className="w-20 h-20 text-watney-blue-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-black">
               Student Assessment{" "}
               <span className="text-watney-blue-primary">Feedback Process</span>
             </h1>
-            <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-3xl">
+            <p className="text-lg text-black mx-auto leading-relaxed max-w-3xl">
               Establishing how Watney College provides timely, constructive and
               transparent feedback on student assessments to support learning,
               maintain academic standards and ensure fairness and consistency.
@@ -53,10 +53,10 @@ export default function StudentAssessmentFeedbackPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     Principles of effective feedback
                   </h2>
-                  <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <div className="space-y-4 text-black leading-relaxed">
                     <p>
                       Feedback provided to students at Watney College must meet
                       five core principles that together ensure fair,
@@ -69,10 +69,10 @@ export default function StudentAssessmentFeedbackPage() {
                           <Clock className="w-3.5 h-3.5 text-watney-blue-primary" />
                         </div>
                         <div>
-                          <span className="font-semibold text-gray-800">
+                          <span className="font-semibold text-black">
                             Timely:
                           </span>
-                          <span className="text-gray-600">
+                          <span className="text-black">
                             {" "}
                             Written feedback normally within 10–15 working days
                             of submission, unless awarding body requirements
@@ -85,10 +85,10 @@ export default function StudentAssessmentFeedbackPage() {
                           <Target className="w-3.5 h-3.5 text-watney-blue-primary" />
                         </div>
                         <div>
-                          <span className="font-semibold text-gray-800">
+                          <span className="font-semibold text-black">
                             Constructive:
                           </span>
-                          <span className="text-gray-600">
+                          <span className="text-black">
                             {" "}
                             Clearly identifies strengths, areas for improvement,
                             and recommendations for future work.
@@ -100,10 +100,10 @@ export default function StudentAssessmentFeedbackPage() {
                           <BookOpen className="w-3.5 h-3.5 text-watney-blue-primary" />
                         </div>
                         <div>
-                          <span className="font-semibold text-gray-800">
+                          <span className="font-semibold text-black">
                             Linked to learning outcomes:
                           </span>
-                          <span className="text-gray-600">
+                          <span className="text-black">
                             {" "}
                             Feedback must reference relevant learning outcomes
                             and published assessment criteria.
@@ -115,10 +115,10 @@ export default function StudentAssessmentFeedbackPage() {
                           <Eye className="w-3.5 h-3.5 text-watney-blue-primary" />
                         </div>
                         <div>
-                          <span className="font-semibold text-gray-800">
+                          <span className="font-semibold text-black">
                             Accessible and understandable:
                           </span>
-                          <span className="text-gray-600">
+                          <span className="text-black">
                             {" "}
                             Written clearly and delivered through appropriate
                             channels such as the WCSMS (VLE) or assessment feedback
@@ -131,10 +131,10 @@ export default function StudentAssessmentFeedbackPage() {
                           <Scale className="w-3.5 h-3.5 text-watney-blue-primary" />
                         </div>
                         <div>
-                          <span className="font-semibold text-gray-800">
+                          <span className="font-semibold text-black">
                             Consistent and fair:
                           </span>
-                          <span className="text-gray-600">
+                          <span className="text-black">
                             {" "}
                             Assessment decisions are subject to internal
                             verification and moderation procedures.
@@ -158,10 +158,10 @@ export default function StudentAssessmentFeedbackPage() {
                     </p>
                   </div>
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Summative feedback
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       Provided after the final assessment submission. Confirms
                       the assessment criteria achieved, explains the reasoning
                       behind the assessment decision, and provides guidance for
@@ -179,7 +179,7 @@ export default function StudentAssessmentFeedbackPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     Assessment feedback workflow
                   </h2>
                   <div className="space-y-4">
@@ -190,11 +190,11 @@ export default function StudentAssessmentFeedbackPage() {
                             1
                           </span>
                         </div>
-                        <h3 className="font-semibold text-gray-900">
+                        <h3 className="font-semibold text-black">
                           Assessment submission
                         </h3>
                       </div>
-                      <p className="text-sm text-gray-600 pl-10">
+                      <p className="text-sm text-black pl-10">
                         Students submit assessments according to the programme
                         assessment schedule.
                       </p>
@@ -206,11 +206,11 @@ export default function StudentAssessmentFeedbackPage() {
                             2
                           </span>
                         </div>
-                        <h3 className="font-semibold text-gray-900">
+                        <h3 className="font-semibold text-black">
                           Assessment marking
                         </h3>
                       </div>
-                      <p className="text-sm text-gray-600 pl-10">
+                      <p className="text-sm text-black pl-10">
                         The assessor evaluates the work against the published
                         assessment criteria.
                       </p>
@@ -222,11 +222,11 @@ export default function StudentAssessmentFeedbackPage() {
                             3
                           </span>
                         </div>
-                        <h3 className="font-semibold text-gray-900">
+                        <h3 className="font-semibold text-black">
                           Internal verification
                         </h3>
                       </div>
-                      <p className="text-sm text-gray-600 pl-10">
+                      <p className="text-sm text-black pl-10">
                         Where applicable, a sample of assessed work is reviewed
                         by an Internal Verifier to ensure fairness and
                         consistency.
@@ -242,11 +242,11 @@ export default function StudentAssessmentFeedbackPage() {
                           4
                         </span>
                       </div>
-                      <h3 className="font-semibold text-gray-900">
+                      <h3 className="font-semibold text-black">
                         Feedback preparation
                       </h3>
                     </div>
-                    <p className="text-sm text-gray-600 pl-10">
+                    <p className="text-sm text-black pl-10">
                       Assessors complete the official assessment feedback form
                       or digital equivalent.
                     </p>
@@ -258,11 +258,11 @@ export default function StudentAssessmentFeedbackPage() {
                           5
                         </span>
                       </div>
-                      <h3 className="font-semibold text-gray-900">
+                      <h3 className="font-semibold text-black">
                         Feedback release
                       </h3>
                     </div>
-                    <p className="text-sm text-gray-600 pl-10">
+                    <p className="text-sm text-black pl-10">
                       Feedback is provided to students through the designated
                       learning platform or assessment documentation.
                     </p>
@@ -274,11 +274,11 @@ export default function StudentAssessmentFeedbackPage() {
                           6
                         </span>
                       </div>
-                      <h3 className="font-semibold text-gray-900">
+                      <h3 className="font-semibold text-black">
                         Student review and reflection
                       </h3>
                     </div>
-                    <p className="text-sm text-gray-600 pl-10">
+                    <p className="text-sm text-black pl-10">
                       Students review feedback and may discuss it with tutors
                       during tutorials or academic support sessions.
                     </p>
@@ -293,10 +293,10 @@ export default function StudentAssessmentFeedbackPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     Monitoring, quality assurance and appeals
                   </h2>
-                  <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <div className="space-y-4 text-black leading-relaxed">
                     <p>
                       The quality and timeliness of assessment feedback are
                       monitored through the College's academic governance
@@ -305,7 +305,7 @@ export default function StudentAssessmentFeedbackPage() {
                     <ul className="space-y-3 mt-4">
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-watney-blue-primary flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-black">
                           <span className="font-semibold">
                             Programme Committees
                           </span>{" "}
@@ -314,7 +314,7 @@ export default function StudentAssessmentFeedbackPage() {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-watney-blue-primary flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-black">
                           <span className="font-semibold">
                             Quality Assurance Committee
                           </span>{" "}
@@ -323,7 +323,7 @@ export default function StudentAssessmentFeedbackPage() {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-watney-blue-primary flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-black">
                           <span className="font-semibold">
                             Assessment & Progression Board
                           </span>{" "}
@@ -332,7 +332,7 @@ export default function StudentAssessmentFeedbackPage() {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-watney-blue-primary flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-black">
                           <span className="font-semibold">Academic Board</span>{" "}
                           — maintaining oversight of academic standards
                         </span>
@@ -342,10 +342,10 @@ export default function StudentAssessmentFeedbackPage() {
                 </div>
                 <div className="space-y-6">
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Student access to feedback
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       Students receive feedback through the Virtual Learning
                       Environment WCSMS (VLE), official assessment feedback forms, and
                       tutorial discussions where appropriate. Students are
@@ -372,7 +372,7 @@ export default function StudentAssessmentFeedbackPage() {
           <section className="py-20 bg-slate-50">
             <div className="container mx-auto px-6 max-w-5xl">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
                   Linked Documents And{" "}
                   <span className="text-watney-blue-primary">
                     Regulatory Framework
@@ -385,10 +385,10 @@ export default function StudentAssessmentFeedbackPage() {
                   <table className="w-full text-left border-collapse">
                     <thead>
                       <tr className="bg-slate-50/50 border-b border-slate-200">
-                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-black">
                           Document
                         </th>
-                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-black">
                           Relevance
                         </th>
                       </tr>
@@ -429,12 +429,12 @@ export default function StudentAssessmentFeedbackPage() {
                           className="group hover:bg-blue-50/40 transition-colors duration-150"
                         >
                           <td className="py-5 px-8">
-                            <span className="text-base font-bold text-slate-800 group-hover:text-watney-blue-primary transition-colors">
+                            <span className="text-base font-bold text-black group-hover:text-watney-blue-primary transition-colors">
                               {row[0]}
                             </span>
                           </td>
                           <td className="py-5 px-8">
-                            <span className="inline-flex items-center text-sm font-semibold text-slate-700 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 group-hover:bg-white group-hover:border-blue-200 transition-all">
+                            <span className="inline-flex items-center text-sm font-semibold text-black bg-slate-100 px-3 py-1 rounded-md border border-slate-200 group-hover:bg-white group-hover:border-blue-200 transition-all">
                               {row[1]}
                             </span>
                           </td>
@@ -451,15 +451,15 @@ export default function StudentAssessmentFeedbackPage() {
           <div className="py-12 bg-gray-50 border-t border-gray-200">
             <div className="container mx-auto px-4 text-center">
               <div className="w-12 h-12 bg-white rounded-lg border border-gray-200 flex items-center justify-center mx-auto mb-4">
-                <FileText className="w-6 h-6 text-gray-500" />
+                <FileText className="w-6 h-6 text-black" />
               </div>
-              <p className="text-gray-500 text-sm mb-6">
+              <p className="text-black text-sm mb-6">
                 Last reviewed:{" "}
-                <span className="font-medium text-gray-700">November 2025</span>{" "}
+                <span className="font-medium text-black">November 2025</span>{" "}
                 &nbsp;·&nbsp; Version:{" "}
-                <span className="font-medium text-gray-700">2.0</span>{" "}
+                <span className="font-medium text-black">2.0</span>{" "}
                 &nbsp;·&nbsp; Next review:{" "}
-                <span className="font-medium text-gray-700">November 2027</span>
+                <span className="font-medium text-black">November 2027</span>
               </p>
               <a
                 href="/2.5.12 Student Assessment Feedback Process.pdf"

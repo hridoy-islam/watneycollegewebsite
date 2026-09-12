@@ -276,7 +276,7 @@ export default function page() {
                 Essential{" "}
                 <span className="text-gradient-watney">Resources</span>
               </h2>
-              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-black max-w-3xl mx-auto leading-relaxed">
                 Everything you need to know before and during your studies at
                 Watney College — from applying and fees to support and key
                 dates.
@@ -338,11 +338,11 @@ export default function page() {
                     </div>
 
                     {/* Content */}
-                    <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-200">
+                    <h3 className="text-xl font-semibold text-black mb-3 group-hover:text-primary transition-colors duration-200">
                       {card.title}
                     </h3>
 
-                    <p className="text-gray-600 leading-relaxed flex-grow text-lg">
+                    <p className="text-black leading-relaxed flex-grow text-lg">
                       {card.description}
 
                       {/* ✅ Special link inside description (Academic Calendar) */}
@@ -395,7 +395,7 @@ export default function page() {
                 What Watney College{" "}
                 <span className="text-gradient-watney">Offers</span>
               </h2>
-              <p className="text-xl text-gray-600 ">
+              <p className="text-xl text-black ">
                 Quality education and student support across healthcare and
                 vocational programmes, designed to develop your skills and
                 advance your career.
@@ -493,7 +493,7 @@ export default function page() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-2 text-lg text-gray-600">
+                    <div className="space-y-2 text-lg text-black">
                       {card.points.map((point, i) => (
                         <div key={i}>• {point}</div>
                       ))}
@@ -562,7 +562,7 @@ export default function page() {
                 Why Choose{" "}
                 <span className="text-gradient-watney">Watney College?</span>
               </h2>
-              <p className="text-lg text-gray-600  mx-auto leading-relaxed">
+              <p className="text-lg text-black  mx-auto leading-relaxed">
                 Here is what makes Watney College a great place to study.
               </p>
             </motion.div>
@@ -591,10 +591,10 @@ export default function page() {
                   </motion.div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl font-semibold text-black mb-2 group-hover:text-primary transition-colors duration-300">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-black leading-relaxed">
                     {feature.description}
                   </p>
                 </motion.div>
@@ -628,7 +628,7 @@ export default function page() {
                 Student Community &
                 <span className="text-gradient-watney">Engagement </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg text-black max-w-3xl mx-auto leading-relaxed">
                 Get involved in college life and connect with your peers
                 throughout your studies at Watney College.
               </p>
@@ -654,7 +654,7 @@ export default function page() {
                         <Users className="w-8 h-8 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                        <h3 className="text-2xl font-bold text-black mb-1">
                           Student Engagement
                         </h3>
                         <p className="text-primary font-medium">
@@ -665,22 +665,22 @@ export default function page() {
 
                     {/* Content */}
                     <div className="flex-grow">
-                      <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                      <p className="text-black text-lg leading-relaxed mb-6">
                         Become part of the Watney College student community.
                         Engage with your peers, participate in college life and
                         contribute to shaping your learning experience.
                       </p>
 
                       <ul className="space-y-3">
-                        <li className="flex items-center text-gray-600">
+                        <li className="flex items-center text-black">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                           Student Representative Programme
                         </li>
-                        <li className="flex items-center text-gray-600">
+                        <li className="flex items-center text-black">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                           Peer Support Network
                         </li>
-                        <li className="flex items-center text-gray-600">
+                        <li className="flex items-center text-black">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                           College Events & Activities
                         </li>
@@ -702,7 +702,7 @@ export default function page() {
                         <MessageCircle className="w-8 h-8 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                        <h3 className="text-2xl font-bold text-black mb-1">
                           Student Voice
                         </h3>
                         <p className="text-primary font-medium">
@@ -713,22 +713,22 @@ export default function page() {
 
                     {/* Content */}
                     <div className="flex-grow">
-                      <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                      <p className="text-black text-lg leading-relaxed mb-6">
                         Your feedback matters. Watney College actively seeks
                         student input to improve the quality of teaching,
                         support and the overall student experience.
                       </p>
 
                       <ul className="space-y-3">
-                        <li className="flex items-center text-gray-600">
+                        <li className="flex items-center text-black">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                           Student Surveys
                         </li>
-                        <li className="flex items-center text-gray-600">
+                        <li className="flex items-center text-black">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                           Course Committee Representation
                         </li>
-                        <li className="flex items-center text-gray-600">
+                        <li className="flex items-center text-black">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                           Annual Student Experience Review
                         </li>
@@ -752,7 +752,7 @@ export default function page() {
                 What Our{" "}
                 <span className="text-gradient-watney">Students Say</span>
               </h2>
-              <p className="text-xl text-gray-600  mx-auto">
+              <p className="text-xl text-black  mx-auto">
                 Hear from our successful graduates who have achieved their
                 educational dreams with our support and guidance.
               </p>
@@ -770,7 +770,7 @@ export default function page() {
                   </div>
                 </div>
 
-                <p className="text-gray-600">
+                <p className="text-black">
                   "As a recent graduate of the OTHM Level 3 Foundation Diploma
                   in Health and Social Care at Watney College, I can confidently
                   say that the program has been instrumental in shaping my
@@ -795,7 +795,7 @@ export default function page() {
                   </div>
                 </div>
 
-                <p className="text-gray-600 ">
+                <p className="text-black ">
                   "Completing the OTHM Level 3 Foundation Diploma in Health and
                   Social Care at Watney College was a transformative experience.
                   The diverse and inclusive environment, along with the

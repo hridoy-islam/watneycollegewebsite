@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // `@react-pdf/renderer` v4 ships ESM only; webpack needs it transpiled
+  // rather than treated as an external ESM package.
+  transpilePackages: ['@react-pdf/renderer'],
   typescript: {
     ignoreBuildErrors: true, // ✅ Skips type checking
   },

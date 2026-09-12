@@ -103,7 +103,7 @@ export default function JobDetailPage() {
                 {/* Job Title */}
                 <div className="flex flex-row flex-wrap gap-2 items-center">
                   {title && (
-                    <h2 className="text-2xl font-semibold text-slate-800">{title}</h2>
+                    <h2 className="text-2xl font-semibold text-black">{title}</h2>
                   )}
                   {type && (
                     <Badge
@@ -118,50 +118,50 @@ export default function JobDetailPage() {
                 {/* Job Details */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   {salary && (
-                    <div className="flex items-center text-slate-600">
-                      <DollarSign className="w-5 h-5 mr-2 text-slate-400" />
+                    <div className="flex items-center text-black">
+                      <DollarSign className="w-5 h-5 mr-2 text-black" />
                       {salary}
                     </div>
                   )}
 
                   {postedDate && (
-                    <div className="flex items-center text-slate-600">
-                      <Calendar className="w-5 h-5 mr-2 text-slate-400" />
+                    <div className="flex items-center text-black">
+                      <Calendar className="w-5 h-5 mr-2 text-black" />
                       Posting Date: {moment(postedDate).format("DD-MM-YYYY")}
                     </div>
                   )}
 
                   {deadline && (
-                    <div className="flex items-center text-slate-600">
-                      <Briefcase className="w-5 h-5 mr-2 text-slate-400" />
+                    <div className="flex items-center text-black">
+                      <Briefcase className="w-5 h-5 mr-2 text-black" />
                       Closing Date: {moment(deadline).format("DD-MM-YYYY")}
                     </div>
                   )}
 
                   {hours && (
-                    <div className="flex items-center text-slate-600">
-                      <Clock className="w-5 h-5 mr-2 text-slate-400" />
+                    <div className="flex items-center text-black">
+                      <Clock className="w-5 h-5 mr-2 text-black" />
                       Hours: {hours}
                     </div>
                   )}
 
                   {location && (
-                    <div className="flex items-center text-slate-600">
-                      <MapPin className="w-5 h-5 mr-2 text-slate-400" />
+                    <div className="flex items-center text-black">
+                      <MapPin className="w-5 h-5 mr-2 text-black" />
                       Location: {location}
                     </div>
                   )}
 
                   {remoteWorking && (
-                    <div className="flex items-start text-slate-600">
-                      <Briefcase className="w-6 h-6 mr-2 text-slate-400" />
+                    <div className="flex items-start text-black">
+                      <Briefcase className="w-6 h-6 mr-2 text-black" />
                       Remote Working: {remoteWorking}
                     </div>
                   )}
 
                   {designationTitle && (
-                    <div className="flex items-center text-slate-600">
-                      <Briefcase className="w-5 h-5 mr-2 text-slate-400" />
+                    <div className="flex items-center text-black">
+                      <Briefcase className="w-5 h-5 mr-2 text-black" />
                       Designation: {designationTitle}
                     </div>
                   )}
@@ -178,19 +178,19 @@ export default function JobDetailPage() {
               <CardContent className="space-y-8">
                 {/* Job Description */}
                 <section>
-                  <h3 className="text-2xl font-semibold mb-3 text-slate-900">Job Description</h3>
-                  <div className="text-slate-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: description }} />
+                  <h3 className="text-2xl font-semibold mb-3 text-black">Job Description</h3>
+                  <div className="text-black leading-relaxed" dangerouslySetInnerHTML={{ __html: description }} />
                 </section>
 
                 {/* Responsibilities */}
                 {responsibilities.length > 0 && (
                   <section>
-                    <h3 className="text-2xl font-semibold mb-3 text-slate-900">Responsibilities</h3>
+                    <h3 className="text-2xl font-semibold mb-3 text-black">Responsibilities</h3>
                     <ul className="space-y-3">
                       {responsibilities.map((responsibility: string, index: number) => (
                         <li key={index} className="flex items-start">
                           <CheckCircle2 className="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-slate-700">{responsibility}</span>
+                          <span className="text-black">{responsibility}</span>
                         </li>
                       ))}
                     </ul>
@@ -200,12 +200,12 @@ export default function JobDetailPage() {
                 {/* Requirements */}
                 {requirements.length > 0 && (
                   <section>
-                    <h3 className="text-2xl font-semibold mb-3 text-slate-900">Requirements</h3>
+                    <h3 className="text-2xl font-semibold mb-3 text-black">Requirements</h3>
                     <ul className="space-y-3">
                       {requirements.map((requirement: string, index: number) => (
                         <li key={index} className="flex items-start">
                           <CheckCircle2 className="w-5 h-5 mr-3 text-blue-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-slate-700">{requirement}</span>
+                          <span className="text-black">{requirement}</span>
                         </li>
                       ))}
                     </ul>
@@ -215,12 +215,12 @@ export default function JobDetailPage() {
                 {/* Benefits */}
                 {benefits.length > 0 && (
                   <section>
-                    <h3 className="text-2xl font-semibold mb-3 text-slate-900">Benefits</h3>
+                    <h3 className="text-2xl font-semibold mb-3 text-black">Benefits</h3>
                     <ul className="space-y-3">
                       {benefits.map((benefit: string, index: number) => (
                         <li key={index} className="flex items-start">
-                          <CheckCircle2 className="w-5 h-5 mr-3 text-slate-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-slate-700">{benefit}</span>
+                          <CheckCircle2 className="w-5 h-5 mr-3 text-black flex-shrink-0 mt-0.5" />
+                          <span className="text-black">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -250,7 +250,7 @@ export default function JobDetailPage() {
                   suggestedJobs.map((suggestedJob: any) => (
                     <Link key={suggestedJob._id || suggestedJob.id} href={`/jobs/${suggestedJob.slug}`}>
                       <div className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all cursor-pointer">
-                        <h4 className="font-semibold text-slate-900 mb-2 hover:text-blue-600">
+                        <h4 className="font-semibold text-black mb-2 hover:text-blue-600">
                           {suggestedJob.jobTitle || suggestedJob.title}
                         </h4>
                         <Badge variant="secondary" className="mt-2 bg-blue-100 text-blue-800 text-xs">
@@ -260,7 +260,7 @@ export default function JobDetailPage() {
                     </Link>
                   ))
                 ) : (
-                  <p className="text-slate-500 text-sm">No similar jobs available at the moment.</p>
+                  <p className="text-black text-sm">No similar jobs available at the moment.</p>
                 )}
               </CardContent>
             </Card>

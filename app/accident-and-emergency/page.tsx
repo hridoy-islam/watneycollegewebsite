@@ -27,13 +27,13 @@ export default function AccidentAndEmergencyPage() {
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <AlertTriangle className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-black">
               Accident &{" "}
               <span className="text-watney-blue-primary">
                 Emergency Support
               </span>
             </h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-black max-w-3xl mx-auto leading-relaxed">
               Your safety is our priority. This page sets out the emergency
               procedures and key contacts for students, staff and visitors at
               Watney College.
@@ -52,7 +52,7 @@ export default function AccidentAndEmergencyPage() {
               transition={{ duration: 0.6 }}
             >
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl font-bold text-black mb-6">
                   In an Emergency
                 </h2>
                 <div className="p-6 bg-red-50 border-l-4 border-red-600 rounded-r-lg mb-6">
@@ -60,7 +60,7 @@ export default function AccidentAndEmergencyPage() {
                     Call 999 immediately if there is an immediate risk to life.
                   </p>
                 </div>
-                <div className="space-y-4 text-gray-700">
+                <div className="space-y-4 text-black">
                   <p className="flex items-center font-medium">
                     <Phone className="w-5 h-5 text-watney-blue-primary mr-3" />
                     Then contact Watney College: +44 (0) 2080046463
@@ -69,7 +69,7 @@ export default function AccidentAndEmergencyPage() {
                     <FileText className="w-5 h-5 text-watney-blue-primary mr-3" />
                     info@watneycollege.co.uk
                   </p>
-                  <p className="text-sm italic text-gray-500 ml-8">
+                  <p className="text-sm italic text-black ml-8">
                     Monday to Friday, 9:00am – 5:00pm
                   </p>
                 </div>
@@ -103,15 +103,15 @@ export default function AccidentAndEmergencyPage() {
                 />
               </div>
               <div className="order-1 md:order-2">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <h2 className="text-3xl font-bold text-black mb-6 flex items-center">
                   <MapPin className="mr-3 text-watney-blue-primary" />  Our Location
                 </h2>
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-bold text-gray-800">
+                    <h3 className="text-lg font-bold text-black">
                       Watney College
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-black">
                       80–82 Nelson Street, Whitechapel, London, E1 2DY
                     </p>
                   </div>
@@ -119,7 +119,7 @@ export default function AccidentAndEmergencyPage() {
                     <h3 className="text-lg font-bold text-watney-blue-primary flex items-center mb-1">
                       <Ambulance className="w-5 h-5 mr-2" /> Nearest A&E
                     </h3>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-black text-sm">
                       Royal London Hospital Whitechapel Road, London, E1 1BB
                       <br />
                       +44 (0) 20 7377 7000
@@ -134,7 +134,7 @@ export default function AccidentAndEmergencyPage() {
                       <BriefcaseMedical className="w-5 h-5 mr-2" /> Nearest
                       Urgent Treatment Centre
                     </h3>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-black text-sm">
                       Barts Health Walk-in Centre
                       <br />9 Alie Street, London, E1 8DE
                     </p>
@@ -156,7 +156,7 @@ export default function AccidentAndEmergencyPage() {
               transition={{ duration: 0.6 }}
             >
               <div className="space-y-8">
-                <h2 className="text-3xl font-bold text-gray-900">
+                <h2 className="text-3xl font-bold text-black">
                   Emergency Procedures
                 </h2>
 
@@ -166,10 +166,10 @@ export default function AccidentAndEmergencyPage() {
                       <BriefcaseMedical size={20} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      <h3 className="text-xl font-bold text-black mb-2">
                         Medical Emergency
                       </h3>
-                      <ul className="text-gray-600 space-y-1 list-disc ml-4">
+                      <ul className="text-black space-y-1 list-disc ml-4">
                         <li>Call 999 immediately</li>
                         <li>
                           Do not move the person unless there is immediate
@@ -196,10 +196,10 @@ export default function AccidentAndEmergencyPage() {
                       <Flame size={20} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      <h3 className="text-xl font-bold text-black mb-2">
                         Fire
                       </h3>
-                      <ul className="text-gray-600 space-y-1 list-disc ml-4">
+                      <ul className="text-black space-y-1 list-disc ml-4">
                         <li>Activate the nearest fire alarm</li>
                         <li>Evacuate immediately via the nearest fire exit</li>
                         <li>Do not use the lift</li>
@@ -223,10 +223,10 @@ export default function AccidentAndEmergencyPage() {
                       <AlertTriangle size={20} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      <h3 className="text-xl font-bold text-black mb-2">
                         Accident or Injury
                       </h3>
-                      <ul className="text-gray-600 space-y-1 list-disc ml-4">
+                      <ul className="text-black space-y-1 list-disc ml-4">
                         <li>Ensure the area is safe before approaching</li>
                         <li>Call for a first aider immediately</li>
                         <li>Call 999 if the injury is serious</li>
@@ -264,10 +264,10 @@ export default function AccidentAndEmergencyPage() {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl font-bold text-black mb-4">
                 Mental Health Emergency
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-black mb-8">
                 If you or someone you know is in crisis:
               </p>
 
@@ -284,7 +284,7 @@ export default function AccidentAndEmergencyPage() {
                       <th className="p-4 font-bold">Availability</th>
                     </tr>
                   </thead>
-                  <tbody className="text-gray-700">
+                  <tbody className="text-black">
                     <tr className="border-b border-gray-100">
                       <td className="p-4 border-r border-gray-100 font-medium">
                         Samaritans
@@ -318,7 +318,7 @@ export default function AccidentAndEmergencyPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="text-gray-700 text-left">
+              <p className="text-black text-left">
                 For non-emergency mental health support, speak to your Personal
                 Tutor or contact student support at support@watneycollege.co.uk.
               </p>
@@ -339,33 +339,33 @@ export default function AccidentAndEmergencyPage() {
 
               <div className="text-left space-y-8 mb-10">
                 <div>
-                  <h3 className="text-2xl font-black text-gray-900 mb-4">
+                  <h3 className="text-2xl font-black text-black mb-4">
                    Reporting
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-2">
+                  <p className="text-black leading-relaxed mb-2">
                     All accidents, incidents and near misses must be reported to
                     the Head of Admin & Registry within 24 hours.
                   </p>
-                  <p className="text-gray-600 leading-relaxed mb-2">
+                  <p className="text-black leading-relaxed mb-2">
                     Serious incidents are escalated to the Principal and
                     reported to the Board of Directors through the College's
                     governance framework.
                   </p>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-black leading-relaxed">
                     Where required, incidents are reported to the Health and
                     Safety Executive (HSE) under RIDDOR 2013.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-black text-gray-900 mb-4">
+                  <h3 className="text-2xl font-black text-black mb-4">
                     Safeguarding
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-2">
+                  <p className="text-black leading-relaxed mb-2">
                     Any safeguarding concern must be reported immediately to the
                     Designated Safeguarding Lead.
                   </p>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-black leading-relaxed">
                     Full details are set out in the College's Safeguarding and
                     Prevent Policy, available on the Policies page.
                   </p>
@@ -384,12 +384,12 @@ export default function AccidentAndEmergencyPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              <h2 className="text-3xl font-bold text-black mb-8 text-center">
             Key Contacts
               </h2>
               <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm mb-10">
                 <table className="w-full text-left border-collapse">
-                  <thead className="bg-gray-100 text-gray-800">
+                  <thead className="bg-gray-100 text-black">
                     <tr>
                       <th className="p-4 font-bold border-b border-gray-200">
                         Role
@@ -399,7 +399,7 @@ export default function AccidentAndEmergencyPage() {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="text-gray-700">
+                  <tbody className="text-black">
                     <tr className="border-b border-gray-100">
                       <td className="p-4 font-medium">General enquiries</td>
                       <td className="p-4 text-watney-blue-primary">
@@ -438,7 +438,7 @@ export default function AccidentAndEmergencyPage() {
                 </table>
               </div>
 
-              <div className="text-center text-sm text-gray-400 font-medium pb-8">
+              <div className="text-center text-sm text-black font-medium pb-8">
                 Last reviewed: April 2026 | Next review: April 2027 | Approved
                 by: Board of Directors
               </div>

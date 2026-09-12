@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -18,15 +18,25 @@ import {
 import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '@/redux/store';
 import { loginUser } from '@/redux/features/authSlice';
-import { Loader2 } from 'lucide-react'; // Optional: for a nice loading spinner
+import { Eye, EyeOff, Loader2 } from 'lucide-react';
 
 const loginSchema = z.object({
   email: z.string().email('Invalid email address'),
   password: z.string().min(6, 'Password must be at least 6 characters')
 });
 
-export default function LoginForm() {
+interface LoginFormProps {
+  /**
+   * Which account store to authenticate against. Applicants live in their own
+   * collection, so the apply flow passes `"applicant"`; staff logins leave it
+   * off and are looked up as Users.
+   */
+  role?: string;
+}
+
+export default function LoginForm({ role }: LoginFormProps = {}) {
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const { toast } = useToast();
   const dispatch = useDispatch<AppDispatch>();
 
@@ -41,10 +51,14 @@ export default function LoginForm() {
   const handleLoginSubmit = async (values: z.infer<typeof loginSchema>) => {
     try {
       setIsLoading(true);
-      const normalizedData = { ...values, email: values.email.toLowerCase() };
+      const normalizedData = {
+        ...values,
+        email: values.email.toLowerCase(),
+        ...(role ? { role } : {})
+      };
 
       const response = await dispatch(loginUser(normalizedData));
-      const result = response.payload;
+      const result: any = response.payload;
 
       if (!result?.success) {
         toast({
@@ -54,10 +68,12 @@ export default function LoginForm() {
             'Please check your email and password and try again.',
           variant: 'destructive'
         });
+        setIsLoading(false);
         return;
       }
 
-      // Login was successful
+      // Login was successful - keep the button in its loading state while the
+      // page reacts to the user landing in redux and redirects.
       toast({
         title: 'Login Successful',
         description: 'You have been logged in successfully.'
@@ -70,7 +86,6 @@ export default function LoginForm() {
           'Something went wrong during the login process. Please try again later.',
         variant: 'destructive'
       });
-    } finally {
       setIsLoading(false);
     }
   };
@@ -107,21 +122,35 @@ export default function LoginForm() {
               <div className="flex items-center justify-between">
                 <FormLabel>Password*</FormLabel>
               </div>
-              <FormControl>
-                <Input 
-                  type="password" 
-                  placeholder="••••••••" 
+              <div className="relative">
+                <FormControl>
+                  <Input
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="••••••••"
+                    disabled={isLoading}
+                    {...field}
+                  />
+                </FormControl>
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
                   disabled={isLoading}
-                  {...field} 
-                />
-              </FormControl>
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 disabled:opacity-50"
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-4 w-4" />
+                  ) : (
+                    <Eye className="h-4 w-4" />
+                  )}
+                </button>
+              </div>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button
           type="submit"
-          className="w-full bg-watney text-white hover:bg-watney/90 flex items-center justify-center gap-2"
+          className="flex w-full items-center justify-center gap-2 bg-watney text-white hover:bg-watney/90"
           disabled={isLoading}
         >
           {isLoading ? (

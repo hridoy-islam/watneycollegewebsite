@@ -30,13 +30,13 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
             <div className="w-20 h-20 flex items-center justify-center mx-auto mb-6">
               <Receipt className="w-20 h-20 text-watney-blue-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-black">
               Tuition Fee Refund &amp;{" "}
               <span className="text-watney-blue-primary">
                 Compensation Policy
               </span>
             </h1>
-            <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-3xl">
+            <p className="text-lg text-black mx-auto leading-relaxed max-w-3xl">
               Watney College is committed to transparency in all financial
               matters. This policy sets out tuition fee obligations, refund
               entitlements and the compensation framework, in alignment with CMA
@@ -52,10 +52,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     Scope, fees and payment options
                   </h2>
-                  <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <div className="space-y-4 text-black leading-relaxed">
                     <p>
                       This policy applies to all students, including self-funded
                       individuals and those sponsored by employers or recognised
@@ -64,7 +64,7 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                       line with OfS regulatory guidelines. Any fee adjustments
                       will be communicated promptly.
                     </p>
-                    <p className="font-semibold text-gray-800">
+                    <p className="font-semibold text-black">
                       Tuition fees must be paid in British pounds (GBP).
                       Students are responsible for the full fee payment upon
                       registration unless they have secured funding through the
@@ -82,7 +82,7 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                           <div className="flex-shrink-0 w-6 h-6 rounded-full bg-watney-blue-light/50 border border-watney-blue/30 flex items-center justify-center mt-0.5">
                             <CheckCircle2 className="w-3.5 h-3.5 text-watney-blue-primary" />
                           </div>
-                          <span className="text-gray-700">{item}</span>
+                          <span className="text-black">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -90,10 +90,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                 </div>
                 <div className="space-y-6">
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Regulatory framework
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       Competition and Markets Authority (CMA) guidance · Office
                       for Students (OfS) requirements. This policy reflects best
                       practice in higher education financial management and
@@ -113,10 +113,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                     </p>
                   </div>
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Currency and payment
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       All tuition fees must be paid in GBP. Refunds will be
                       issued using the original payment method in compliance
                       with anti-money laundering regulations. Requests for
@@ -133,10 +133,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     Refund schedule
                   </h2>
-                  <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <div className="space-y-4 text-black leading-relaxed">
                     <p>
                       Self-funded students are entitled to refunds in cases of
                       overpayment, withdrawal, visa refusal or changes in mode
@@ -167,64 +167,64 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                           <tr className="bg-white">
                             <td
                               rowSpan={4}
-                              className="py-3 px-3 font-semibold text-gray-800 align-top"
+                              className="py-3 px-3 font-semibold text-black align-top"
                             >
                               Self-funded (Home / EU UG — full &amp; part-time)
                             </td>
-                            <td className="py-3 px-3 text-gray-600">
+                            <td className="py-3 px-3 text-black">
                               Within 14 days of start
                             </td>
-                            <td className="py-3 px-3 text-gray-600">0%</td>
+                            <td className="py-3 px-3 text-black">0%</td>
                             <td className="py-3 px-3 text-teal-700 font-medium">
                               Full refund
                             </td>
                           </tr>
                           <tr className="bg-white">
-                            <td className="py-3 px-3 text-gray-600">Week 3</td>
-                            <td className="py-3 px-3 text-gray-600">25%</td>
+                            <td className="py-3 px-3 text-black">Week 3</td>
+                            <td className="py-3 px-3 text-black">25%</td>
                             <td className="py-3 px-3 text-amber-700 font-medium">
                               75% refund
                             </td>
                           </tr>
                           <tr className="bg-white">
-                            <td className="py-3 px-3 text-gray-600">
+                            <td className="py-3 px-3 text-black">
                               Weeks 4–6
                             </td>
-                            <td className="py-3 px-3 text-gray-600">50%</td>
+                            <td className="py-3 px-3 text-black">50%</td>
                             <td className="py-3 px-3 text-amber-700 font-medium">
                               50% refund
                             </td>
                           </tr>
                           <tr className="bg-white">
-                            <td className="py-3 px-3 text-gray-600">
+                            <td className="py-3 px-3 text-black">
                               Week 7 onwards
                             </td>
-                            <td className="py-3 px-3 text-gray-600">100%</td>
+                            <td className="py-3 px-3 text-black">100%</td>
                             <td className="py-3 px-3 text-red-600 font-medium">
                               No refund
                             </td>
                           </tr>
                           {/* International rows */}
                           <tr className="bg-white">
-                            <td className="py-3 px-3 font-semibold text-gray-800">
+                            <td className="py-3 px-3 font-semibold text-black">
                               International UG
                             </td>
-                            <td className="py-3 px-3 text-gray-600">
+                            <td className="py-3 px-3 text-black">
                               Before enrolment
                             </td>
-                            <td className="py-3 px-3 text-gray-600">10%</td>
+                            <td className="py-3 px-3 text-black">10%</td>
                             <td className="py-3 px-3 text-amber-700 font-medium">
                               90% refund
                             </td>
                           </tr>
                           <tr className="bg-white">
-                            <td className="py-3 px-3 font-semibold text-gray-800">
+                            <td className="py-3 px-3 font-semibold text-black">
                               International UG
                             </td>
-                            <td className="py-3 px-3 text-gray-600">
+                            <td className="py-3 px-3 text-black">
                               After enrolment
                             </td>
-                            <td className="py-3 px-3 text-gray-600">100%</td>
+                            <td className="py-3 px-3 text-black">100%</td>
                             <td className="py-3 px-3 text-red-600 font-medium">
                               No refund
                             </td>
@@ -247,10 +247,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                     </p>
                   </div>
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Withdrawal conditions
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       Students withdrawing from a programme must formally notify
                       the College in writing. Refunds are calculated from the
                       date formal notification is received. Any outstanding
@@ -279,10 +279,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div className="md:order-2">
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     Compensation policy and decision-making framework
                   </h2>
-                  <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <div className="space-y-4 text-black leading-relaxed">
                     <p>
                       Where students' continuation of study is disrupted by
                       circumstances attributable to the College, compensation
@@ -290,7 +290,7 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                       College will always seek to mitigate disruption through
                       alternative arrangements before compensation is assessed.
                     </p>
-                    <div className="font-semibold text-gray-800 mt-4">
+                    <div className="font-semibold text-black mt-4">
                       Circumstances in which compensation may be considered:
                     </div>
                     <ul className="space-y-2 mt-2">
@@ -306,7 +306,7 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                           <div className="flex-shrink-0 w-6 h-6 rounded-full bg-watney-blue-light/50 border border-watney-blue/30 flex items-center justify-center mt-0.5">
                             <CheckCircle2 className="w-3.5 h-3.5 text-watney-blue-primary" />
                           </div>
-                          <span className="text-gray-700">{item}</span>
+                          <span className="text-black">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -345,7 +345,7 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     How to apply for a refund or compensation
                   </h2>
                   <div className="space-y-4">
@@ -356,10 +356,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                         </span>
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-800">
+                        <div className="font-semibold text-black">
                           Complete the Refund Compensation Request Form
                         </div>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-black">
                           Submit to the Finance Department by email. Include
                           student details, reason for request, payment details
                           and bank information for refund processing.
@@ -373,10 +373,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                         </span>
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-800">
+                        <div className="font-semibold text-black">
                           Acknowledgement
                         </div>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-black">
                           The College will acknowledge receipt of the
                           application within{" "}
                           <strong className="font-semibold">
@@ -393,10 +393,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                         </span>
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-800">
+                        <div className="font-semibold text-black">
                           Decision
                         </div>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-black">
                           A decision will be provided within{" "}
                           <strong className="font-semibold">
                             15 working days
@@ -413,10 +413,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                         </span>
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-800">
+                        <div className="font-semibold text-black">
                           Review right
                         </div>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-black">
                           Students dissatisfied with the compensation outcome
                           may request a review through the College Complaints
                           Policy.
@@ -427,10 +427,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                 </div>
                 <div className="space-y-6">
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Evidence requirements
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       Claims must be supported by objective evidence, which may
                       include: receipts or invoices · travel documentation ·
                       accommodation agreements · payment confirmations or bank
@@ -440,10 +440,10 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                     </p>
                   </div>
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Assessment criteria
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       The College will consider: whether disruption was caused
                       by circumstances within its control · whether additional
                       financial costs were directly incurred · whether
@@ -473,7 +473,7 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
           <section className="py-20 bg-slate-50">
             <div className="container mx-auto px-6 max-w-5xl">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
                   Refund and compensation{" "}
                   <span className="text-watney-blue-primary">at a glance</span>
                 </h2>
@@ -484,13 +484,13 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                   <table className="w-full text-left border-collapse">
                     <thead>
                       <tr className="bg-slate-50/50 border-b border-slate-200">
-                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-black">
                           Situation
                         </th>
-                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-black">
                           Entitlement
                         </th>
-                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-black">
                           Timeframe
                         </th>
                       </tr>
@@ -539,17 +539,17 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
                           className="group hover:bg-blue-50/40 transition-colors duration-150"
                         >
                           <td className="py-5 px-8">
-                            <span className="text-base font-bold text-slate-800 group-hover:text-watney-blue-primary transition-colors">
+                            <span className="text-base font-bold text-black group-hover:text-watney-blue-primary transition-colors">
                               {row[0]}
                             </span>
                           </td>
                           <td className="py-5 px-8">
-                            <span className="inline-flex items-center text-sm font-semibold text-slate-700 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 group-hover:bg-white group-hover:border-blue-200 transition-all">
+                            <span className="inline-flex items-center text-sm font-semibold text-black bg-slate-100 px-3 py-1 rounded-md border border-slate-200 group-hover:bg-white group-hover:border-blue-200 transition-all">
                               {row[1]}
                             </span>
                           </td>
                           <td className="py-5 px-8">
-                            <span className="text-sm font-medium text-slate-600">
+                            <span className="text-sm font-medium text-black">
                               {row[2]}
                             </span>
                           </td>
@@ -566,19 +566,19 @@ export default function TuitionFeeRefundCompensationPolicyPage() {
           <div className="py-12 bg-gray-50 border-t border-gray-200">
             <div className="container mx-auto px-4 text-center">
               <div className="w-12 h-12 bg-white rounded-lg border border-gray-200 flex items-center justify-center mx-auto mb-4">
-                <FileText className="w-6 h-6 text-gray-500" />
+                <FileText className="w-6 h-6 text-black" />
               </div>
-              <p className="text-gray-500 text-sm mb-6">
+              <p className="text-black text-sm mb-6">
                 Last reviewed:{" "}
-                <span className="font-medium text-gray-700">
+                <span className="font-medium text-black">
                   20 November 2025
                 </span>{" "}
                 &nbsp;·&nbsp; Version:{" "}
-                <span className="font-medium text-gray-700">1.2</span>{" "}
+                <span className="font-medium text-black">1.2</span>{" "}
                 &nbsp;·&nbsp; Next review:{" "}
-                <span className="font-medium text-gray-700">November 2026</span>{" "}
+                <span className="font-medium text-black">November 2026</span>{" "}
                 &nbsp;·&nbsp; Approved by:{" "}
-                <span className="font-medium text-gray-700">
+                <span className="font-medium text-black">
                   Academic Board
                 </span>
               </p>

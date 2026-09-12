@@ -65,10 +65,10 @@ export default function FireSafetyStatementPage() {
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Flame className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-black">
               Fire Safety <span className="text-watney-blue-primary">Statement</span>
             </h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-black max-w-3xl mx-auto leading-relaxed">
               Watney College is committed to maintaining the highest standards of fire safety 
               to protect our students, staff, visitors, and campus facilities at all times.
             </p>
@@ -96,10 +96,10 @@ export default function FireSafetyStatementPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
                 Our Fire Safety Commitments
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-black max-w-2xl mx-auto">
                 Proactive measures to prevent, detect, and respond to fire risks.
               </p>
             </motion.div>
@@ -143,10 +143,10 @@ export default function FireSafetyStatementPage() {
               transition={{ duration: 0.6 }}
             >
               <Info className="w-12 h-12 text-watney-blue-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+              <h3 className="text-2xl font-bold text-black mb-4">
                 Fire Safety Documentation
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-black mb-6">
                 Access our full fire risk assessments, evacuation plans, and safety policies.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">

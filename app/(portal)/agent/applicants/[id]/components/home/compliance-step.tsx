@@ -1,0 +1,420 @@
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import * as z from 'zod';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import ReactSelect from 'react-select';
+import { AgentCodeField } from '../agent-code-field';
+import { toId } from '@/lib/applicant-api';
+
+const complianceSchema = z
+  .object({
+    niNumber: z.string().optional(),
+    hearAboutUs: z.string().optional(),
+    applicantAgentCode: z.string().optional(),
+    agentId: z.string().optional(),
+    ltrCode: z.string().optional(),
+    immigrationStatus: z.string().min(1, { message: 'Please select status' }),
+    disability: z.string().min(1, { message: 'Please select an option' }),
+    disabilityDetails: z.string().optional(),
+
+    studentFinance: z.string().min(1, { message: 'Please select an option' })
+  })
+  .superRefine((data, ctx) => {
+    // Check if disability is "yes" and if disabilityDetails is provided
+
+    if (data.disability === 'yes' && !data.disabilityDetails?.trim()) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Disability details are required when disability is "yes".',
+        path: ['disabilityDetails']
+      });
+    }
+
+    // An agent referral only counts once the code matches a real agent.
+    if (data.hearAboutUs === 'agent') {
+      if (!data.applicantAgentCode?.trim()) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Agent code is required when you heard about us from an agent.',
+          path: ['applicantAgentCode']
+        });
+      } else if (!data.agentId) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Enter a valid agent code - no agent matches this code yet.',
+          path: ['applicantAgentCode']
+        });
+      }
+    }
+  });
+
+type ComplianceData = z.infer<typeof complianceSchema>;
+
+export function ComplianceStep({
+  defaultValues,
+  onSaveAndContinue,
+  setCurrentStep
+}) {
+  const form = useForm<ComplianceData>({
+    resolver: zodResolver(complianceSchema),
+    defaultValues: {
+      niNumber: defaultValues?.niNumber || '',
+      immigrationStatus: defaultValues?.immigrationStatus || '',
+      ltrCode: defaultValues?.ltrCode || '',
+      disability: defaultValues?.disability || '',
+      disabilityDetails: defaultValues?.disabilityDetails || '',
+      hearAboutUs: defaultValues?.hearAboutUs || '',
+      applicantAgentCode: defaultValues?.applicantAgentCode || '',
+      agentId: toId(defaultValues?.agentId),
+      studentFinance: defaultValues?.studentFinance || ''
+    }
+  });
+
+  const watchDisability = form.watch('disability');
+
+  function onSubmit(data: ComplianceData) {
+    const isAgentReferral = data.hearAboutUs === 'agent';
+
+    onSaveAndContinue({
+      ...data,
+      applicantAgentCode: isAgentReferral
+        ? data.applicantAgentCode?.trim()
+        : '',
+      // Never send an empty string - the backend casts this to an ObjectId.
+      agentId: (isAgentReferral && data.agentId) || null
+    });
+  }
+
+  // function handleSave() {
+  //   const data = form.getValues();
+  //   onSave(data);
+  // }
+
+  function handleBack() {
+    setCurrentStep(5);
+  }
+
+
+  const hearAboutUsOptions = [
+    { label: 'Google Search', value: 'google' },
+    { label: 'Facebook', value: 'facebook' },
+    { label: 'Instagram', value: 'instagram' },
+    { label: 'LinkedIn', value: 'linkedin' },
+    { label: 'YouTube', value: 'youtube' },
+    { label: 'Agent', value: 'agent' },
+    { label: 'Word of Mouth', value: 'word of mouth' },
+    { label: 'Friend or Family', value: 'friend family' },
+    { label: 'University Fair', value: 'university' },
+    { label: 'Online Advertisement', value: 'online' },
+    { label: 'School/College', value: 'school/college' },
+    { label: 'Other', value: 'other' }
+  ];
+
+  const statusOptions = [
+    { value: 'british-citizen', label: 'British Citizen' },
+    { value: 'eu-settled', label: 'EU Settled Status' },
+    { value: 'eu-pre-settled', label: 'EU Pre-Settled Status' },
+    { value: 'tier4-student-visa', label: 'Tier 4 Student Visa' },
+    { value: 'tier2-skilled-worker', label: ' Tier 2 Skilled worker' },
+    { value: 'other', label: 'Other' }
+  ];
+
+  const disabilityOptions = [
+    { value: 'yes', label: 'Yes' },
+    { value: 'no', label: 'No' },
+    { value: 'prefer-not-to-say', label: 'Prefer not to say' }
+  ];
+
+  const studentFinanceOptions = [
+    { value: 'yes', label: 'Yes' },
+    { value: 'no', label: 'No' }
+  ];
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <div>
+          <CardContent>
+            <h2 className="mb-6 text-2xl font-semibold">
+              Additional Information
+            </h2>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <FormField
+                control={form.control}
+                name="immigrationStatus"
+                render={({ field }) => (
+                  <FormItem className="flex w-full flex-col">
+                    <FormLabel>
+                      Immigration Status <span className="text-red-500">*</span>
+                    </FormLabel>
+                    <FormControl>
+                      <ReactSelect
+                        options={statusOptions}
+                        placeholder="If you have one, please enter your NI number."
+                        value={statusOptions.find(
+                          (opt) => opt.value === field.value
+                        )}
+                        onChange={(option) => field.onChange(option?.value)}
+                        className="react-select-container"
+                        classNamePrefix="react-select"
+                        styles={{
+                          placeholder: (provided) => ({
+                            ...provided,
+                            fontSize: '0.75rem',
+                            color: '#9CA3AF'
+                          })
+                        }}
+                      />
+                    </FormControl>
+                    <p className="mt-1 text-xs text-black">
+                      Example: UK Citizen, Tier 4 Student Visa, etc.
+                    </p>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="niNumber"
+                render={({ field }) => (
+                  <FormItem className="flex w-full flex-col">
+                    <FormLabel>National Insurance (NI) Number</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        placeholder="If you have one, please enter your NI number."
+                        className="!placeholder:text-black  placeholder:text-xs placeholder:text-black"
+                      />
+                    </FormControl>
+
+                    <p className="mt-1 text-xs text-black">
+                      Example: JM456789B
+                    </p>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="ltrCode"
+                render={({ field }) => (
+                  <FormItem className="flex w-full flex-col">
+                    <FormLabel>
+                      Please provide your LTR (Leave to Remain) Code
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        placeholder="Required if you have EU Settled or Pre-Settled Status."
+                        className="!placeholder:text-black  placeholder:text-xs placeholder:text-black"
+                      />
+                    </FormControl>
+
+                    <p className="mt-1 text-xs text-black">
+                      Example: LTR123456789
+                    </p>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="hearAboutUs"
+                render={({ field }) => (
+                  <FormItem className="flex w-full flex-col ">
+                    <FormLabel>Where did you hear about us?</FormLabel>
+                    <FormControl>
+                      <ReactSelect
+                        options={hearAboutUsOptions}
+                        placeholder="Select Yes if you have studied in the UK prior to this application."
+                        value={hearAboutUsOptions.find(
+                          (opt) => opt.value === field.value
+                        )}
+                        onChange={(option) => field.onChange(option?.value)}
+                        className="react-select-container"
+                        classNamePrefix="react-select"
+                        styles={{
+                          placeholder: (provided) => ({
+                            ...provided,
+                            fontSize: '0.75rem',
+                            color: '#9CA3AF'
+                          })
+                        }}
+                      />
+                    </FormControl>
+                    <p className="mt-1 text-xs text-black">
+                      Example: Website
+                    </p>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <AgentCodeField form={form} />
+              <FormField
+                control={form.control}
+                name="studentFinance"
+                render={({ field }) => (
+                  <FormItem className="flex w-full flex-col">
+                    <FormLabel>
+                      Have you applied for Student Finance before?{' '}
+                      <span className="text-red-500">*</span>
+                    </FormLabel>
+                    <FormControl>
+                      <ReactSelect
+                        options={studentFinanceOptions}
+                        placeholder="Indicate if you have previously applied for UK student finance."
+                        value={studentFinanceOptions.find(
+                          (opt) => opt.value === field.value
+                        )}
+                        onChange={(option) => field.onChange(option?.value)}
+                        className="react-select-container"
+                        classNamePrefix="react-select"
+                        styles={{
+                          placeholder: (provided) => ({
+                            ...provided,
+                            fontSize: '0.75rem',
+                            color: '#9CA3AF'
+                          })
+                        }}
+                      />
+                    </FormControl>
+                    <p className="mt-1 text-xs text-black">
+                      Example: Yes / No
+                    </p>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+               <div className="col-span-1 mt-4 space-y-4 rounded-md bg-gray-50 p-4 text-sm text-black md:col-span-2">
+                <h3 className="font-semibold text-black">
+                  Equality Act 2010 Declaration
+                </h3>
+                <p>
+                  The Equality Act 2010 protects employees, job applicants,
+                  contract workers and students who fall within the new
+                  definition of disability. The Act defines disability as a
+                  physical or mental impairment, which has a substantial and
+                  long-term adverse effect on a person’s ability to carry out
+                  normal day to day activities. Long term is taken to mean
+                  lasting for a period greater than twelve months or where the
+                  total period is likely to last at least twelve months. This
+                  definition includes people with heart disease, diabetes,
+                  epilepsy, severe disfigurement, depression, schizophrenia,
+                  Down’s syndrome, dyslexia, for example.
+                </p>
+                
+              </div>
+              <FormField
+                control={form.control}
+                name="disability"
+                render={({ field }) => (
+                  <FormItem className="flex w-full flex-col">
+                    <FormLabel>
+                      Do you consider yourself to be disabled within the
+                      definition of the Equality Act 2010?{' '}
+                      <span className="text-red-500">*</span>
+                    </FormLabel>
+                    <FormControl>
+                      <ReactSelect
+                        options={disabilityOptions}
+                        placeholder="Select Yes if you have a disability or require support."
+                        value={disabilityOptions.find(
+                          (opt) => opt.value === field.value
+                        )}
+                        onChange={(option) => field.onChange(option?.value)}
+                        className="react-select-container"
+                        classNamePrefix="react-select"
+                        styles={{
+                          placeholder: (provided) => ({
+                            ...provided,
+                            fontSize: '0.75rem',
+                            color: '#9CA3AF'
+                          })
+                        }}
+                      />
+                    </FormControl>
+                    <p className="mt-1 text-xs text-black">
+                      Example: Yes, No, Prefer not to say
+                    </p>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {watchDisability === 'yes' && (
+                <FormField
+                  control={form.control}
+                  name="disabilityDetails"
+                  render={({ field }) => (
+                    <FormItem className="flex w-full flex-col">
+                      <FormLabel>
+                        Disability Details{' '}
+                        <span className="text-red-500">*</span>
+                      </FormLabel>
+                      <FormControl>
+                        <Textarea
+                          {...field}
+                          placeholder="Please provide your disabiility details"
+                          className="!placeholder:text-black  border-gray-200 placeholder:text-xs placeholder:text-black"
+                        />
+                      </FormControl>
+
+                      <p className="mt-1 text-xs text-black">
+                        Example: I have a visual impairment that affects my
+                        ability to read small text.
+                      </p>
+
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              )}
+
+                <div className="col-span-1 mt-4 space-y-4 rounded-md bg-gray-50 p-4 text-sm text-black md:col-span-2">
+               
+               
+                <p>
+                  You are not obliged to declare a disability and the EQAC
+                  recognises that many people who may be considered disabled
+                  under the terms of the (Disability and Discrimination Act
+                  (DDA) do not require any assistance or support. However for
+                  those who may, equipment, computer software, flexible working,
+                  other support or reasonable adjustment may be available, so an
+                  individual’s impairment would have little or no bearing on
+                  their capability to realise their employment potential.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </div>
+
+        <div className="flex justify-between px-6">
+          
+          <Button
+            type="submit"
+            className="bg-watney text-white hover:bg-watney/90"
+          >
+            Save changes
+          </Button>
+        </div>
+      </form>
+    </Form>
+  );
+}

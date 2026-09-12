@@ -19,6 +19,8 @@ import {
 } from '@/components/ui/form';
 import axiosInstance from '@/lib/axios';
 import ReactSelect, { SingleValue } from 'react-select';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import { nationalities } from '@/types';
 
 type OptionType = {
@@ -33,7 +35,12 @@ const registrationSchema = z.object({
   lastName: z.string().min(1, 'Last name is required').max(50),
   phone: z.string().min(10, 'Phone number must be at least 10 digits'),
   nationality: z.string().min(1, 'Nationality is required'),
-  dateOfBirth: z.string().min(1, 'Date of birth is required'),
+  dateOfBirth: z
+    .date({ message: 'Date of birth is required' })
+    .nullable()
+    .refine((date) => date !== null, {
+      message: 'Date of birth is required'
+    }),
   email: z.string().email('Invalid email address'),
   password: z.string().min(6, 'Password must be at least 6 characters')
 });
@@ -45,24 +52,17 @@ const defaultRegistrationValues = {
   lastName: '',
   phone: '',
   nationality: '',
-  dateOfBirth: '',
+  dateOfBirth: null as Date | null,
   email: '',
   password: ''
 };
 
 interface RegistrationFormProps {
-  formSubmitted: boolean;
-  setFormSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
-  setActiveTab: React.Dispatch<React.SetStateAction<string>> | (() => void);
+  /** Called once the applicant account has been created. */
   onSuccess?: () => void;
 }
 
-export default function RegistrationForm({
-  formSubmitted,
-  setFormSubmitted,
-  setActiveTab,
-  onSuccess
-}: RegistrationFormProps) {
+export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false); // Added loading state
   const { toast } = useToast();
@@ -74,35 +74,49 @@ export default function RegistrationForm({
   });
 
   const onSubmit = async (values: z.infer<typeof registrationSchema>) => {
+    const email = values.email.toLocaleLowerCase();
+    const inputDate = values.dateOfBirth;
+
     try {
       setIsLoading(true); // Start loading state
-      const response = await axiosInstance.post('/auth/signup', {
+      await axiosInstance.post('/auth/signup', {
         ...values,
         name: `${values.title} ${values.firstName} ${values.initial} ${values.lastName}`,
         title: values.title,
         firstName: values.firstName,
         initial: values.initial,
-        email: values.email.toLocaleLowerCase(),
+        email,
         lastName: values.lastName,
         nationality: values.nationality,
-        dateOfBirth: values.dateOfBirth,
-        role: 'student'
+        dateOfBirth: new Date(
+          Date.UTC(
+            inputDate!.getFullYear(),
+            inputDate!.getMonth(),
+            inputDate!.getDate()
+          )
+        ).toISOString(),
+        role: 'applicant',
+        isValided: true,
+        authorized: true
       });
 
-      setFormSubmitted(true);
-
+      // The applicant logs in with their new credentials before continuing -
+      // registration never signs them in on its own.
       toast({
-        title: 'Thank you',
-        description: 'Your account has been created.'
+        title: 'Account created',
+        description:
+          'Please log in with your new username and password to continue.'
       });
+
+      form.reset();
 
       if (onSuccess) {
         onSuccess();
       }
     } catch (err: any) {
       toast({
-        title: 'Server Error',
-        description: err.response?.data?.message || 'Please try again later.',
+        title: err.response?.data?.message || 'Please try again later.',
+        // description: err.response?.data?.message || 'Please try again later.',
         variant: 'destructive'
       });
     } finally {
@@ -245,20 +259,31 @@ export default function RegistrationForm({
           <FormField
             control={form.control}
             name="dateOfBirth"
-            render={({ field }) => {
-              const today = new Date().toISOString().split("T")[0];
-              return (
-                <FormItem>
-                  <FormLabel className="block text-sm font-medium text-gray-700">
-                    Date of Birth <span className="text-red-500">*</span>
-                  </FormLabel>
-                  <FormControl>
-                    <Input type="date" max={today} disabled={isLoading} {...field} />
-                  </FormControl>
-                  <FormMessage className="text-xs text-red-600" />
-                </FormItem>
-              );
-            }}
+            render={({ field }) => (
+              <FormItem className="flex flex-col">
+                <FormLabel className="block text-sm font-medium text-gray-700">
+                  Date of Birth <span className="text-red-500">*</span>
+                </FormLabel>
+                <FormControl>
+                  <DatePicker
+                    selected={field.value}
+                    onChange={(date) => field.onChange(date)}
+                    onBlur={field.onBlur}
+                    disabled={isLoading}
+                    maxDate={new Date()}
+                    dateFormat="dd/MM/yyyy"
+                    placeholderText="DD/MM/YYYY"
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
+                    wrapperClassName="w-full"
+                    popperClassName="z-[1001]"
+                    className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  />
+                </FormControl>
+                <FormMessage className="text-xs text-red-600" />
+              </FormItem>
+            )}
           />
         </div>
 
