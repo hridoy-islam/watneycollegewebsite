@@ -169,25 +169,22 @@ export default function CareerApplicationForm() {
   const handleSubmit = async (declarationData: any) => {
     setSubmitting(true);
     try {
-      const appId = localStorage.getItem('applicationId');
+      // The job comes from the route, so a cleared or stale localStorage entry
+      // cannot lose it.
+      const appId = localStorage.getItem('applicationId') || (id as string);
 
-      const response = await axiosInstance.post('/auth/signup', {
+      // Signup creates the account and files the application for this job in
+      // one request, so a candidate can never end up signed up with nothing
+      // recorded against the job.
+      await axiosInstance.post('/auth/signup', {
         ...formData,
         ...declarationData,
         isCompleted: true,
         authorized: true,
         password:'WC123456',
-        role:'applicant'
+        role:'jobApplicant',
+        jobId: appId
       });
-
-      const userId = response.data?._id || response.data?.data?._id;
-
-      if (appId && userId) {
-        await axiosInstance.post('/application-job', {
-          jobId: appId,
-          applicantId: userId
-        });
-      }
 
       localStorage.removeItem('applicationId');
       localStorage.removeItem('career_form_data');
@@ -197,7 +194,10 @@ export default function CareerApplicationForm() {
       // });
     } catch (error: any) {
       toast({
-        title: error?.response?.data?.message || 'Something went wrong.',
+        title:
+          error?.response?.data?.message ||
+          error?.message ||
+          'Something went wrong.',
         className: 'destructive border-none text-white'
       });
       setSubmitting(false);
