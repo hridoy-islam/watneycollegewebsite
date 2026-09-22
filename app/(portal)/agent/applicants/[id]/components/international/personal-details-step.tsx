@@ -664,6 +664,7 @@ export function PersonalDetailsStep({
             Back
           </Button> */}
           <Button
+            data-step-save
             type="submit"
             className="bg-watney text-white hover:bg-watney/90"
           >

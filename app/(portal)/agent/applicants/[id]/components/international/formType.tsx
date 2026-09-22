@@ -85,6 +85,7 @@ export function FormType({ defaultValues, onSaveAndContinue, onSave }) {
 
         <div className="flex justify-end px-5">
           <Button
+            data-step-save
             type="submit"
             className="bg-watney text-white hover:bg-watney/90"
           >

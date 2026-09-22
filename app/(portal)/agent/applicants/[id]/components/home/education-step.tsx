@@ -558,6 +558,7 @@ const educationEntrySchema = z.object({
           <div className="flex justify-between px-6">
             
             <Button
+            data-step-save
               type="submit"
               onClick={form.handleSubmit(onSubmit)}
               className="bg-watney text-white hover:bg-watney/90"

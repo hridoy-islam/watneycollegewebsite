@@ -497,6 +497,7 @@ export function ReviewStep({ formData, onBack, onSubmit }: ReviewStepProps) {
           Back
         </Button>
         <Button
+            data-step-save
           type="button"
           onClick={handleSubmit}
           disabled={submitting}

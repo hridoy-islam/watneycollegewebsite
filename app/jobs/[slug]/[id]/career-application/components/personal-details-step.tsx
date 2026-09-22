@@ -27,6 +27,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { format, getMonth, getYear, parse } from 'date-fns';
 import { CustomDatePicker } from '@/components/CustomDatePicker';
 import moment from 'moment';
+import { parseCv } from '../lib/parse-cv';
 
 // Define title options for react-select
 const titleOptions = [
@@ -113,6 +114,12 @@ export function PersonalDetailsStep({
   setCurrentStep: (step: number) => void;
   parsedResume?: string | null;
 }) {
+  /**
+   * What the CV filled in, so the candidate knows which fields were not typed
+   * by them and are worth a second look before they continue.
+   */
+  const [autofilledFields, setAutofilledFields] = useState<string[]>([]);
+
   const form = useForm<PersonalDetailsFormValues>({
     resolver: zodResolver(personalDetailsSchema),
     defaultValues: {
@@ -216,67 +223,63 @@ export function PersonalDetailsStep({
     value: nationality.toLowerCase().replace(/\s/g, '-')
   }));
 
-  console.log(defaultValues, 'defaultValues in personal details step');
-
-  // Regex parsing from uploaded resume
+  /**
+   * Pre-fill from the uploaded CV.
+   *
+   * Only empty fields are written to. The candidate may have reached this step
+   * with details already restored from a half-finished application, and
+   * anything they typed themselves is better evidence than anything read out
+   * of a PDF - so the CV fills the gaps rather than taking the form over.
+   */
   useEffect(() => {
     if (!parsedResume) return;
-    const text = parsedResume;
 
-    // Title
-    const titleMatch = text.match(/\b(Mr|Mrs|Miss|Ms|Dr|Prof)\b/i);
-    if (titleMatch) {
-      const titleVal = titleMatch[1].charAt(0).toUpperCase() + titleMatch[1].slice(1).toLowerCase();
-      form.setValue('title', titleVal);
-    }
+    const parsed = parseCv(parsedResume);
+    const filled: string[] = [];
 
-    // Name: try to find first and last name patterns
-    const nameMatch = text.match(/\b([A-Z][a-z]+)\s+([A-Z][a-z]+)\b/);
-    if (nameMatch) {
-      form.setValue('firstName', nameMatch[1]);
-      form.setValue('lastName', nameMatch[2]);
-    }
+    const applyIfEmpty = (
+      field: keyof PersonalDetailsFormValues,
+      value: unknown,
+      label: string
+    ) => {
+      if (value === undefined || value === null || value === '') return;
 
-    // Email
-    const emailMatch = text.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
-    if (emailMatch) {
-      form.setValue('email', emailMatch[0]);
-    }
+      const current = form.getValues(field);
+      if (current !== undefined && current !== null && current !== '') return;
 
-    // Phone
-    const phoneMatch = text.match(/\+?\d[\d\s\-]{7,}\d/);
-    if (phoneMatch) {
-      form.setValue('phone', phoneMatch[0].trim());
-    }
+      form.setValue(field, value as never, {
+        shouldValidate: true,
+        shouldDirty: true
+      });
+      filled.push(label);
+    };
 
-    // Address line with number
-    const addressLine1Match = text.match(/(\d+[^\n]*?[A-Za-z][^\n]*?(?:Road|Street|Lane|Avenue|Drive|Way|Court|Park|Place)\b[^\n]*)/i);
-    if (addressLine1Match) {
-      form.setValue('postalAddressLine1', addressLine1Match[1].trim());
-    } else {
-      const genericAddressMatch = text.match(/(\d+[^\n]*?\b[A-Za-z]{3,}[^\n]*?)/);
-      if (genericAddressMatch) {
-        form.setValue('postalAddressLine1', genericAddressMatch[1].trim());
-      }
-    }
+    applyIfEmpty('title', parsed.title, 'title');
+    applyIfEmpty('firstName', parsed.firstName, 'first name');
+    applyIfEmpty('initial', parsed.initial, 'initial');
+    applyIfEmpty('lastName', parsed.lastName, 'last name');
+    applyIfEmpty('email', parsed.email, 'email');
+    applyIfEmpty('phone', parsed.phone, 'phone');
+    applyIfEmpty('dateOfBirth', parsed.dateOfBirth, 'date of birth');
+    applyIfEmpty('nationality', parsed.nationality, 'nationality');
+    applyIfEmpty(
+      'countryOfResidence',
+      parsed.countryOfResidence,
+      'country of residence'
+    );
+    applyIfEmpty(
+      'nationalInsuranceNumber',
+      parsed.nationalInsuranceNumber,
+      'National Insurance number'
+    );
+    applyIfEmpty('postalAddressLine1', parsed.postalAddressLine1, 'address');
+    applyIfEmpty('postalAddressLine2', parsed.postalAddressLine2, 'address');
+    applyIfEmpty('postalCity', parsed.postalCity, 'city');
+    applyIfEmpty('postalPostCode', parsed.postalPostCode, 'postcode');
+    applyIfEmpty('postalCountry', parsed.postalCountry, 'country');
 
-    // City
-    const cityMatch = text.match(/\b(London|Manchester|Birmingham|Leeds|Glasgow|Liverpool|Bristol|Sheffield|Edinburgh|Cardiff)\b/i);
-    if (cityMatch) {
-      form.setValue('postalCity', cityMatch[1]);
-    }
-
-    // Postcode
-    const postCodeMatch = text.match(/\b([A-Z]{1,2}\d{1,2}[A-Z]?\s?\d[A-Z]{2})\b/);
-    if (postCodeMatch) {
-      form.setValue('postalPostCode', postCodeMatch[1]);
-    }
-
-    // Country
-    const countryMatch = text.match(/\b(United Kingdom|UK|England|Wales|Scotland|Northern Ireland)\b/i);
-    if (countryMatch) {
-      form.setValue('postalCountry', countryMatch[1]);
-    }
+    // Deduplicated because both address lines carry the same label.
+    setAutofilledFields(Array.from(new Set(filled)));
   }, [parsedResume, form]);
 
   const watchNationality = form.watch('nationality');
@@ -293,6 +296,8 @@ export function PersonalDetailsStep({
       </CardHeader>
 
       <CardContent>
+       
+
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             {/* Step 1: Basic Information */}

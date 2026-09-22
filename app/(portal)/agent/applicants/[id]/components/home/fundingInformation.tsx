@@ -267,6 +267,7 @@ export function FundingInformation({
         <div className="mt-8 flex justify-between">
           
           <Button
+            data-step-save
             type="submit"
             className="bg-watney text-white hover:bg-watney/90"
           >

@@ -638,6 +638,7 @@ export function EmploymentStep({
                   <div className="flex justify-between pt-4">
                     
                     <Button
+            data-step-save
                       type="submit"
                       className="bg-watney text-white hover:bg-watney/90"
                     >

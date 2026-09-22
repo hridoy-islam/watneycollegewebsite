@@ -521,6 +521,7 @@ const getDataValue = (key: string, subKey?: string) => {
           Back
         </Button>
         <Button
+            data-step-save
           type="button"
           onClick={handleSubmit}
           disabled={submitting}

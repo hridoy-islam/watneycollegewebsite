@@ -250,6 +250,7 @@ export function TermsSubmitStep({
                 applicant - an unanswered declaration is not a saved one. */}
             <div className="grid gap-3 sm:flex sm:items-center">
               <Button
+            data-step-save
                 type="button"
                 onClick={form.handleSubmit(handleSubmitWithoutReview)}
                 disabled={!isReadyToSubmit || submitting}
@@ -268,7 +269,10 @@ export function TermsSubmitStep({
           </div>
 
           {!isReadyToSubmit && (
-            <p className="pt-2 text-right text-xs text-black">
+            <p
+              data-step-save-hint
+              className="pt-2 text-right text-xs text-black"
+            >
               Both declarations have to be accepted before this tab can be
               saved.
             </p>

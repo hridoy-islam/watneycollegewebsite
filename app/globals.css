@@ -343,3 +343,141 @@ html {
 .react-organizational-chart-line::after {
   bottom: -6px;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Black placeholders inside the application forms.
+ *
+ * The agent applicant editor, the course application forms and the career
+ * application form are long forms where the placeholder carries the example
+ * value ("e.g. 07123 456789"), not just a label repeat - the default muted
+ * grey made those unreadable on a white card. Scoped to `.wc-black-placeholder`
+ * so the marketing pages keep the normal muted placeholder.
+ *
+ * `!important` is needed because react-select injects its own placeholder
+ * colour through an emotion class at runtime, which would otherwise win on
+ * source order.
+ * ────────────────────────────────────────────────────────────────────────── */
+.wc-black-placeholder {
+  /* The wrapper must not introduce a box of its own into the form layout. */
+  display: contents;
+}
+
+/* Native inputs, textareas and anything using the standard pseudo-element. */
+.wc-black-placeholder ::placeholder {
+  color: #000 !important;
+  opacity: 1 !important; /* Firefox dims placeholders by default. */
+}
+.wc-black-placeholder ::-webkit-input-placeholder {
+  color: #000 !important;
+}
+.wc-black-placeholder ::-moz-placeholder {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+.wc-black-placeholder :-ms-input-placeholder {
+  color: #000 !important;
+}
+
+/* Radix / shadcn <SelectValue placeholder="..."> renders real text on the
+ * trigger and marks it with data-placeholder rather than a pseudo-element. */
+.wc-black-placeholder [data-placeholder] {
+  color: #000 !important;
+}
+
+/* react-select renders its placeholder as a real node. Two class shapes are in
+ * use here: the emotion-generated `css-xxxx-placeholder` where no prefix is
+ * set, and `react-select__placeholder` where classNamePrefix is passed. */
+.wc-black-placeholder [class$='-placeholder'],
+.wc-black-placeholder [class*='-placeholder '],
+.wc-black-placeholder [class*='__placeholder'] {
+  color: #000 !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Read-only application form (the agent's view of an applicant).
+ *
+ * The wrapper is a `<fieldset disabled>`, which already takes every native
+ * control out of play - inputs, textareas, checkboxes, and the Save button
+ * each step still carries are all disabled and unfocusable by the browser.
+ *
+ * What a disabled fieldset does *not* reach is the widgets that are not native
+ * controls: react-select opens its menu from a div, react-datepicker from a
+ * wrapper around one, and Radix triggers listen on pointer events. Those are
+ * closed here, one widget root at a time rather than blanket
+ * `pointer-events: none` on the fieldset, so the values themselves stay
+ * selectable - an agent reading a record still needs to copy an address out of
+ * it.
+ * ────────────────────────────────────────────────────────────────────────── */
+.wc-readonly [class$='-control'],
+.wc-readonly [class*='__control'],
+.wc-readonly .react-datepicker-wrapper,
+.wc-readonly .react-datepicker__input-container,
+.wc-readonly [role='combobox'],
+.wc-readonly [role='radiogroup'],
+.wc-readonly [role='checkbox'],
+.wc-readonly [role='switch'],
+.wc-readonly label,
+.wc-readonly a[href^='#'] {
+  pointer-events: none;
+}
+
+/* Greyed to match the disabled native controls beside them, so the form reads
+ * as uniformly locked rather than half-broken. */
+.wc-readonly [class$='-control'],
+.wc-readonly .react-datepicker__input-container > * {
+  background-color: hsl(var(--muted)) !important;
+}
+
+/* The applicant's answers are the whole point of this page, and a browser's
+ * default disabled styling washes them out to a grey that is hard to read.
+ * The controls stay disabled; only the text they carry is brought back to
+ * black.
+ *
+ * `-webkit-text-fill-color` is not a duplicate of `color`: WebKit ignores
+ * `color` on a disabled control and paints the text with this instead, so
+ * Safari and iOS keep the grey without it. `opacity: 1` is here for the same
+ * reason on the other engines.
+ *
+ * `:not([aria-hidden='true'])` keeps that `opacity: 1` off the input Radix
+ * hides behind every checkbox, radio and switch to bubble the value up to the
+ * form. It is a real `<input type="checkbox">` held out of sight by an inline
+ * `opacity: 0`, which an `!important` here overrides - and then each
+ * declaration on the Terms tab drew twice, the styled control with a bare
+ * native checkbox beside it. */
+.wc-readonly input:disabled:not([aria-hidden='true']),
+.wc-readonly textarea:disabled,
+.wc-readonly select:disabled,
+.wc-readonly button:disabled:not([role='checkbox']):not([role='radio']):not([role='switch']),
+.wc-readonly [class$='-singleValue'],
+.wc-readonly [class*='__single-value'],
+.wc-readonly [class$='-multiValue'] *,
+.wc-readonly [class*='__multi-value'] *,
+.wc-readonly [data-disabled]:not([role='checkbox']):not([role='radio']):not([role='switch']) {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+  opacity: 1 !important;
+}
+
+/* Checkboxes, radios and switches are deliberately left out of the rule above.
+ *
+ * They are buttons, not text: what they carry is a tick drawn in
+ * `currentColor`, so blackening them would be blackening the mark, and the
+ * fade they get from `disabled:opacity-50` is the only thing telling the
+ * reader they are a recorded answer rather than something to click. Forcing
+ * them to full opacity made the declarations on the Terms tab look live -
+ * ordinary checkboxes that silently ignored the click.
+ *
+ * They keep their own disabled styling. The label beside them is not disabled
+ * and was never dimmed, so the question stays readable either way. */
+
+/* Uploads and removals are writes, so their triggers go entirely - unlike the
+ * links to already-uploaded documents, which stay live: reading an applicant's
+ * file is the point of this page. The step's own "Save changes" goes with
+ * them: there is nothing behind it here, and a disabled Save button invites a
+ * click and then explains nothing. */
+.wc-readonly [data-upload-trigger],
+.wc-readonly [data-remove-file],
+.wc-readonly [data-step-save],
+.wc-readonly [data-step-save-hint] {
+  display: none !important;
+}

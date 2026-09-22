@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Loader2 } from 'lucide-react';
+import { Lock } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ApplicantSubjectProvider } from '@/components/application/applicant-subject';
 import {
@@ -11,12 +11,22 @@ import {
 } from './steps';
 
 /**
- * An applicant's record, open for the agent to edit.
+ * An applicant's record, laid out for the agent to read.
  *
- * Each tab is one of the steps this route owns, and each ends in its own Save
- * - a tab is saved on its own, and nothing is carried between them. Which set
- * of steps is used comes from the applicant's `studentType`: a home student is
- * asked the home questions, an overseas student the international ones.
+ * Agents do not edit applicants - the applicant owns their own form and the
+ * college owns the decisions on it - so every step here renders as it would
+ * for the applicant, then is sealed: the `<fieldset disabled>` takes every
+ * native control out of play, and `wc-readonly` in app/globals.css closes the
+ * gap left by the widgets that are not native controls (react-select and the
+ * date pickers open from a div, which a disabled fieldset does not reach).
+ *
+ * Nothing here can write. There is no save handler to call and no endpoint
+ * behind one, so a step that still ends in its own Save button ends in a
+ * disabled one.
+ *
+ * Which set of steps is used comes from the applicant's `studentType`: a home
+ * student is shown the home questions, an overseas student the international
+ * ones.
  */
 
 interface Section {
@@ -50,20 +60,15 @@ const TABS = [
 ];
 
 export interface ApplicantEditorProps {
-  /** The record being edited - passed straight to every step. */
+  /** The record being read - passed straight to every step. */
   applicant: any;
-  /** Saves one tab. Resolves once the record has been written. */
-  onSave: (data: Record<string, any>) => Promise<boolean>;
   /** Rendered as the last tab - the applicant's application courses. */
   courses?: React.ReactNode;
-  saving?: boolean;
 }
 
 export function ApplicantEditor({
   applicant,
-  onSave,
-  courses,
-  saving = false
+  courses
 }: ApplicantEditorProps) {
   const [tab, setTab] = useState('personal');
   const [sectionIndex, setSectionIndex] = useState(0);
@@ -87,30 +92,45 @@ export function ApplicantEditor({
   };
 
   /**
-   * A step's Save. It writes and stays put - there is nowhere to advance to,
-   * and the agent may well want to carry on editing what they just saved.
+   * The steps call this on submit, so it has to exist - but it is the end of
+   * the line rather than a way through to the API. A step cannot reach it
+   * while the fieldset below is disabled; it returns `false` so that if one
+   * ever does, the step is told the write did not happen rather than showing
+   * the applicant a success it never got.
    */
-  const handleSave = async (data: Record<string, any>) => onSave(data);
+  const noSave = async () => false;
 
   const StepComponent = activeSection ? (steps[activeSection.step] as any) : null;
 
   const stepBody = StepComponent ? (
-    <div className="relative">
-      {saving && (
-        <div className="absolute inset-0 z-20 flex items-center justify-center rounded-2xl bg-white/60">
-          <Loader2 className="h-6 w-6 animate-spin text-watney" />
-        </div>
-      )}
-      <StepComponent
-        defaultValues={applicant}
-        onSaveAndContinue={handleSave}
-        onSave={handleSave}
-        onSubmitApplication={handleSave}
-        // The steps kept the prop; nothing in this editor navigates.
-        setCurrentStep={() => {}}
-        setCurrentSubStep={1}
-        loading={false}
-      />
+    <div className="space-y-4">
+      {/* Said once, plainly: a greyed-out form with no explanation reads as a
+          page that failed to load rather than one that is doing its job. */}
+      <p className="flex items-start gap-2 rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-black">
+        <Lock className="mt-0.5 h-4 w-4 shrink-0" />
+        <span>
+          This is a read-only view of the applicant&apos;s form. Changes have to
+          be made by the applicant themselves, or by the admissions team.
+        </span>
+      </p>
+
+      {/* `disabled` covers every native control in the step - inputs,
+          textareas, checkboxes, and the Save button each step still carries.
+          `wc-readonly` covers the rest. `min-w-0` because a fieldset will not
+          shrink below its content's intrinsic width on its own, which would
+          break the layout. */}
+      <fieldset disabled className="wc-readonly m-0 min-w-0 border-0 p-0">
+        <StepComponent
+          defaultValues={applicant}
+          onSaveAndContinue={noSave}
+          onSave={noSave}
+          onSubmitApplication={noSave}
+          // The steps kept the prop; nothing in this editor navigates.
+          setCurrentStep={() => {}}
+          setCurrentSubStep={1}
+          loading={false}
+        />
+      </fieldset>
     </div>
   ) : null;
 

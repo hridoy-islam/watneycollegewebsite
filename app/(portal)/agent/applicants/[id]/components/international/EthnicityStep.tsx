@@ -396,6 +396,7 @@ export function EthnicityStep({
               
 
               <Button
+            data-step-save
                 type="submit"
                 className="w-full bg-watney  text-white hover:bg-watney/90 sm:w-auto"
               >

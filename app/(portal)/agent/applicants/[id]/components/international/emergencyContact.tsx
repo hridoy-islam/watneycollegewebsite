@@ -239,6 +239,7 @@ const capitalizeWords = (str: string | undefined): string => {
         <div className="flex justify-between px-6">
           
           <Button
+            data-step-save
             type="submit"
             className="bg-watney text-white hover:bg-watney/90"
           >

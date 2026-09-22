@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useParams, useRouter } from 'next/navigation';
 import {
@@ -13,10 +13,9 @@ import {
   Phone
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
 import { BlinkingDots } from '@/components/blinking-dots';
 import { EmptyState } from '@/components/dashboard/empty-state';
-import { fetchApplicant, updateApplicant } from '@/lib/applicant-api';
+import { fetchApplicant } from '@/lib/applicant-api';
 import {
   applicantName,
   fetchApplicantApplications,
@@ -27,12 +26,15 @@ import {
 } from '@/lib/portal';
 
 /**
- * One applicant, open for the agent to edit.
+ * One applicant, open for the agent to read.
  *
  * The tabs are filled by the applicant's **own** application form - home or
- * international, chosen from `studentType` - so the fields, the values and the
- * validation are the ones that student would have answered, not a second set
- * written for this page.
+ * international, chosen from `studentType` - so the fields and the values are
+ * the ones that student answered, not a second set written for this page.
+ *
+ * The agent reads; they do not write. This page holds no save handler and
+ * never calls `updateApplicant`, so the record cannot be changed from here
+ * even if a step were to find its way past the disabled fieldset.
  */
 
 // This route owns its steps outright - nothing here reaches into the public
@@ -60,7 +62,6 @@ const offerLabel = (application: PortalApplication) => {
 
 export default function AgentApplicantDetailPage() {
   const router = useRouter();
-  const { toast } = useToast();
   const params = useParams();
   const applicantId = Array.isArray(params?.id) ? params.id[0] : params?.id;
 
@@ -68,7 +69,6 @@ export default function AgentApplicantDetailPage() {
   const [applications, setApplications] = useState<PortalApplication[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadFailed, setLoadFailed] = useState(false);
-  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (!applicantId) return;
@@ -97,36 +97,6 @@ export default function AgentApplicantDetailPage() {
       cancelled = true;
     };
   }, [applicantId]);
-
-  /**
-   * Saves one section. The saved record comes back from the API and replaces
-   * what is held here, so every other tab is looking at the same values.
-   */
-  const handleSave = useCallback(
-    async (data: Record<string, any>) => {
-      if (!applicantId) return false;
-
-      setSaving(true);
-
-      try {
-        const updated = await updateApplicant(applicantId, data);
-        setApplicant((previous: any) => ({ ...previous, ...data, ...updated }));
-        toast({ description: 'Changes saved.' });
-        return true;
-      } catch (error: any) {
-        console.error('Could not save this applicant:', error);
-        toast({
-          title: error?.response?.data?.message || 'Could not save changes',
-          description: 'Please check your connection and try again.',
-          variant: 'destructive'
-        });
-        return false;
-      } finally {
-        setSaving(false);
-      }
-    },
-    [applicantId, toast]
-  );
 
   if (loading) return <Loading />;
 
@@ -193,8 +163,6 @@ export default function AgentApplicantDetailPage() {
 
       <ApplicantEditor
         applicant={applicant}
-        onSave={handleSave}
-        saving={saving}
         courses={<CoursesTab applications={applications} />}
       />
     </div>

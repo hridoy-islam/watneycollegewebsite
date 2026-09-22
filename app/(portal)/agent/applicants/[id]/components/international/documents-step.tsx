@@ -444,6 +444,7 @@ export function DocumentsStep({
                           type="button"
                           size="sm"
                           onClick={() => openImageUploader(id)}
+                          data-upload-trigger
                           className="mt-3 gap-1.5 border-gray-300"
                         >
                           <Upload className="h-3.5 w-3.5" />
@@ -549,6 +550,7 @@ function FileRow({
       <button
         type="button"
         onClick={onRemove}
+        data-remove-file
         aria-label={`Remove ${fileName}`}
         className="shrink-0 rounded-md p-1 text-black opacity-70 transition-opacity hover:bg-red-50 hover:text-red-500 sm:opacity-0 sm:group-hover:opacity-100"
       >
