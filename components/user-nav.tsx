@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Providers } from '@/app/providers';
 import { logout } from '@/redux/features/authSlice';
+import { guardedLeave } from '@/lib/portal/leave-guard';
 import type { AppDispatch } from '@/redux/store';
 import { isAgent, isApplicant } from '@/components/auth/roles';
 
@@ -66,8 +67,11 @@ function UserNavContent({ inline = false, onNavigate }: UserNavProps) {
   const handleLogout = () => {
     setOpen(false);
     onNavigate?.();
-    dispatch(logout());
-    router.push('/');
+    // A running assessment gets to submit first.
+    guardedLeave(() => {
+      dispatch(logout());
+      router.push('/');
+    });
   };
 
   if (!user) {

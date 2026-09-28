@@ -481,3 +481,28 @@ html {
 .wc-readonly [data-step-save-hint] {
   display: none !important;
 }
+
+/* Admission assessment - HTML written in the admin's Quill editor. Quill's
+ * own stylesheet is not loaded on this site, so its alignment and indent
+ * classes are given their meaning here, and the text is kept black. */
+.assessment-html {
+  color: #000;
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.assessment-html * { color: #000; }
+.assessment-html p { margin: 0 0 0.5em; }
+.assessment-html p:last-child { margin-bottom: 0; }
+.assessment-html h2 { font-size: 1.2em; font-weight: 600; margin: 0.6em 0 0.4em; }
+.assessment-html h3 { font-size: 1.08em; font-weight: 600; margin: 0.6em 0 0.4em; }
+.assessment-html ol { list-style: decimal; padding-left: 1.5em; margin: 0 0 0.5em; }
+.assessment-html ul { list-style: disc; padding-left: 1.5em; margin: 0 0 0.5em; }
+.assessment-html blockquote { border-left: 3px solid #d1d5db; padding-left: 0.8em; margin: 0 0 0.5em; }
+.assessment-html a { text-decoration: underline; }
+.assessment-html img { max-width: 100%; height: auto; border-radius: 6px; }
+.assessment-html .ql-align-center { text-align: center; }
+.assessment-html .ql-align-right { text-align: right; }
+.assessment-html .ql-align-justify { text-align: justify; }
+.assessment-html .ql-indent-1 { padding-left: 2em; }
+.assessment-html .ql-indent-2 { padding-left: 4em; }

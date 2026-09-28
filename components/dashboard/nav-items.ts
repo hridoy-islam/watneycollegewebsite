@@ -1,4 +1,5 @@
 import {
+  ClipboardCheck,
   FileText,
   LayoutDashboard,
   Receipt,
@@ -10,6 +11,7 @@ import type { PortalNavItem } from './portal-nav';
 /** The applicant side nav. */
 export const APPLICANT_NAV: PortalNavItem[] = [
   { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
+  { name: 'Assessments', path: '/dashboard/assessments', icon: ClipboardCheck },
   // { name: 'Offer Letter', path: '/dashboard/offer-letter', icon: FileText }
 ];
 

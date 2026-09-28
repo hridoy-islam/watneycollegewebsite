@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LogOut, Menu, X, type LucideIcon } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { logout } from '@/redux/features/authSlice';
+import { guardedLeave } from '@/lib/portal/leave-guard';
 import type { AppDispatch } from '@/redux/store';
 
 export interface PortalNavItem {
@@ -55,8 +56,11 @@ export function PortalNav({
   }, [pathname]);
 
   const handleLogout = () => {
-    dispatch(logout());
-    router.push('/');
+    // A running assessment gets to submit first.
+    guardedLeave(() => {
+      dispatch(logout());
+      router.push('/');
+    });
   };
 
   const sidebar = (

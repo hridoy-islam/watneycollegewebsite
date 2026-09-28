@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { BlinkingDots } from '@/components/blinking-dots';
 import { EmptyState } from '@/components/dashboard/empty-state';
 import { ApplicationCard } from '@/components/dashboard/applicant/application-card';
+import { PendingAssessmentBanner } from '@/components/dashboard/applicant/pending-assessment-banner';
 import { usePortalApplications } from '@/components/dashboard/use-portal-applications';
 import { fetchApplicantApplications } from '@/lib/portal';
 
@@ -34,6 +35,8 @@ export default function ApplicantDashboardPage() {
           </Button>
         </Link>
       </div>
+
+      <PendingAssessmentBanner />
 
       {isLoading ? (
         <div className="flex justify-center py-16">
