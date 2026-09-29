@@ -49,29 +49,29 @@ export interface MyAssessment {
 export type AnswerPayload = { questionId: string; selectedOptions: string[] }[];
 
 export const fetchMyAssessments = async (): Promise<MyAssessment[]> => {
-  const res = await axiosInstance.get('/assessments/my');
+  const res = await axiosInstance.get('/applicant-assessments/my');
   return res?.data?.data || [];
 };
 
 export const fetchMyAssessment = async (id: string): Promise<MyAssessment> => {
-  const res = await axiosInstance.get(`/assessments/my/${id}`);
+  const res = await axiosInstance.get(`/applicant-assessments/my/${id}`);
   return res?.data?.data;
 };
 
 export const startMyAssessment = async (id: string): Promise<MyAssessment> => {
-  const res = await axiosInstance.post(`/assessments/my/${id}/start`);
+  const res = await axiosInstance.post(`/applicant-assessments/my/${id}/start`);
   return res?.data?.data;
 };
 
 export const saveMyAnswers = async (id: string, answers: AnswerPayload) => {
-  await axiosInstance.patch(`/assessments/my/${id}/answers`, { answers });
+  await axiosInstance.patch(`/applicant-assessments/my/${id}/answers`, { answers });
 };
 
 export const submitMyAssessment = async (
   id: string,
   answers: AnswerPayload
 ): Promise<MyAssessment> => {
-  const res = await axiosInstance.post(`/assessments/my/${id}/submit`, {
+  const res = await axiosInstance.post(`/applicant-assessments/my/${id}/submit`, {
     answers
   });
   return res?.data?.data;
@@ -90,7 +90,7 @@ export const submitMyAssessmentOnLeave = (id: string, answers: AnswerPayload) =>
   } catch {
     /* no token - the cookie may still be enough */
   }
-  fetch(`${process.env.NEXT_PUBLIC_API_URL}/assessments/my/${id}/submit`, {
+  fetch(`${process.env.NEXT_PUBLIC_API_URL}/applicant-assessments/my/${id}/submit`, {
     method: 'POST',
     keepalive: true,
     credentials: 'include',
