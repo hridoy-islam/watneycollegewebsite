@@ -40,7 +40,7 @@ export default function Footer() {
   const campusLinks = [
     {
       name: "WCSMS (VLE)",
-      href: "https://app.watneycollege.co.uk/",
+      href: "https://vle.watneycollege.co.uk/",
       external: true,
     },
     { name: "Employers & Partners", href: "/employers-and-partners" },
