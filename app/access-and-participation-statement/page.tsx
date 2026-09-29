@@ -17,13 +17,13 @@ export default function AccessAndParticipationPage() {
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Users className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-black">
               Our Commitment to{" "}
               <span className="text-watney-blue-primary">
                 Access and Participation
               </span>
             </h1>
-            <p className="text-lg text-gray-600 max-w-5xl mx-auto leading-relaxed">
+            <p className="text-lg text-black max-w-5xl mx-auto leading-relaxed">
               Watney College is committed to making higher education accessible
               to all, regardless of background, identity or circumstance. We
               actively work to widen participation and support every student to
@@ -43,10 +43,10 @@ export default function AccessAndParticipationPage() {
               transition={{ duration: 0.6 }}
             >
               <div className="z-20">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl font-bold text-black mb-6">
                   Who We Support
                 </h2>
-                <p className="text-lg text-gray-600 mb-6">
+                <p className="text-lg text-black mb-6">
                   We are committed to improving access and outcomes for students
                   from underrepresented groups, including:
                 </p>
@@ -62,7 +62,7 @@ export default function AccessAndParticipationPage() {
                   ].map((item, index) => (
                     <li key={index} className="flex items-start">
                       <CheckCircle2 className="w-5 h-5 text-watney-blue-primary mr-3 mt-1 flex-shrink-0" />
-                      <span className="text-gray-700">{item}</span>
+                      <span className="text-black">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -98,7 +98,7 @@ export default function AccessAndParticipationPage() {
                 />
               </div>
               <div className="order-1 md:order-2 z-20">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl font-bold text-black mb-6">
                   How We Support You
                 </h2>
                 <ul className="space-y-4">
@@ -112,7 +112,7 @@ export default function AccessAndParticipationPage() {
                   ].map((item, index) => (
                     <li key={index} className="flex items-start">
                       <div className="w-2 h-2 rounded-full bg-watney-blue-primary mt-2 mr-4 flex-shrink-0" />
-                      <span className="text-gray-700 text-lg">{item}</span>
+                      <span className="text-black text-lg">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -132,10 +132,10 @@ export default function AccessAndParticipationPage() {
               transition={{ duration: 0.6 }}
             >
               <div className="z-20">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl font-bold text-black mb-6">
                   Access, Success and Progression
                 </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg text-black leading-relaxed">
                   We monitor student data to identify and close participation
                   and attainment gaps. Our goal is to ensure every student
                   regardless of background, has an equal opportunity to access,
@@ -167,7 +167,7 @@ export default function AccessAndParticipationPage() {
               <FileText className="w-12 h-12 text-watney-blue-primary mx-auto mb-4" />
 
               <div className="mb-8">
-                <p className="text-gray-500 italic">
+                <p className="text-black italic">
                   Last reviewed: November 2025 | Next review: November 2026
                 </p>
               </div>

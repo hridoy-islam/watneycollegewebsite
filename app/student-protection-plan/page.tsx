@@ -22,11 +22,11 @@ export default function StudentProtectionPlanPage() {
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <ShieldCheck className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-black">
               Student Protection{" "}
               <span className="text-watney-blue-primary">Plan</span>
             </h1>
-            <p className="text-lg text-gray-600 max-w-5xl mx-auto leading-relaxed">
+            <p className="text-lg text-black max-w-5xl mx-auto leading-relaxed">
               Watney College is committed to protecting your studies. This plan
               sets out what we will do to ensure you can complete your programme
               if something significant disrupts your education.
@@ -45,10 +45,10 @@ export default function StudentProtectionPlanPage() {
               transition={{ duration: 0.6 }}
             >
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl font-bold text-black mb-6">
                   What This Plan Covers
                 </h2>
-                <p className="text-lg text-gray-600 mb-6">
+                <p className="text-lg text-black mb-6">
                   This plan applies to all students enrolled at Watney College,
                   regardless of how your studies are funded. It covers:
                 </p>
@@ -61,7 +61,7 @@ export default function StudentProtectionPlanPage() {
                   ].map((item, index) => (
                     <li key={index} className="flex items-start">
                       <CheckCircle2 className="w-5 h-5 text-watney-blue-primary mr-3 mt-1 flex-shrink-0" />
-                      <span className="text-gray-700 text-lg">{item}</span>
+                      <span className="text-black text-lg">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -97,25 +97,25 @@ export default function StudentProtectionPlanPage() {
                 />
               </div>
               <div className="order-1 md:order-2">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl font-bold text-black mb-6">
                   If Something Goes Wrong
                 </h2>
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    <h3 className="text-xl font-bold text-black mb-2">
                       You will be able to finish your studies
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-black">
                       If your programme is discontinued, we will put in place a
                       teach-out arrangement so you can complete your
                       qualification.
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    <h3 className="text-xl font-bold text-black mb-2">
                       We will help you transfer if needed
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-black">
                       If completion at Watney College is not possible, we will
                       support you in transferring to an equivalent programme
                       elsewhere and cover reasonable costs.
@@ -138,35 +138,35 @@ export default function StudentProtectionPlanPage() {
               transition={{ duration: 0.6 }}
             >
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl font-bold text-black mb-6">
                   Your Rights and Information
                 </h2>
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    <h3 className="text-xl font-bold text-black mb-2">
                       You may be entitled to compensation
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-black">
                       Where disruption causes you additional expense, you may be
                       eligible for compensation under our Tuition Fees Refund
                       and Compensation Policy.
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    <h3 className="text-xl font-bold text-black mb-2">
                       We will keep you informed
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-black">
                       Any significant changes affecting your studies will be
                       communicated to you promptly through your college portal
                       and email.
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    <h3 className="text-xl font-bold text-black mb-2">
                       You have the right to complain
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-black">
                       If you are unhappy with how a situation has been handled,
                       you can raise a formal complaint. If unresolved
                       internally, you may refer your case to the Office of the
@@ -205,13 +205,13 @@ export default function StudentProtectionPlanPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              <h2 className="text-3xl font-bold text-black mb-8 text-center">
                 Our Risk Assessment
               </h2>
               <div className="overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="bg-gray-100 border-b border-gray-200 text-gray-800">
+                    <tr className="bg-gray-100 border-b border-gray-200 text-black">
                       <th className="p-4 font-bold border-r border-gray-200 w-1/3">
                         Risk
                       </th>
@@ -223,57 +223,57 @@ export default function StudentProtectionPlanPage() {
                   </thead>
                   <tbody>
                     <tr className="border-b border-gray-200">
-                      <td className="p-4 border-r border-gray-200 text-gray-700">
+                      <td className="p-4 border-r border-gray-200 text-black">
                         Programme closure
                       </td>
-                      <td className="p-4 border-r border-gray-200 text-gray-700">
+                      <td className="p-4 border-r border-gray-200 text-black">
                         Low
                       </td>
-                      <td className="p-4 text-gray-700">
+                      <td className="p-4 text-black">
                         Teach-out arrangements
                       </td>
                     </tr>
                     <tr className="border-b border-gray-200 bg-gray-50/50">
-                      <td className="p-4 border-r border-gray-200 text-gray-700">
+                      <td className="p-4 border-r border-gray-200 text-black">
                         Loss of awarding body approval
                       </td>
-                      <td className="p-4 border-r border-gray-200 text-gray-700">
+                      <td className="p-4 border-r border-gray-200 text-black">
                         Low
                       </td>
-                      <td className="p-4 text-gray-700">
+                      <td className="p-4 text-black">
                         Alternative awarding body arrangements
                       </td>
                     </tr>
                     <tr className="border-b border-gray-200">
-                      <td className="p-4 border-r border-gray-200 text-gray-700">
+                      <td className="p-4 border-r border-gray-200 text-black">
                         Loss of key academic staff
                       </td>
-                      <td className="p-4 border-r border-gray-200 text-gray-700">
+                      <td className="p-4 border-r border-gray-200 text-black">
                         Medium
                       </td>
-                      <td className="p-4 text-gray-700">
+                      <td className="p-4 text-black">
                         Associate lecturer pool
                       </td>
                     </tr>
                     <tr className="border-b border-gray-200 bg-gray-50/50">
-                      <td className="p-4 border-r border-gray-200 text-gray-700">
+                      <td className="p-4 border-r border-gray-200 text-black">
                         Financial instability
                       </td>
-                      <td className="p-4 border-r border-gray-200 text-gray-700">
+                      <td className="p-4 border-r border-gray-200 text-black">
                         Very Low
                       </td>
-                      <td className="p-4 text-gray-700">
+                      <td className="p-4 text-black">
                         Conservative financial planning and reserves
                       </td>
                     </tr>
                     <tr>
-                      <td className="p-4 border-r border-gray-200 text-gray-700">
+                      <td className="p-4 border-r border-gray-200 text-black">
                         Campus closure
                       </td>
-                      <td className="p-4 border-r border-gray-200 text-gray-700">
+                      <td className="p-4 border-r border-gray-200 text-black">
                         Very Low
                       </td>
-                      <td className="p-4 text-gray-700">
+                      <td className="p-4 text-black">
                         Alternative delivery arrangements
                       </td>
                     </tr>
@@ -297,7 +297,7 @@ export default function StudentProtectionPlanPage() {
               <FileText className="w-12 h-12 text-watney-blue-primary mx-auto mb-4" />
 
               <div className="mb-8">
-                <p className="text-gray-500 italic">
+                <p className="text-black italic">
                   Last reviewed: November 2025 | Next review: November 2026
                 </p>
               </div>

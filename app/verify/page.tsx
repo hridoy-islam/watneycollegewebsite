@@ -170,7 +170,7 @@ export default function VerifyPage() {
       <section className="relative py-20 bg-ocean-breeze overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center">
           <File className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-          <h1 className="text-4xl md:text-5xl font-black mb-4 text-gray-900">
+          <h1 className="text-4xl md:text-5xl font-black mb-4 text-black">
             Applicant{" "}
             <span className="text-watney-blue-primary">Validity Check</span>
           </h1>
@@ -184,25 +184,25 @@ export default function VerifyPage() {
             {!verificationData && <>
                <div className="w-full max-w-xl mx-auto">
               <div className="bg-white border border-gray-200 shadow-xl rounded-2xl p-8 text-left relative z-20">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                <h2 className="text-2xl font-semibold text-black mb-6">
                   Run a verification check
                 </h2>
 
                 <div className="space-y-6">
                   <div className="space-y-2">
-                    <label className="block text-sm font-bold text-gray-900">
+                    <label className="block text-sm font-bold text-black">
                       Applicant surname *
                     </label>
                     <input
                       type="text"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-watney-blue-primary focus:border-watney-blue-primary transition-all bg-gray-50/50"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-watney-blue-primary focus:border-watney-blue-primary transition-all bg-gray-50/50"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-bold text-gray-900">
+                    <label className="block text-sm font-bold text-black">
                       Date of birth (DD/MM/YYYY)*
                     </label>
                     <div className="relative w-full">
@@ -215,7 +215,7 @@ export default function VerifyPage() {
                         showMonthDropdown
                         dropdownMode="select"
                         wrapperClassName="w-full"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-watney-blue-primary focus:border-watney-blue-primary transition-all bg-gray-50/50"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-watney-blue-primary focus:border-watney-blue-primary transition-all bg-gray-50/50"
                       />
                     </div>
                   </div>
@@ -266,7 +266,7 @@ export default function VerifyPage() {
                     <div className="h-10 w-10 bg-green-100 rounded-full flex items-center justify-center shrink-0">
                       <CheckCircle2 className="w-6 h-6 text-green-600" />
                     </div>
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+                    <h3 className="text-xl md:text-2xl font-bold text-black">
                       {verificationData?.name || lastName}'s Valid record exists
                     </h3>
                   </div>
@@ -299,7 +299,7 @@ export default function VerifyPage() {
                             key={idx}
                             className="flex flex-col md:flex-row md:items-center justify-between py-4 border-b border-gray-300 last:border-0 gap-4"
                           >
-                            <span className="font-medium text-gray-800 md:w-1/2">
+                            <span className="font-medium text-black md:w-1/2">
                               {categoryName}
                             </span>
 
@@ -341,7 +341,7 @@ export default function VerifyPage() {
 
       <footer className="bg-white border-t border-gray-200 py-8 relative z-20 mt-auto">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-600 text-sm leading-relaxed max-w-2xl mx-auto">
+          <p className="text-black text-sm leading-relaxed max-w-2xl mx-auto">
             For formal verification requests, contact{" "}
             <a
               href="mailto:admissions@watneycollege.co.uk"
@@ -371,13 +371,13 @@ export default function VerifyPage() {
             <div className="flex items-center justify-between p-5 border-b border-gray-100 bg-gray-50/50">
               <div className="flex items-center gap-3">
                 <FileText className="w-5 h-5 text-watney-blue-primary" />
-                <h3 className="font-bold text-lg text-gray-900">
+                <h3 className="font-bold text-lg text-black">
                   {previewModal.title}
                 </h3>
               </div>
               <button
                 onClick={closePreview}
-                className="p-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full transition-colors"
+                className="p-2 bg-gray-100 hover:bg-gray-200 text-black rounded-full transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -395,7 +395,7 @@ export default function VerifyPage() {
                 >
                   <ChevronLeft className="w-4 h-4" /> Previous
                 </Button>
-                <span className="text-sm font-medium text-gray-600">
+                <span className="text-sm font-medium text-black">
                   File {previewModal.currentIndex + 1} of{" "}
                   {previewModal.urls.length}
                 </span>
@@ -430,8 +430,8 @@ export default function VerifyPage() {
                   className="w-full h-[60vh] bg-white rounded-md shadow-sm"
                 />
               ) : (
-                <div className="text-gray-500 text-center">
-                  <File className="w-12 h-12 mx-auto mb-3 text-gray-400" />
+                <div className="text-black text-center">
+                  <File className="w-12 h-12 mx-auto mb-3 text-black" />
                   <p>Preview not available for this file type.</p>
                 </div>
               )}

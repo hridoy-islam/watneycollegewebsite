@@ -109,7 +109,7 @@ export default function CareerEmployabilityPage() {
               Career And{" "}
               <span className="text-watney-blue-primary">Employability</span>
             </h1>
-            <p className="text-lg mb-8 text-gray-900 mx-auto max-w-3xl">
+            <p className="text-lg mb-8 text-black mx-auto max-w-3xl">
               At Watney College, we are committed to delivering high-quality education alongside measurable career outcomes, particularly within the health and social care sector, ensuring learners are prepared for career.
             </p>
           </motion.div>
@@ -149,7 +149,7 @@ export default function CareerEmployabilityPage() {
                 to <em className="text-watney-blue-primary font-medium">career</em>
               </h1>
 
-              <p className="text-base leading-[1.8] mb-8 max-w-lg text-gray-900">
+              <p className="text-base leading-[1.8] mb-8 max-w-lg text-black">
                 We build career readiness into every programme we deliver. From your first day of study through to the point you enter work, Watney College provides structured guidance, sector-specific preparation, and direct connections into healthcare and social care employment.
               </p>
 
@@ -171,7 +171,7 @@ export default function CareerEmployabilityPage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-gray-300 text-gray-900 hover:border-gray-500 bg-transparent"
+                    className="border-gray-300 text-black hover:border-gray-500 bg-transparent"
                   >
                     Speak to an advisor
                   </Button>
@@ -195,8 +195,8 @@ export default function CareerEmployabilityPage() {
                     {item.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-[13px] font-medium text-gray-900 leading-snug">{item.title}</div>
-                    <div className="text-[11px] text-gray-600 mt-0.5">{item.sub}</div>
+                    <div className="text-[13px] font-medium text-black leading-snug">{item.title}</div>
+                    <div className="text-[11px] text-black mt-0.5">{item.sub}</div>
                   </div>
                   <span className="text-[10px] font-semibold uppercase tracking-[0.06em] bg-watney-blue-primary/15 text-watney-blue-primary px-2 py-0.5 rounded shrink-0">
                     Included
@@ -223,11 +223,11 @@ export default function CareerEmployabilityPage() {
               <span className="w-5 h-px bg-watney-blue-primary" />
               What we offer
             </span>
-            <h2 className="text-3xl lg:text-4xl text-gray-900 font-semibold leading-tight mb-3">
+            <h2 className="text-3xl lg:text-4xl text-black font-semibold leading-tight mb-3">
               Career support built into{" "}
               <em className="text-watney-blue-primary not- font-medium">every programme</em>
             </h2>
-            <p className="text-base text-gray-700 max-w-xl leading-relaxed">
+            <p className="text-base text-black max-w-xl leading-relaxed">
               All enrolled learners receive the following support as part of their studies — no additional cost, no separate application required.
             </p>
           </motion.div>
@@ -246,12 +246,12 @@ export default function CareerEmployabilityPage() {
                 className="group bg-white border border-gray-200 rounded-xl p-8 relative overflow-hidden hover:border-watney-blue-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
                 <span className="absolute inset-y-0 left-0 w-1 bg-watney-blue-primary rounded-l-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                <div className="text-4xl font-semibold text-gray-300 group-hover:text-watney-blue-primary/10 transition-colors mb-5 leading-none">
+                <div className="text-4xl font-semibold text-black group-hover:text-watney-blue-primary/10 transition-colors mb-5 leading-none">
                   {svc.num}
                 </div>
-                <h3 className="text-base font-semibold text-gray-900 mb-2">{svc.title}</h3>
-                <p className="text-sm text-gray-700 leading-relaxed mb-5">{svc.body}</p>
-                <span className="inline-block text-[11px] font-semibold uppercase tracking-wide text-gray-900 bg-gray-100 px-2.5 py-1 rounded">
+                <h3 className="text-base font-semibold text-black mb-2">{svc.title}</h3>
+                <p className="text-sm text-black leading-relaxed mb-5">{svc.body}</p>
+                <span className="inline-block text-[11px] font-semibold uppercase tracking-wide text-black bg-gray-100 px-2.5 py-1 rounded">
                   {svc.tag}
                 </span>
               </motion.div>
@@ -277,11 +277,11 @@ export default function CareerEmployabilityPage() {
                 <span className="w-5 h-px bg-watney-blue-primary" />
                 The process
               </span>
-              <h2 className="text-3xl lg:text-4xl text-gray-900 font-semibold leading-tight mb-3">
+              <h2 className="text-3xl lg:text-4xl text-black font-semibold leading-tight mb-3">
                 Your progression{" "}
                 <em className="text-watney-blue-primary not- font-medium">pathway</em>
               </h2>
-              <p className="text-base text-gray-700 leading-relaxed">
+              <p className="text-base text-black leading-relaxed">
                 Career preparation is embedded across the full duration of your programme — not added at the end.
               </p>
             </motion.div>
@@ -302,8 +302,8 @@ export default function CareerEmployabilityPage() {
                     {step.n}
                   </span>
                   <div>
-                    <div className="text-sm font-semibold text-gray-900 mb-1">{step.title}</div>
-                    <div className="text-[13px] text-gray-700 leading-relaxed">{step.body}</div>
+                    <div className="text-sm font-semibold text-black mb-1">{step.title}</div>
+                    <div className="text-[13px] text-black leading-relaxed">{step.body}</div>
                   </div>
                 </motion.div>
               ))}
@@ -327,11 +327,11 @@ export default function CareerEmployabilityPage() {
               <span className="w-5 h-px bg-watney-blue-primary" />
               Industry partnerships
             </span>
-            <h2 className="text-3xl lg:text-4xl text-gray-900 font-semibold leading-tight mb-3">
+            <h2 className="text-3xl lg:text-4xl text-black font-semibold leading-tight mb-3">
               Strong industry{" "}
               <em className="text-watney-blue-primary not- font-medium">partnerships</em>
             </h2>
-            <p className="text-base text-gray-700 max-w-xl leading-relaxed">
+            <p className="text-base text-black max-w-xl leading-relaxed">
               Watney College is affiliated with a network of trusted care providers and recruitment organisations. Where vacancies are available, qualifying learners are referred directly.
             </p>
           </motion.div>
@@ -352,11 +352,11 @@ export default function CareerEmployabilityPage() {
                 <div className="w-9 h-9 rounded-lg bg-ocean-breeze/10 text-watney-blue-primary text-base flex items-center justify-center mb-3">
                   {p.icon}
                 </div>
-                <div className="text-[15px] font-semibold text-gray-900 mb-0.5">{p.title}</div>
+                <div className="text-[15px] font-semibold text-black mb-0.5">{p.title}</div>
                 <div className="text-[11px] font-semibold uppercase tracking-wide text-watney-blue-primary mb-1.5">
                   {p.label}
                 </div>
-                <p className="text-[13px] text-gray-700 leading-relaxed">{p.body}</p>
+                <p className="text-[13px] text-black leading-relaxed">{p.body}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -377,11 +377,11 @@ export default function CareerEmployabilityPage() {
               <span className="w-5 h-px bg-watney-blue-primary" />
               Additional resources
             </span>
-            <h2 className="text-3xl lg:text-4xl text-gray-900 font-semibold leading-tight mb-3">
+            <h2 className="text-3xl lg:text-4xl text-black font-semibold leading-tight mb-3">
               Everything you need,{" "}
               <em className="text-watney-blue-primary not- font-medium">included</em>
             </h2>
-            <p className="text-base text-gray-700 max-w-xl leading-relaxed">
+            <p className="text-base text-black max-w-xl leading-relaxed">
               Practical tools and sessions available to all enrolled learners throughout their programme.
             </p>
           </motion.div>
@@ -402,8 +402,8 @@ export default function CareerEmployabilityPage() {
                 <div className="w-12 h-12 rounded-xl bg-ocean-breeze/10 text-watney-blue-primary text-xl flex items-center justify-center mx-auto mb-4">
                   {r.icon}
                 </div>
-                <div className="text-[15px] font-semibold text-gray-900 mb-2">{r.title}</div>
-                <p className="text-[13px] text-gray-700 leading-relaxed">{r.body}</p>
+                <div className="text-[15px] font-semibold text-black mb-2">{r.title}</div>
+                <p className="text-[13px] text-black leading-relaxed">{r.body}</p>
               </motion.div>
             ))}
           </motion.div>

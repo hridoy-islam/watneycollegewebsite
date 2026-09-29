@@ -52,19 +52,19 @@ export default function AcademicCalendarPage() {
             <div className="flex items-center gap-5 flex-wrap">
               <div className="flex items-center gap-1.5">
                 <div className="w-2 h-2 rounded-sm bg-[#378ADD]"></div>
-                <span className="text-xs text-gray-600">Teaching</span>
+                <span className="text-xs text-black">Teaching</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <div className="w-2 h-2 rounded-sm bg-[#1D9E75]"></div>
-                <span className="text-xs text-gray-600">Assessment & IV</span>
+                <span className="text-xs text-black">Assessment & IV</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <div className="w-2 h-2 rounded-sm bg-[#BA7517]"></div>
-                <span className="text-xs text-gray-600">Resubmission</span>
+                <span className="text-xs text-black">Resubmission</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <div className="w-2 h-2 rounded-sm bg-[#B4B2A9]"></div>
-                <span className="text-xs text-gray-600">Recess</span>
+                <span className="text-xs text-black">Recess</span>
               </div>
             </div>
           </div>
@@ -74,10 +74,10 @@ export default function AcademicCalendarPage() {
             <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 mb-4">
               <div className="w-1 h-11 rounded-sm bg-[#378ADD]"></div>
               <div>
-                <div className="text-sm font-medium text-gray-900">
+                <div className="text-sm font-medium text-black">
                   Level 4 Diploma in Adult Care
                 </div>
-                <div className="text-xs text-gray-800mt-0.5">
+                <div className="text-xs text-black mt-0.5">
                   September 2025 intake · Wed / Fri / Sun delivery · Work
                   placement integrated
                 </div>
@@ -95,7 +95,7 @@ export default function AcademicCalendarPage() {
             <div className="bg-gray-50 rounded-xl p-4">
               {/* Gantt Rows */}
               <div className="flex items-center gap-2.5 mb-1.5">
-                <span className="text-xs text-gray-800w-12 text-right shrink-0">
+                <span className="text-xs text-black w-12 text-right shrink-0">
                   Term 1
                 </span>
                 <div className="flex-1 h-8 rounded-md bg-white border border-gray-200 relative overflow-hidden">
@@ -127,7 +127,7 @@ export default function AcademicCalendarPage() {
               </div>
 
               <div className="flex items-center gap-2.5 mb-1.5">
-                <span className="text-xs text-gray-800w-12 text-right shrink-0">
+                <span className="text-xs text-black w-12 text-right shrink-0">
                   Recess
                 </span>
                 <div className="flex-1 h-8 bg-transparent relative overflow-hidden">
@@ -143,7 +143,7 @@ export default function AcademicCalendarPage() {
               </div>
 
               <div className="flex items-center gap-2.5 mb-1.5">
-                <span className="text-xs text-gray-800w-12 text-right shrink-0">
+                <span className="text-xs text-black w-12 text-right shrink-0">
                   Term 2
                 </span>
                 <div className="flex-1 h-8 rounded-md bg-white border border-gray-200 relative overflow-hidden">
@@ -175,7 +175,7 @@ export default function AcademicCalendarPage() {
               </div>
 
               <div className="flex items-center gap-2.5 mb-1.5">
-                <span className="text-xs text-gray-800w-12 text-right shrink-0">
+                <span className="text-xs text-black w-12 text-right shrink-0">
                   Term 3
                 </span>
                 <div className="flex-1 h-8 rounded-md bg-white border border-gray-200 relative overflow-hidden">
@@ -207,7 +207,7 @@ export default function AcademicCalendarPage() {
               </div>
 
               <div className="flex items-center gap-2.5 mb-1.5">
-                <span className="text-xs text-gray-800w-12 text-right shrink-0">
+                <span className="text-xs text-black w-12 text-right shrink-0">
                   Recess
                 </span>
                 <div className="flex-1 h-8 bg-transparent relative overflow-hidden">
@@ -223,7 +223,7 @@ export default function AcademicCalendarPage() {
               </div>
 
               <div className="flex items-center gap-2.5">
-                <span className="text-xs text-gray-800w-12 text-right shrink-0">
+                <span className="text-xs text-black w-12 text-right shrink-0">
                   Term 4
                 </span>
                 <div className="flex-1 h-8 rounded-md bg-white border border-gray-200 relative overflow-hidden">
@@ -256,7 +256,7 @@ export default function AcademicCalendarPage() {
 
               {/* Assessment Cards */}
               <div className="mt-4">
-                <div className="text-[10px] font-medium uppercase tracking-wider text-gray-800mb-2">
+                <div className="text-[10px] font-medium uppercase tracking-wider text-black mb-2">
                   Assessment & results — Level 4
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
@@ -317,10 +317,10 @@ export default function AcademicCalendarPage() {
                           key={i}
                           className="flex justify-between items-center py-0.5 border-b border-gray-100 last:border-0"
                         >
-                          <span className="text-xs text-gray-600">
+                          <span className="text-xs text-black">
                             {item.label}
                           </span>
-                          <span className="text-xs font-medium text-gray-900">
+                          <span className="text-xs font-medium text-black">
                             {item.value}
                           </span>
                         </div>
@@ -328,7 +328,7 @@ export default function AcademicCalendarPage() {
                     </div>
                   ))}
                 </div>
-                <div className="text-[10.5px] text-gray-800mt-2">
+                <div className="text-[10.5px] text-black mt-2">
                   T1 formative submission 20–26 Oct · Formative feedback 27–31
                   Oct · IV precedes all results
                 </div>
@@ -343,10 +343,10 @@ export default function AcademicCalendarPage() {
             <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 mb-4">
               <div className="w-1 h-11 rounded-sm bg-[#1D9E75]"></div>
               <div>
-                <div className="text-sm font-medium text-gray-900">
+                <div className="text-sm font-medium text-black">
                   NQual Level 2 Adult Social Care Certificate
                 </div>
-                <div className="text-xs text-gray-800mt-0.5">
+                <div className="text-xs text-black mt-0.5">
                   November 2025 intake · Batches A & B · Mon / Wed / Fri
                   delivery
                 </div>
@@ -363,7 +363,7 @@ export default function AcademicCalendarPage() {
 
             <div className="bg-gray-50 rounded-xl p-4">
               <div className="flex items-center gap-2.5 mb-1.5">
-                <span className="text-xs text-gray-800w-12 text-right shrink-0">
+                <span className="text-xs text-black w-12 text-right shrink-0">
                   Term 1
                 </span>
                 <div className="flex-1 h-8 rounded-md bg-white border border-gray-200 relative overflow-hidden">
@@ -395,7 +395,7 @@ export default function AcademicCalendarPage() {
               </div>
 
               <div className="flex items-center gap-2.5">
-                <span className="text-xs text-gray-800w-12 text-right shrink-0">
+                <span className="text-xs text-black w-12 text-right shrink-0">
                   Term 2
                 </span>
                 <div className="flex-1 h-8 rounded-md bg-white border border-gray-200 relative overflow-hidden">
@@ -427,7 +427,7 @@ export default function AcademicCalendarPage() {
               </div>
 
               <div className="mt-4">
-                <div className="text-[10px] font-medium uppercase tracking-wider text-gray-800mb-2">
+                <div className="text-[10px] font-medium uppercase tracking-wider text-black mb-2">
                   Assessment & results — Level 2 (Nov 2025)
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -468,10 +468,10 @@ export default function AcademicCalendarPage() {
                           key={i}
                           className="flex justify-between items-center py-0.5 border-b border-gray-100 last:border-0"
                         >
-                          <span className="text-xs text-gray-600">
+                          <span className="text-xs text-black">
                             {item.label}
                           </span>
-                          <span className="text-xs font-medium text-gray-900">
+                          <span className="text-xs font-medium text-black">
                             {item.value}
                           </span>
                         </div>
@@ -479,7 +479,7 @@ export default function AcademicCalendarPage() {
                     </div>
                   ))}
                 </div>
-                <div className="text-[10.5px] text-gray-800mt-2">
+                <div className="text-[10.5px] text-black mt-2">
                   Batches A & B taught in separate slots · Shared Wednesday work
                   placement · Induction: 03 Nov 2025 · T1 results corrected from
                   erroneous 2023 typo
@@ -495,10 +495,10 @@ export default function AcademicCalendarPage() {
             <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 mb-4">
               <div className="w-1 h-11 rounded-sm bg-[#7F77DD]"></div>
               <div>
-                <div className="text-sm font-medium text-gray-900">
+                <div className="text-sm font-medium text-black">
                   NQual Level 2 Adult Social Care Certificate
                 </div>
-                <div className="text-xs text-gray-800mt-0.5">
+                <div className="text-xs text-black mt-0.5">
                   March / April 2026 intake · Batches A & B · Mon / Wed / Thu
                   delivery
                 </div>
@@ -515,7 +515,7 @@ export default function AcademicCalendarPage() {
 
             <div className="bg-gray-50 rounded-xl p-4">
               <div className="flex items-center gap-2.5 mb-1.5">
-                <span className="text-xs text-gray-800w-12 text-right shrink-0">
+                <span className="text-xs text-black w-12 text-right shrink-0">
                   Term 1
                 </span>
                 <div className="flex-1 h-8 bg-transparent relative overflow-hidden">
@@ -531,7 +531,7 @@ export default function AcademicCalendarPage() {
               </div>
 
               <div className="flex items-center gap-2.5 mb-1.5">
-                <span className="text-xs text-gray-800w-12 text-right shrink-0">
+                <span className="text-xs text-black w-12 text-right shrink-0">
                   T1 assess
                 </span>
                 <div className="flex-1 h-8 rounded-md bg-white border border-gray-200 relative overflow-hidden">
@@ -555,7 +555,7 @@ export default function AcademicCalendarPage() {
               </div>
 
               <div className="flex items-center gap-2.5 mb-1.5">
-                <span className="text-xs text-gray-800w-12 text-right shrink-0">
+                <span className="text-xs text-black w-12 text-right shrink-0">
                   Term 2
                 </span>
                 <div className="flex-1 h-8 bg-transparent relative overflow-hidden">
@@ -571,7 +571,7 @@ export default function AcademicCalendarPage() {
               </div>
 
               <div className="flex items-center gap-2.5">
-                <span className="text-xs text-gray-800w-12 text-right shrink-0">
+                <span className="text-xs text-black w-12 text-right shrink-0">
                   T2 assess
                 </span>
                 <div className="flex-1 h-8 rounded-md bg-white border border-gray-200 relative overflow-hidden">
@@ -595,7 +595,7 @@ export default function AcademicCalendarPage() {
               </div>
 
               <div className="mt-4">
-                <div className="text-[10px] font-medium uppercase tracking-wider text-gray-800mb-2">
+                <div className="text-[10px] font-medium uppercase tracking-wider text-black mb-2">
                   Assessment & results — Level 2 (Mar 2026)
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -636,10 +636,10 @@ export default function AcademicCalendarPage() {
                           key={i}
                           className="flex justify-between items-center py-0.5 border-b border-gray-100 last:border-0"
                         >
-                          <span className="text-xs text-gray-600">
+                          <span className="text-xs text-black">
                             {item.label}
                           </span>
-                          <span className="text-xs font-medium text-gray-900">
+                          <span className="text-xs font-medium text-black">
                             {item.value}
                           </span>
                         </div>
@@ -647,7 +647,7 @@ export default function AcademicCalendarPage() {
                     </div>
                   ))}
                 </div>
-                <div className="text-[10.5px] text-gray-800mt-2">
+                <div className="text-[10.5px] text-black mt-2">
                   Induction: 01 Apr 2026 (joint) · T2 submission corrected to 24
                   Jul (post teaching end 23 Jul) · Easter Week 1 is adjusted
                   short week
@@ -660,7 +660,7 @@ export default function AcademicCalendarPage() {
 
           {/* Key Dates Section */}
           <div className="bg-gray-50 rounded-xl p-4 z-20 relative"  >
-            <div className="text-[10px] font-medium uppercase tracking-wider text-gray-800mb-2.5 z-20">
+            <div className="text-[10px] font-medium uppercase tracking-wider text-black mb-2.5 z-20">
               Key institutional dates — all cohorts
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 z-20">
@@ -711,8 +711,8 @@ export default function AcademicCalendarPage() {
                     className="w-1.5 h-1.5 rounded-full shrink-0 mt-1"
                     style={{ background: item.color }}
                   ></div>
-                  <div className="text-xs text-gray-600 leading-relaxed">
-                    <strong className="text-gray-900 font-medium block">
+                  <div className="text-xs text-black leading-relaxed">
+                    <strong className="text-black font-medium block">
                       {item.date}
                     </strong>
                     {item.label}
@@ -720,7 +720,7 @@ export default function AcademicCalendarPage() {
                 </div>
               ))}
             </div>
-            <div className="text-[10.5px] text-gray-800mt-4 pt-3 border-t border-gray-200 leading-relaxed z-20">
+            <div className="text-[10.5px] text-black mt-4 pt-3 border-t border-gray-200 leading-relaxed z-20">
               Bank holidays within recess / non-teaching periods: Good Friday 03
               Apr · Easter Monday 06 Apr · Early May BH 04 May · Spring BH 25
               May 2026. All dates sourced from 8 uploaded curriculum plans.

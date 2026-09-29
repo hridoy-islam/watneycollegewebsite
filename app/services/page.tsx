@@ -128,13 +128,13 @@ export default function ServicesPage() {
                       <service.icon className="w-8 h-8 text-white" />
                     </div>
                     <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                    <CardDescription className="text-gray-600">
+                    <CardDescription className="text-black">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between text-sm text-gray-500">
+                      <div className="flex items-center justify-between text-sm text-black">
                         <div className="flex items-center">
                           <Users className="w-4 h-4 mr-1" />
                           {service.students}
@@ -146,7 +146,7 @@ export default function ServicesPage() {
                       </div>
                       <div className="space-y-2">
                         {service.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-center text-sm text-gray-600">
+                          <div key={idx} className="flex items-center text-sm text-black">
                             <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
                             {feature}
                           </div>
@@ -178,7 +178,7 @@ export default function ServicesPage() {
             <h2 className="text-4xl font-bold mb-4">
               Why Choose Our <span className="text-primary">Services?</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-black max-w-3xl mx-auto">
               Our commitment to excellence and innovation sets us apart in the education industry.
             </p>
           </motion.div>
@@ -201,7 +201,7 @@ export default function ServicesPage() {
                   <item.icon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
+                <p className="text-black">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>

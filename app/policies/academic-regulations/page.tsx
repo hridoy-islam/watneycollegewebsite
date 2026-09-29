@@ -44,11 +44,11 @@ export default function AcademicRegulationsPage() {
             <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-watney-blue/20">
               <FileText className="w-10 h-10 text-watney-blue-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-black">
               Academic{" "}
               <span className="text-watney-blue-primary">Regulations</span>
             </h1>
-            <p className="text-lg text-gray-800 mx-auto leading-relaxed max-w-3xl">
+            <p className="text-lg text-black mx-auto leading-relaxed max-w-3xl">
               The binding academic framework of Watney College, governing
               standards, assessment, misconduct, appeals and governance.
               Approved by the Academic Board.
@@ -63,10 +63,10 @@ export default function AcademicRegulationsPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <h2 className=" text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className=" text-3xl md:text-4xl font-medium text-black mb-6">
                     Status, governance and admissions
                   </h2>
-                  <div className="space-y-4 text-gray-800 leading-relaxed">
+                  <div className="space-y-4 text-black leading-relaxed">
                     <p>
                       These Academic Regulations constitute the binding academic
                       framework of Watney College. Authority for academic
@@ -80,7 +80,7 @@ export default function AcademicRegulationsPage() {
                       organisation's requirements shall prevail.
                     </p>
                     <div className="pt-2">
-                      <div className="font-medium text-gray-800 mb-3">
+                      <div className="font-medium text-black mb-3">
                         Governance reporting line:
                       </div>
                       <ul className="space-y-2">
@@ -104,10 +104,10 @@ export default function AcademicRegulationsPage() {
                 </div>
                 <div className="space-y-6">
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Admissions governance
                     </h3>
-                    <p className="text-sm text-gray-800 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       Admissions criteria must align with awarding body
                       requirements, published entry standards, and the Equality
                       Act 2010. The College may withdraw an offer or terminate
@@ -116,10 +116,10 @@ export default function AcademicRegulationsPage() {
                     </p>
                   </div>
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Credit and award framework
                     </h3>
-                    <p className="text-sm text-gray-800 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       The College operates under awarding body specifications
                       and does not hold degree awarding powers. Where the
                       awarding body specifies Pass/Fail, no other classification
@@ -137,15 +137,15 @@ export default function AcademicRegulationsPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <h2 className=" text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className=" text-3xl md:text-4xl font-medium text-black mb-6">
                     Assessment and progression
                   </h2>
                   <div className="space-y-6">
                     <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">
+                      <h3 className="font-semibold text-black mb-2">
                         Assessment requirements
                       </h3>
-                      <p className="text-sm text-gray-800 leading-relaxed">
+                      <p className="text-sm text-black leading-relaxed">
                         All assessments must align with learning outcomes, use
                         published criteria, undergo internal verification, and
                         be externally quality assured where required.
@@ -167,7 +167,7 @@ export default function AcademicRegulationsPage() {
                 </div>
                 <div className="space-y-6">
                   <div>
-                    <div className="font-medium text-gray-800 mb-3">
+                    <div className="font-medium text-black mb-3">
                       A student shall progress where:
                     </div>
                     <ul className="space-y-2">
@@ -178,13 +178,13 @@ export default function AcademicRegulationsPage() {
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-center gap-2">
                           <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
-                          <span className="text-gray-800">{item}</span>
+                          <span className="text-black">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <div className="font-medium text-gray-800 mb-3">
+                    <div className="font-medium text-black mb-3">
                       A student may be required to withdraw for:
                     </div>
                     <ul className="space-y-2">
@@ -196,7 +196,7 @@ export default function AcademicRegulationsPage() {
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-center gap-2">
                           <AlertCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                          <span className="text-gray-800">{item}</span>
+                          <span className="text-black">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -211,7 +211,7 @@ export default function AcademicRegulationsPage() {
             <div className="container mx-auto px-4 max-w-6xl">
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
-                  <h2 className=" text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className=" text-3xl md:text-4xl font-medium text-black mb-6">
                     Misconduct, fitness to study and appeals
                   </h2>
                   <div className="space-y-6">
@@ -227,10 +227,10 @@ export default function AcademicRegulationsPage() {
                       </p>
                     </div>
                     <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">
+                      <h3 className="font-semibold text-black mb-2">
                         Fitness to study
                       </h3>
-                      <p className="text-sm text-gray-800 leading-relaxed">
+                      <p className="text-sm text-black leading-relaxed">
                         Proceedings may be initiated where a student's health
                         significantly impairs academic engagement, behaviour
                         poses risk to others, or support measures have been
@@ -241,7 +241,7 @@ export default function AcademicRegulationsPage() {
                   </div>
                 </div>
                 <div>
-                  <div className="font-medium text-gray-800 mb-3">
+                  <div className="font-medium text-black mb-3">
                     Appeals may be submitted on grounds of:
                   </div>
                   <ul className="space-y-2 mb-6">
@@ -252,12 +252,12 @@ export default function AcademicRegulationsPage() {
                     ].map((item, idx) => (
                       <li key={idx} className="flex items-center gap-2">
                         <ChevronRight className="w-4 h-4 text-watney-blue-primary" />
-                        <span className="text-gray-800">{item}</span>
+                        <span className="text-black">{item}</span>
                       </li>
                     ))}
                   </ul>
                   <div className="bg-gray-50 rounded-xl p-5 border border-gray-200 mb-6">
-                    <p className="text-gray-800 text-sm">
+                    <p className="text-black text-sm">
                       Appeals must be submitted within{" "}
                       <span className="font-semibold">10 working days</span> of
                       the decision. The Appeal Panel comprises an Independent
@@ -279,7 +279,7 @@ export default function AcademicRegulationsPage() {
             <div className="container mx-auto px-6 max-w-4xl">
               {/* Header Section */}
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
                   Academic Risk{" "}
                   <span className="text-watney-blue-primary">
                     Escalation Framework
@@ -292,10 +292,10 @@ export default function AcademicRegulationsPage() {
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="bg-slate-50/50 border-b border-slate-200">
-                      <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                      <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-black">
                         Risk Level
                       </th>
-                      <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                      <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-black">
                         Responsible Body
                       </th>
                     </tr>
@@ -316,12 +316,12 @@ export default function AcademicRegulationsPage() {
                         className="group hover:bg-blue-50/30 transition-colors duration-150"
                       >
                         <td className="py-5 px-8">
-                          <span className="text-base font-semibold text-slate-800 group-hover:text-watney-blue-primary transition-colors">
+                          <span className="text-base font-semibold text-black group-hover:text-watney-blue-primary transition-colors">
                             {row[0]}
                           </span>
                         </td>
                         <td className="py-5 px-8">
-                          <span className="text-sm font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full group-hover:bg-blue-100 group-hover:text-blue-800 transition-all">
+                          <span className="text-sm font-medium text-black bg-slate-100 px-3 py-1 rounded-full group-hover:bg-blue-100 group-hover:text-blue-800 transition-all">
                             {row[1]}
                           </span>
                         </td>
@@ -339,13 +339,13 @@ export default function AcademicRegulationsPage() {
               <div className="w-12 h-12 bg-white rounded-lg border border-gray-200 flex items-center justify-center mx-auto mb-4">
                 <FileText className="w-6 h-6 text-watney-blue-primary" />
               </div>
-              <p className="text-gray-500 text-sm mb-6">
+              <p className="text-black text-sm mb-6">
                 Last reviewed:{" "}
-                <span className="font-medium text-gray-700">November 2025</span>{" "}
+                <span className="font-medium text-black">November 2025</span>{" "}
                 &nbsp;·&nbsp; Version:{" "}
-                <span className="font-medium text-gray-700">1.2</span>{" "}
+                <span className="font-medium text-black">1.2</span>{" "}
                 &nbsp;·&nbsp; Next review:{" "}
-                <span className="font-medium text-gray-700">November 2026</span>
+                <span className="font-medium text-black">November 2026</span>
               </p>
               <a
                 download="Academic Regulations.pdf"

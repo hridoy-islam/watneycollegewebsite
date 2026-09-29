@@ -27,11 +27,11 @@ export default function EqualityDiversityInclusionPolicyPage() {
             <div className="w-20 h-20 flex items-center justify-center mx-auto mb-6">
               <Users className="w-20 h-20 text-watney-blue-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-black">
               Equality, Diversity{" "}
               <span className="text-watney-blue-primary">and Inclusion Policy</span>
             </h1>
-            <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-3xl">
+            <p className="text-lg text-black mx-auto leading-relaxed max-w-3xl">
               Watney College is committed to promoting equality of opportunity,
               valuing diversity and fostering an inclusive environment in which
               all individuals are treated with dignity and respect.
@@ -47,10 +47,10 @@ export default function EqualityDiversityInclusionPolicyPage() {
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
                  
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     Commitment, scope and protected characteristics
                   </h2>
-                  <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <div className="space-y-4 text-black leading-relaxed">
                     <p>
                       The College does not tolerate discrimination, harassment or
                       victimisation in any form. Equality, diversity and
@@ -63,7 +63,7 @@ export default function EqualityDiversityInclusionPolicyPage() {
                       framework, particularly in relation to academic quality,
                       student outcomes and consumer protection.
                     </p>
-                    <p className="font-semibold text-gray-800">
+                    <p className="font-semibold text-black">
                       The policy applies to all students, staff, visitors and
                       external stakeholders across all College activities
                       including admissions, teaching, assessment, student support
@@ -73,16 +73,16 @@ export default function EqualityDiversityInclusionPolicyPage() {
                 </div>
                 <div className="space-y-6">
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Protected characteristics
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       Age · Disability · Gender reassignment · Marriage and civil
                       partnership · Pregnancy and maternity · Race (including
                       nationality and ethnicity) · Religion or belief · Sex ·
                       Sexual orientation.
                     </p>
-                    <p className="text-sm text-gray-600 leading-relaxed mt-2">
+                    <p className="text-sm text-black leading-relaxed mt-2">
                       No individual shall be disadvantaged on the basis of any of
                       these characteristics.
                     </p>
@@ -108,10 +108,10 @@ export default function EqualityDiversityInclusionPolicyPage() {
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
                  
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     Responsibilities, admissions and learning
                   </h2>
-                  <div className="font-semibold text-gray-800 mb-3">
+                  <div className="font-semibold text-black mb-3">
                     Governance and operational responsibilities:
                   </div>
                   <ul className="space-y-3">
@@ -142,10 +142,10 @@ export default function EqualityDiversityInclusionPolicyPage() {
                           <CheckCircle2 className="w-3.5 h-3.5 text-watney-blue-primary" />
                         </div>
                         <div>
-                          <span className="font-semibold text-gray-800">
+                          <span className="font-semibold text-black">
                             {item.title}
                           </span>
-                          <span className="text-gray-600">
+                          <span className="text-black">
                             {" "}
                             — {item.desc}
                           </span>
@@ -156,10 +156,10 @@ export default function EqualityDiversityInclusionPolicyPage() {
                 </div>
                 <div className="space-y-6">
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Admissions
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       Admissions processes are conducted fairly, transparently
                       and consistently. Selection decisions are based on merit
                       and suitability. Reasonable adjustments are made where
@@ -167,10 +167,10 @@ export default function EqualityDiversityInclusionPolicyPage() {
                     </p>
                   </div>
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Learning, teaching and assessment
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       Teaching practices are inclusive and learning materials
                       accessible to all students. Assessment methods are fair and
                       appropriate, with reasonable adjustments implemented in
@@ -178,10 +178,10 @@ export default function EqualityDiversityInclusionPolicyPage() {
                     </p>
                   </div>
                   <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-black mb-2">
                       Student support
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       Academic guidance, additional learning support, safeguarding
                       and wellbeing services are available to all students.
                       External support services are signposted where necessary.
@@ -198,15 +198,15 @@ export default function EqualityDiversityInclusionPolicyPage() {
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
                  
-                  <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-medium text-black mb-6">
                     Complaints, monitoring and training
                   </h2>
                   <div className="space-y-6">
                     <div className="bg-watney-blue-light/30 border border-watney-blue/20 rounded-2xl p-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">
+                      <h3 className="font-semibold text-black mb-2">
                         Complaints and reporting
                       </h3>
-                      <p className="text-sm text-gray-600 leading-relaxed">
+                      <p className="text-sm text-black leading-relaxed">
                         Concerns relating to discrimination, harassment or unfair
                         treatment are addressed through the College's Complaints
                         Policy. All reports are treated seriously, investigated
@@ -229,16 +229,16 @@ export default function EqualityDiversityInclusionPolicyPage() {
                   </div>
                 </div>
                 <div className="space-y-6">
-                  <div className="font-semibold text-gray-800">
+                  <div className="font-semibold text-black">
                     Training and awareness
                   </div>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-black leading-relaxed">
                     All staff receive appropriate training in equality, diversity
                     and inclusion as part of induction and ongoing professional
                     development. Awareness of responsibilities under this policy
                     is maintained across all levels of the organisation.
                   </p>
-                  <p className="text-gray-600 leading-relaxed mt-4">
+                  <p className="text-black leading-relaxed mt-4">
                     This policy is reviewed annually to ensure continued
                     compliance with legal and regulatory requirements. Earlier
                     review may take place in response to changes in legislation,
@@ -253,7 +253,7 @@ export default function EqualityDiversityInclusionPolicyPage() {
           <section className="py-20 bg-slate-50">
             <div className="container mx-auto px-6 max-w-5xl">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-black mb-4">
                   Linked policies and{" "}
                   <span className="text-watney-blue-primary">
                     external references
@@ -266,10 +266,10 @@ export default function EqualityDiversityInclusionPolicyPage() {
                   <table className="w-full text-left border-collapse">
                     <thead>
                       <tr className="bg-slate-50/50 border-b border-slate-200">
-                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-black">
                           Document
                         </th>
-                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-800">
+                        <th className="py-5 px-8 text-[11px] font-bold uppercase tracking-[0.15em] text-black">
                           Relationship
                         </th>
                       </tr>
@@ -306,12 +306,12 @@ export default function EqualityDiversityInclusionPolicyPage() {
                           className="group hover:bg-blue-50/40 transition-colors duration-150"
                         >
                           <td className="py-5 px-8">
-                            <span className="text-base font-bold text-slate-800 group-hover:text-watney-blue-primary transition-colors">
+                            <span className="text-base font-bold text-black group-hover:text-watney-blue-primary transition-colors">
                               {row[0]}
                             </span>
                           </td>
                           <td className="py-5 px-8">
-                            <span className="inline-flex items-center text-sm font-semibold text-slate-700 bg-slate-100 px-3 py-1 rounded-md border border-slate-200 group-hover:bg-white group-hover:border-blue-200 transition-all">
+                            <span className="inline-flex items-center text-sm font-semibold text-black bg-slate-100 px-3 py-1 rounded-md border border-slate-200 group-hover:bg-white group-hover:border-blue-200 transition-all">
                               {row[1]}
                             </span>
                           </td>
@@ -328,15 +328,15 @@ export default function EqualityDiversityInclusionPolicyPage() {
           <div className="py-12 bg-gray-50 border-t border-gray-200">
             <div className="container mx-auto px-4 text-center">
               <div className="w-12 h-12 bg-white rounded-lg border border-gray-200 flex items-center justify-center mx-auto mb-4">
-                <FileText className="w-6 h-6 text-gray-500" />
+                <FileText className="w-6 h-6 text-black" />
               </div>
-              <p className="text-gray-500 text-sm mb-6">
+              <p className="text-black text-sm mb-6">
                 Last reviewed:{" "}
-                <span className="font-medium text-gray-700">November 2025</span>{" "}
+                <span className="font-medium text-black">November 2025</span>{" "}
                 &nbsp;·&nbsp; Version:{" "}
-                <span className="font-medium text-gray-700">1.0</span>{" "}
+                <span className="font-medium text-black">1.0</span>{" "}
                 &nbsp;·&nbsp; Next review:{" "}
-                <span className="font-medium text-gray-700">November 2026</span>
+                <span className="font-medium text-black">November 2026</span>
               </p>
               <a
                 href="#"

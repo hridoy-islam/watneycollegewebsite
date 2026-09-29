@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import SiteChrome from "@/components/site-chrome";
 import { Inter } from "next/font/google";
+import { Toaster } from "@/components/ui/toaster";
 
 // const nunito = Nunito({
 //   subsets: ["latin"],
@@ -80,12 +80,11 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="relative">
-        <Header />
-        <div className="pt-24 min-h-screen">
+      <body className="relative" suppressHydrationWarning>
+        <SiteChrome>
           <Providers>{children}</Providers>
-        </div>
-        <Footer />
+          <Toaster />
+        </SiteChrome>
       </body>
     </html>
   );

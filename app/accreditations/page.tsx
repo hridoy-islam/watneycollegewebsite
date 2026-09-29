@@ -70,10 +70,10 @@ export default function AccreditationPage() {
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Handshake className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+            <h1 className="text-5xl md:text-6xl font-black mb-6 text-black">
               <span className="text-watney-blue-primary">Accreditations</span>
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed mx-auto">
+            <p className="text-lg text-black leading-relaxed mx-auto">
               Watney College is proud to be accredited by leading organizations,
               ensuring the quality and recognition of our programs.
             </p>
@@ -173,7 +173,7 @@ export default function AccreditationPage() {
 
                     {/* Description */}
                     <CardContent className="flex-grow">
-                      <CardDescription className="text-gray-700 text-base text-center">
+                      <CardDescription className="text-black text-base text-center">
                         {acc.description}
                       </CardDescription>
                     </CardContent>
@@ -203,7 +203,7 @@ export default function AccreditationPage() {
               <h2 className="text-4xl font-bold mb-6">
                 Why Choose Watney College?
               </h2>
-              <p className="text-xl mb-8 text-gray-600">
+              <p className="text-xl mb-8 text-black">
                 With our strong partnerships and accreditations, you can trust
                 that you are receiving a world-class education.
               </p>

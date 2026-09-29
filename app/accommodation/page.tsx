@@ -123,7 +123,7 @@ export default function AccommodationPage() {
             <h1 className="text-5xl lg:text-6xl text-black font-bold mb-6">
               Find Your <span className="text-watney-blue-primary">Perfect Home</span>
             </h1>
-            <p className="text-lg mb-8 text-gray-600  mx-auto">
+            <p className="text-lg mb-8 text-black  mx-auto">
               We want you to be happy in every aspect of your life at college, and that includes finding a home which is friendly, comfortable and safe. While Watney College does not offer on-campus accommodation, we work closely with trusted local providers to help students secure safe, affordable, and convenient housing near our London campus.
             </p>
             
@@ -144,7 +144,7 @@ export default function AccommodationPage() {
             <h2 className="text-4xl font-bold mb-4 text-black">
               We Offer <span className="text-gradient-watney">Support With</span>
             </h2>
-            <p className="text-lg text-gray-600 mx-auto">
+            <p className="text-lg text-black mx-auto">
               Our dedicated team provides comprehensive support to help you find and secure accommodation near our London campus.
             </p>
           </motion.div>
@@ -173,7 +173,7 @@ export default function AccommodationPage() {
         </h3>
 
         {/* Bullet Points */}
-        <ul className="space-y-2 text-sm text-gray-600">
+        <ul className="space-y-2 text-sm text-black">
           {service.points.map((point, i) => (
             <li key={i} className="flex items-start gap-2">
               <span className="mt-1 w-1.5 h-1.5 bg-primary rounded-full"></span>
@@ -203,7 +203,7 @@ export default function AccommodationPage() {
             <h2 className="text-4xl font-bold text-black mb-6">
               Need Accommodation Support?
             </h2>
-            <p className="text-xl text-gray-600 mb-8  mx-auto">
+            <p className="text-xl text-black mb-8  mx-auto">
               Our team is ready to help you find the perfect accommodation for your studies at Watney College.
             </p>
             

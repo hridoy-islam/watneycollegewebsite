@@ -1,6 +1,8 @@
-import { notFound } from 'next/navigation';
+"use client";
+import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { getJobBySlug, getSuggestedJobs, jobs } from '@/lib/jobData';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -11,142 +13,185 @@ import {
   Calendar,
   CheckCircle2,
   ArrowLeft,
-  Building2,
   Clock
 } from 'lucide-react';
 import moment from 'moment';
+import { BlinkingDots } from '@/components/blinking-dots';
 
-export function generateStaticParams() {
-  return jobs.map((job) => ({
-    slug: job.slug,
-  }));
-}
+export default function JobDetailPage() {
+  const params = useParams();
+  const slug = params?.slug as string;
+  const router = useRouter();
 
-// Change this to async and await params
-export default async function JobDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  // Await the params
-  const { slug } = await params;
-  const job = getJobBySlug(slug);
+  const [job, setJob] = useState<any>(null);
+  const [allJobs, setAllJobs] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  if (!job) {
-    notFound();
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/jobs`);
+        const data = res.data?.data;
+        let result: any[] = [];
+        if (data && Array.isArray(data.result)) {
+          result = data.result;
+        } else if (Array.isArray(data)) {
+          result = data;
+        }
+        setAllJobs(result);
+        const found = result.find((j: any) => j.slug === slug);
+        setJob(found || null);
+      } catch (e) {
+        console.error('Failed to fetch job', e);
+        setJob(null);
+        setAllJobs([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchJobs();
+  }, [slug]);
+
+  const suggestedJobs = allJobs
+    .filter((j: any) => j._id !== job?._id && j.slug !== slug)
+    .slice(0, 3);
+
+  if (loading) {
+    return <div className="container py-8 text-center">
+      <BlinkingDots/>
+    </div>;
   }
 
-  const suggestedJobs = getSuggestedJobs(job.id);
+  if (!job) {
+    return (
+      <div className="container py-8 text-center">
+        <h2 className="text-xl font-semibold">Job not found</h2>
+        <Button onClick={() => router.push('/jobs')} className="mt-4">Back to Jobs</Button>
+      </div>
+    );
+  }
+
+  const title = job.jobTitle || job.title || '';
+  const description = job.jobDetail || job.description || '';
+  const jobId = job._id || job.id || job.jobId || '';
+  const type = job.type || 'Permanent';
+  const salary = job.salary || '';
+  const postedDate = job.createdAt ? new Date(job.createdAt) : (job.postedDate ? new Date(job.postedDate) : null);
+  const deadline = job.applicationDeadline ? new Date(job.applicationDeadline) : (job.deadline ? new Date(job.deadline) : null);
+  const hours = job.hours || '';
+  const location = job.location || '';
+  const remoteWorking = job.remoteWorking || '';
+  const designationTitle = job.designationId?.title || job.designationId || '';
+  const responsibilities = job.responsibilities || [];
+  const requirements = job.requirements || [];
+  const benefits = job.benefits || [];
 
   return (
-    <div className="min-h-screen ">
-      <div className="container  py-8 space-y-4">
+    <div className="min-h-screen">
+      <div className="container py-8 space-y-4">
         <Link href="/jobs">
-          <Button className=" group-hover:bg-primary group-hover:text-white/80 transition-colors">
+          <Button className="group-hover:bg-primary group-hover:text-white/80 transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Jobs
           </Button>
         </Link>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-3">
           <div className="lg:col-span-2">
             <Card className="border-slate-200">
-
               <CardHeader className="space-y-4">
                 {/* Job Title */}
                 <div className="flex flex-row flex-wrap gap-2 items-center">
-                  {job.title && (
-                    <h2 className="text-2xl font-semibold text-slate-800">{job.title}</h2>
+                  {title && (
+                    <h2 className="text-2xl font-semibold text-black">{title}</h2>
                   )}
-
-                  {job.type && (
+                  {type && (
                     <Badge
                       variant="secondary"
                       className="bg-blue-100 text-blue-800 hover:bg-blue-100"
                     >
-                      {job.type}
+                      {type}
                     </Badge>
                   )}
                 </div>
 
                 {/* Job Details */}
-
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {/* Salary */}
-                  {job.salary && (
-                    <div className="flex items-center text-slate-600">
-                      <DollarSign className="w-5 h-5 mr-2 text-slate-400" />
-                      {job.salary}
+                  {salary && (
+                    <div className="flex items-center text-black">
+                      <DollarSign className="w-5 h-5 mr-2 text-black" />
+                      {salary}
                     </div>
                   )}
 
-                  {/* Posting Date */}
-                  {job.postedDate && (
-                    <div className="flex items-center text-slate-600">
-                      <Calendar className="w-5 h-5 mr-2 text-slate-400" />
-                      Posting Date: {moment(job.postedDate).format("DD-MM-YYYY")}
+                  {postedDate && (
+                    <div className="flex items-center text-black">
+                      <Calendar className="w-5 h-5 mr-2 text-black" />
+                      Posting Date: {moment(postedDate).format("DD-MM-YYYY")}
                     </div>
                   )}
 
-                  {/* Deadline */}
-                  {job.deadline && (
-                    <div className="flex items-center text-slate-600">
-                      <Briefcase className="w-5 h-5 mr-2 text-slate-400" />
-                      Closing Date: {moment(job.deadline).format("DD-MM-YYYY")}
+                  {deadline && (
+                    <div className="flex items-center text-black">
+                      <Briefcase className="w-5 h-5 mr-2 text-black" />
+                      Closing Date: {moment(deadline).format("DD-MM-YYYY")}
                     </div>
                   )}
 
-                  {/* Hours */}
-                  {job.hours && (
-                    <div className="flex items-center text-slate-600">
-                      <Clock className="w-5 h-5 mr-2 text-slate-400" />
-                      Hours: {job.hours}
+                  {hours && (
+                    <div className="flex items-center text-black">
+                      <Clock className="w-5 h-5 mr-2 text-black" />
+                      Hours: {hours}
                     </div>
                   )}
 
-                  {/* Location */}
-                  {job.location && (
-                    <div className="flex items-center text-slate-600">
-                      <MapPin className="w-5 h-5 mr-2 text-slate-400" />
-                      Location: {job.location}
+                  {location && (
+                    <div className="flex items-center text-black">
+                      <MapPin className="w-5 h-5 mr-2 text-black" />
+                      Location: {location}
                     </div>
                   )}
 
-                  {/* Remote Working */}
-                  {job.remoteWorking && (
-                    <div className="flex items-start text-slate-600">
-                      <Briefcase className="w-6 h-6 mr-2 text-slate-400" />
-                      Remote Working: {job.remoteWorking}
+                  {remoteWorking && (
+                    <div className="flex items-start text-black">
+                      <Briefcase className="w-6 h-6 mr-2 text-black" />
+                      Remote Working: {remoteWorking}
                     </div>
                   )}
+
+                  {/* Company */}
+                  {/* {job.company && (
+        <div className="flex items-center text-slate-600">
+          <Building2 className="w-5 h-5 mr-2 text-slate-400" />
+          {job.company}
+        </div>
+      )} */}
                 </div>
 
-
                 {/* Apply Button */}
-                {job.link && (
-                  <Button asChild className="py-5 text-lg">
-                    <a href={job.link} target="_blank" rel="noopener noreferrer">
-                      Apply Now
-                    </a>
+                {jobId && (
+                  <Button onClick={() => router.push(`/jobs/${slug}/${jobId}/career-application`)} className="py-5 text-lg">
+                    Apply Now
                   </Button>
                 )}
               </CardHeader>
 
-
               <CardContent className="space-y-8">
                 {/* Job Description */}
                 <section>
-                  <h3 className="text-2xl font-semibold mb-3 ">Job Description</h3>
-              <p className=" leading-relaxed whitespace-pre-line">
-  {job.description.replace(/\\n/g, "\n")}
-</p>
+                  <h3 className="text-2xl font-semibold mb-3 text-slate-900">Job Description</h3>
+                  <p className="text-slate-700 leading-relaxed">{job.description}</p>
                 </section>
 
                 {/* Responsibilities */}
-                {job.responsibilities?.length > 0 && (
+                {responsibilities.length > 0 && (
                   <section>
-                    <h3 className="text-2xl font-semibold mb-3 ">Responsibilities</h3>
+                    <h3 className="text-2xl font-semibold mb-3 text-slate-900">Responsibilities</h3>
                     <ul className="space-y-3">
-                      {job.responsibilities.map((responsibility, index) => (
+                      {responsibilities.map((responsibility: string, index: number) => (
                         <li key={index} className="flex items-start">
                           <CheckCircle2 className="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span className="">{responsibility}</span>
+                          <span className="text-slate-700">{responsibility}</span>
                         </li>
                       ))}
                     </ul>
@@ -154,14 +199,14 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
                 )}
 
                 {/* Requirements */}
-                {job.requirements?.length > 0 && (
+                {requirements.length > 0 && (
                   <section>
-                    <h3 className="text-2xl font-semibold mb-3 ">Requirements</h3>
+                    <h3 className="text-2xl font-semibold mb-3 text-slate-900">Requirements</h3>
                     <ul className="space-y-3">
-                      {job.requirements.map((requirement, index) => (
+                      {requirements.map((requirement: string, index: number) => (
                         <li key={index} className="flex items-start">
                           <CheckCircle2 className="w-5 h-5 mr-3 text-blue-600 flex-shrink-0 mt-0.5" />
-                          <span className="">{requirement}</span>
+                          <span className="text-slate-700">{requirement}</span>
                         </li>
                       ))}
                     </ul>
@@ -169,14 +214,14 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
                 )}
 
                 {/* Benefits */}
-                {job.benefits?.length > 0 && (
+                {benefits.length > 0 && (
                   <section>
-                    <h3 className="text-2xl font-semibold mb-3 ">Benefits</h3>
+                    <h3 className="text-2xl font-semibold mb-3 text-slate-900">Benefits</h3>
                     <ul className="space-y-3">
-                      {job.benefits.map((benefit, index) => (
+                      {benefits.map((benefit: string, index: number) => (
                         <li key={index} className="flex items-start">
                           <CheckCircle2 className="w-5 h-5 mr-3 text-slate-600 flex-shrink-0 mt-0.5" />
-                          <span className="">{benefit}</span>
+                          <span className="text-slate-700">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -184,19 +229,13 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
                 )}
 
                 {/* Final Call-to-Action */}
-                <div className="p-6 text-center space-y-4">
-
-                  <Button asChild className="px-8">
-                    <a
-                      href={job.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                {jobId && (
+                  <div className="p-6 text-center space-y-4">
+                    <Button onClick={() => router.push(`/jobs/${slug}/${jobId}/career-application`)} className="px-8">
                       Apply Now
-                    </a>
-                  </Button>
-
-                </div>
+                    </Button>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </div>
@@ -209,21 +248,20 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
               </CardHeader>
               <CardContent className="space-y-4 flex flex-col">
                 {suggestedJobs.length > 0 ? (
-                  suggestedJobs.map((suggestedJob) => (
-                    <Link key={suggestedJob.id} href={`/jobs/${suggestedJob.slug}`}>
+                  suggestedJobs.map((suggestedJob: any) => (
+                    <Link key={suggestedJob._id || suggestedJob.id} href={`/jobs/${suggestedJob.slug}`}>
                       <div className="p-4 border border-slate-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all cursor-pointer">
-                        <h4 className="font-semibold  mb-2 hover:text-blue-600">
-                          {suggestedJob.title}
+                        <h4 className="font-semibold text-slate-900 mb-2 hover:text-blue-600">
+                          {suggestedJob.jobTitle}
                         </h4>
-
                         <Badge variant="secondary" className="mt-2 bg-blue-100 text-blue-800 text-xs">
-                          {suggestedJob.type}
+                          {suggestedJob.type || 'Permanent'}
                         </Badge>
                       </div>
                     </Link>
                   ))
                 ) : (
-                  <p className="text-slate-500 text-sm">No similar jobs available at the moment.</p>
+                  <p className="text-black text-sm">No similar jobs available at the moment.</p>
                 )}
               </CardContent>
             </Card>

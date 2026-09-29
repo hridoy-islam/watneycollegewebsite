@@ -7,13 +7,13 @@ function TermsPage() {
       <section className="relative py-20 bg-ocean-breeze overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center">
           <ShieldEllipsis className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-          <h1 className="text-5xl md:text-6xl font-black text-watney-blue-primary mb-6 text-gray-900">
+          <h1 className="text-5xl md:text-6xl font-black text-watney-blue-primary mb-6 text-black">
             Privacy Policy
           </h1>
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-12 max-w-4xl text-gray-800 space-y-8">
+      <section className="container mx-auto px-4 py-12 max-w-4xl text-black space-y-8">
         <article>
           <h2 className="text-2xl font-semibold mb-3">1. Introduction</h2>
           <p>

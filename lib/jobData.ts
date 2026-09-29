@@ -11,7 +11,7 @@ export interface Job {
   postedDate: string;
   deadline: string;
   link: string;
-
+  jobId: string;
   // 🆕 Additional fields for detailed job info
   hours: string;
   location: string;
@@ -100,7 +100,7 @@ export const jobs: Job[] = [
     postedDate: "2025-10-09",
     deadline: "2025-12-31",
     link: "https://app.watneycollege.co.uk/jobs/apply/690f54d56e863e83bc69b6da",
-
+    jobId: "690f54d56e863e83bc69b6da",
     // 🆕 New fields
     hours: "Part time",
     location: "80-82 Nelson Street, London, E1 2DY",
@@ -152,6 +152,7 @@ export const jobs: Job[] = [
     postedDate: "2025-10-09",
     deadline: "2025-11-08",
     link: "https://app.watneycollege.co.uk/jobs/apply/68e7dd8a7bf87c65695a62ea",
+  jobId: "68e7dd8a7bf87c65695a62ea",
 
     // 🆕 New fields
     hours: "Part time",
@@ -159,13 +160,13 @@ export const jobs: Job[] = [
     remoteWorking: "Hybrid - work remotely up to 2 days per week",
     // company: "WATNEY COLLEGE LIMITED"
   },{
-  "id": "3",
-  "slug": "admin-and-marketing-executive",
-  "title": "Admin and Marketing Executive",
-  "type": "Part-Time",
-  "salary": "", 
-  "description": "Watney College is a London-based higher education provider delivering nationally recognised qualifications in health and social care, alongside other vocational and professional programmes. We are committed to accessible, high-quality education, strong student support, and close partnerships with employers across the healthcare sector.\n\nAs the College continues to grow, the Admin and Marketing Executive role supports both operational and marketing functions. The position combines office administration, student and applicant coordination, and marketing support, providing an opportunity to contribute to the smooth running of the College while supporting student recruitment activities.",
-  "responsibilities": [
+  id: "3",
+  slug: "admin-and-marketing-executive",
+  title: "Admin and Marketing Executive",
+  type: "Part-Time",
+  salary: "", 
+  description: "Watney College is a London-based higher education provider delivering nationally recognised qualifications in health and social care, alongside other vocational and professional programmes. We are committed to accessible, high-quality education, strong student support, and close partnerships with employers across the healthcare sector.\n\nAs the College continues to grow, the Admin and Marketing Executive role supports both operational and marketing functions. The position combines office administration, student and applicant coordination, and marketing support, providing an opportunity to contribute to the smooth running of the College while supporting student recruitment activities.",
+  responsibilities: [
     "Manage day-to-day administrative operations, including correspondence, diary management, meeting coordination, and general office support.",
     "Maintain accurate student and applicant records, filing systems, and documentation in accordance with data protection and confidentiality requirements.",
     "Provide administrative support for finance-related activities, including invoicing, purchase orders, expense monitoring, and supplier liaison.",
@@ -187,7 +188,7 @@ export const jobs: Job[] = [
     "Monitor application pipelines, key deadlines, project milestones, and performance indicators.",
     "Identify and escalate issues where appropriate while contributing to the continuous improvement of administrative and recruitment processes."
   ],
-  "requirements": [
+  requirements: [
     "Degree-level qualification in business, administration, marketing, communications, or related discipline, or equivalent relevant professional experience.",
     "Excellent organisational and time management skills with the ability to manage multiple priorities and deadlines.",
     "Strong written and verbal communication skills with a professional approach.",
@@ -197,116 +198,20 @@ export const jobs: Job[] = [
     "Proactive, reliable, highly organised, with excellent attention to detail.",
     "Ability to work independently while contributing effectively within a collaborative team environment."
   ],
-  "benefits": [
+  benefits: [
     "Opportunity to shape and develop the role as the College continues to grow.",
     "Exposure to a broad range of higher education operations, student admissions, marketing, and recruitment.",
     "Opportunity to work closely with the College's senior management team in a supportive environment.",
     "Ongoing professional development and opportunities for increased responsibility and career progression.",
     "Flexible part-time working arrangements with salary and benefits calculated on a pro rata basis."
   ],
-  "postedDate": "2026-06-09",
-  "deadline": "2026-12-31",
-  "link": "https://app.watneycollege.co.uk/jobs/apply/6a3aada6af946e5c9db69bdf",
-  "hours": "Part time",
-  "location": "London (Whitechapel)",
-  "remoteWorking": "Flexible part-time working arrangements"
-},
-  {
-    id: "4",
-    slug: "external-member",
-    title: "External Member",
-    type: "Part-Time",
-    salary: "",
-    description:
-      "Watney College is a growing independent college in East London committed to delivering high-quality further and higher education. We offer a range of professional and vocational qualifications accredited by recognised awarding bodies such as Nqual, ATHE and OTHM. We are working towards partnerships with UK universities and registration with the Office for Students (OfS), aiming to establish ourselves as a trusted higher education provider.\n\nWe are seeking an External Member to provide independent external scrutiny, specialist advice and constructive challenge to the College Oversight Board (COB), Audit, Remuneration and Risk Committee (ARRC), Board of Directors (BoD) or other designated committees.",
-    responsibilities: [
-      "Provide independent external scrutiny, specialist advice and constructive challenge to the College Oversight Board, Audit, Remuneration and Risk Committee, Board of Directors or other committees to which they are appointed.",
-      "Attend scheduled committee meetings, review papers in advance and contribute to discussions in a professional, objective and evidence-based manner.",
-      "Review reports, policies, action trackers, risk registers, audit evidence, quality assurance records, student experience information and performance data submitted for governance consideration.",
-      "Support the College Oversight Board by contributing to oversight of learner experience, academic quality, student outcomes, complaints, progression, support arrangements and institutional improvement.",
-      "Support the Audit, Remuneration and Risk Committee by reviewing risk management, internal controls, audit findings, compliance evidence, financial sustainability, remuneration matters and mitigation actions where required.",
-      "Support the Board of Directors by providing external perspective on strategic priorities, governance effectiveness, regulatory readiness, institutional sustainability and accountability.",
-      "Question whether reports and recommendations are sufficiently evidenced, proportionate, risk-aware and aligned with relevant terms of reference, College policies and regulatory expectations.",
-      "Contribute to preparations for OfS registration, awarding organisation activity, partner review, external audit, internal review, quality monitoring and other regulatory or assurance activity where relevant to their expertise.",
-      "Assist in monitoring completion of agreed actions, recommendations and matters arising from committee discussions where these relate to the External Member role.",
-      "Promote high standards of integrity, safeguarding, equality, diversity, inclusion, confidentiality, data protection and public accountability within College governance.",
-      "Declare any actual, potential or perceived conflicts of interest and withdraw from discussions where required under College procedures.",
-      "Operate within the advisory and assurance remit of the appointment, maintaining a clear distinction between external governance contribution and operational management.",
-      "Undertake other proportionate committee-related duties agreed by the relevant Chair, Principal or Board of Directors in line with the role of an External Member."
-    ],
-    requirements: [
-  "The post holder must have good interpersonal, organisational and communication skills in English.",
-  "Should have appropriate professional knowledge, sector experience or specialist expertise relevant to governance, education, quality assurance, finance, audit, risk, safeguarding, compliance, student experience or organisational leadership.",
-  "Must have relevant experience of working in an advisory, audit, governance, senior management, professional or external assurance role.",
-  "Should understand the role of externality, independent scrutiny and constructive challenge within a committee or board environment.",
-  "Must understand the advisory nature of the External Member role and the need to operate within agreed terms of reference, reporting arrangements and delegated authority.",
-  "Able to review committee papers, policies, risk registers, financial information, quality assurance reports, action plans and performance data, identifying key issues and assurance gaps.",
-  "Should be confident in asking relevant questions and providing proportionate challenge in a professional, balanced and constructive manner.",
-  "Able to contribute to discussions relating to learner outcomes, academic quality, student experience, financial sustainability, risk management, safeguarding and regulatory readiness.",
-  "Should understand the importance of confidentiality, data protection, safeguarding, equality, impartiality, professional boundaries and conflict of interest declarations within an education setting.",
-  "Must be reliable, objective and able to work constructively with the Chair, directors, non-executive members, senior managers, academic staff, administrative staff and other committee members.",
-  "Able to act independently and in the best interests of the College while respecting the distinction between governance oversight, advisory input and operational management.",
-  "Should demonstrate integrity, discretion, impartiality, sound judgement and the ability to handle sensitive College matters appropriately.",
-  "Must be able to attend meetings regularly, review documents in advance, provide timely comments and contribute to agreed follow-up work where required.",
-  "The post holder must not have any unspent criminal convictions as per the Rehabilitation of Offenders Act 1974, subject to the nature of the appointment and relevant legal requirements.",
-  "Must be able to travel and attend College meetings, external meetings or training where required for College business."
-],
-    benefits: [
-      "Opportunity to contribute to the strategic direction and governance of a growing educational institution.",
-      "Professional development and exposure to higher education governance, regulatory and quality assurance processes."
-    ],
-    postedDate: "2026-07-30",
-    deadline: "2026-12-31",
-    link: "https://app.watneycollege.co.uk/jobs/apply/6a6b15c4af946e5c9db8f641",
-    hours: "As per committee meeting and advisory requirements",
-    location: "80-82 Nelson Street, London, E1 2DY",
-    remoteWorking: ""
-  },
- {
-    id: "5",
-    slug: "lecturer-assessor-it-ai",
-    title: "Lecturer & Assessor — IT / AI",
-    type: "Permanent",
-   salary: "Negotiable",
-    description:
-      "About Watney College\nWatney College is a growing independent college in East London delivering further and higher education. We currently hold accreditation with ESB, Highfield and Focus Awards, and are working towards Office for Students (OfS) registration and university partnerships as we expand into higher education, including delivery of ATHE Level 3 qualifications.\n\nThe Role\nWe're looking for a Lecturer & Assessor to deliver high-quality teaching and assessment on our AI & Automation Practitioner apprenticeship (Level 4), working closely with the Programme Leader to plan, teach and assess against the programme specification.",
-    responsibilities: [
-      "Deliver lectures and learning aligned with the Programme Leader's module specification",
-      "Prepare lesson plans, schemes of work and assessment materials to programme deadlines",
-      "Run personal tutoring and report weekly outcomes to the Programme Leader",
-      "Plan and deliver formative and summative assessments on schedule",
-      "Assess learner work for authenticity, validity and sufficiency against assessment criteria, and provide timely, constructive feedback",
-      "Handle late submissions, resubmissions and mitigating circumstances per UK HEI guidance",
-      "Take part in internal verification and quality assurance, acting on Internal Verifier feedback",
-      "Support annual programme monitoring and review with the Programme Leader and Head of Academic",
-      "Attend Programme Committee and Standardisation meetings, and follow up on agreed actions",
-      "Collect student feedback forms and submit them to the College Oversight Board",
-      "Support PSRB visits (OfS, Pearson, partner HEIs/FECs), including outside usual teaching hours where needed",
-      "Maintain your own CPD and attend College training",
-      "Take on other academic duties as reasonably assigned by the Programme Leader or Head of Academic"
-    ],
-   requirements: [
-      "Strong interpersonal, organisational and communication skills",
-      "Good numeracy skills",
-      "An undergraduate degree in Computer Science (or closely related), plus relevant training for your subject area",
-      "Familiarity with AI/automation tools and concepts (e.g. low-/no-code platforms, prompt engineering, workflow automation) relevant to teaching this programme",
-      "A completed assessor qualification (Level 3, 4 or 5)",
-      "A teaching qualification appropriate to your discipline (e.g. PCE, PGCE, or Level 5 DET) — or working towards the next level",
-      "Flexibility to support urgent QAA, awarding body, HEI or FEC visit requirements",
-      "No unspent convictions under the Rehabilitation of Offenders Act 1974"
-    ],
-    benefits: [
-      "Be part of a growing, ambitious college at a pivotal stage of its development",
-      "Help shape the College's direction and student outcomes",
-      "A collaborative, inclusive working environment",
-      "Genuine professional development and leadership opportunities"
-    ],
-    postedDate: "2026-07-30",
-    deadline: "2026-12-31",
-    link: "https://app.watneycollege.co.uk/jobs/apply/6a6b14e7af946e5c9db8f63a",
-    hours: "As per requirement – full time/ part time adjustments",
-    location: "80-82 Nelson Street, London, E1 2DY",
-    remoteWorking: "Hybrid"
+  postedDate: "2026-06-09",
+  deadline: "2026-12-31",
+  link: "https://app.watneycollege.co.uk/jobs/apply/6a3aada6af946e5c9db69bdf",
+  jobId: "6a3aada6af946e5c9db69bdf",
+  hours: "Part time",
+  location: "London (Whitechapel)",
+  remoteWorking: "Flexible part-time working arrangements"
 }
 ];
 

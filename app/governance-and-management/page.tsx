@@ -62,7 +62,7 @@ const OrgNode = ({
     >
       <div
         className={`p-2 flex flex-col sm:p-3 text-center text-xs sm:text-[13px] font-bold leading-snug items-center justify-center h-full w-full
-        ${isGolden ? "text-black" : "text-slate-800"}`}
+        ${isGolden ? "text-black" : "text-black"}`}
       >
         {title}
       </div>
@@ -275,7 +275,7 @@ export default function GovernanceAndManagementPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-12"
+                className="text-lg md:text-xl text-black max-w-3xl mx-auto leading-relaxed mb-12"
               >
                 Watney College operates a transparent and accountable governance
                 framework with a clear separation between strategic oversight
@@ -299,11 +299,11 @@ export default function GovernanceAndManagementPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
                     Board of{" "}
                     <span className="text-watney-blue-primary">Directors</span>
                   </h2>
-                  <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-5xl">
+                  <p className="text-lg text-black mx-auto leading-relaxed max-w-5xl">
                     The Board holds ultimate statutory and fiduciary
                     responsibility for the institution, including financial
                     sustainability, regulatory compliance, institutional
@@ -342,13 +342,13 @@ export default function GovernanceAndManagementPage() {
                         key={index}
                         className="hover:bg-slate-50 transition-colors duration-200"
                       >
-                        <td className="p-6 font-bold text-slate-900 whitespace-nowrap">
+                        <td className="p-6 font-bold text-black whitespace-nowrap">
                           {director.name}
                         </td>
-                        <td className="p-6 text-slate-600 whitespace-nowrap">
+                        <td className="p-6 text-black whitespace-nowrap">
                           {director.role}
                         </td>
-                        <td className="p-6 text-slate-500 italic max-w-md">
+                        <td className="p-6 text-black italic max-w-md">
                           {director.expertise}
                         </td>
                         <td className="p-6 text-center">
@@ -356,7 +356,7 @@ export default function GovernanceAndManagementPage() {
                             className={`px-4 py-1.5 rounded-full text-xs font-bold border ${
                               director.type === "Executive"
                                 ? "bg-blue-50 text-watney-blue-primary border-blue-100"
-                                : "bg-slate-50 text-slate-600 border-slate-200"
+                                : "bg-slate-50 text-black border-slate-200"
                             }`}
                           >
                             {director.type}
@@ -383,11 +383,11 @@ export default function GovernanceAndManagementPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
                   Functional{" "}
                   <span className="text-watney-blue-primary">Structure</span>
                 </h2>
-                <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-5xl">
+                <p className="text-lg text-black mx-auto leading-relaxed max-w-5xl">
                   All relationships are two-way — authority is delegated
                   downward and formal reports flow upward through the same
                   channel. Dotted double-headed arrows represent this two-way
@@ -602,7 +602,7 @@ export default function GovernanceAndManagementPage() {
                   </Tree>
 
                   {/* Chart Legend matching the image */}
-                  <div className="mt-16 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-600 font-medium bg-white px-6 py-3 rounded-full shadow-sm border border-slate-200">
+                  <div className="mt-16 flex flex-wrap items-center justify-center gap-6 text-xs text-black font-medium bg-white px-6 py-3 rounded-full shadow-sm border border-slate-200">
                     <div className="flex items-center gap-2">
                       <div
                         className="w-4 h-4 rounded-sm"
@@ -672,10 +672,10 @@ export default function GovernanceAndManagementPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
                 Organogram <span className="text-watney-blue-primary">V6</span>
               </h2>
-              <p className="text-lg text-gray-600 mx-auto leading-relaxed max-w-5xl">
+              <p className="text-lg text-black mx-auto leading-relaxed max-w-5xl">
                 Full staffing hierarchy from Board of Directors through to
                 academic delivery roles.
               </p>
@@ -889,7 +889,7 @@ export default function GovernanceAndManagementPage() {
                   Our{" "}
                   <span className="text-watney-blue-primary">Committees</span>
                 </h2>
-                <p className="text-gray-600 text-base leading-relaxed max-w-3xl mx-auto">
+                <p className="text-black text-base leading-relaxed max-w-3xl mx-auto">
                   Each committee operates under approved Terms of Reference and
                   submits formal reports through defined governance channels.
                 </p>
@@ -914,16 +914,16 @@ export default function GovernanceAndManagementPage() {
                             <h3 className="text-base font-bold text-black mb-1">
                               {committee.title}
                             </h3>
-                            <p className="text-xs text-gray-500 mb-2">
+                            <p className="text-xs text-black mb-2">
                               <span className="font-medium">Reports to:</span>{" "}
                               {committee.reportsTo}
                               {committee.note && (
-                                <span className="block text-[11px] text-gray-400 mt-0.5">
+                                <span className="block text-[11px] text-black mt-0.5">
                                   ({committee.note})
                                 </span>
                               )}
                             </p>
-                            <p className="text-sm text-gray-600 leading-relaxed">
+                            <p className="text-sm text-black leading-relaxed">
                               {committee.description}
                             </p>
                           </div>
@@ -956,7 +956,7 @@ export default function GovernanceAndManagementPage() {
                   Governance vs{" "}
                   <span className="text-watney-blue-primary">Management</span>
                 </h2>
-                <p className="text-gray-600 text-base leading-relaxed max-w-3xl mx-auto">
+                <p className="text-black text-base leading-relaxed max-w-3xl mx-auto">
                   Watney College maintains a clear separation between governance
                   and executive management. Governance bodies do not manage
                   day-to-day operations, and executive management does not
@@ -991,7 +991,7 @@ export default function GovernanceAndManagementPage() {
                     ].map((item, i) => (
                       <li
                         key={i}
-                        className="flex items-center gap-3 text-slate-200"
+                        className="flex items-center gap-3 text-black"
                       >
                         <CheckCircle2 className="w-5 h-5 text-watney-blue-primary shrink-0" />
                         <span className="text-base">{item}</span>
@@ -1012,7 +1012,7 @@ export default function GovernanceAndManagementPage() {
                     <div className="p-2.5 bg-blue-50 rounded-xl">
                       <Briefcase className="w-6 h-6 text-watney-blue-primary" />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900">
+                    <h3 className="text-2xl font-bold text-black">
                       Executive management responsibilities
                     </h3>
                   </div>
@@ -1026,7 +1026,7 @@ export default function GovernanceAndManagementPage() {
                     ].map((item, i) => (
                       <li
                         key={i}
-                        className="flex items-center gap-3 text-slate-700"
+                        className="flex items-center gap-3 text-black"
                       >
                         <CheckCircle2 className="w-5 h-5 text-watney-blue-primary shrink-0" />
                         <span className="text-base">{item}</span>
@@ -1058,7 +1058,7 @@ export default function GovernanceAndManagementPage() {
                   Financial{" "}
                   <span className="text-watney-blue-primary">Transparency</span>
                 </h2>
-                <p className="text-gray-600 text-base leading-relaxed max-w-3xl mx-auto">
+                <p className="text-black text-base leading-relaxed max-w-3xl mx-auto">
                   Audited financial accounts are published below in accordance
                   with our commitment to transparency and regulatory compliance.
                 </p>
@@ -1075,13 +1075,13 @@ export default function GovernanceAndManagementPage() {
                   <table className="w-full">
                     <thead>
                       <tr className="border-b border-gray-200">
-                        <th className="text-left py-4 px-4 text-sm font-bold uppercase tracking-wider text-gray-600">
+                        <th className="text-left py-4 px-4 text-sm font-bold uppercase tracking-wider text-black">
                           Document
                         </th>
-                        <th className="text-left py-4 px-4 text-sm font-bold uppercase tracking-wider text-gray-600">
+                        <th className="text-left py-4 px-4 text-sm font-bold uppercase tracking-wider text-black">
                           Year
                         </th>
-                        <th className="text-right py-4 px-4 text-sm font-bold uppercase tracking-wider text-gray-600">
+                        <th className="text-right py-4 px-4 text-sm font-bold uppercase tracking-wider text-black">
                           Download
                         </th>
                       </tr>
@@ -1095,13 +1095,13 @@ export default function GovernanceAndManagementPage() {
                           <td className="py-4 px-4">
                             <div className="flex items-center gap-3">
                               <FileText className="w-5 h-5 text-watney-blue-primary" />
-                              <span className="text-sm font-medium text-gray-900">
+                              <span className="text-sm font-medium text-black">
                                 Audited Financial Accounts
                               </span>
                             </div>
                           </td>
                           <td className="py-4 px-4">
-                            <span className="text-sm text-gray-600">
+                            <span className="text-sm text-black">
                               {account.year}
                             </span>
                           </td>
@@ -1131,7 +1131,7 @@ export default function GovernanceAndManagementPage() {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-gray-200 text-center">
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-black">
                     Last reviewed: November 2025 · Next review: November 2026 ·
                     Approved by: Board of Directors
                   </p>
@@ -1151,10 +1151,10 @@ export default function GovernanceAndManagementPage() {
                     <ShieldAlert className="w-6 h-6 text-watney-blue-primary" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-slate-900 mb-2">
+                    <h4 className="text-lg font-bold text-black mb-2">
                       Accountability Statement
                     </h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-black leading-relaxed">
                       The Board of Directors is the governing body of Watney
                       College and holds ultimate responsibility for the
                       College's strategic direction, financial sustainability,

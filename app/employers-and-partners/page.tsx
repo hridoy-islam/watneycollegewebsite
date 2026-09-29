@@ -134,11 +134,11 @@ const affiliates = [
           <div className="absolute left-[322px] top-0 w-full h-full bg-[url('/pattern/p7.png')] bg-cover bg-center pointer-events-none rotate-0  z-10"></div>
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Users className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+            <h1 className="text-5xl md:text-6xl font-black mb-6 text-black">
               Building Futures Together with{" "}
               <span className="text-watney-blue-primary">Watney College</span>
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed mx-auto">
+            <p className="text-lg text-black leading-relaxed mx-auto">
               Partner with us to bridge education and industry. As a valued
               employer or partner, you’ll help shape the next generation of
               skilled professionals through collaboration, internships, and
@@ -158,13 +158,13 @@ const affiliates = [
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
                 Trusted Partners in{" "}
                 <span className="text-gradient-watney">
                   Education & Healthcare
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-black leading-relaxed">
                 Watney College collaborates with leading organizations to
                 provide comprehensive support to our students.
               </p>
@@ -201,7 +201,7 @@ const affiliates = [
                       </div>
 
                       {/* Service */}
-                      <p className="text-gray-600 text-justify mb-4 flex-grow">
+                      <p className="text-black text-justify mb-4 flex-grow">
                         {affiliate.service}
                       </p>
 
@@ -245,7 +245,7 @@ const affiliates = [
             </p>
 
             {/* Contact Info */}
-            <div className="mb-8 space-y-2 text-gray-700 text-sm sm:text-base">
+            <div className="mb-8 space-y-2 text-black text-sm sm:text-base">
               <p>
                 📧{" "}
                 <a
@@ -301,7 +301,7 @@ const affiliates = [
               <h2 className="text-4xl text-black font-bold mb-6">
                 Become an Affiliate Today!
               </h2>
-              <p className="text-xl mb-8 text-gray-600  ">
+              <p className="text-xl mb-8 text-black  ">
                 Partner with Watney College to reach a growing community of
                 students and professionals.
               </p>
