@@ -326,10 +326,10 @@ export default function TakeAssessmentPage() {
 
   const back = (
     <Link
-      href="/dashboard/assessments"
+      href="/dashboard"
       className="inline-flex items-center gap-1.5 text-sm font-medium text-black hover:underline"
     >
-      <ArrowLeft className="h-4 w-4" /> All assessments
+      <ArrowLeft className="h-4 w-4" /> Back to dashboard
     </Link>
   );
 

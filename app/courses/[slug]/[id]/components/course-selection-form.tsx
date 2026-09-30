@@ -162,7 +162,7 @@ export default function CourseSelectionForm({
                   htmlFor="studentType"
                   className="mb-1 block text-left text-sm font-semibold text-black"
                 >
-                  My location
+                  Student Type
                 </label>
                 <Select
                   value={formData.studentType}
