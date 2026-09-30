@@ -351,7 +351,7 @@ export default function CourseDetailPage() {
                 <div className="bg-white/10 p-6 border-b border-white/10 rounded-md mb-6">
                   <div className="text-white text-sm font-medium mb-1">Tuition Fee</div>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold">{course.courseFee || "-"}</span>
+                    <span className="text-4xl font-bold">£{course.courseFee || "-"}</span>
                   </div>
                   <span className="text-white text-sm">{course.feeDetails || ""}</span>
                 </div>

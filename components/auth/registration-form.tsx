@@ -96,7 +96,8 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           )
         ).toISOString(),
         role: 'applicant',
-        isValided: true,
+        // Left unverified: the first login mails a code and the portal asks
+        // for it before anything else.
         authorized: true
       });
 

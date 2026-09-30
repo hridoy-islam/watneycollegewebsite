@@ -232,6 +232,55 @@ export const resetPassword = createAsyncThunk<
   }
 });
 
+/**
+ * Confirms the email address with the code sent at login (or by
+ * `resendVerificationOtp`). The API answers with a fresh token that carries
+ * `isValided: true`, which replaces the one the applicant logged in with.
+ */
+export const verifyEmail = createAsyncThunk<
+  UserResponse,
+  validateOtpCredentials,
+  { rejectValue: string }
+>('auth/verifyEmail', async (credentials, { rejectWithValue }) => {
+  try {
+    const request = await axios.patch(
+      `${process.env.NEXT_PUBLIC_API_URL}/auth/verifyemail`,
+      credentials,
+      { headers: { 'Content-Type': 'application/json' }, withCredentials: true }
+    );
+    const response = request.data;
+    const accessToken = response?.data?.accessToken;
+    if (accessToken) {
+      localStorage.setItem('watney', JSON.stringify(accessToken));
+    }
+    return response;
+  } catch (error: any) {
+    return rejectWithValue(
+      error?.response?.data?.message || error.message || 'Verification failed'
+    );
+  }
+});
+
+/** Sends a new email verification code. */
+export const resendVerificationOtp = createAsyncThunk<
+  UserResponse,
+  forgetCredentials,
+  { rejectValue: string }
+>('auth/resendVerificationOtp', async (credentials, { rejectWithValue }) => {
+  try {
+    const request = await axios.patch(
+      `${process.env.NEXT_PUBLIC_API_URL}/auth/resend-otp`,
+      credentials,
+      { headers: { 'Content-Type': 'application/json' } }
+    );
+    return request.data;
+  } catch (error: any) {
+    return rejectWithValue(
+      error?.response?.data?.message || error.message || 'Could not resend the code'
+    );
+  }
+});
+
 // patch new password
 export const changePassword = createAsyncThunk<
   ChangePasswordResponse,
@@ -334,6 +383,12 @@ const authSlice = createSlice({
         state.error = 'Please Check Your Login Credentials';
         state.token = null;
       })
+      .addCase(verifyEmail.fulfilled, (state, action: any) => {
+        const accessToken = action.payload?.data?.accessToken;
+        if (!accessToken) return;
+        state.token = accessToken;
+        state.user = { ...jwtDecode(accessToken), isValided: true };
+      })
       .addCase(requestOtp.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -353,5 +408,12 @@ const authSlice = createSlice({
   }
 });
 
-export const { resetError ,updateAuthIsCompleted,updateAuthIsAuthorized, logout, setToken} = authSlice.actions;
+export const {
+  resetError,
+  updateAuthIsCompleted,
+  updateAuthIsValided,
+  updateAuthIsAuthorized,
+  logout,
+  setToken
+} = authSlice.actions;
 export default authSlice.reducer;

@@ -303,7 +303,6 @@ export function ApplicationFormShell({
       isCompleted: true,
       courseId,
       authorized: true,
-      isValided: true
     };
 
     try {
@@ -317,7 +316,6 @@ export function ApplicationFormShell({
           isCompleted: true,
           courseId,
           authorized: true,
-          isValided: true
         });
       }
 

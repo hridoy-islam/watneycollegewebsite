@@ -2,9 +2,10 @@
 
 import { useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProtectedRoute from '@/components/auth/protected-route';
 import { createApplicationCourse } from '@/lib/applicant-api';
+import { updateAuthIsCompleted } from '@/redux/features/authSlice';
 import { InternationalApplicationForm } from './international-application-form';
 
 function InternationalStudentApplication() {
@@ -16,6 +17,7 @@ function InternationalStudentApplication() {
     ? courseIdFromUrl[0]
     : courseIdFromUrl || '';
 
+  const dispatch = useDispatch();
   const user = useSelector((state: any) => state.auth.user);
   const applicantId = user?._id;
 
@@ -46,9 +48,12 @@ function InternationalStudentApplication() {
       // application row is left to open.
       submitApplication={async ({ courseId: id }) => {
         await createApplicationCourse({ applicantId, courseId: id });
+        // The profile is complete now - the dashboard opens up.
+        dispatch(updateAuthIsCompleted(true));
       }}
       onStudentTypeMismatch={handleStudentTypeMismatch}
-      onDone={() => router.push('/')}
+      onDone={() => router.push('/dashboard')}
+      doneLabel="Go to dashboard"
     />
   );
 }

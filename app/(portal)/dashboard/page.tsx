@@ -9,6 +9,9 @@ import { ApplicationCard } from '@/components/dashboard/applicant/application-ca
 import { PendingAssessmentBanner } from '@/components/dashboard/applicant/pending-assessment-banner';
 import { usePortalApplications } from '@/components/dashboard/use-portal-applications';
 import { fetchApplicantApplications } from '@/lib/portal';
+import type { PortalApplication } from '@/lib/portal';
+import { fetchApplicant, getApplicationPath, toId } from '@/lib/applicant-api';
+import { useEffect, useState } from 'react';
 
 export default function ApplicantDashboardPage() {
   const { user, applications, isLoading, loadFailed } = usePortalApplications(
@@ -16,6 +19,45 @@ export default function ApplicantDashboardPage() {
   );
 
   const firstName =  user?.name ;
+
+  // Read from the record rather than the token: the token's flags are only as
+  // fresh as the last login.
+  const [profile, setProfile] = useState<{
+    isCompleted: boolean;
+    studentType?: string;
+  } | null>(null);
+
+  useEffect(() => {
+    if (!user?._id) return;
+    fetchApplicant(user._id)
+      .then((applicant) =>
+        setProfile({
+          isCompleted: Boolean(applicant?.isCompleted),
+          studentType: applicant?.studentType
+        })
+      )
+      .catch((error) => {
+        console.error('Could not load the applicant profile:', error);
+        setProfile({ isCompleted: Boolean(user?.isCompleted) });
+      });
+  }, [user?._id, user?.isCompleted]);
+
+  /**
+   * Where "Complete the application" goes - the form for that course, or the
+   * course page to pick a student type if none is stored yet. Nothing while
+   * the profile is complete (or still loading).
+   */
+  const getCompleteHref = (application: PortalApplication) => {
+    if (!profile || profile.isCompleted) return undefined;
+    const courseId = toId(application.courseId);
+    if (!courseId) return undefined;
+    const slug =
+      (typeof application.courseId === 'object' && application.courseId?.slug) ||
+      'apply';
+    return profile.studentType
+      ? getApplicationPath(slug, courseId, profile.studentType)
+      : `/courses/${slug}/${courseId}`;
+  };
 
   return (
     <div className="space-y-6">
@@ -38,7 +80,7 @@ export default function ApplicantDashboardPage() {
 
       <PendingAssessmentBanner />
 
-      {isLoading ? (
+      {isLoading || !profile ? (
         <div className="flex justify-center py-16">
           <BlinkingDots size="large" color="bg-watney" />
         </div>
@@ -62,7 +104,11 @@ export default function ApplicantDashboardPage() {
       ) : (
         <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
           {applications.map((application) => (
-            <ApplicationCard key={application._id} application={application} />
+            <ApplicationCard
+              key={application._id}
+              application={application}
+              completeHref={getCompleteHref(application)}
+            />
           ))}
         </div>
       )}

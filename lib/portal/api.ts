@@ -17,7 +17,9 @@ export interface PortalApplication {
   seen?: boolean;
   createdAt?: string;
   updatedAt?: string;
-  courseId?: { _id: string; name?: string; courseCode?: string } | string;
+  courseId?:
+    | { _id: string; name?: string; courseCode?: string; slug?: string }
+    | string;
   intakeId?: { _id: string; termName?: string } | string;
   applicantId?: any;
   agentId?: any;

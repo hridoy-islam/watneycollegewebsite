@@ -10,13 +10,30 @@ import {
   type PortalApplication
 } from '@/lib/portal';
 
-/** One course application on the applicant dashboard. */
+const INCOMPLETE_STATUS = {
+  label: 'Incomplete',
+  className: 'border-amber-200 bg-amber-50 text-amber-700'
+};
+
+/**
+ * One course application on the applicant dashboard.
+ *
+ * `completeHref` is set while the applicant has not finished the application
+ * form: the application exists from the moment the course was picked, but the
+ * college does not see it until the form is done, so the card says so and
+ * links back into the form instead of talking about offers.
+ */
 export function ApplicationCard({
-  application
+  application,
+  completeHref
 }: {
   application: PortalApplication;
+  completeHref?: string;
 }) {
-  const status = getStatusStyle(application.status);
+  const isIncomplete = Boolean(completeHref);
+  const status = isIncomplete
+    ? INCOMPLETE_STATUS
+    : getStatusStyle(application.status);
   const intake = getIntakeName(application);
   const offerIssued = hasOffer(application);
 
@@ -62,7 +79,20 @@ export function ApplicationCard({
         the moment the application is created - so the offer itself
         (`offerType`, via `hasOffer`) is what decides.
       */}
-      {offerIssued ? (
+      {isIncomplete ? (
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-100 py-3">
+          <p className="text-xs font-semibold text-amber-700">
+            Your application is not finished yet.
+          </p>
+          <Link
+            href={completeHref!}
+            className="inline-flex items-center gap-1.5 rounded-md bg-watney px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-watney/90"
+          >
+            Complete the application
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+      ) : offerIssued ? (
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-100 py-3">
           <p className="text-xs font-semibold">
             {!application.offerStatus || application.offerStatus === 'pending'

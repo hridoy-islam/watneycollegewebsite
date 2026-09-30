@@ -7,6 +7,8 @@ import ApplicationForm from "./components/application-form";
 import CourseSelectionForm from "./components/course-selection-form";
 import ReapplyForm from "./components/reapply-form";
 import { BlinkingDots } from "@/components/blinking-dots";
+import VerifyEmail from "@/components/auth/verify-email";
+import { isApplicant } from "@/components/auth/roles";
 import { useToast } from "@/components/ui/use-toast";
 import { useParams, useRouter } from "next/navigation";
 import {
@@ -158,6 +160,14 @@ function CourseRegistration() {
           });
         }
 
+        // Applying from a course page opens that course's application too.
+        if (courseIdValue) {
+          await createApplicationCourse({
+            applicantId: userId,
+            courseId: courseIdValue,
+          });
+        }
+
         router.replace(
           getApplicationPath(slugValue, courseIdValue, applicant.studentType),
         );
@@ -227,6 +237,11 @@ function CourseRegistration() {
         applicationStep: 1,
       });
 
+      // The application exists from the moment the course is picked, so the
+      // dashboard can show it as incomplete if they leave part way through
+      // the form. A second pick of the same course is reported, not thrown.
+      await createApplicationCourse({ applicantId: userId, courseId });
+
       router.push(getApplicationPath(slugValue, courseId, formData.studentType));
     } catch (error: any) {
       console.error("Error saving course selection:", error);
@@ -288,6 +303,11 @@ function CourseRegistration() {
       courseIdValue &&
       courses.find((course) => course._id === courseIdValue),
   );
+
+  // An unverified applicant confirms their email before any of the form.
+  if (userId && isApplicant(user?.role) && user?.isValided === false) {
+    return <VerifyEmail user={user} />;
+  }
 
   // A logged in applicant waits on the profile lookup - rendering the student
   // type form first would let a completed applicant submit it and be dropped
