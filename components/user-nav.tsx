@@ -28,9 +28,11 @@ interface UserNavProps {
   /** Renders the menu inline instead of as a dropdown (mobile drawer). */
   inline?: boolean;
   onNavigate?: () => void;
+  /** Limits rendering to one auth state; renders nothing in the other. */
+  only?: 'loggedIn' | 'loggedOut';
 }
 
-function UserNavContent({ inline = false, onNavigate }: UserNavProps) {
+function UserNavContent({ inline = false, onNavigate, only }: UserNavProps) {
   const user = useSelector((state: any) => state.auth.user);
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
@@ -73,6 +75,8 @@ function UserNavContent({ inline = false, onNavigate }: UserNavProps) {
       router.push('/');
     });
   };
+
+  if (only === (user ? 'loggedOut' : 'loggedIn')) return null;
 
   if (!user) {
     return (
