@@ -121,7 +121,7 @@ export default function AccreditationPage() {
                 {
                   title: "NQual",
                   logo: "/nqual.png",
-                  link: "https://nqual.com",
+                  link: " https://www.nqual.co.uk/",
                   description:
                     "NQual provides high-quality qualifications and assessments designed to meet the needs of learners and help them achieve their potential, both professionally and personally.",
                 },

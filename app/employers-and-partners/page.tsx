@@ -281,7 +281,7 @@ const affiliates = [
                 <Button
                   size="lg"
                   variant="outline"
-                  className="btn-outline-watney w-full sm:w-auto flex items-center justify-center text-watney-blue-primary bg-transparent"
+                  className="btn-outline-watney w-full sm:w-auto flex items-center justify-center"
                 >
                   Explore Courses
                 </Button>

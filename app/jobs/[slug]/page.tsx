@@ -80,7 +80,7 @@ export default function JobDetailPage() {
   const deadline = job.applicationDeadline ? new Date(job.applicationDeadline) : (job.deadline ? new Date(job.deadline) : null);
   const hours = job.hours || '';
   const location = job.location || '';
-  const remoteWorking = job.remoteWorking || '';
+  const workType = job.workType || '';
   const designationTitle = job.designationId?.title || job.designationId || '';
   const responsibilities = job.responsibilities || [];
   const requirements = job.requirements || [];
@@ -152,10 +152,10 @@ export default function JobDetailPage() {
                     </div>
                   )}
 
-                  {remoteWorking && (
-                    <div className="flex items-start text-black">
-                      <Briefcase className="w-6 h-6 mr-2 text-black" />
-                      Remote Working: {remoteWorking}
+                  {workType && (
+                    <div className="flex items-center text-black">
+                      <Briefcase className="w-5 h-5 mr-2 text-black" />
+                      Work Type: {workType}
                     </div>
                   )}
 

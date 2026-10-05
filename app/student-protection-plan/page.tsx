@@ -312,7 +312,7 @@ export default function StudentProtectionPlanPage() {
                     href="/Student Protection Plan.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-center justify-center whitespace-normal h-auto"
+                    className="flex items-center text-center justify-center whitespace-normal h-auto max-md:text-xs"
                   >
                     Download the full Student Protection Plan (PDF)
                     <ExternalLink className="w-5 h-5 ml-2 flex-shrink-0" />

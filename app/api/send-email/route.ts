@@ -49,8 +49,8 @@ export async function POST(req: Request) {
 
     const mailOptions = {
       from: `Watney College <${process.env.SENDER_EMAIL}>`,
-      to: "info@watneycollege.co.uk",
-      // to: "mahitasnimul2@gmail.com",
+      // to: "info@watneycollege.co.uk",
+      to: "mahitasnimul2@gmail.com",
 
       subject: `New Contact Form Submission from ${name}`,
       html,

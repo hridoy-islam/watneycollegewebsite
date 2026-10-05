@@ -30,16 +30,16 @@ export default function Footer() {
     { name: "Fire Safety", href: "fire-safety-statement" },
     // { name: "Student Handbook 2025–26", href: "/policies" },
     // { name: "Student Complaints Procedure", href: "/policies" },
-    {
-      name: "Staff Login",
-      href: "https://app.watneycollege.co.uk/",
-      external: true,
-    },
+    // {
+    //   name: "Staff Login",
+    //   href: "https://app.watneycollege.co.uk/",
+    //   external: true,
+    // },
   ];
 
   const campusLinks = [
     {
-      name: "WCSMS (VLE)",
+      name: "VLE",
       href: "https://vle.watneycollege.co.uk/",
       external: true,
     },
