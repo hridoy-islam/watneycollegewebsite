@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useSelector } from 'react-redux';
 import LoginForm from '@/components/auth/login-form';
 import AuthShell from '@/components/auth/auth-shell';
-import { getRoleHomePath } from '@/components/auth/roles';
+import { getRoleHomePath, isWebsiteAccount } from '@/components/auth/roles';
 import { BlinkingDots } from '@/components/blinking-dots';
 
 function LoginPageContent() {
@@ -15,11 +15,21 @@ function LoginPageContent() {
   const redirectTo = searchParams.get('redirect');
   const user = useSelector((state: any) => state.auth.user);
 
-  // Already logged in - nothing to do here.
+  // Already logged in - nothing to do here. An applicant or job applicant who
+  // has not confirmed their email address yet verifies it before the portal.
   useEffect(() => {
-    if (user) {
-      router.replace(redirectTo || getRoleHomePath(user.role));
+    if (!user) return;
+
+    const destination = redirectTo || getRoleHomePath(user.role);
+
+    if (isWebsiteAccount(user.role) && user.isValided === false) {
+      router.replace(
+        `/verify-email?redirect=${encodeURIComponent(destination)}`
+      );
+      return;
     }
+
+    router.replace(destination);
   }, [user, redirectTo, router]);
 
   if (user) {

@@ -5,7 +5,6 @@ import { notFound, usePathname, useRouter } from 'next/navigation';
 import { useSelector } from 'react-redux';
 
 import { BlinkingDots } from '@/components/blinking-dots';
-import VerifyEmail from '@/components/auth/verify-email';
 import { isWebsiteAccount } from '@/components/auth/roles';
 
 interface ProtectedRouteProps {
@@ -28,8 +27,8 @@ interface ProtectedRouteProps {
  * mistake another sign in would fix.
  *
  * An applicant or job applicant who has not confirmed their email address yet
- * gets the verify screen in place of the page - the dashboard and the application form alike
- * stay shut until `isValided` is true.
+ * is sent to `/verify-email` (carrying where they were heading) - the portal
+ * stays shut until `isValided` is true.
  *
  * The whole app renders inside a PersistGate, so redux has already been
  * rehydrated by the time this runs on the client - a missing user here really
@@ -43,7 +42,15 @@ export function ProtectedRoute({ children, roles }: ProtectedRouteProps) {
 
   if (user) hadUser.current = true;
 
+  const needsVerifying =
+    !!user && isWebsiteAccount(user.role) && user.isValided === false;
+
   useEffect(() => {
+    if (needsVerifying) {
+      router.replace(`/verify-email?redirect=${encodeURIComponent(pathname)}`);
+      return;
+    }
+
     if (user) return;
 
     // Logging out from inside a protected page sends the user home rather than
@@ -54,20 +61,16 @@ export function ProtectedRoute({ children, roles }: ProtectedRouteProps) {
     }
 
     router.replace(`/login?redirect=${encodeURIComponent(pathname)}`);
-  }, [user, pathname, router]);
+  }, [user, needsVerifying, pathname, router]);
 
-  if (!user) {
+  if (user && roles && !roles.includes(user.role)) notFound();
+
+  if (!user || needsVerifying) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <BlinkingDots size="large" color="bg-watney" />
       </div>
     );
-  }
-
-  if (roles && !roles.includes(user.role)) notFound();
-
-  if (isWebsiteAccount(user.role) && user.isValided === false) {
-    return <VerifyEmail user={user} />;
   }
 
   return <>{children}</>;

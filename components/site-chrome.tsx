@@ -17,7 +17,8 @@ const BARE_ROUTES = [
   '/signup',
   '/forgot-password',
   '/otp',
-  '/new-password'
+  '/new-password',
+  '/verify-email'
 ];
 
 const isBareRoute = (pathname: string) =>

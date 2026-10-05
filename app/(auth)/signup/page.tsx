@@ -26,7 +26,7 @@ const STEP_COPY: Record<SignUpStep, { title: string; subtitle: string }> = {
   create: {
     title: 'Create an account',
     subtitle:
-      'Tell us who you are. You can complete the rest of the application after signing in.'
+      'Enter your details below to get started. Once registered, sign in to continue your application.'
   },
   verify: {
     title: 'Verify your email',
@@ -133,12 +133,8 @@ function SignUpPageContent() {
       // boxes and the thank you message wrapped awkwardly.
       wide
       eyebrow="Start your application"
-      headline={
-        isJobAccount
-          ? 'Create your job applicant account'
-          : 'Create your Watney College account'
-      }
-      blurb="Your email address is your username. Make a note of it and your password - you will need them to log back in and finish your application."
+      headline="Create your Watney College account"
+      blurb="Please make a note of your email address and password. You will need these credentials to log back in and complete your application."
       title={STEP_COPY[step].title}
       subtitle={STEP_COPY[step].subtitle}
       footer={

@@ -332,7 +332,12 @@ const authSlice = createSlice({
       state.token = action.payload;
       // Also keep the decoded user in sync with the new token
       try {
-        state.user = { ...jwtDecode(action.payload) };
+        const decodedUser: any = jwtDecode(action.payload);
+        // Once the email is verified it stays verified, even if the refreshed
+        // token was issued without the flag.
+        state.user = state.user?.isValided
+          ? { ...decodedUser, isValided: true }
+          : { ...decodedUser };
       } catch {
         // If decoding fails, leave user as-is
       }
