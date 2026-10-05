@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 import { BlinkingDots } from '@/components/blinking-dots';
 import VerifyEmail from '@/components/auth/verify-email';
-import { isApplicant } from '@/components/auth/roles';
+import { isWebsiteAccount } from '@/components/auth/roles';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -27,8 +27,8 @@ interface ProtectedRouteProps {
  * The wrong *role* is a different thing and still gets not found: it is not a
  * mistake another sign in would fix.
  *
- * An applicant who has not confirmed their email address yet gets the verify
- * screen in place of the page - the dashboard and the application form alike
+ * An applicant or job applicant who has not confirmed their email address yet
+ * gets the verify screen in place of the page - the dashboard and the application form alike
  * stay shut until `isValided` is true.
  *
  * The whole app renders inside a PersistGate, so redux has already been
@@ -66,7 +66,7 @@ export function ProtectedRoute({ children, roles }: ProtectedRouteProps) {
 
   if (roles && !roles.includes(user.role)) notFound();
 
-  if (isApplicant(user.role) && user.isValided === false) {
+  if (isWebsiteAccount(user.role) && user.isValided === false) {
     return <VerifyEmail user={user} />;
   }
 

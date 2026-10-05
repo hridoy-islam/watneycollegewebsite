@@ -39,7 +39,7 @@ function LoginPageContent() {
       eyebrow="Welcome back"
       headline="Sign in to your application"
       blurb="Pick up where you left off, upload the documents we still need and follow your offer - all in one place."
-      title="Applicant sign in"
+      title="Sign in"
       subtitle="Use the email address and password you registered with."
       footer={
         <>

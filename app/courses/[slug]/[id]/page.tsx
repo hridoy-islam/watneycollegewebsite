@@ -1,14 +1,16 @@
 "use client";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axiosInstance from "@/lib/axios";
 import ApplicationForm from "./components/application-form";
 import CourseSelectionForm from "./components/course-selection-form";
 import ReapplyForm from "./components/reapply-form";
 import { BlinkingDots } from "@/components/blinking-dots";
 import VerifyEmail from "@/components/auth/verify-email";
-import { isApplicant } from "@/components/auth/roles";
+import { isApplicant, isJobApplicant } from "@/components/auth/roles";
+import { Button } from "@/components/ui/button";
+import { logout } from "@/redux/features/authSlice";
 import { useToast } from "@/components/ui/use-toast";
 import { useParams, useRouter } from "next/navigation";
 import {
@@ -50,7 +52,11 @@ function CourseRegistration() {
   const { toast } = useToast();
 
   const user = useSelector((state: any) => state.auth.user);
-  const userId = user?._id;
+  const dispatch = useDispatch();
+  // Course applications belong to student applicant accounts. A job applicant
+  // account has no applicant record to apply with.
+  const isJobAccount = isJobApplicant(user?.role);
+  const userId = isJobAccount ? undefined : user?._id;
   // The applicant lookup is cached as a promise rather than a "done" flag:
   // React re-runs effects on mount in development, and a flag made the second
   // run skip the fetch while the first run's result was discarded as stale -
@@ -303,6 +309,29 @@ function CourseRegistration() {
       courseIdValue &&
       courses.find((course) => course._id === courseIdValue),
   );
+
+  if (isJobAccount) {
+    return (
+      <div className="flex min-h-[calc(100vh-150px)] items-center justify-center px-4">
+        <div className="w-full max-w-xl space-y-4 rounded-xl border border-gray-200 bg-white p-8 text-center shadow-md">
+          <h2 className="text-xl font-semibold text-gray-900">
+            A student account is needed
+          </h2>
+          <p className="text-sm text-black">
+            You are signed in as {user?.email}, which is a job applicant
+            account. Log out, then sign in or create a student account to apply
+            for this course.
+          </p>
+          <Button
+            onClick={() => dispatch(logout())}
+            className="bg-watney text-white hover:bg-watney/90"
+          >
+            Log out
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   // An unverified applicant confirms their email before any of the form.
   if (userId && isApplicant(user?.role) && user?.isValided === false) {

@@ -11,7 +11,7 @@ import { Providers } from '@/app/providers';
 import { logout } from '@/redux/features/authSlice';
 import { guardedLeave } from '@/lib/portal/leave-guard';
 import type { AppDispatch } from '@/redux/store';
-import { isAgent, isApplicant } from '@/components/auth/roles';
+import { isAgent, isApplicant, isJobApplicant } from '@/components/auth/roles';
 
 const getInitials = (user: any) => {
   const source = user?.name || user?.email || '';
@@ -102,7 +102,9 @@ function UserNavContent({ inline = false, onNavigate, only }: UserNavProps) {
           { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
           // { name: 'Profile', path: '/profile', icon: User }
         ]
-      : [];
+      : isJobApplicant(user.role)
+        ? [{ name: 'Dashboard', path: '/job-dashboard', icon: LayoutDashboard }]
+        : [];
 
   const links = (
     <>

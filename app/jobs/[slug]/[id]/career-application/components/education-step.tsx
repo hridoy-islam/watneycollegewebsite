@@ -37,8 +37,11 @@ import { ImageUploader } from './document-uploader';
 export function EducationStep({
   defaultValues,
   onSaveAndContinue,
-  setCurrentStep,
-  setCurrentSubStep
+  setCurrentStep
+}: {
+  defaultValues?: any;
+  onSaveAndContinue: (data: any) => void | Promise<unknown>;
+  setCurrentStep: (step: number) => void;
 }) {
   const [currentPage, setCurrentPage] = useState(1);
   // Track upload context (which field initiated the upload)

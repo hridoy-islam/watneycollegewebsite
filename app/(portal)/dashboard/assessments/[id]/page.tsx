@@ -409,7 +409,7 @@ export default function TakeAssessmentPage() {
               </p>
               <ul className="list-disc space-y-1 pl-6 text-sm text-black">
                 <li>You have {data.duration} minutes once you press Start, and the timer cannot be paused.</li>
-                <li>Your answers are saved as you go. Once you start, leaving the page, logging out, or closing or reloading the tab submits your answers.</li>
+                <li><strong>Progress Saving &amp; Submission:</strong> Your responses are saved automatically in real time as you complete them. Please note that once you begin, refreshing the page, navigating away, logging out, or closing the tab will immediately trigger the final submission of your answers.</li>
                 <li>When the time runs out your answers are submitted automatically.</li>
                 <li>A question can have more than one correct answer - select every option that applies.</li>
               </ul>

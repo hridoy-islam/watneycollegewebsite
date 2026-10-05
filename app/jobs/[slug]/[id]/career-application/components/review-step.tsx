@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
+import { Eye, Loader2, Send } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import type { TCareer } from '@/types/career';
@@ -64,7 +65,18 @@ export function ReviewStep({
   defaultValues,
   formData,
   onSaveAndContinue,
-  setCurrentStep
+  setCurrentStep,
+  onSubmitApplication,
+  submitting = false
+}: {
+  defaultValues?: any;
+  formData?: any;
+  /** "Review Application" - saves the declarations and opens the preview. */
+  onSaveAndContinue: (data: any) => void | Promise<unknown>;
+  setCurrentStep: (step: number) => void;
+  /** "Submit Application" - saves the declarations and submits from here. */
+  onSubmitApplication?: (data: any) => void | Promise<unknown>;
+  submitting?: boolean;
 }) {
   const form = useForm<TFormValues>({
     resolver: zodResolver(careerSchema),
@@ -600,13 +612,31 @@ export function ReviewStep({
           >
             Back
           </Button>
-          <Button
-            type="submit"
-            disabled={!termsAccepted || !dataProcessingAccepted}
-            className="bg-watney text-white hover:bg-watney/90 w-full sm:w-auto"
-          >
-            Continue
-          </Button>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Button
+              type="submit"
+              variant="outline"
+              disabled={!termsAccepted || !dataProcessingAccepted || submitting}
+            >
+              <Eye className="mr-2 h-4 w-4" />
+              Review Application
+            </Button>
+            {onSubmitApplication && (
+              <Button
+                type="button"
+                onClick={form.handleSubmit(onSubmitApplication)}
+                disabled={!termsAccepted || !dataProcessingAccepted || submitting}
+                className="w-full bg-watney text-white hover:bg-watney/90 sm:w-auto"
+              >
+                {submitting ? (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <Send className="mr-2 h-4 w-4" />
+                )}
+                {submitting ? 'Submitting...' : 'Submit Application'}
+              </Button>
+            )}
+          </div>
         </div>
       </CardContent>
     </Card>

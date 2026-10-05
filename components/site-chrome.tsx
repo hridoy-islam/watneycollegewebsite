@@ -10,6 +10,7 @@ import Footer from '@/components/Footer';
  */
 const BARE_ROUTES = [
   '/dashboard',
+  '/job-dashboard',
   '/agent',
   '/agent-login',
   '/login',

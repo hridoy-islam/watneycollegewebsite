@@ -1,4 +1,5 @@
 import {
+  Briefcase,
   FileText,
   LayoutDashboard,
   Receipt,
@@ -11,6 +12,12 @@ import type { PortalNavItem } from './portal-nav';
 export const APPLICANT_NAV: PortalNavItem[] = [
   { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
   // { name: 'Offer Letter', path: '/dashboard/offer-letter', icon: FileText }
+];
+
+/** The job applicant side nav. */
+export const JOB_APPLICANT_NAV: PortalNavItem[] = [
+  { name: 'Dashboard', path: '/job-dashboard', icon: LayoutDashboard },
+  // { name: 'Browse Jobs', path: '/jobs', icon: Briefcase }
 ];
 
 /** The agent side nav. */

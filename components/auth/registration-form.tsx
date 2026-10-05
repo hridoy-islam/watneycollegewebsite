@@ -5,7 +5,15 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Check, Eye, EyeOff, Loader2 } from 'lucide-react'; // Added Loader2 for the spinner
+import {
+  Briefcase,
+  Check,
+  Eye,
+  EyeOff,
+  GraduationCap,
+  Loader2,
+  type LucideIcon
+} from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -28,7 +36,37 @@ type OptionType = {
   label: string;
 };
 
+/**
+ * The two kinds of website account. Each is its own record on the API - a
+ * student applicant or a job applicant - with its own portal, so the choice
+ * is made once, here, and sent as the account's role.
+ */
+export type ApplicantType = 'applicant' | 'jobApplicant';
+
+const APPLICANT_TYPES: {
+  value: ApplicantType;
+  label: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    value: 'applicant',
+    label: 'Student',
+    description: 'I want to apply for a course at Watney College.',
+    icon: GraduationCap
+  },
+  {
+    value: 'jobApplicant',
+    label: 'Job applicant',
+    description: 'I want to apply for a job vacancy at Watney College.',
+    icon: Briefcase
+  }
+];
+
 const registrationSchema = z.object({
+  applicantType: z.enum(['applicant', 'jobApplicant'], {
+    message: 'Please choose how you are applying'
+  }),
   title: z.string().min(1, 'Title is required'),
   firstName: z.string().min(1, 'First name is required').max(50),
   initial: z.string().optional(),
@@ -46,6 +84,7 @@ const registrationSchema = z.object({
 });
 
 const defaultRegistrationValues = {
+  applicantType: undefined as ApplicantType | undefined,
   title: '',
   firstName: '',
   initial: '',
@@ -58,11 +97,19 @@ const defaultRegistrationValues = {
 };
 
 interface RegistrationFormProps {
-  /** Called once the applicant account has been created. */
-  onSuccess?: () => void;
+  /**
+   * Called once the account has been created, with what the verify step
+   * needs: the API has already mailed a code to this address.
+   */
+  onSuccess?: (account: { email: string; role: ApplicantType }) => void;
+  /** Pre-selects the account type, e.g. job applicant when applying for a job. */
+  defaultApplicantType?: ApplicantType;
 }
 
-export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
+export default function RegistrationForm({
+  onSuccess,
+  defaultApplicantType
+}: RegistrationFormProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false); // Added loading state
   const { toast } = useToast();
@@ -70,17 +117,22 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
   // Initialize form with React Hook Form + Zod validation
   const form = useForm({
     resolver: zodResolver(registrationSchema),
-    defaultValues: defaultRegistrationValues
+    defaultValues: {
+      ...defaultRegistrationValues,
+      applicantType: defaultApplicantType
+    }
   });
 
   const onSubmit = async (values: z.infer<typeof registrationSchema>) => {
     const email = values.email.toLocaleLowerCase();
     const inputDate = values.dateOfBirth;
 
+    const { applicantType, ...accountValues } = values;
+
     try {
       setIsLoading(true); // Start loading state
       await axiosInstance.post('/auth/signup', {
-        ...values,
+        ...accountValues,
         name: `${values.title} ${values.firstName} ${values.initial} ${values.lastName}`,
         title: values.title,
         firstName: values.firstName,
@@ -95,25 +147,22 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
             inputDate!.getDate()
           )
         ).toISOString(),
-        role: 'applicant',
-        // Left unverified: the first login mails a code and the portal asks
-        // for it before anything else.
+        // Picks the account store on the API: a student applicant or a job
+        // applicant.
+        role: applicantType,
+        // Left unverified: the API mails a code now, and the next screen asks
+        // for it.
         authorized: true
       });
 
-      // The applicant logs in with their new credentials before continuing -
-      // registration never signs them in on its own.
       toast({
         title: 'Account created',
-        description:
-          'Please log in with your new username and password to continue.'
+        description: `We have sent a verification code to ${email}.`
       });
 
-      form.reset();
+      form.reset({ ...defaultRegistrationValues, applicantType });
 
-      if (onSuccess) {
-        onSuccess();
-      }
+      onSuccess?.({ email, role: applicantType });
     } catch (err: any) {
       toast({
         title: err.response?.data?.message || 'Please try again later.',
@@ -137,6 +186,70 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        {/* Account type - decides which portal the account opens */}
+        <FormField
+          control={form.control}
+          name="applicantType"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="block text-sm font-medium text-gray-700">
+                I am applying as <span className="text-red-500">*</span>
+              </FormLabel>
+              <FormControl>
+                <div
+                  role="radiogroup"
+                  aria-label="Applicant type"
+                  className="grid grid-cols-1 gap-3 sm:grid-cols-2"
+                >
+                  {APPLICANT_TYPES.map((type) => {
+                    const selected = field.value === type.value;
+                    const Icon = type.icon;
+                    return (
+                      <button
+                        key={type.value}
+                        type="button"
+                        role="radio"
+                        aria-checked={selected}
+                        disabled={isLoading}
+                        onClick={() => field.onChange(type.value)}
+                        className={`relative flex items-start gap-3 rounded-lg border p-4 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-watney/40 disabled:cursor-not-allowed disabled:opacity-60 ${
+                          selected
+                            ? 'border-watney bg-watney/5 ring-1 ring-watney'
+                            : 'border-gray-200 bg-white hover:border-gray-300'
+                        }`}
+                      >
+                        <span
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${
+                            selected
+                              ? 'bg-watney text-white'
+                              : 'bg-gray-100 text-gray-600'
+                          }`}
+                        >
+                          <Icon className="h-5 w-5" />
+                        </span>
+                        <span className="min-w-0 pr-6">
+                          <span className="block text-sm font-semibold text-gray-900">
+                            {type.label}
+                          </span>
+                          <span className="mt-0.5 block text-xs text-gray-600">
+                            {type.description}
+                          </span>
+                        </span>
+                        {selected && (
+                          <span className="absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded-full bg-watney text-white">
+                            <Check className="h-3 w-3" />
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </FormControl>
+              <FormMessage className="text-xs text-red-600" />
+            </FormItem>
+          )}
+        />
+
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {/* Title */}
           <FormField

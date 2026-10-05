@@ -65,7 +65,7 @@ export function AuthShell({
             <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
               {headline}
             </h1>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-white">
+            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-white">
               {blurb}
             </p>
           </div>

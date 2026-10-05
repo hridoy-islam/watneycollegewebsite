@@ -1,6 +1,8 @@
 "use client";
-import { useEffect, useState, useRef } from 'react';
-import { useParams, useRouter, usePathname } from 'next/navigation';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { useParams, useRouter } from 'next/navigation';
+import { useDispatch, useSelector } from 'react-redux';
 import { ProfilePictureStep } from './components/profile-picture-step';
 import { PersonalDetailsStep } from './components/personal-details-step';
 import { DisabilityInfoStep } from './components/disability-info-step';
@@ -11,7 +13,7 @@ import { DocumentStep } from './components/DocumentStep';
 import { EducationStep } from './components/education-step';
 import { EmploymentStep } from './components/employment-step';
 import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
+import { Briefcase, Check, Loader2, LogOut } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { Card, CardDescription, CardTitle } from '@/components/ui/card';
 import axiosInstance from '@/lib/axios';
@@ -19,6 +21,18 @@ import type { TCareer } from '@/types/career';
 import { EmergencyContact } from './components/emergencyContact';
 import CareerResumeUpload from './uploadResume/index';
 import { ApplicationPreview } from './components/application-preview';
+import JobApplyGate from './components/job-apply-gate';
+import QuickApplyCard from './components/quick-apply-card';
+import { BlinkingDots } from '@/components/blinking-dots';
+import VerifyEmail from '@/components/auth/verify-email';
+import { isJobApplicant } from '@/components/auth/roles';
+import { logout, updateAuthIsCompleted } from '@/redux/features/authSlice';
+import {
+  createJobApplication,
+  fetchJobApplicant,
+  updateJobApplicant
+} from '@/lib/job-applicant-api';
+
 // Define form steps for career application
 const careerFormSteps = [
   { id: 1, label: 'Upload Resume' },
@@ -35,176 +49,264 @@ const careerFormSteps = [
   { id: 12, label: 'Preview & Submit' }
 ];
 
-export default function CareerApplicationForm() {
-  const {id} = useParams();
+const TOTAL_STEPS = careerFormSteps.length;
 
+/**
+ * Keys that belong to the account, not to a form step. The steps spread their
+ * default values back into what they submit, so these are dropped before a
+ * step is saved - the API refuses most of them from an applicant anyway.
+ */
+const NON_FORM_KEYS = [
+  '_id',
+  '__v',
+  'id',
+  'createdAt',
+  'updatedAt',
+  'role',
+  'email',
+  'password',
+  'userId',
+  'isDeleted',
+  'authorized',
+  'isValided',
+  'isCompleted',
+  'otp',
+  'otpExpiry',
+  'isUsed',
+  'applicationStep',
+  'completedSteps',
+  'applicationSubmitted'
+];
+
+const stepPayload = (data: any) => {
+  const payload = { ...(data || {}) };
+  NON_FORM_KEYS.forEach((key) => delete payload[key]);
+  return payload;
+};
+
+/**
+ * The career application, for a signed-in job applicant.
+ *
+ * Works like the student application form: the applicant's own record on the
+ * API is the single source of truth, every "Save & Continue" writes the step
+ * to it, and coming back later - from this page or the dashboard - resumes on
+ * the step they reached. The application row for this job is opened as soon
+ * as they start, so the dashboard can show it as incomplete; HR only sees it,
+ * and the confirmation mails only go out, once the form is submitted.
+ */
+export default function CareerApplicationForm() {
+  const { id } = useParams();
+  const jobId = (Array.isArray(id) ? id[0] : id) || '';
+
+  const user = useSelector((state: any) => state.auth.user);
+  const applicantId: string | undefined = isJobApplicant(user?.role)
+    ? user?._id
+    : undefined;
+  const dispatch = useDispatch();
+
+  const [job, setJob] = useState<any>(null);
+  const [jobLoading, setJobLoading] = useState(true);
 
   const [currentStep, setCurrentStep] = useState(1);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
-  const [formData, setFormData] = useState<Partial<TCareer>>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('career_form_data');
-      if (saved) {
-        try {
-          return JSON.parse(saved);
-        } catch (e) {
-          console.error('Failed to restore form data', e);
-        }
-      }
-    }
-    return {};
-  });
+  const [formData, setFormData] = useState<Partial<TCareer> & Record<string, any>>({});
+  const [loading, setLoading] = useState(true);
+  // A completed applicant only confirms - they do not walk the form again.
+  const [profileComplete, setProfileComplete] = useState(false);
+  const [alreadyApplied, setAlreadyApplied] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const { toast } = useToast();
   const navigate = useRouter();
-  const pathname = usePathname();
-  const prevPathnameRef = useRef<string | null>(null);
   const [parsedResume, setParsedResume] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (id) {
-      localStorage.setItem('applicationId', id);
-    }
-  }, [id]);
+  // React re-runs effects on mount in development; the applicant load is
+  // cached as a promise so both runs share one request.
+  const loadRef = useRef<{ key: string; promise: Promise<any> } | null>(null);
 
   useEffect(() => {
-    if (prevPathnameRef.current !== null && prevPathnameRef.current !== pathname) {
-      localStorage.removeItem('career_form_data');
-      localStorage.removeItem('applicationId');
+    if (!jobId) return;
+    axiosInstance
+      .get(`/jobs/${jobId}`)
+      .then((res) => setJob(res?.data?.data || null))
+      .catch((error) => console.error('Failed to load job', error))
+      .finally(() => setJobLoading(false));
+  }, [jobId]);
+
+  useEffect(() => {
+    if (!applicantId || !jobId || user?.isValided === false) return;
+
+    let cancelled = false;
+    const key = `${applicantId}:${jobId}`;
+
+    if (loadRef.current?.key !== key) {
+      loadRef.current = {
+        key,
+        promise: (async () => {
+          const applicant = await fetchJobApplicant(applicantId);
+          // Opened straight away for an unfinished profile, so the dashboard
+          // lists it as incomplete. A finished profile confirms first.
+          if (!applicant?.isCompleted) await createJobApplication(jobId);
+          return applicant;
+        })()
+      };
     }
-    prevPathnameRef.current = pathname;
-  }, [pathname]);
+    const request = loadRef.current;
+
+    request.promise
+      .then((applicant) => {
+        if (cancelled) return;
+        setFormData(applicant);
+        setCompletedSteps(
+          Array.isArray(applicant.completedSteps) ? applicant.completedSteps : []
+        );
+        setCurrentStep(
+          Math.min(Math.max(applicant.applicationStep || 1, 1), TOTAL_STEPS)
+        );
+        setProfileComplete(Boolean(applicant.isCompleted));
+      })
+      .catch((error) => {
+        console.error('Error loading the job applicant:', error);
+        if (loadRef.current === request) loadRef.current = null;
+        if (!cancelled) {
+          toast({
+            title: 'Unable to load your application',
+            description:
+              error?.response?.data?.message || 'Please refresh the page and try again.',
+            className: 'bg-destructive text-white border-none'
+          });
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [applicantId, jobId, user?.isValided, toast]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [currentStep]);
 
-  useEffect(() => {
-    localStorage.setItem('career_form_data', JSON.stringify(formData));
-  }, [formData]);
+  /**
+   * Persist a step to the applicant record and move on. Nothing is kept in
+   * localStorage - closing the tab loses nothing that was saved.
+   */
+  const saveStep = useCallback(
+    async (data: any, stepId?: number, nextStep?: number) => {
+      if (!applicantId) return false;
 
+      const nextCompleted =
+        stepId && !completedSteps.includes(stepId)
+          ? [...completedSteps, stepId]
+          : completedSteps;
 
+      const payload: any = stepPayload(data);
+      if (stepId) {
+        payload.completedSteps = nextCompleted;
+        payload.applicationStep = nextStep || stepId;
+      }
 
-  const handleStepClick = (stepId: number) => {
-    setCurrentStep(stepId);
-  };
+      try {
+        const updated = await updateJobApplicant(applicantId, payload);
+        setFormData((prev) => ({ ...prev, ...data, ...updated }));
+        setCompletedSteps(nextCompleted);
+        if (nextStep) setCurrentStep(nextStep);
+        return true;
+      } catch (error: any) {
+        console.error('Error saving application step:', error);
+        toast({
+          title: error?.response?.data?.message || 'Could not save these details.',
+          description: 'Please check your connection and try again.',
+          className: 'bg-destructive text-white border-none'
+        });
+        return false;
+      }
+    },
+    [applicantId, completedSteps, toast]
+  );
 
-  const markStepAsCompleted = (stepId: number) => {
-    if (!completedSteps.includes(stepId)) {
-      setCompletedSteps((prev) => [...prev, stepId]);
-    }
-  };
+  const saveAndGo = (stepId: number) => (data: any) =>
+    saveStep(data, stepId, stepId + 1);
 
-  const handleProfilePictureSaveAndContinue = (data: any) => {
-    setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(2);
-    setCurrentStep(3);
-  };
-
-  const handlePersonalDetailsSaveAndContinue = (data: any) => {
-    setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(3);
-    setCurrentStep(4);
-  };
-
-  const handleApplicationDetailsSaveAndContinue = (data: any) => {
-    setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(4);
-    setCurrentStep(5);
-  };
-
-  const handleEducationSaveAndContinue = (data: any) => {
-    setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(5);
-    setCurrentStep(6);
-  };
-
-  const handleEmploymentSaveAndContinue = (data: any) => {
-    setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(6);
-    setCurrentStep(7);
-  };
-
-  const handleDisabilityInfoSaveAndContinue = (data: any) => {
-    setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(7);
-    setCurrentStep(8);
-  };
-
-  const handleEmergencySaveAndContinue = (data: any) => {
-    setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(8);
-    setCurrentStep(9);
-  };
-
-  const handleRefereeDetailsSaveAndContinue = (data: any) => {
-    setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(9);
-    setCurrentStep(10);
-  };
-
-  const handleDocumentSave = (data: any) => {
-    setFormData((prev) => ({ ...prev, ...data }));
-  };
-
-  const handleDocumentsSaveAndContinue = (data: any) => {
-    setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(10);
-    setCurrentStep(11);
-  };
-
-  const handleDashboardRedirect = () => {
-   
-      navigate.push('/');
-    
-  };
-
-  const handleConsentSaveAndContinue = (data: any) => {
-    setFormData((prev) => ({ ...prev, ...data }));
-    markStepAsCompleted(11);
-    setCurrentStep(12);
-  };
-
-  const handleSubmit = async (declarationData: any) => {
+  // The review step can submit directly: save its declarations, then submit
+  // without stopping at the preview.
+  const handleReviewSubmit = async (data: any) => {
     setSubmitting(true);
-    try {
-      // The job comes from the route, so a cleared or stale localStorage entry
-      // cannot lose it.
-      const appId = localStorage.getItem('applicationId') || (id as string);
-
-      // Signup creates the account and files the application for this job in
-      // one request, so a candidate can never end up signed up with nothing
-      // recorded against the job.
-      await axiosInstance.post('/auth/signup', {
-        ...formData,
-        ...declarationData,
-        isCompleted: true,
-        authorized: true,
-        password:'WC123456',
-        role:'jobApplicant',
-        jobId: appId
-      });
-
-      localStorage.removeItem('applicationId');
-      localStorage.removeItem('career_form_data');
-
-      // toast({
-      //   description: 'Career application submitted successfully.'
-      // });
-    } catch (error: any) {
-      toast({
-        title:
-          error?.response?.data?.message ||
-          error?.message ||
-          'Something went wrong.',
-        className: 'destructive border-none text-white'
-      });
+    const saved = await saveStep(data, 11);
+    if (!saved) {
       setSubmitting(false);
       return;
     }
+    await submitApplication([11]);
+  };
 
-    setFormSubmitted(true);
+  // Uploads on the documents step are saved as they happen, without moving on.
+  const handleDocumentSave = (data: any) => {
+    saveStep(data);
+  };
+
+  const handleSubmit = () => submitApplication();
+
+  /**
+   * Marks the application finished. `alsoCompleted` carries a step saved in
+   * the same click - the review step submits straight after saving itself,
+   * before `completedSteps` state has caught up.
+   */
+  const submitApplication = async (alsoCompleted: number[] = []) => {
+    if (!applicantId) return;
+    setSubmitting(true);
+    try {
+      // Opened when the form was started - except for a profile that was
+      // already complete and came here through "Review my details". Applying
+      // twice is a no-op, so this is safe either way.
+      await createJobApplication(jobId);
+
+      // Every step is already on the record - submitting only marks it
+      // finished, which is what releases the application to HR and sends the
+      // confirmation mails.
+      await updateJobApplicant(applicantId, {
+        isCompleted: true,
+        applicationSubmitted: true,
+        applicationStep: TOTAL_STEPS,
+        completedSteps: Array.from(
+          new Set([...completedSteps, ...alsoCompleted, TOTAL_STEPS])
+        )
+      });
+      dispatch(updateAuthIsCompleted(true));
+      setFormSubmitted(true);
+    } catch (error: any) {
+      toast({
+        title:
+          error?.response?.data?.message || error?.message || 'Something went wrong.',
+        className: 'bg-destructive text-white border-none'
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  /** A completed applicant applying for another job - one click. */
+  const handleConfirmApplication = async () => {
+    setSubmitting(true);
+    try {
+      const { duplicate } = await createJobApplication(jobId);
+      if (duplicate) {
+        setAlreadyApplied(true);
+        return;
+      }
+      setFormSubmitted(true);
+    } catch (error: any) {
+      toast({
+        title:
+          error?.response?.data?.message || 'Could not submit your application.',
+        className: 'bg-destructive text-white border-none'
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const renderStep = () => {
@@ -214,14 +316,11 @@ export default function CareerApplicationForm() {
           <CareerResumeUpload
             onContinue={(parsedText, fileUrl) => {
               setParsedResume(parsedText || null);
-              setFormData((prev) => ({ ...prev, cvResume: fileUrl || '' }));
-              setCurrentStep(2);
-              markStepAsCompleted(1);
+              saveStep({ cvResume: fileUrl || formData.cvResume || '' }, 1, 2);
             }}
             onSkip={() => {
               setParsedResume(null);
-              setCurrentStep(2);
-              markStepAsCompleted(1);
+              saveStep({}, 1, 2);
             }}
             setCurrentStep={setCurrentStep}
           />
@@ -230,7 +329,7 @@ export default function CareerApplicationForm() {
         return (
           <ProfilePictureStep
             defaultValues={formData}
-            onSaveAndContinue={handleProfilePictureSaveAndContinue}
+            onSaveAndContinue={saveAndGo(2)}
             setCurrentStep={setCurrentStep}
           />
         );
@@ -238,7 +337,7 @@ export default function CareerApplicationForm() {
         return (
           <PersonalDetailsStep
             defaultValues={formData}
-            onSaveAndContinue={handlePersonalDetailsSaveAndContinue}
+            onSaveAndContinue={saveAndGo(3)}
             setCurrentStep={setCurrentStep}
             parsedResume={parsedResume}
           />
@@ -247,7 +346,7 @@ export default function CareerApplicationForm() {
         return (
           <ApplicationDetailsStep
             defaultValues={formData}
-            onSaveAndContinue={handleApplicationDetailsSaveAndContinue}
+            onSaveAndContinue={saveAndGo(4)}
             setCurrentStep={setCurrentStep}
           />
         );
@@ -255,7 +354,7 @@ export default function CareerApplicationForm() {
         return (
           <EducationStep
             defaultValues={formData}
-            onSaveAndContinue={handleEducationSaveAndContinue}
+            onSaveAndContinue={saveAndGo(5)}
             setCurrentStep={setCurrentStep}
           />
         );
@@ -263,7 +362,7 @@ export default function CareerApplicationForm() {
         return (
           <EmploymentStep
             defaultValues={formData}
-            onSaveAndContinue={handleEmploymentSaveAndContinue}
+            onSaveAndContinue={saveAndGo(6)}
             setCurrentStep={setCurrentStep}
           />
         );
@@ -271,7 +370,7 @@ export default function CareerApplicationForm() {
         return (
           <DisabilityInfoStep
             defaultValues={formData}
-            onSaveAndContinue={handleDisabilityInfoSaveAndContinue}
+            onSaveAndContinue={saveAndGo(7)}
             setCurrentStep={setCurrentStep}
           />
         );
@@ -279,7 +378,7 @@ export default function CareerApplicationForm() {
         return (
           <EmergencyContact
             defaultValues={formData}
-            onSaveAndContinue={handleEmergencySaveAndContinue}
+            onSaveAndContinue={saveAndGo(8)}
             setCurrentStep={setCurrentStep}
           />
         );
@@ -287,7 +386,7 @@ export default function CareerApplicationForm() {
         return (
           <RefereeDetailsStep
             defaultValues={formData}
-            onSaveAndContinue={handleRefereeDetailsSaveAndContinue}
+            onSaveAndContinue={saveAndGo(9)}
             setCurrentStep={setCurrentStep}
           />
         );
@@ -295,9 +394,9 @@ export default function CareerApplicationForm() {
         return (
           <DocumentStep
             defaultValues={formData}
-            onSaveAndContinue={handleDocumentsSaveAndContinue}
+            onSaveAndContinue={saveAndGo(10)}
             setCurrentStep={setCurrentStep}
-             onSave={handleDocumentSave}
+            onSave={handleDocumentSave}
           />
         );
       case 11:
@@ -305,8 +404,10 @@ export default function CareerApplicationForm() {
           <ReviewStep
             defaultValues={formData}
             formData={formData}
-            onSaveAndContinue={handleConsentSaveAndContinue}
+            onSaveAndContinue={saveAndGo(11)}
             setCurrentStep={setCurrentStep}
+            onSubmitApplication={handleReviewSubmit}
+            submitting={submitting}
           />
         );
       case 12:
@@ -319,34 +420,59 @@ export default function CareerApplicationForm() {
           />
         );
       default:
-        return (
-          <div className="rounded-lg bg-gray-50 p-8 text-center">
-            <h2 className="mb-4 text-xl font-semibold">Step {currentStep}</h2>
-            <p className="mb-4 text-black">
-              This step is not implemented yet.
-            </p>
-            <div className="flex justify-center space-x-4">
-              <Button
-                variant="outline"
-                onClick={() => setCurrentStep((prev) => Math.max(1, prev - 1))}
-              >
-                Previous
-              </Button>
-              <Button
-                onClick={() => {
-                  markStepAsCompleted(currentStep);
-                  setCurrentStep((prev) =>
-                    Math.min(careerFormSteps.length, prev + 1)
-                  );
-                }}
-              >
-                Save & Continue
-              </Button>
-            </div>
-          </div>
-        );
+        return null;
     }
   };
+
+  const fullPageLoader = (
+    <div className="flex min-h-screen items-center justify-center bg-white p-2">
+      <BlinkingDots size="large" color="bg-watney" />
+    </div>
+  );
+
+  // Not signed in - sign in or create a job applicant account first.
+  if (!user) {
+    if (jobLoading) return fullPageLoader;
+    return (
+      <div className="container mx-auto">
+        <JobApplyGate job={job} onBack={() => navigate.back()} />
+      </div>
+    );
+  }
+
+  // Signed in with a student applicant (or staff) account. Job applications
+  // belong to job applicant accounts, which have their own sign up.
+  if (!applicantId) {
+    return (
+      <div className="flex min-h-[calc(100vh-150px)] items-center justify-center px-4">
+        <Card className="w-full max-w-xl space-y-4 border border-gray-200 p-8 text-center shadow-md">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-watney/10 text-watney">
+            <Briefcase className="h-7 w-7" />
+          </div>
+          <CardTitle className="text-xl">A job applicant account is needed</CardTitle>
+          <CardDescription className="text-sm text-black">
+            You are signed in as {user?.email}, which is not a job applicant
+            account. Log out, then sign in or create a job applicant account to
+            apply for this role.
+          </CardDescription>
+          <Button
+            onClick={() => dispatch(logout())}
+            className="mx-auto flex gap-2 bg-watney text-white hover:bg-watney/90"
+          >
+            <LogOut className="h-4 w-4" />
+            Log out
+          </Button>
+        </Card>
+      </div>
+    );
+  }
+
+  // An unverified applicant confirms their email before any of the form.
+  if (user?.isValided === false) {
+    return <VerifyEmail user={user} />;
+  }
+
+  if (loading) return fullPageLoader;
 
   if (formSubmitted) {
     return (
@@ -362,10 +488,9 @@ export default function CareerApplicationForm() {
                   Career Application Submitted Successfully
                 </CardTitle>
                 <CardDescription className="mt-2 text-base leading-relaxed text-white">
-                  Thank you for your submission. Our team has received your
-                  career application and will get back to you shortly. Stay
-                  tuned!
-                  {/* Support Section */}
+                  Thank you for applying{job?.jobTitle ? ` for ${job.jobTitle}` : ''}.
+                  Our team has received your career application and will get
+                  back to you shortly. You can follow it from your dashboard.
                   <div className=" mt-2 w-full rounded-md text-center text-base text-white ">
                     <p>
                       If you have any questions or need help with your
@@ -391,10 +516,10 @@ export default function CareerApplicationForm() {
             </div>
 
             <Button
-              onClick={handleDashboardRedirect}
+              onClick={() => navigate.push('/job-dashboard')}
               className="mt-4 w-full rounded-sm bg-white px-6 py-3 text-base font-semibold text-watney transition hover:bg-white sm:w-auto"
             >
-              Done
+              Go to dashboard
             </Button>
           </div>
         </Card>
@@ -402,12 +527,22 @@ export default function CareerApplicationForm() {
     );
   }
 
+  // Profile already complete from an earlier application - confirm this job.
+  if (profileComplete) {
+    return (
+      <QuickApplyCard
+        job={job}
+        profile={formData}
+        alreadyApplied={alreadyApplied}
+        submitting={submitting}
+        onSubmit={handleConfirmApplication}
+      />
+    );
+  }
+
   return (
     <div className=" container mx-auto">
-      {/* <h1 className="text-2xl font-bold text-center mb-8">Career Application</h1> */}
-      {/* <StepIndicator currentStep={currentStep} totalSteps={totalSteps} /> */}
       <div className="">{renderStep()}</div>
     </div>
   );
 }
-
