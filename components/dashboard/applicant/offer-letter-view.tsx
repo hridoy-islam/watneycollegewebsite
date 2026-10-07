@@ -9,9 +9,10 @@
  * query string; anyone holding that link could read them and answer on the
  * applicant's behalf.
  *
- * What it renders is the letter itself - letterhead, reference, addressee,
- * body, a schedule of the programme and a signature block - so the applicant
- * reads the same document on screen as they get when they print it.
+ * What it renders is the offer letter email exactly as admissions sent it -
+ * the email template, filled in with this applicant's details, drawn the same
+ * way the template's PDF is (logo, then the body with its signatures). Offers
+ * sent before the email log kept the letter fall back to a standard letter.
  */
 
 import { useCallback, useEffect, useState } from 'react';
@@ -40,6 +41,7 @@ import {
   DialogTitle
 } from '@/components/ui/dialog';
 import { BlinkingDots } from '@/components/blinking-dots';
+import { parseEmailBody } from '@/lib/email-body';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -201,6 +203,61 @@ function Notice({
         </p>
       </div>
     </div>
+  );
+}
+
+/**
+ * The offer letter as it was sent - the same layout as the template PDF in
+ * the admin portal: logo top left, then the body line by line, signatures as
+ * images. The body comes from the email log with every variable filled in.
+ */
+function SentLetter({ body }: { body: string }) {
+  const lines = parseEmailBody(body);
+
+  return (
+    <article className="overflow-hidden rounded-xl border border-gray-200 bg-white p-6 text-gray-900 shadow-sm sm:p-8 print:rounded-none print:border-0 print:p-0 print:shadow-none">
+      <img
+        src="/watney.png"
+        alt={COLLEGE.name}
+        className="ml-5 h-[50px] w-[50px] object-contain"
+      />
+      <div className="m-2.5 p-2.5 text-[15px] leading-relaxed">
+        {lines.map((segments, i) => (
+          <div key={i} className="mb-1.5 min-h-[1.5em] text-justify">
+            {segments.map((segment, j) => {
+              if (segment.type === 'image') {
+                return (
+                  <img
+                    key={j}
+                    src={segment.src}
+                    alt="Signature"
+                    className="my-2.5 block h-[60px] w-[120px] object-contain"
+                  />
+                );
+              }
+              if (segment.type === 'link') {
+                return (
+                  <a
+                    key={j}
+                    href={segment.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="break-all font-medium text-watney underline"
+                  >
+                    {segment.text}
+                  </a>
+                );
+              }
+              return (
+                <span key={j} className="whitespace-pre-wrap">
+                  {segment.value}
+                </span>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </article>
   );
 }
 
@@ -399,7 +456,10 @@ export function OfferLetterView({ applicationId }: { applicationId: string }) {
           respondedAt={application.offerRespondedAt}
         />
 
-        {/* The letter itself */}
+        {/* The letter itself - as sent, or the standard letter for older offers */}
+        {application.offerLetter?.body ? (
+          <SentLetter body={application.offerLetter.body} />
+        ) : (
         <article className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm print:rounded-none print:border-0 print:shadow-none">
           <Letterhead />
 
@@ -584,6 +644,7 @@ export function OfferLetterView({ applicationId }: { applicationId: string }) {
             </p>
           </div>
         </article>
+        )}
 
         {/* Decision */}
         {!answered && (
@@ -598,12 +659,12 @@ export function OfferLetterView({ applicationId }: { applicationId: string }) {
             </p>
             <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
               <Button
-                variant="outline"
-                className="border-red-200 text-red-700 hover:bg-red-50 hover:text-red-800 sm:w-auto"
+                variant="destructive"
                 onClick={() => {
                   setAction('decline');
                   setDialogOpen(true);
                 }}
+                className="sm:w-auto sm:px-10 bg-red-500 hover:bg-red-600"
               >
                 Decline offer
               </Button>
