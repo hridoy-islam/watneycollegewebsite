@@ -96,7 +96,11 @@ export default function NewPasswordPage() {
     setIsLoading(false);
   };
 
-  const loginHref = account?.role === 'applicant' ? '/login' : '/agent-login';
+  // Students and job applicants share the website login; agents/staff do not
+  const loginHref =
+    account?.role === 'applicant' || account?.role === 'jobApplicant'
+      ? '/login'
+      : '/agent-login';
 
   return (
     <AuthShell
