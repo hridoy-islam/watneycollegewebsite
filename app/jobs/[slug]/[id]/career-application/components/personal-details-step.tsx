@@ -1,6 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import * as z from 'zod';
+import { PhoneInput } from '@/components/PhoneInput';
+import { phoneSchema } from '@/lib/phone';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -65,7 +67,7 @@ export const personalDetailsSchema = z
     lastName: z.string().min(1, { message: 'Last name is required' }),
     dateOfBirth: z.date({ required_error: 'Date of birth is required' }),
     email: z.string().email({ message: 'Please enter a valid email address' }),
-    phone: z.string().min(1, { message: 'Phone number is required' }),
+    phone: phoneSchema('Phone number'),
     nationality: z.string().min(1, { message: 'Nationality is required' }),
     countryOfResidence: z
       .string()
@@ -464,22 +466,21 @@ export function PersonalDetailsStep({
                 <FormField
                   control={form.control}
                   name="phone"
-                  render={({ field }) => (
+                  render={({ field, fieldState }) => (
                     <FormItem>
                       <FormLabel>
                         Phone Number<span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
-                        <Input
-                          type="tel"
-                          {...field}
-                          placeholder="Include country code if applying from outside the UK"
-                          className="!placeholder:text-black placeholder:text-xs placeholder:text-black"
+                        <PhoneInput
+                          value={field.value}
+                          onChange={field.onChange}
+                          onBlur={field.onBlur}
+                          invalid={!!fieldState.error}
                         />
                       </FormControl>
-                      <p className="text-xs  text-black">
-                        Example: +44 7123 456789
-                        <span className="text-red-500">*</span>
+                      <p className="mt-1 text-xs text-black">
+                        Choose the country code, then the number - e.g. +44 7123 456789 (UK)
                       </p>
 
                       <FormMessage />

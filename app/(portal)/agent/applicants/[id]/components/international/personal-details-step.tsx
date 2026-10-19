@@ -375,7 +375,7 @@ export function PersonalDetailsStep({
                         />
                       </FormControl>
                       <p className="mt-1 text-xs text-black">
-                        Example: +8801675792314 (for Bangladesh)
+                        Example: +44 7123456789 (for UK)
                       </p>
 
                       <FormMessage />

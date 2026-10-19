@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm, useWatch } from 'react-hook-form';
 import * as z from 'zod';
+import { PhoneInput } from '@/components/PhoneInput';
+import { phoneSchema } from '@/lib/phone';
 import { Button } from '@/components/ui/button';
 import { CardContent } from '@/components/ui/card';
 import {
@@ -33,7 +35,7 @@ const personalDetailsSchema = z
     initial: z.string().optional(),
     dateOfBirth: z.any().optional(), // use z.string() if needed
     email: z.string().email({ message: 'Invalid email address' }),
-    phone: z.string().min(1, { message: 'Phone number is required' }),
+    phone: phoneSchema('Phone number'),
     gender: z.string().min(1, { message: 'Please select a gender' }),
     countryOfResidence: z
       .string()
@@ -334,21 +336,21 @@ export function PersonalDetailsStep({
                 <FormField
                   control={form.control}
                   name="phone"
-                  render={({ field }) => (
+                  render={({ field, fieldState }) => (
                     <FormItem>
                       <FormLabel>
                         Phone Number <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
-                        <Input
-                          type="tel"
-                          {...field}
-                          placeholder="Include your country code if applying from outside the UK."
-                          className="!placeholder:text-black  placeholder:text-xs placeholder:text-black"
+                        <PhoneInput
+                          value={field.value}
+                          onChange={field.onChange}
+                          onBlur={field.onBlur}
+                          invalid={!!fieldState.error}
                         />
                       </FormControl>
                       <p className="mt-1 text-xs text-black">
-                        Example: +8801675792314 (for Bangladesh)
+                        Choose the country code, then the number - e.g. +44 7123 456789 (UK)
                       </p>
 
                       <FormMessage />

@@ -3,6 +3,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
+import { PhoneInput } from '@/components/PhoneInput';
+import { phoneSchema } from '@/lib/phone';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import {
@@ -24,7 +26,7 @@ const refereeSchema = z.object({
   address: z.string().min(1, 'Address is required'),
   postCode: z.string().min(1, 'Post code is required'),
   email: z.string().email('Invalid email address'),
-  phone: z.string().min(1, 'Phone number is required')
+  phone: phoneSchema('Phone number')
 });
 
 const refereeDetailsSchema = z.object({
@@ -219,18 +221,19 @@ export function RefereeDetailsStep({
         <FormField
           control={form.control}
           name={`${refKey}.phone`}
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <FormItem>
               <FormLabel>Phone Number <span className="text-red-500">*</span></FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  placeholder="+Include country code"
-                  className="placeholder:text-xs placeholder:text-black"
+                <PhoneInput
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={field.onBlur}
+                  invalid={!!fieldState.error}
                 />
               </FormControl>
-              <p className="mt-2 text-xs text-black">
-                Example: +44 7911 123456
+              <p className="mt-1 text-xs text-black">
+                Choose the country code, then the number - e.g. +44 7123 456789 (UK)
               </p>
               <FormMessage />
             </FormItem>

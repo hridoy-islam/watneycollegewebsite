@@ -1,6 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
+import { PhoneInput } from '@/components/PhoneInput';
+import { phoneSchema } from '@/lib/phone';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -19,9 +21,7 @@ import Select from 'react-select';
 import { countries, emergencyContactRelationships } from '@/types';
 
 const contactSchema = z.object({
-  emergencyContactNumber: z
-    .string()
-    .min(1, { message: 'Emergency contact number is required' }),
+  emergencyContactNumber: phoneSchema('Emergency contact number'),
   emergencyEmail: z
     .string()
     .email({ message: 'Please enter a valid email address' }),
@@ -137,17 +137,21 @@ const capitalizeWords = (str: string | undefined): string => {
                   <FormField
                     control={form.control}
                     name="emergencyContactNumber"
-                    render={({ field }) => (
+                    render={({ field, fieldState }) => (
                       <FormItem>
                         <FormLabel>
                           Contact Number <span className="text-red-500">*</span>
                         </FormLabel>
                         <FormControl>
-                          <Input {...field}  placeholder="Enter a phone number where this person can be reached in an emergency"
-                            className="!placeholder:text-black  placeholder:text-xs placeholder:text-black" />
+                          <PhoneInput
+                            value={field.value}
+                            onChange={field.onChange}
+                            onBlur={field.onBlur}
+                            invalid={!!fieldState.error}
+                          />
                         </FormControl>
                          <p className="mt-1 text-xs text-black">
-                         Example: +44 7700 900123
+                          Choose the country code, then the number - e.g. +44 7123 456789 (UK)
                         </p>
                         <FormMessage />
                       </FormItem>
