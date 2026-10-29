@@ -673,7 +673,7 @@ export default function GovernanceAndManagementPage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
-                Organogram <span className="text-watney-blue-primary">V6</span>
+                Organogram
               </h2>
               <p className="text-lg text-black mx-auto leading-relaxed max-w-5xl">
                 Full staffing hierarchy from Board of Directors through to
@@ -991,9 +991,9 @@ export default function GovernanceAndManagementPage() {
                     ].map((item, i) => (
                       <li
                         key={i}
-                        className="flex items-center gap-3 text-black"
+                        className="flex items-center gap-3 "
                       >
-                        <CheckCircle2 className="w-5 h-5 text-watney-blue-primary shrink-0" />
+                        <CheckCircle2 className="w-5 h-5 shrink-0" />
                         <span className="text-base">{item}</span>
                       </li>
                     ))}
