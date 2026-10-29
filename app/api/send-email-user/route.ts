@@ -2,36 +2,22 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import ejs from "ejs";
 import path from "path";
-import { google } from "googleapis";
 
 export async function POST(req: Request) {
   try {
     const { name, email, subject, message } = await req.json();
 
-    const oAuth2Client = new google.auth.OAuth2(
-      process.env.GOOGLE_CLIENT_ID,
-      process.env.GOOGLE_CLIENT_SECRET,
-      "https://developers.google.com/oauthplayground"
-    );
-
-    oAuth2Client.setCredentials({
-      refresh_token: process.env.GOOGLE_REFRESH_TOKEN,
-    });
-
-    const accessToken = await oAuth2Client.getAccessToken();
+    // Contact mail goes out from the no-reply mailbox over Google SMTP.
+    const senderEmail =
+      process.env.NO_REPLY_EMAIL || "no-reply@watneycollege.co.uk";
 
     const transporter = nodemailer.createTransport({
-      // host: "smtp.ionos.co.uk",
-      // port: 587,
-      // secure: false,
-      service: "Gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
-        type: "OAuth2",
-        user: process.env.SENDER_EMAIL,
-        clientId: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
-        accessToken: accessToken?.token || "",
+        user: senderEmail,
+        pass: process.env.NO_REPLY_EMAIL_PASSWORD,
       },
     });
 
@@ -48,7 +34,7 @@ export async function POST(req: Request) {
     });
 
     const mailOptions = {
-      from: `Watney College <${process.env.SENDER_EMAIL}>`,
+      from: `Watney College <${senderEmail}>`,
       // to: "mahitasnimul2@gmail.com",
       to: email,
       subject: `Thank You for Contacting Watney College`,
