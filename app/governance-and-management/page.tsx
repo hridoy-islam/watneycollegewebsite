@@ -21,6 +21,11 @@ import {
   Building2,
   Download,
   ExternalLink,
+  Eye,
+  Shield,
+  User,
+  BarChart3,
+  type LucideIcon,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -244,6 +249,219 @@ const ChildNode = ({
   </div>
 );
 
+// Functional Structure chart: mirrors "5.2. Functional Structure.pdf".
+// Drawn as one SVG so connectors stay aligned to the boxes at every width.
+const FS_NAVY = "#0b1b4d";
+const FS_RED = "#e5262b";
+const FS_BLUE = "#0b5fff";
+const FS_GREEN = "#0b8a6f";
+const FS_CRIMSON = "#d6004f";
+const FS_PURPLE = "#5b1a9e";
+
+const FS_ROW2_TOP = 277;
+const FS_ROW2_BOTTOM = 393;
+const FS_ROW3_TOP = 483;
+const FS_BOX_HEIGHT = 116;
+const FS_ICON_RADIUS = 30;
+
+const functionalNodes: {
+  x: number;
+  width: number;
+  top: number;
+  color: string;
+  icon: LucideIcon;
+  solidIcon?: boolean;
+  lines: string[];
+}[] = [
+  { x: 30, width: 188, top: FS_ROW2_TOP, color: FS_BLUE, icon: Eye, lines: ["College Oversight", "Board"] },
+  { x: 263, width: 190, top: FS_ROW2_TOP, color: FS_GREEN, icon: GraduationCap, lines: ["Academic Board"] },
+  { x: 498, width: 216, top: FS_ROW2_TOP, color: FS_CRIMSON, icon: Shield, solidIcon: true, lines: ["Audit, Risk &", "Remuneration Committee"] },
+  { x: 748, width: 184, top: FS_ROW2_TOP, color: FS_PURPLE, icon: User, solidIcon: true, lines: ["Principal's", "Executive Group"] },
+  { x: 60, width: 172, top: FS_ROW3_TOP, color: FS_GREEN, icon: Award, lines: ["Quality Assurance", "Committee"] },
+  { x: 270, width: 176, top: FS_ROW3_TOP, color: FS_GREEN, icon: BarChart3, lines: ["Assessment &", "Progression Board"] },
+  { x: 483, width: 170, top: FS_ROW3_TOP, color: FS_GREEN, icon: BookOpen, lines: ["Programme", "Committee"] },
+  { x: 742, width: 196, top: FS_ROW3_TOP, color: FS_PURPLE, icon: Users, solidIcon: true, lines: ["Student Engagement &", "WBL Committee"] },
+];
+
+const FsArrowUp = ({ x, y }: { x: number; y: number }) => (
+  <polygon
+    points={`${x},${y} ${x - 6},${y + 11} ${x + 6},${y + 11}`}
+    fill={FS_NAVY}
+  />
+);
+
+// White box whose top border opens around the icon sitting on it
+const FsBox = ({
+  x,
+  y,
+  width,
+  height,
+  color,
+  gap,
+}: {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  color: string;
+  gap: number;
+}) => {
+  const r = 12;
+  const cx = x + width / 2;
+  const right = x + width;
+  const bottom = y + height;
+  return (
+    <>
+      <rect x={x} y={y} width={width} height={height} rx={r} fill="#ffffff" />
+      <path
+        d={`M${cx + gap} ${y} H${right - r} A${r} ${r} 0 0 1 ${right} ${y + r} V${bottom - r} A${r} ${r} 0 0 1 ${right - r} ${bottom} H${x + r} A${r} ${r} 0 0 1 ${x} ${bottom - r} V${y + r} A${r} ${r} 0 0 1 ${x + r} ${y} H${cx - gap}`}
+        fill="none"
+        stroke={color}
+        strokeWidth={2}
+      />
+    </>
+  );
+};
+
+const FsIcon = ({
+  cx,
+  cy,
+  color,
+  icon: Icon,
+  solid = false,
+  radius = FS_ICON_RADIUS,
+}: {
+  cx: number;
+  cy: number;
+  color: string;
+  icon: LucideIcon;
+  solid?: boolean;
+  radius?: number;
+}) => {
+  const size = radius * 1.1;
+  return (
+    <>
+      <circle cx={cx} cy={cy} r={radius} fill={color} />
+      <Icon
+        x={cx - size / 2}
+        y={cy - size / 2}
+        width={size}
+        height={size}
+        color="#ffffff"
+        fill={solid ? "#ffffff" : "none"}
+        strokeWidth={2.2}
+      />
+    </>
+  );
+};
+
+const FunctionalStructureChart = () => (
+  <svg
+    viewBox="0 0 960 620"
+    role="img"
+    aria-labelledby="functional-structure-title"
+    className="w-full min-w-[760px] max-w-[1040px] mx-auto h-auto"
+  >
+    <title id="functional-structure-title">
+      Functional structure: the College Oversight Board, Academic Board, Audit,
+      Risk and Remuneration Committee and Principal's Executive Group report to
+      the Board of Directors. The Quality Assurance Committee, Assessment and
+      Progression Board and Programme Committee report to the Academic Board.
+      The Student Engagement and WBL Committee reports to the Principal's
+      Executive Group. Information flows both ways between the Board of
+      Directors and the four bodies reporting to it, and between those bodies.
+    </title>
+
+    {/* Legend */}
+    <rect x={23} y={24} width={224} height={143} rx={10} fill="#ffffff" stroke={FS_NAVY} strokeWidth={2} />
+    <line x1={37} y1={49} x2={107} y2={49} stroke={FS_NAVY} strokeWidth={2} />
+    <text x={122} y={51} fontSize={14} fontWeight={700} fill={FS_NAVY}>Solid Line</text>
+    <text x={122} y={70} fontSize={12} fill={FS_NAVY}>(One Way)</text>
+    <text x={122} y={87} fontSize={12} fill={FS_NAVY}>Reporting Relationship</text>
+    <line x1={37} y1={115} x2={107} y2={115} stroke={FS_RED} strokeWidth={2.5} strokeDasharray="2 3" />
+    <text x={122} y={117} fontSize={14} fontWeight={700} fill={FS_NAVY}>Dotted Line</text>
+    <text x={122} y={136} fontSize={12} fill={FS_NAVY}>(Both way)</text>
+    <text x={122} y={153} fontSize={12} fill={FS_NAVY}>Flow of Information</text>
+
+    {/* Dotted: two-way flow of information */}
+    <g fill="none" stroke={FS_RED} strokeWidth={2.5} strokeDasharray="2 3">
+      <path d="M522 167 V223" />
+      <path d={`M170 ${FS_ROW2_TOP} V223 H798 V${FS_ROW2_TOP}`} />
+      <path d="M218 332 H263" />
+      <path d="M453 332 H498" />
+      <path d="M714 332 H748" />
+    </g>
+
+    {/* Solid: reporting lines to the Board of Directors */}
+    <g fill="none" stroke={FS_NAVY} strokeWidth={2}>
+      <path d="M124 201 H840" />
+      <path d="M490 201 V170" />
+      <path d={`M124 201 V${FS_ROW2_TOP - 37}`} />
+      <path d={`M358 201 V${FS_ROW2_TOP - 37}`} />
+      <path d={`M606 201 V${FS_ROW2_TOP - 37}`} />
+      <path d={`M840 201 V${FS_ROW2_TOP - 37}`} />
+    </g>
+    <FsArrowUp x={490} y={168} />
+    <FsArrowUp x={124} y={202} />
+    <FsArrowUp x={358} y={202} />
+    <FsArrowUp x={606} y={202} />
+    <FsArrowUp x={840} y={202} />
+
+    {/* Solid: committees reporting to Academic Board and Principal's Executive Group */}
+    <g fill="none" stroke={FS_NAVY} strokeWidth={2}>
+      <path d={`M358 ${FS_ROW2_BOTTOM + 2} V${FS_ROW3_TOP - 37}`} />
+      <path d="M146 425 H568" />
+      <path d={`M146 425 V${FS_ROW3_TOP - 37}`} />
+      <path d={`M568 425 V${FS_ROW3_TOP - 37}`} />
+      <path d={`M840 ${FS_ROW2_BOTTOM + 2} V${FS_ROW3_TOP - 37}`} />
+    </g>
+    <FsArrowUp x={358} y={FS_ROW2_BOTTOM + 1} />
+    <FsArrowUp x={358} y={426} />
+    <FsArrowUp x={146} y={426} />
+    <FsArrowUp x={568} y={426} />
+    <FsArrowUp x={840} y={FS_ROW2_BOTTOM + 1} />
+
+    {/* Board of Directors */}
+    <FsBox x={326} y={64} width={328} height={103} color={FS_BLUE} gap={39} />
+    <FsIcon cx={490} cy={64} color={FS_BLUE} icon={Users} solid radius={32} />
+    <text x={490} y={124} textAnchor="middle" fontSize={30} fontWeight={800} fill={FS_NAVY}>
+      Board of Directors
+    </text>
+
+    {/* Committees */}
+    {functionalNodes.map((node) => {
+      const cx = node.x + node.width / 2;
+      const firstLine = node.top + (node.lines.length === 1 ? 74 : 62);
+      return (
+        <g key={node.lines.join(" ")}>
+          <FsBox
+            x={node.x}
+            y={node.top}
+            width={node.width}
+            height={FS_BOX_HEIGHT}
+            color={node.color}
+            gap={FS_ICON_RADIUS + 7}
+          />
+          <FsIcon
+            cx={cx}
+            cy={node.top}
+            color={node.color}
+            icon={node.icon}
+            solid={node.solidIcon}
+          />
+          <text textAnchor="middle" fontSize={15} fontWeight={700} fill={FS_NAVY}>
+            {node.lines.map((line, index) => (
+              <tspan key={line} x={cx} y={firstLine + index * 23}>
+                {line}
+              </tspan>
+            ))}
+          </text>
+        </g>
+      );
+    })}
+  </svg>
+);
+
 export default function GovernanceAndManagementPage() {
   return (
     <>
@@ -387,277 +605,21 @@ export default function GovernanceAndManagementPage() {
                   Functional{" "}
                   <span className="text-watney-blue-primary">Structure</span>
                 </h2>
-                <p className="text-lg text-black mx-auto leading-relaxed max-w-5xl">
-                  All relationships are two-way — authority is delegated
-                  downward and formal reports flow upward through the same
-                  channel. Dotted double-headed arrows represent this two-way
-                  delegation and reporting relationship.
-                </p>
+                {/* <p className="text-lg text-black mx-auto leading-relaxed max-w-5xl">
+                  Solid lines show one-way reporting relationships. Dotted
+                  lines show the two-way flow of information.
+                </p> */}
               </motion.div>
 
-              <div className="w-full overflow-x-auto pb-16 relative z-20">
-                <div className="min-w-max flex flex-col items-center w-full mx-auto px-4 org-chart-wrapper">
-                  <Tree
-                    lineWidth={"2px"}
-                    lineColor={"#1f5f8b"}
-                    lineHeight={"50px"}
-                    lineBorderRadius={"4px"}
-                    lineStyle="dashed"
-                    label={
-                      <div className="relative inline-block ">
-                        <div
-                          className="inline-flex flex-col items-center justify-center px-6 py-4 rounded-xl shadow-md min-w-[220px] relative z-20"
-                          style={{
-                            backgroundColor: "#0b2146",
-                            color: "#ffffff",
-                          }}
-                        >
-                          <span className="font-bold text-[16px]">
-                            Board of Directors
-                          </span>
-                          <span className="text-[12px] mt-1 font-light opacity-90">
-                            Ultimate authority
-                          </span>
-                        </div>
-                      </div>
-                    }
-                  >
-                    {/* College Oversight Board */}
-                    <TreeNode
-                      label={
-                        <div className="relative inline-block">
-                          <div
-                            className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm min-w-[160px] relative z-20"
-                            style={{
-                              backgroundColor: "#1a5275",
-                              color: "#ffffff",
-                            }}
-                          >
-                            <span className="font-normal text-[14px]">
-                              College Oversight
-                            </span>
-                            <span className="font-bold text-[14px]">Board</span>
-                          </div>
-                        </div>
-                      }
-                    />
-
-                    {/* Academic Board Flow */}
-                    <TreeNode
-                      label={
-                        <div className="relative inline-block">
-                          <div
-                            className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm min-w-[160px] relative z-20"
-                            style={{
-                              backgroundColor: "#1b6ca8",
-                              color: "#ffffff",
-                            }}
-                          >
-                            <span className="font-normal text-[14px]">
-                              Academic Board
-                            </span>
-                            <span className="text-[14px] font-semibold mt-1 opacity-90">
-                              Standards · Quality
-                            </span>
-                          </div>
-                        </div>
-                      }
-                    >
-                      {/* QA Committee Flow */}
-                      <TreeNode
-                        label={
-                          <div className="relative inline-block">
-                            <div
-                              className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
-                              style={{
-                                backgroundColor: "#ebf4fa",
-                                color: "#1f5f8b",
-                                border: "1px solid #a1cbe8",
-                                minWidth: "160px",
-                              }}
-                            >
-                              <span className="font-bold text-[14px]">
-                                QA Committee
-                              </span>
-                              <span className="text-[11px] mt-1">
-                                Teaching quality
-                              </span>
-                            </div>
-                          </div>
-                        }
-                      >
-                        <TreeNode
-                          label={
-                            <div className="relative inline-block">
-                              <div
-                                className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
-                                style={{
-                                  backgroundColor: "#ebf4fa",
-                                  color: "#1f5f8b",
-                                  border: "1px solid #a1cbe8",
-                                  minWidth: "160px",
-                                }}
-                              >
-                                <span className="font-bold text-[13px]">
-                                  Assessment &
-                                </span>
-                                <span className="font-bold text-[13px]">
-                                  Progression Board
-                                </span>
-                              </div>
-                            </div>
-                          }
-                        />
-                        <TreeNode
-                          label={
-                            <div className="relative inline-block">
-                              <div
-                                className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
-                                style={{
-                                  backgroundColor: "#ebf4fa",
-                                  color: "#1f5f8b",
-                                  border: "1px solid #a1cbe8",
-                                  minWidth: "160px",
-                                }}
-                              >
-                                <span className="font-bold text-[13px]">
-                                  Programme
-                                </span>
-                                <span className="font-bold text-[13px]">
-                                  Committee
-                                </span>
-                              </div>
-                            </div>
-                          }
-                        />
-                      </TreeNode>
-                    </TreeNode>
-
-                    {/* Principal's Executive Group Flow */}
-                    <TreeNode
-                      label={
-                        <div className="relative inline-block">
-                          <div
-                            className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm min-w-[160px] relative z-20"
-                            style={{
-                              backgroundColor: "#1b6ca8",
-                              color: "#ffffff",
-                            }}
-                          >
-                            <span className="font-normal text-[14px]">
-                              Principal's Executive
-                            </span>
-                            <span className="font-bold text-[14px]">
-                              Group (PEG)
-                            </span>
-                          </div>
-                        </div>
-                      }
-                    >
-                      <TreeNode
-                        label={
-                          <div className="relative inline-block">
-                            <div
-                              className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm relative z-20"
-                              style={{
-                                backgroundColor: "#d5e9f7",
-                                color: "#1f5f8b",
-                                border: "1px solid #a1cbe8",
-                                minWidth: "180px",
-                              }}
-                            >
-                              <span className="font-bold text-[13px]">
-                                Student Engagement
-                              </span>
-                              <span className="font-bold text-[13px]">
-                                & WBL Committee
-                              </span>
-                            </div>
-                          </div>
-                        }
-                      />
-                    </TreeNode>
-
-                    {/* ARRC */}
-                    <TreeNode
-                      label={
-                        <div className="relative inline-block">
-                          <div
-                            className="inline-flex flex-col items-center justify-center px-4 py-3 rounded-xl shadow-sm min-w-[160px] relative z-20"
-                            style={{
-                              backgroundColor: "#1a5275",
-                              color: "#ffffff",
-                            }}
-                          >
-                            <span className="font-normal text-[14px]">
-                              ARRC
-                            </span>
-                            <span className="text-[12px] font-bold mt-1 opacity-90">
-                              Audit · Risk · Rem.
-                            </span>
-                          </div>
-                        </div>
-                      }
-                    />
-                  </Tree>
-
-                  {/* Chart Legend matching the image */}
-                  <div className="mt-16 flex flex-wrap items-center justify-center gap-6 text-xs text-black font-medium bg-white px-6 py-3 rounded-full shadow-sm border border-slate-200">
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-4 h-4 rounded-sm"
-                        style={{ backgroundColor: "#0b2146" }}
-                      ></div>
-                      <span>Board</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-4 h-4 rounded-sm"
-                        style={{ backgroundColor: "#1a5275" }}
-                      ></div>
-                      <span>Governance</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-4 h-4 rounded-sm"
-                        style={{ backgroundColor: "#1b6ba8" }}
-                      ></div>
-                      <span>Management</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-4 h-4 rounded-sm"
-                        style={{
-                          backgroundColor: "#d5e9f7",
-                          border: "1px solid #a1cbe8",
-                        }}
-                      ></div>
-                      <span>Student</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-4 h-4 rounded-sm"
-                        style={{
-                          backgroundColor: "#ebf4fa",
-                          border: "1px solid #a1cbe8",
-                        }}
-                      ></div>
-                      <span>Sub-committees</span>
-                    </div>
-                    <div className="flex items-center gap-2 ml-4">
-                      <div className="flex items-center">
-                        <div
-                          className="w-8 border-t-2 border-dashed"
-                          style={{ borderColor: "#1f5f8b" }}
-                        ></div>
-                      </div>
-                      <span className="ml-1">
-                        Two-way delegation & reporting
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="overflow-x-auto relative z-20"
+              >
+                <FunctionalStructureChart />
+              </motion.div>
             </div>
           </section>
 
