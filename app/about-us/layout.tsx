@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Watney College | London Higher Education Provider",
   description:
     "Learn more about Watney College, our mission, vision, and values in London.",
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: "/about.jpg",
         width: 1200,
         height: 630,
-        alt: "Watney College | English Learning Centre In London",
+        alt: "Watney College | Higher Education in the UK",
       },
     ],
     locale: "en_GB",

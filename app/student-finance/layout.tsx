@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Student Finance",
+  title: "Tuition Fees and Financial Support",
   description:
     "Learn about student finance options at Watney College, including tuition fees, scholarships, and financial aid for students in London.",
   keywords: [
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "student funding",
   ],
   openGraph: {
-    title: "Student Finance",
+    title: "Tuition Fees and Financial Support",
     description:
       "Learn about student finance options at Watney College, including tuition fees, scholarships, and financial aid for students in London.",
     url: "/student-finance",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Student Finance",
+    title: "Tuition Fees and Financial Support",
     description:
       "Learn about student finance options at Watney College, including tuition fees, scholarships, and financial aid for students in London.",
     images: ["/about.jpg"], // replace with actual image

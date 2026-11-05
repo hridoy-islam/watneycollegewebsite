@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { useRef, useState } from "react";
+import UserNav from "@/components/user-nav";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,10 +18,13 @@ export default function Header() {
    
     { name: "Accreditations", path: "/accreditations" },
 
+    // { name: "News & Insights", path: "/news-and-insights" },
+
     { name: "Contact", path: "/contact" },
   ];
 
   return (
+    <>
     <header className="fixed top-0 left-0 w-full z-[99999] bg-white/85 backdrop-blur-md shadow-sm border-b-2 border-watney ">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between h-24">
         {/* Logo */}
@@ -110,51 +114,53 @@ export default function Header() {
         </nav>
 
         {/* "Apply Now" Button for Desktop */}
-        <div className="hidden lg:block space-x-4">
+        <div className="hidden lg:flex items-center gap-4">
 
-          <a
+          {/* <a
             href="https://app.watneycollege.co.uk"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Button className="bg-[#942a24] hover:bg-[#942a24]/90"  >Student Login</Button>
-          </a>
-          <a
+          </a> */}
+          {/* <a
             href="https://system.klaspad.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Button className="btn-watney-primary">VLE</Button>
-          </a>
+          </a> */}
 
 
-          <Link href="/courses">
+          {/* <Link href="/courses">
             <Button className="btn-watney-primary ">Apply Now</Button>
-          </Link>
+          </Link> */}
+
+          <UserNav />
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="lg:hidden">
+        <div className="lg:hidden flex items-center gap-2">
+          <UserNav only="loggedIn" />
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-gray-700 hover:bg-gray-100"
+            className="h-10 w-12 hover:bg-gray-100 [&_svg]:size-9"
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {isMobileMenuOpen ? <X /> : <Menu />}
           </Button>
         </div>
       </div>
+    </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - kept outside <header>: its backdrop-blur makes
+          it the containing block for fixed children, which would shrink the
+          backdrop to the header's height. */}
       <div
-        className={`fixed inset-0 lg:hidden transition-all duration-300 ${
+        className={`fixed inset-0 z-[100000] lg:hidden transition-all duration-300 ${
           isMobileMenuOpen
-            ? "opacity-100 pointer-events-auto z-[10000]"
+            ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
       >
@@ -232,19 +238,25 @@ export default function Header() {
               )}
             </nav>
 
-            <div className="mt-8">
-              <Link href="/courses">
+            <div className="mt-8 space-y-4">
+              {/* <Link href="/courses">
                 <Button
                   className="w-full btn-watney-primary"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Apply Now
                 </Button>
-              </Link>
+              </Link> */}
+
+              <UserNav
+                inline
+                only="loggedOut"
+                onNavigate={() => setIsMobileMenuOpen(false)}
+              />
             </div>
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

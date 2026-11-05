@@ -18,29 +18,39 @@ import Image from "next/image";
 export default function Footer() {
   const academicLinks = [
     { name: "Policies", href: "/policies" },
-    { name: "Access And Participation Statement", href: "/access-and-participation" },
+    {
+      name: "Access And Participation Statement",
+      href: "/access-and-participation-statement",
+    },
     { name: "Student Protection Plan", href: "/student-protection-plan" },
     { name: "Governance and Management", href: "/governance-and-management" },
     { name: "Accident and Emergency Support", href: "/accident-and-emergency" },
     { name: "Prevent Duty Statement", href: "/prevent-duty-statement" },
-    { name: "Academic Calendar", href: "#" },
+    { name: "Academic Calendar", href: "/academic-calendar" },
     { name: "Fire Safety", href: "fire-safety-statement" },
-    {
-      name: "Staff Login",
-      href: "https://app.watneycollege.co.uk/",
-      external: true,
-    },
+    // { name: "Student Handbook 2025–26", href: "/policies" },
+    // { name: "Student Complaints Procedure", href: "/policies" },
+    // {
+    //   name: "Staff Login",
+    //   href: "https://app.watneycollege.co.uk/",
+    //   external: true,
+    // },
   ];
 
   const campusLinks = [
-    { name: "KLASPAD (VLE)", href: "https://www.klaspad.com/", external: true,},
+    {
+      name: "VLE",
+      href: "https://vle.watneycollege.co.uk/",
+      external: true,
+    },
     { name: "Employers & Partners", href: "/employers-and-partners" },
     { name: "Verify", href: "/verify" },
     // { name: "Student Finance", href: "/student-finance" },
-    { name: "Accommodation", href: "/accommodation" },
-    { name: "Career & Employablity", href: "/career-employability" },
-    { name: "Request a prospectus", href: "/prospectus" },
-     { name: "Jobs", href: "/jobs" },
+    // { name: "Accommodation", href: "/accommodation" },
+    { name: "Career & Employability", href: "/career-employability" },
+    { name: "Prospectus 2025-26", href: "/prospectus" },
+    { name: "Jobs", href: "/jobs" },
+    // { name: "News & Insights", href: "/news-and-insights" },
   ];
 
   const aboutLinks = [
@@ -68,7 +78,7 @@ export default function Footer() {
             </div>
 
             {/* Quick Stats */}
-            <div className="flex justify-center lg:justify-start space-x-4">
+            {/* <div className="flex justify-center lg:justify-start space-x-4">
               <Link
                 href="https://www.facebook.com"
                 target="_blank"
@@ -100,7 +110,7 @@ export default function Footer() {
               >
                 <X className="text-2xl text-white mb-1 cursor-pointer" />
               </Link>
-            </div>
+            </div> */}
           </div>
 
           {/* Academic Links */}
@@ -158,8 +168,9 @@ export default function Footer() {
                 <MapPin className="w-5 h-5 text-white mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-white text-sm leading-relaxed">
-                   
-                    Dubai
+                    80-82 Nelson Street, Whitechapel,
+                    <br />
+                    London, E1 2DY, United Kingdom
                   </p>
                 </div>
               </div>
@@ -168,10 +179,10 @@ export default function Footer() {
               <div className="flex items-center space-x-3 justify-center lg:justify-start">
                 <Phone className="w-5 h-5 text-white flex-shrink-0" />
                 <a
-                  href="tel:+971 4 123 4567"
+                  href="tel:+442080046463"
                   className="text-white transition-colors text-sm"
                 >
-                  +971 4 123 4567
+                  +44 (0) 2080046463
                 </a>
               </div>
 
@@ -179,10 +190,10 @@ export default function Footer() {
               <div className="flex items-center space-x-3 justify-center lg:justify-start">
                 <Mail className="w-5 h-5 text-white flex-shrink-0" />
                 <a
-                  href="mailto:info@watneycollege.com"
+                  href="mailto:info@watneycollege.co.uk"
                   className="text-white hover:text-white transition-colors text-sm"
                 >
-                  info@watneycollege.com
+                  info@watneycollege.co.uk
                 </a>
               </div>
 
@@ -190,7 +201,9 @@ export default function Footer() {
               <div className="flex items-start space-x-3 justify-center lg:justify-start">
                 <Clock className="w-5 h-5 text-white flex-shrink-0" />
                 <div className="text-white text-sm">
-                  <div>Mon-Fri: 9AM-5PM</div>
+                  <div className="text-white text-sm">
+                    <div>Monday to Friday, 9:00am – 6:00pm</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -203,22 +216,26 @@ export default function Footer() {
             <p className="text-white text-sm">
               © {new Date().getFullYear()} Watney College. All rights reserved.
             </p>
+            <p className="text-white text-xs mt-2">
+              UKPRN: 10087811 | Company Reg: 12858207 | Registered in England
+              and Wales
+            </p>
             <div className="flex items-center flex-row  space-x-6 text-sm ">
-              <Link
+              {/* <Link
                 href="/privacy-policy"
                 className="text-white transition-colors"
               >
                 Privacy Policy
-              </Link>
+              </Link> */}
               <Link
                 href="/terms-and-conditions"
                 className="text-white transition-colors"
               >
                 Terms & Conditions
               </Link>
-              <Link href="/cookies" className="text-white transition-colors">
+              {/* <Link href="/cookies" className="text-white transition-colors">
                 Cookies
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

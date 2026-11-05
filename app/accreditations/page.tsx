@@ -70,10 +70,10 @@ export default function AccreditationPage() {
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <Handshake className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+            <h1 className="text-5xl md:text-6xl font-black mb-6 text-black">
               <span className="text-watney-blue-primary">Accreditations</span>
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed mx-auto">
+            <p className="text-lg text-black leading-relaxed mx-auto">
               Watney College is proud to be accredited by leading organizations,
               ensuring the quality and recognition of our programs.
             </p>
@@ -90,38 +90,38 @@ export default function AccreditationPage() {
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 z-50"
             >
               {[
-                {
-                  title: "Klaspad",
-                  logo: "/klaspad.png",
-                  link: "https://system.klaspad.com/login",
-                  description:
-                    "Klaspad is a leading accreditation body that ensures educational institutions meet high standards of quality and excellence.",
-                },
+                // {
+                //   title: "Klaspad",
+                //   logo: "/klaspad.png",
+                //   link: "https://system.klaspad.com/login",
+                //   description:
+                //     "Klaspad is a leading accreditation body that ensures educational institutions meet high standards of quality and excellence.",
+                // },
                 {
                   title: "ASIC",
-                  logo: "/asic.svg",
+                  logo: "/asic.jpeg",
                   link: "https://www.asic.org.uk/",
                   description:
-                    "The Accreditation Service for International Schools, Colleges, and Universities (ASIC) is a UK-based, internationally recognized quality assurance body that accredits private post-secondary institutions globally",
+                    "Watney College holds UK Accreditation from ASIC (Accreditation Service for International Schools, Colleges, and Universities).",
                 },
                 {
                   title: "ESB",
                   logo: "/esb.png",
                   link: "https://esbuk.org/web/",
                   description:
-                    "English Speaking Board recognizes institutions that provide industry-relevant skills and qualifications.",
+                    "English Speaking Board recognizes institutions that provide industry-relevant skills and qualifications. ESB is an Ofqual-regulated awarding organisation specialising in spoken English qualifications and communication skills.",
                 },
                 {
                   title: "Focus Award",
                   logo: "/focus-award.png",
                   link: "https://focusawards.org.uk/",
                   description:
-                    "Focus Award is a prestigious recognition for institutions that excel in student support and career readiness.",
+                    "Focus Awards is a regulated awarding organisation delivering qualifications in health, social care, business and education sectors. It is regulated by Ofqual in England",
                 },
                 {
                   title: "NQual",
                   logo: "/nqual.png",
-                  link: "https://nqual.com",
+                  link: " https://www.nqual.co.uk/",
                   description:
                     "NQual provides high-quality qualifications and assessments designed to meet the needs of learners and help them achieve their potential, both professionally and personally.",
                 },
@@ -173,7 +173,7 @@ export default function AccreditationPage() {
 
                     {/* Description */}
                     <CardContent className="flex-grow">
-                      <CardDescription className="text-gray-700 text-base text-center">
+                      <CardDescription className="text-black text-base text-center">
                         {acc.description}
                       </CardDescription>
                     </CardContent>
@@ -191,7 +191,7 @@ export default function AccreditationPage() {
             </motion.div>
           </div>
         </section>
-
+      
         {/* Footer or CTA Section */}
         {/* <section className="py-20  bg-soft-sky text-black text-center">
           <div className="container mx-auto px-4">
@@ -203,7 +203,7 @@ export default function AccreditationPage() {
               <h2 className="text-4xl font-bold mb-6">
                 Why Choose Watney College?
               </h2>
-              <p className="text-xl mb-8 text-gray-600">
+              <p className="text-xl mb-8 text-black">
                 With our strong partnerships and accreditations, you can trust
                 that you are receiving a world-class education.
               </p>

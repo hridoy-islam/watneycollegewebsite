@@ -1,7 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // `@react-pdf/renderer` v4 ships ESM only; webpack needs it transpiled
+  // rather than treated as an external ESM package.
+  transpilePackages: ['@react-pdf/renderer'],
   typescript: {
     ignoreBuildErrors: true, // ✅ Skips type checking
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+        pathname: '/watney/**',
+      },
+     
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        pathname: '/600x400',
+      },
+    ],
   },
   env: {
     NEXTAUTH_SECRET:

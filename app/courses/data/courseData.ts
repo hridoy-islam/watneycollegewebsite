@@ -1,3 +1,5 @@
+import { duration } from "moment";
+
 export const courses = [
   // {
   //   id: 1,
@@ -204,7 +206,7 @@ export const courses = [
     slug: "level-2-adult-social-care",
     title: "Level 2 Adult Social Care",
     description:
-      "Designed for new entrants or existing workers in adult social care roles. This qualification ensures foundational competence in person-centred care, safeguarding, communication, health and safety, and legal responsibilities, serving as a nationally recognised benchmark for care practice.",
+      "Designed for new entrants or existing workers in adult social care roles, providing foundational competence in person-centred care and safeguarding",
     category: "Healthcare",
     level: "Level 2",
     image: "/adultcare1.jpg",
@@ -215,7 +217,15 @@ export const courses = [
       "Safeguarding Adults & Children",
       "Health & Safety in Care",
     ],
+    duration:
+      "Duration: 6 months  |  Mode: Blended (in-person and remote)  |  Start: September and January",
+
+    courseFee: "£1,500",
+        feeDetails:"per year -fixed for duration of programme Employer reimbursement may be available through the Government's Learning and Development Support Scheme (LDSS).",
+
     link: "https://app.watneycollege.co.uk/courses/apply/689e02749443d6e90e5b14a7",
+            courseId:"689e02749443d6e90e5b14a7",
+
     overview:
       "This Level 2 Adult Social Care Certificate is designed to improve portability and reduce the need for repeat training and assessment when individual move roles. Skills for Care was commissioned by the Department of Health and Social Care (DHSC) to develop a specification for the development of the new Level 2 Adult Social Care Certificate qualification, based on the existing Care Certificate standards. The NQual Level 2 Adult Social Care Certificate qualification is supported by Skills for Care and the Department of Health and Social Care. This qualification is guided by the Skills for Care & Development Assessment Principles and Additional Assessment Principles Guidance.",
     curriculum: [
@@ -243,55 +253,66 @@ export const courses = [
       "Progression to: Level 2 Diploma in Adult Care, Level 3 Diploma in Adult Care, Level 2 Award in Dementia Awareness",
     ],
   },
-  // {
-  //   id: 7,
-  //   slug: "level-3-diploma-in-adult-care-rqf",
-  //   title: "Level 3 Diploma in Adult Care (RQF)",
-  //   description:
-  //     "Designed for experienced care professionals in supervisory roles, such as lead adult care workers or lead personal assistants. Covers essential skills in leadership, person-centred care, and safeguarding, with progression routes to Level 4 and 5 qualifications.",
-  //   category: "Healthcare",
-  //   level: "Level 3",
-  //   image: "/adultcare.jpg",
-  //   tags: [
-  //     "Portfolio Assessment",
-  //     "Supervisory Skills",
-  //     "Person-Centred Care",
-  //     "Safeguarding",
-  //     "Leadership in Care",
-  //   ],
-  //   link: "https://app.watneycollege.co.uk/courses/apply/68712a9975b500d8c2796b2d",
-  //   overview:
-  //     "This RQF-accredited qualification is designed for experienced care workers in supervisory roles, such as lead adult care workers or personal assistants. It focuses on person-centred care, safeguarding, leadership, and professional development, preparing learners for greater responsibility in health and social care settings.",
-  //   curriculum: [
-  //     "Promote Professional Development",
-  //     "Champion Person-Centred Care",
-  //     "Safeguarding and Protection",
-  //     "Leading Teams in Adult Care",
-  //     "Manage Safeguarding & Duty of Care",
-  //     "Communication in Adult Care Settings",
-  //     "Assessment: Portfolio of evidence",
-  //   ],
-  //   requirements: [
-  //     "No formal entry requirements",
-  //     "Recommended: Experience in adult care",
-  //     "Minimum age: 16",
-  //     "Must be working, volunteering, or on a placement in a care setting",
-  //     "Available to Home Students and Overseas applicants",
-  //   ],
-  //   career: [
-  //     "Lead Adult Care Worker",
-  //     "Senior Care Assistant",
-  //     "Care Coordinator",
-  //     "Team Leader in Residential or Home Care",
-  //     "Progression to: Level 4 Diploma in Adult Care (RQF), Level 5 Diploma in Leadership for Health & Social Care (RQF)",
-  //   ],
-  // },
+  {
+    id: 7,
+    slug: "level-3-diploma-in-adult-care",
+    title: "NQual Level 3 Diploma in Adult Care",
+    description:
+      "The Level 3 Adult Care Qualification is designed to develop the knowledge, skills, and behaviours required for competent practice in adult social care. It builds on existing care knowledge and prepares learners to take greater responsibility in delivering high-quality, person-centred care, supporting individuals with complex needs, and promoting independence and wellbeing.",
+    category: "Healthcare",
+    level: "Level 3",
+    image: "/adultcare.jpg",
+    tags: [
+      "Portfolio-Based Assessment",
+      "Workplace Competence",
+      "Person-Centred Practice",
+      "Safeguarding Adults",
+      "Leadership & Professional Development",
+      "Health & Safety",
+      "Equality, Diversity & Inclusion",
+    ],
+    // courseFee: "£1,500",
+    // feeDetails: "per year - fixed for duration of programme. Employer reimbursement may be available through the Government's Learning and Development Support Scheme (LDSS).",
+    // duration:
+    //   "Duration: 9 months  |  Mode: Blended (in-person and remote)  |  Start: September and January",
+    link: "https://app.watneycollege.co.uk/courses/apply/6a54c0feaf946e5c9db7ba63",
+    overview:
+      "The Level 3 Adult Care Qualification is designed to develop the knowledge, skills, and behaviours required for competent practice in adult social care. It builds on existing care knowledge and prepares learners to take greater responsibility in delivering high-quality, person-centred care, supporting individuals with complex needs, and promoting independence and wellbeing. The qualification is suitable for experienced care workers, senior care workers, and those progressing into supervisory roles within adult social care settings. Learners develop competence in leadership, safeguarding, communication, health and safety, equality and diversity, person-centred practice, professional development, and supporting positive outcomes for individuals. Assessment: Portfolio of evidence, workplace observations, professional discussions, witness testimonies, and knowledge evidence. Internally assessed and quality assured in accordance with the awarding organisation's requirements. No written examinations.",
+    curriculum: [
+      "Ways of Working",
+      "Safeguarding",
+      "Mental Capacity and Restrictive Practices",
+      "Duty of Care",
+      "Effective Communication",
+      "Handling Information",
+      "Person-Centred Practice",
+      "Choice and Independence",
+      "Health and Well-Being",
+      "Equality, Diversity, Inclusion and Human Rights",
+      "Health and Safety (General)",
+      "Infection Prevention and Control",
+      "Health and Safety (Topics)",
+      "Continuous Development",
+      "Personal Well-Being",
+    ],
+    requirements: [
+      "No formal entry requirements.",
+      "Applicants must be 16 or over and working in or seeking employment in adult social care.",
+    ],
+    career: [
+      "Lead Adult Care Worker",
+      "Senior Care Assistant",
+      "Care Coordinator",
+      "Team Leader in Residential or Home Care",
+      "Progression to: Level 4 Diploma in Adult Care (RQF), Level 5 Diploma in Leadership for Health & Social Care (RQF)",
+    ],
+  },
   {
     id: 8,
     slug: "level-4-diploma-in-adult-care",
     title: "NQual Level 4 Diploma in Adult Care",
     description:
-      "Designed for care professionals aspiring to or working in leadership and management roles. This qualification develops advanced skills in communication, safeguarding, health and safety, person-centred planning, and inclusive practice, preparing learners to lead teams and manage services effectively.",
+      "Designed for care professionals aspiring to or working in leadership and management roles in adult social care. This qualification develops advanced skills in communication, safeguarding, health and safety, person-centred planning, and inclusive practice, preparing learners to lead teams and manage services effectively.",
     category: "Healthcare",
     level: "Level 4",
     image: "/adultcare2.jpg",
@@ -301,7 +322,12 @@ export const courses = [
       "Safeguarding Adults & Children",
       "Health & Safety Leadership",
     ],
-    link: "https://app.watneycollege.co.uk/courses/apply/689dedb69443d6e90e5b146c",
+    courseFee: "£1,500",
+            feeDetails:"per year -fixed for duration of programme Employer reimbursement may be available through the Government's Learning and Development Support Scheme (LDSS).",
+
+    duration:
+      "Duration: 1 year  |  Mode: Blended (in-person and remote)  |  Start: September and January",
+    link: "https://app.watneycollege.co.uk/courses/apply/68712a9975b500d8c2796b2d",
     overview: `This Level 4 Diploma in Adult Care is designed to provide learners with knowledge and skills relating to care practices. It will provide individuals with the chance to develop knowledge and gain skills to seek employment or progression onto higher level qualifications. The purpose of this qualification is to prepare individuals for progression in the care sector. The units specified within this document cover a variety of areas and topics relevant to the sector, including leadership and management in health care. This qualification is supported by Skills for Care and developed using the Development Assessment Principles. This qualification is approved by Skills for Care.`,
     curriculum: [
       "Lead Communication in Adult Care Settings",
@@ -346,6 +372,58 @@ export const courses = [
       "Deputy Manager / Manager in Adult Care",
       "Senior Practitioner / Team Leader",
       "Care Coordinator / Supervisor",
+    ],
+  },
+  {
+    id: 9,
+    slug: "general-english-programme-b1-c1",
+    title: "General English Programme (B1–C1)",
+    description:
+      "The General English Programme (B1–C1) is designed to support learners in developing independent and effective communication skills in English across social, academic, and professional contexts. The programme expands fluency and accuracy, develops the ability to understand and produce complex texts, strengthens critical thinking and argumentation skills, and improves confidence in real-world and workplace communication. Aligned with the Common European Framework of Reference for Languages (CEFR), it ensures structured progression from intermediate to advanced proficiency.",
+    category: "English",
+    level: "B1 (Intermediate) to C1 (Advanced)",
+    image: "/english.jpg",
+    tags: [
+      "Fluency & Accuracy",
+      "Complex text comprehension",
+      "Critical thinking & argumentation",
+      "Workplace communication",
+      "CEFR-aligned progression",
+    ],
+    courseFee: "£4950",
+    feeDetails:"",
+    duration:
+      "Duration: 6 months | GLH: 60–120 hours per level | Mode: Face-to-face",
+    link: "https://app.watneycollege.co.uk/courses/apply/69ec50faaf946e5c9dac2512",
+    courseId:"69ec50faaf946e5c9dac2512",
+    overview:
+      "Programme Overview\nThe General English Programme (B1–C1) is designed to support learners in developing independent and effective communication skills in English across social, academic, and professional contexts.\n\nAt these levels, the programme focuses on:\n• Expanding fluency and accuracy in spoken and written communication\n• Developing the ability to understand and produce more complex texts\n• Strengthening critical thinking, discussion, and argumentation skills\n• Improving confidence in real-world and workplace communication\n\nThe programme is aligned with the Common European Framework of Reference for Languages (CEFR), ensuring structured progression from intermediate to advanced proficiency.\n\nAssessment\n• Continuous assessment through:\n  o Speaking activities and discussions\n  o Listening and reading tasks\n  o Written assignments\n  o Weekly or periodic progress tests\n• Informal and formal feedback provided regularly\n• Progress measured against CEFR descriptors for B1–C1",
+    curriculum: [
+      "Core Language Skills: Integrated development of speaking, listening, reading, and writing",
+      "Language Systems: Focus on grammar, vocabulary, and pronunciation to improve accuracy and range",
+      "Functional Communication: Practical use of English for everyday situations, workplace communication, and problem-solving",
+      "Skills Development: Activities designed to build fluency, confidence, and interaction skills, including discussions, role plays, and presentations",
+      "Reading and Listening Practice: Exposure to authentic and semi-authentic materials to develop comprehension and critical understanding",
+      "Writing Development: Structured tasks ranging from emails and reports to essays and formal writing (progressively more advanced at B2–C1)",
+      "Independent Learning: Guided self-study, homework, and use of digital resources to reinforce classroom learning",
+      "Delivery Format: Lessons delivered on a regular schedule (depending on course intensity); each session combines input, practice, and feedback; tutorial and feedback sessions are integrated to monitor progress and provide individual support",
+    ],
+    requirements: [
+      "Minimum age: 18",
+      "Completion of an initial assessment to confirm placement at B1 level or above",
+      "Ability to communicate in English at an intermediate level",
+      "International Students: Must meet the minimum English language requirement (B1 or above), demonstrated through initial assessment or recognised qualifications such as IELTS or Cambridge English Qualifications",
+      "International Students: Must hold a valid visa or immigration status permitting study in the UK, in accordance with UK Visas and Immigration (UKVI) requirements",
+      "International Students: Required to provide valid identification and relevant visa documentation prior to enrolment (Right to Study checks will be carried out where applicable)",
+      "International Students: Must comply with attendance and engagement requirements, particularly where these form part of visa conditions",
+      "International Students: The centre will advise applicants on study requirements; however, it remains the learner's responsibility to ensure compliance with UK immigration regulations",
+      "Initial Assessment and Placement: Learners complete a placement assessment to determine entry at B1, B2, or C1. This ensures appropriate level placement, targeted support for language development, and clear progression tracking.",
+    ],
+    career: [
+      "Progression from B1 → B2 → C1 in line with CEFR levels",
+      "Exam preparation courses such as IELTS or Cambridge English Qualifications",
+      "Academic study requiring advanced English",
+      "Professional training or workplace roles requiring advanced English",
     ],
   },
 ];

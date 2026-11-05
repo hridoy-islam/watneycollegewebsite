@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-   title: "Contact Watney College",
+   title: "Contact Page",
   description: "Contact us for admissions, programs, or general inquiries.",
   openGraph: {
     title: "Contact Watney College",

@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import SiteChrome from "@/components/site-chrome";
 import { Inter } from "next/font/google";
-import MaintenancePage from "@/components/MaintainancePage";
+import { Toaster } from "@/components/ui/toaster";
 
 // const nunito = Nunito({
 //   subsets: ["latin"],
@@ -23,41 +22,51 @@ const inter = Inter({
 
 // export const metadata: Metadata = {
 //   title: "Watney College",
-//   description: "English Learning Centre In London",
+//   description: "Higher Education in the UK",
 // };
-
 
 export const metadata: Metadata = {
   title: {
-    default: "Watney College",
-    template: "%s | Watney College",
+    default:
+      "Watney College | Higher Education Provider — London | UKPRN 10087811",
+    template: "%s | Watney College | Higher Education Provider — London | UKPRN 10087811",
   },
-  description: 'English Learning Centre In London',
-  keywords: ['Watney College', 'London college', 'higher education', 'courses in London', 'student accommodation', 'career support', 'alumni network'],
+  description: "Higher Education in the UK",
+  keywords: [
+    "Higher Education in the UK",
+    "UK Professional Qualifications",
+    "International Students UK",
+    "English Language Courses UK",
+    "Healthcare Management Courses UK",
+    "ATHE Diplomas",
+    "UK Career-Focused Education",
+  ],
   openGraph: {
-    title: 'Watney College',
-    description: 'English Learning Centre In London',
-    url: '/',
-    siteName: 'Watney College',
+    title:
+      "Study in the UK | Watney College – Higher Education & Professional Diplomas",
+    description: "Higher Education in the UK",
+    url: "/",
+    siteName: "Watney College",
     images: [
       {
-        url: '/watney.png',
+        url: "/watney.png",
         width: 1200,
         height: 630,
-        alt: 'Watney College | English Learning Centre In London',
+        alt: "Watney College | Higher Education in the UK",
       },
     ],
-    locale: 'en_GB',
-    type: 'website',
+    locale: "en_GB",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Watney College',
-    description: 'English Learning Centre In London.',
-    images: ['/watney.png'],
+    card: "summary_large_image",
+    title:
+      "Study in the UK | Watney College – Higher Education & Professional Diplomas",
+    description: "Higher Education in the UK.",
+    images: ["/watney.png"],
   },
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
 };
 
@@ -85,11 +94,13 @@ export default function RootLayout({
    return (
     <html lang="en" className={`${inter.variable} light`}>
       <head>
-       
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="relative">
-       <MaintenancePage/>
+      <body className="relative" suppressHydrationWarning>
+        <SiteChrome>
+          <Providers>{children}</Providers>
+          <Toaster />
+        </SiteChrome>
       </body>
     </html>
   );

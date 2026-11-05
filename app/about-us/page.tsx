@@ -71,11 +71,11 @@ export default function AboutPage() {
         <section className="relative py-20 bg-ocean-breeze overflow-hidden">
           <div className="container mx-auto px-4 relative z-10 text-center">
             <BookOpen className="w-16 h-16 text-watney-blue-primary mx-auto mb-6" />
-            <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+            <h1 className="text-5xl md:text-6xl font-black mb-6 text-black">
               About{" "}
               <span className="text-watney-blue-primary">Watney College</span>
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed  mx-auto">
+            <p className="text-lg text-black leading-relaxed  mx-auto">
               A progressive institution in the heart of London, dedicated to
               empowering students through exceptional education and practical
               career-focused training.
@@ -96,11 +96,10 @@ export default function AboutPage() {
             >
               {/* Left: Text Content */}
               <div className="z-50">
-                
                 <h2 className="text-4xl  font-bold mb-6">
                   About <span className="text-gradient-watney">Us</span>
                 </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg text-black leading-relaxed">
                   Watney College is a progressive institution dedicated to
                   delivering positive outcomes for students through exceptional
                   education and training opportunities at both Further and
@@ -111,7 +110,9 @@ export default function AboutPage() {
                   programmes. We are committed to providing a transformative
                   learning experience that combines academic rigor with
                   practical skills, preparing students to succeed in a rapidly
-                  evolving global workforce.
+                  evolving global workforce. Watney College is a private limited
+                  company (Company No. 12858207) registered in England and
+                  Wales.
                 </p>
               </div>
 
@@ -146,54 +147,170 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
                 Recognized{" "}
                 <span className="text-gradient-watney">Accreditations</span>
               </h2>
-              <p className="text-gray-600 text-lg mx-auto">
+              <p className="text-black text-lg mx-auto">
                 Our programs are accredited by respected awarding bodies,
                 ensuring quality and global recognition.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              {[
-                {
-                  name: "ESB",
-                  desc: "English for Speakers of Other Languages",
-                },
-                {
-                  name: "Focus Awards",
-                  desc: "Vocational & Technical Qualifications",
-                },
-                {
-                  name: "ASIC",
-                  desc: "Accreditation Service for International Schools",
-                },
-              ].map((accreditation, index) => (
+            <div className="">
+              <div className="container mx-auto px-4 z-50">
                 <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 z-50"
                 >
-                  <Card className="text-center hover:shadow-lg transition-shadow duration-300 h-full">
-                    <CardHeader>
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                        <Award className="w-6 h-6 text-primary" />
-                      </div>
-                      <CardTitle className="text-xl">
-                        {accreditation.name}
-                      </CardTitle>
-                      <CardDescription className="text-lg">
-                        {accreditation.desc}
-                      </CardDescription>
-                    </CardHeader>
-                  </Card>
+                  {[
+                    // {
+                    //   title: "Klaspad",
+                    //   logo: "/klaspad.png",
+                    //   link: "https://system.klaspad.com/login",
+                    //   description:
+                    //     "Klaspad is a leading accreditation body that ensures educational institutions meet high standards of quality and excellence.",
+                    // },
+                    {
+                      title: "ASIC",
+                      logo: "/asic.jpeg",
+                      link: "https://www.asic.org.uk/",
+                      description:
+                        "Watney College holds UK Accreditation from ASIC (Accreditation Service for International Schools, Colleges, and Universities).",
+                    },
+                    {
+                      title: "ESB",
+                      logo: "/esb.png",
+                      link: "https://esbuk.org/web/",
+                      description:
+                        "English Speaking Board recognizes institutions that provide industry-relevant skills and qualifications. ESB is an Ofqual-regulated awarding organisation specialising in spoken English qualifications and communication skills.",
+                    },
+                    {
+                      title: "Focus Award",
+                      logo: "/focus-award.png",
+                      link: "https://focusawards.org.uk/",
+                      description:
+                        "Focus Awards is a regulated awarding organisation delivering qualifications in health, social care, business and education sectors. It is regulated by Ofqual in England",
+                    },
+                    {
+                      title: "NQual",
+                      logo: "/nqual.png",
+                      link: "https://nqual.com",
+                      description:
+                        "NQual provides high-quality qualifications and assessments designed to meet the needs of learners and help them achieve their potential, both professionally and personally.",
+                    },
+                    {
+                      title: "ATHE",
+                      logo: "/SVG.svg",
+                      link: "https://athe.co.uk",
+                      description:
+                        "ATHE is a global awarding organisation regulated by Ofqual and other UK and international regulators since 2011. Working with 220 centres in over 35 countries to complement our strong brand presence in the UK.",
+                    },
+                  ].map((acc, index) => (
+                    <motion.div
+                      key={acc.title}
+                      variants={itemVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      className="flex z-50 border border-gray-200 rounded-xl"
+                    >
+                      <a
+                        href={acc.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 w-full h-full"
+                      >
+                        {/* Logo */}
+                        <div className="mb-4 flex items-center justify-center">
+                          <div
+                            className={`relative ${
+                              acc.title === "ESB" ? "w-64 h-28" : "w-32 h-20"
+                            }`}
+                          >
+                            <Image
+                              src={acc.logo}
+                              alt={`${acc.title} logo`}
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Title */}
+                        {/* <CardHeader>
+                                  <CardTitle className="text-xl text-watney-blue-primary text-center mb-3">
+                                    {acc.title}
+                                  </CardTitle>
+                                </CardHeader> */}
+
+                        {/* Description */}
+                        <CardContent className="flex-grow">
+                          <CardDescription className="text-black text-base text-center">
+                            {acc.description}
+                          </CardDescription>
+                        </CardContent>
+
+                        {/* Learn More Button */}
+                        <div className="mt-4 flex justify-center">
+                          <Button>
+                            Read More
+                            <ArrowRight className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </a>
+                    </motion.div>
+                  ))}
                 </motion.div>
-              ))}
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* Regulatory Status Section */}
+        <section className="py-16  z-50">
+          <div className="container mx-auto ">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto"
+            >
+              <Card className="border-t-4 border-watney-blue-primary shadow-md">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-2">
+                    <Building className="w-6 h-6 text-watney-blue-primary" />
+                    <CardTitle className="text-2xl font-bold">
+                      Regulatory Status
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4 text-black leading-relaxed">
+                    
+                    <p>
+                      We are accredited by{" "}
+                      <span className="font-semibold text-black">ASIC</span>{" "}
+                      and deliver regulated qualifications through{" "}
+                      <span className="font-semibold text-black">NQual</span>{" "}
+                      and
+                      <span className="font-semibold text-black">
+                        {" "}
+                        ATHE
+                      </span>{" "}
+                      awarding bodies, both of which are regulated by{" "}
+                      <span className="font-semibold text-black">
+                        Ofqual
+                      </span>
+                      .
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </section>
 
@@ -205,7 +322,7 @@ export default function AboutPage() {
               {/* Vision Images - Top on small screens */}
               <div className="order-1 lg:order-2 relative">
                 {/* Main large image */}
-                <div className="relative">
+                <div className="relative z-50">
                   <img
                     src="/vision.jpg"
                     alt="Graduates celebrating their success at Watney College"
@@ -213,21 +330,21 @@ export default function AboutPage() {
                   />
                 </div>
                 {/* Overlapping smaller image */}
-                <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 w-32 sm:w-40 md:w-48 h-24 sm:h-28 md:h-32">
+                <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 w-32 sm:w-40 md:w-48 h-24 sm:h-28 md:h-32 z-50">
                   <img
                     src="/vision1.jpg"
                     alt="Students discussing future opportunities"
-                    className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white"
+                    className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white z-50"
                   />
                 </div>
               </div>
 
               {/* Vision Content */}
-              <div className="order-2 lg:order-1 space-y-4 text-center lg:text-left">
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+              <div className="order-2 lg:order-1 space-y-4 text-center lg:text-left z-50">
+                <h2 className="text-3xl sm:text-4xl font-bold text-black">
                   Our Vision
                 </h2>
-                <p className="text-gray-600 leading-relaxed text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+                <p className="text-black leading-relaxed text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
                   Our vision is for an integrated employment and skills system
                   for the region, through which we can stimulate economic
                   growth, deliver better outcomes for residents and businesses,
@@ -260,10 +377,10 @@ export default function AboutPage() {
 
               {/* Mission Content */}
               <div className="order-2 space-y-4 text-center lg:text-left">
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                <h2 className="text-3xl sm:text-4xl font-bold text-black">
                   Our Mission
                 </h2>
-                <p className="text-gray-600 leading-relaxed text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+                <p className="text-black leading-relaxed text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
                   To empower individuals through high-quality, accessible
                   education that promotes personal growth, cultivates critical
                   thinking, and inspires lifelong learning.
@@ -281,10 +398,10 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-black mb-4">
                 Our <span className="text-watney-blue-primary">Objectives</span>
               </h2>
-              <p className="text-xl text-gray-600 mx-auto max-w-3xl">
+              <p className="text-xl text-black mx-auto max-w-3xl">
                 Guiding our mission to deliver high-quality, employer-aligned
                 education in line with UK Higher Education standards.
               </p>
@@ -312,7 +429,7 @@ export default function AboutPage() {
                         <div className="mt-1 flex-shrink-0">
                           <CheckCircle className="w-5 h-5 text-watney-blue-primary" />
                         </div>
-                        <p className="text-gray-700 leading-relaxed">
+                        <p className="text-black leading-relaxed">
                           {objective}
                         </p>
                       </div>
@@ -344,11 +461,11 @@ export default function AboutPage() {
 
                     {/* Content */}
                     <div className="text-center sm:text-left">
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
+                      <h3 className="text-xl sm:text-2xl font-bold text-black mb-4">
                         Message From the Principal
                       </h3>
 
-                      <blockquote className="text-gray-600 leading-relaxed space-y-4 text-sm sm:text-base">
+                      <blockquote className="text-black leading-relaxed space-y-4 text-sm sm:text-base">
                         <p>
                           On behalf of Watney College, I’d like to welcome all
                           who are planning to enrich their professional and
@@ -366,8 +483,9 @@ export default function AboutPage() {
                           achieve that dream they’ve always held.
                         </p>
                         <p className="font-medium text-gray-800">
-                          — Principal, Watney College
+                          — Dr S Alam, Principal, Watney College
                         </p>
+                        
                       </blockquote>
                     </div>
                   </div>
@@ -390,7 +508,7 @@ export default function AboutPage() {
                 What Sets Us{" "}
                 <span className="text-gradient-watney">Apart?</span>
               </h2>
-              <p className="text-xl text-gray-600 mx-auto">
+              <p className="text-xl text-black mx-auto">
                 We combine academic excellence with real-world readiness to
                 ensure every student thrives.
               </p>
@@ -421,7 +539,7 @@ export default function AboutPage() {
                 {
                   icon: <Star className="w-6 h-6" />,
                   title: "High Success Rate",
-                  desc: "98% of our students achieve their academic or career goals.",
+                  desc: "Strong success rate in student outcomes",
                 },
                 {
                   icon: <GraduationCap className="w-6 h-6" />,
@@ -447,7 +565,7 @@ export default function AboutPage() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-gray-600 text-lg">{feature.desc}</p>
+                      <p className="text-black text-lg">{feature.desc}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -467,7 +585,7 @@ export default function AboutPage() {
               <h2 className="text-4xl font-bold mb-6">
                 Why Choose Watney College?
               </h2>
-              <p className="text-xl mb-8 text-gray-600">
+              <p className="text-xl mb-8 text-black">
                 With our strong partnerships and accreditations, you can trust
                 that you are receiving a world-class education.
               </p>
