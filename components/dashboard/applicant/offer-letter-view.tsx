@@ -9,6 +9,11 @@
  * query string; anyone holding that link could read them and answer on the
  * applicant's behalf.
  *
+ * The same letter also opens without signing in, from the public link in the
+ * offer letter email (`/offers/[token]`). Pass `token` for that: the letter is
+ * read and answered by the token instead, and the dashboard links are left
+ * out.
+ *
  * What it renders is the offer letter email exactly as admissions sent it -
  * the email template, filled in with this applicant's details, drawn the same
  * way the template's PDF is (logo, then the body with its signatures). Offers
@@ -30,7 +35,12 @@ import {
   Printer
 } from 'lucide-react';
 
-import { fetchMyOffer, respondToOffer } from '@/lib/portal';
+import {
+  fetchMyOffer,
+  fetchOfferByToken,
+  respondToOffer,
+  respondToOfferByToken
+} from '@/lib/portal';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -133,8 +143,7 @@ function ResponseBanner({ offerStatus, respondedAt }: any) {
         <div className="text-sm text-emerald-900">
           <p className="font-semibold">You accepted this offer</p>
           <p className="mt-0.5 text-emerald-800">
-            Accepted on {formatDate(respondedAt, 'an earlier date')}. Admissions
-            will be in touch with your enrolment and induction details.
+            Accepted on {formatDate(respondedAt, 'an earlier date')}.
           </p>
         </div>
       </div>
@@ -263,8 +272,17 @@ function SentLetter({ body }: { body: string }) {
 
 // ─── The letter ──────────────────────────────────────────────────────────────
 
-export function OfferLetterView({ applicationId }: { applicationId: string }) {
+export function OfferLetterView({
+  applicationId,
+  token
+}: {
+  applicationId?: string;
+  /** The public link's token - read and answer the offer without signing in. */
+  token?: string;
+}) {
   const user = useSelector((state: any) => state.auth.user);
+  const isPublic = !!token;
+  const offerKey = token || applicationId || '';
 
   const [state, setState] = useState<PageState>('loading');
   const [application, setApplication] = useState<any>(null);
@@ -274,16 +292,20 @@ export function OfferLetterView({ applicationId }: { applicationId: string }) {
   const [responseError, setResponseError] = useState('');
 
   const load = useCallback(async () => {
-    if (!applicationId) {
+    if (!offerKey) {
       setState('missing');
       return;
     }
 
     try {
-      // The endpoint is authenticated and checks that the signed in account is
-      // the one the offer was made to, so an offer belonging to someone else
-      // comes back as "not found" rather than as data we then have to hide.
-      const data = await fetchMyOffer(applicationId);
+      // The dashboard endpoint is authenticated and checks that the signed in
+      // account is the one the offer was made to, so an offer belonging to
+      // someone else comes back as "not found" rather than as data we then
+      // have to hide. The public one answers "not found" to any token that is
+      // not the latest one issued.
+      const data = token
+        ? await fetchOfferByToken(token)
+        : await fetchMyOffer(offerKey);
 
       if (!data) {
         setState('missing');
@@ -302,13 +324,13 @@ export function OfferLetterView({ applicationId }: { applicationId: string }) {
     } catch (error: any) {
       const status = error?.response?.status;
       if (status === 404) {
-        setState('forbidden');
+        setState(isPublic ? 'missing' : 'forbidden');
         return;
       }
       console.error('Could not load the offer:', error);
       setState('failed');
     }
-  }, [applicationId]);
+  }, [offerKey, token, isPublic]);
 
   useEffect(() => {
     load();
@@ -317,10 +339,10 @@ export function OfferLetterView({ applicationId }: { applicationId: string }) {
   const respond = async () => {
     setConfirming(true);
     try {
-      const updated = await respondToOffer(
-        applicationId,
-        action === 'accept' ? 'accepted' : 'rejected'
-      );
+      const answer = action === 'accept' ? 'accepted' : 'rejected';
+      const updated = token
+        ? await respondToOfferByToken(token, answer)
+        : await respondToOffer(offerKey, answer);
       setDialogOpen(false);
       // The API hands back the offer as it now stands, so the banner and the
       // hidden decision panel follow without a second round trip.
@@ -352,12 +374,16 @@ export function OfferLetterView({ applicationId }: { applicationId: string }) {
     return (
       <Notice
         icon={<AlertTriangle className="h-10 w-10 text-amber-500" />}
-        title="We could not find that offer"
-        description="The link does not point at an offer we hold. Open your Offer Letter page to see every offer on your applications."
+        title={isPublic ? 'This offer link is no longer valid' : 'We could not find that offer'}
+        description={
+          isPublic
+            ? 'The link may be mistyped, or a newer offer letter has been sent to you since - only the link in the latest offer letter email works. You can also sign in and open Offer Letter from your dashboard.'
+            : 'The link does not point at an offer we hold. Open your Offer Letter page to see every offer on your applications.'
+        }
         action={
-          <Link href="/dashboard/offer-letter">
+          <Link href={isPublic ? '/login?redirect=%2Fdashboard%2Foffer-letter' : '/dashboard/offer-letter'}>
             <Button className="w-full bg-watney text-white hover:bg-watney/90">
-              Go to my offer letters
+              {isPublic ? 'Sign in to my dashboard' : 'Go to my offer letters'}
             </Button>
           </Link>
         }
@@ -431,7 +457,8 @@ export function OfferLetterView({ applicationId }: { applicationId: string }) {
 
   return (
     <div className="mx-auto max-w-3xl space-y-4 print:max-w-none">
-        {/* Toolbar - screen only */}
+        {/* Toolbar - screen only, and only inside the dashboard */}
+        {!isPublic && (
         <div className="flex items-center justify-between print:hidden">
           <Link
             href="/dashboard/offer-letter"
@@ -450,6 +477,7 @@ export function OfferLetterView({ applicationId }: { applicationId: string }) {
             Print / save as PDF
           </Button> */}
         </div>
+        )}
 
         <ResponseBanner
           offerStatus={application.offerStatus}

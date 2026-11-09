@@ -28,6 +28,22 @@ const nextConfig = {
   async headers() {
     return [
       {
+        // The public offer links in offer letter emails - personal to one
+        // applicant, so never indexed, archived or shown as a snippet, and the
+        // link itself is never sent on as a referrer. Set on the response so it
+        // holds before (and without) the page's own meta tags. Deliberately
+        // not blocked in robots.txt as well: a crawler barred from the page
+        // never sees this header, and can still list the bare URL.
+        source: "/offers/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow, noarchive, nosnippet",
+          },
+          { key: "Referrer-Policy", value: "no-referrer" },
+        ],
+      },
+      {
         // matching all API routes
         source: "/api/:path*",
         headers: [

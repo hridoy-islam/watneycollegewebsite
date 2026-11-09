@@ -13,6 +13,7 @@ import {
 import {
   applicantName,
   formatDate,
+  displayStatus,
   getStatusStyle,
   type AgentApplicant,
   type PortalApplication
@@ -101,7 +102,7 @@ export function ApplicantList({
   {applicant.applications?.length ? (
     <div className="space-y-1">
       {applicant.applications.map((application) => {
-        const status = getStatusStyle(application.status);
+        const status = getStatusStyle(displayStatus(application));
         const intake = intakeName(application);
 
         return (

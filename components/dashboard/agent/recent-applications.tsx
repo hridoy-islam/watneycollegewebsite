@@ -4,6 +4,7 @@ import {
   applicantName,
   formatDate,
   getCourseName,
+  displayStatus,
   getStatusStyle,
   type PortalApplication
 } from '@/lib/portal';
@@ -39,7 +40,7 @@ export function RecentApplications({
       ) : (
         <ul className="divide-y divide-gray-100">
           {applications.map((application) => {
-            const status = getStatusStyle(application.status);
+            const status = getStatusStyle(displayStatus(application));
             return (
               <li
                 key={application._id}

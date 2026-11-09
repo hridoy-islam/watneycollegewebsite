@@ -20,6 +20,7 @@ import {
   applicantName,
   fetchApplicantApplications,
   formatDate,
+  displayStatus,
   getStatusStyle,
   hasOffer,
   type PortalApplication
@@ -187,7 +188,7 @@ function CoursesTab({
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       {applications.map((application) => {
-        const status = getStatusStyle(application.status);
+        const status = getStatusStyle(displayStatus(application));
         const course: any = application.courseId;
         const intake: any = application.intakeId;
 
@@ -201,7 +202,7 @@ function CoursesTab({
               className={`h-1 w-full ${
                 application.status === 'enrolled'
                   ? 'bg-emerald-500'
-                  : application.status === 'rejected'
+                  : displayStatus(application) === 'rejected'
                     ? 'bg-red-400'
                     : application.status === 'cancelled'
                       ? 'bg-gray-300'

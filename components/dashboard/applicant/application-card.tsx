@@ -5,6 +5,7 @@ import {
   formatDate,
   getCourseName,
   getIntakeName,
+  displayStatus,
   getStatusStyle,
   hasOffer,
   type PortalApplication
@@ -33,7 +34,7 @@ export function ApplicationCard({
   const isIncomplete = Boolean(completeHref);
   const status = isIncomplete
     ? INCOMPLETE_STATUS
-    : getStatusStyle(application.status);
+    : getStatusStyle(displayStatus(application));
   const intake = getIntakeName(application);
   const offerIssued = hasOffer(application);
 

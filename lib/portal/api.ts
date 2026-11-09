@@ -10,7 +10,9 @@ import axiosInstance from '@/lib/axios';
 export interface PortalApplication {
   _id: string;
   refId?: string;
-  status?: 'applied' | 'cancelled' | 'rejected' | 'enrolled';
+  status?: 'applied' | 'cancelled' | 'enrolled';
+  /** The admissions decision - unset until made. */
+  approvalStatus?: 'approved' | 'rejected' | null;
   offerType?: 'conditional' | 'unconditional' | 'reject';
   offerStatus?: 'pending' | 'accepted' | 'rejected';
   offerRespondedAt?: string;
@@ -71,6 +73,29 @@ export const respondToOffer = async (
   return result?.data?.data;
 };
 
+/**
+ * The offer behind the public link in the offer letter email. No sign in -
+ * the token in the link is what identifies the offer.
+ */
+export const fetchOfferByToken = async (token: string) => {
+  const response = await axiosInstance.get(
+    `/application-course/offer-response/${encodeURIComponent(token)}`
+  );
+  return response?.data?.data;
+};
+
+/** Accepting or declining from that public link. Only ever set once. */
+export const respondToOfferByToken = async (
+  token: string,
+  response: 'accepted' | 'rejected'
+) => {
+  const result = await axiosInstance.patch(
+    `/application-course/offer-response/${encodeURIComponent(token)}`,
+    { response }
+  );
+  return result?.data?.data;
+};
+
 export const getCourseName = (application: PortalApplication) => {
   const course = application?.courseId;
   return (typeof course === 'object' && course?.name) || 'Course';
@@ -111,6 +136,17 @@ export const statusStyles: Record<string, { label: string; className: string }> 
       className: 'border-gray-200 bg-gray-50 text-gray-600'
     }
   };
+
+/**
+ * The status to show for an application. A rejection is the admissions
+ * decision (`approvalStatus`) rather than a status, but it is still what the
+ * agent and the applicant need to see.
+ */
+export const displayStatus = (application: {
+  status?: string;
+  approvalStatus?: string | null;
+}) =>
+  application?.approvalStatus === 'rejected' ? 'rejected' : application?.status;
 
 export const getStatusStyle = (status?: string) =>
   statusStyles[status || 'applied'] || statusStyles.applied;

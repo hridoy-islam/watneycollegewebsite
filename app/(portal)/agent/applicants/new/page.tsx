@@ -44,6 +44,7 @@ import {
   applicantName,
   fetchAgentCourses,
   fetchAgentProfile,
+  displayStatus,
   getStatusStyle,
   lookupApplicantByEmail,
   submitAgentApplication,
@@ -546,7 +547,7 @@ export default function AgentNewApplicationPage() {
               </div>
               <ul className="divide-y divide-gray-200">
                 {lookup.applications.map((application) => {
-                  const status = getStatusStyle(application.status);
+                  const status = getStatusStyle(displayStatus(application));
                   const course: any = application.courseId;
                   const intake: any = application.intakeId;
                   return (
