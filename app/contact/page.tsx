@@ -1,11 +1,17 @@
 "use client";
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, RefreshCw } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 import type React from "react";
 
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+// Two random numbers whose sum is at most 2 digits (max 18)
+const generateCaptcha = () => ({
+  a: Math.floor(Math.random() * 9) + 1,
+  b: Math.floor(Math.random() * 9) + 1,
+});
 
 
 
@@ -18,6 +24,21 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
+  const [captcha, setCaptcha] = useState<{ a: number; b: number } | null>(
+    null
+  );
+  const [captchaAnswer, setCaptchaAnswer] = useState("");
+  const [captchaError, setCaptchaError] = useState("");
+
+  // Generate on client only to avoid hydration mismatch
+  useEffect(() => {
+    setCaptcha(generateCaptcha());
+  }, []);
+
+  const refreshCaptcha = () => {
+    setCaptcha(generateCaptcha());
+    setCaptchaAnswer("");
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -44,6 +65,13 @@ export default function ContactPage() {
     e.preventDefault();
 
     if (isLoading) return; // Prevent double submission
+
+    if (!captcha || Number(captchaAnswer.trim()) !== captcha.a + captcha.b) {
+      setCaptchaError("Incorrect answer. Please try again.");
+      refreshCaptcha();
+      return;
+    }
+    setCaptchaError("");
     setIsLoading(true);
 
     try {
@@ -71,6 +99,7 @@ export default function ContactPage() {
           subject: "",
           message: "",
         });
+        refreshCaptcha();
 
         // Hide success message after 3 seconds
         setTimeout(() => setIsSubmitted(false), 3000);
@@ -262,6 +291,51 @@ export default function ContactPage() {
                         required
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-watney-blue-primary focus:border-transparent resize-y"
                       ></textarea>
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="captcha"
+                        className="block text-black font-medium mb-2"
+                      >
+                        Captcha
+                      </label>
+                      <div className="inline-block mb-2 px-4 py-3 rounded-lg bg-white border border-gray-300 font-bold text-lg text-watney-blue-primary tracking-widest select-none">
+                        {captcha ? `${captcha.a} + ${captcha.b} = ?` : "..."}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Input
+                          type="text"
+                          inputMode="numeric"
+                          id="captcha"
+                          name="captcha"
+                          value={captchaAnswer}
+                          onChange={(e) => {
+                            setCaptchaAnswer(
+                              e.target.value.replace(/\D/g, "").slice(0, 2)
+                            );
+                            setCaptchaError("");
+                          }}
+                          placeholder="Enter the answer"
+                          maxLength={2}
+                          required
+                          autoComplete="off"
+                          className="w-full bg-white px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-watney-blue-primary focus:border-transparent"
+                        />
+                        <button
+                          type="button"
+                          onClick={refreshCaptcha}
+                          aria-label="New question"
+                          title="New question"
+                          className="p-3 rounded-lg bg-white border border-gray-300 hover:bg-gray-50"
+                        >
+                          <RefreshCw className="w-4 h-4 text-watney-blue-primary" />
+                        </button>
+                      </div>
+                      {captchaError && (
+                        <p className="text-red-600 text-sm mt-1">
+                          {captchaError}
+                        </p>
+                      )}
                     </div>
                     <Button
                       type="submit"
