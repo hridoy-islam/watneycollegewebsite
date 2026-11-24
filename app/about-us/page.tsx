@@ -76,9 +76,9 @@ export default function AboutPage() {
               <span className="text-watney-blue-primary">Watney College</span>
             </h1>
             <p className="text-lg text-black leading-relaxed  mx-auto">
-              A progressive institution in the heart of London, dedicated to
-              empowering students through exceptional education and practical
-              career-focused training.
+              The UAE branch of Watney College Limited, United Kingdom, located
+              in Dubai Knowledge Park and committed to vocational education,
+              professional training and career-focused learning.
             </p>
           </div>
         </section>
@@ -100,19 +100,14 @@ export default function AboutPage() {
                   About <span className="text-gradient-watney">Us</span>
                 </h2>
                 <p className="text-lg text-black leading-relaxed">
-                  Watney College is a progressive institution dedicated to
-                  delivering positive outcomes for students through exceptional
-                  education and training opportunities at both Further and
-                  Higher Education levels. Our mission is to empower students to
-                  thrive in their chosen careers while meeting the needs of
-                  local employers. Located in the heart of London, we offer
-                  excellent teaching across a diverse range of higher education
-                  programmes. We are committed to providing a transformative
-                  learning experience that combines academic rigor with
-                  practical skills, preparing students to succeed in a rapidly
-                  evolving global workforce. Watney College is a private limited
-                  company (Company No. 12858207) registered in England and
-                  Wales.
+                  Watney College Dubai is the UAE branch of Watney College
+                  Limited, United Kingdom. Located in Dubai Knowledge Park, the
+                  College is committed to delivering high-quality vocational
+                  education, professional training and career-focused learning
+                  opportunities. Our approach combines practical skills,
+                  industry-relevant knowledge and supportive teaching to prepare
+                  learners for the evolving needs of employers in the UAE and
+                  beyond.
                 </p>
               </div>
 
@@ -148,12 +143,17 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-                Recognized{" "}
-                <span className="text-gradient-watney">Accreditations</span>
+                Our Recognition and{" "}
+                <span className="text-gradient-watney">
+                  Educational Partnerships
+                </span>
               </h2>
-              <p className="text-black text-lg mx-auto">
-                Our programs are accredited by respected awarding bodies,
-                ensuring quality and global recognition.
+              <p className="text-black text-lg mx-auto max-w-4xl">
+                Watney College Dubai is committed to quality education and
+                responsible institutional partnerships. Details of awarding
+                organisations and approved qualifications are provided only
+                where the relevant arrangements and approvals apply to the Dubai
+                campus.
               </p>
             </motion.div>
 
@@ -175,38 +175,43 @@ export default function AboutPage() {
                     // },
                     {
                       title: "ASIC",
+                      heading: "UK Institutional Accreditation",
                       logo: "/asic.jpeg",
                       link: "https://www.asic.org.uk/",
                       description:
-                        "Watney College holds UK Accreditation from ASIC (Accreditation Service for International Schools, Colleges, and Universities).",
+                        "Watney College UK holds accreditation from the Accreditation Service for International Schools, Colleges and Universities (ASIC). This accreditation relates to the UK institution and does not by itself constitute accreditation of the Dubai campus.",
                     },
                     {
                       title: "ESB",
+                      heading: "English Language Learning",
                       logo: "/esb.png",
                       link: "https://esbuk.org/web/",
                       description:
-                        "English Speaking Board recognizes institutions that provide industry-relevant skills and qualifications. ESB is an Ofqual-regulated awarding organisation specialising in spoken English qualifications and communication skills.",
+                        "Our English-language tuition is designed to strengthen communication skills for academic, professional and everyday contexts. Any externally awarded qualification is identified separately and subject to applicable approval.",
                     },
                     {
                       title: "Focus Award",
+                      heading: "Professional and Vocational Learning",
                       logo: "/focus-award.png",
                       link: "https://focusawards.org.uk/",
                       description:
-                        "Focus Awards is a regulated awarding organisation delivering qualifications in health, social care, business and education sectors. It is regulated by Ofqual in England",
+                        "We support vocational learning and professional development in subjects relevant to learners and employers. The availability of specific qualifications depends on approval and programme arrangements.",
                     },
                     {
                       title: "NQual",
+                      heading: "NQual",
                       logo: "/nqual.png",
                       link: "https://nqual.com",
                       description:
-                        "NQual provides high-quality qualifications and assessments designed to meet the needs of learners and help them achieve their potential, both professionally and personally.",
+                        "NQual is a UK awarding organisation. Any NQual qualifications promoted for Watney College Dubai will be clearly identified and offered only where appropriate centre, qualification and regulatory approvals are in place.",
                     },
                     {
                       title: "ATHE",
+                      heading: "ATHE",
                       logo: "/SVG.svg",
                       link: "https://athe.co.uk",
                       description:
-                        "ATHE is a global awarding organisation regulated by Ofqual and other UK and international regulators since 2011. Working with 220 centres in over 35 countries to complement our strong brand presence in the UK.",
+                        "Watney College, London, UK holds accreditation from the ATHE. ATHE is a UK awarding organisation providing vocational and professional qualifications. The Dubai campus will publish information about ATHE programmes only where the relevant approval and delivery arrangements have been confirmed.",
                     },
                   ].map((acc, index) => (
                     <motion.div
@@ -241,11 +246,9 @@ export default function AboutPage() {
                         </div>
 
                         {/* Title */}
-                        {/* <CardHeader>
-                                  <CardTitle className="text-xl text-watney-blue-primary text-center mb-3">
-                                    {acc.title}
-                                  </CardTitle>
-                                </CardHeader> */}
+                        <h3 className="text-xl font-bold text-black text-center mb-3">
+                          {acc.heading}
+                        </h3>
 
                         {/* Description */}
                         <CardContent className="flex-grow">
@@ -292,20 +295,19 @@ export default function AboutPage() {
                   <div className="space-y-4 text-black leading-relaxed">
                     
                     <p>
-                      We are accredited by{" "}
-                      <span className="font-semibold text-black">ASIC</span>{" "}
-                      and deliver regulated qualifications through{" "}
-                      <span className="font-semibold text-black">NQual</span>{" "}
-                      and
+                      Watney College Limited operates in Dubai as a branch of
+                      Watney College Limited, United Kingdom, under{" "}
                       <span className="font-semibold text-black">
-                        {" "}
-                        ATHE
-                      </span>{" "}
-                      awarding bodies, both of which are regulated by{" "}
-                      <span className="font-semibold text-black">
-                        Ofqual
+                        Dubai Development Authority Commercial Licence No.
+                        108243
                       </span>
-                      .
+                      . Its licensed business activity is{" "}
+                      <span className="font-semibold text-black">
+                        Specialized Professional Institute
+                      </span>
+                      . Educational activities and qualifications are subject
+                      to the relevant approvals and requirements of the
+                      competent authorities in Dubai.
                     </p>
                   </div>
                 </CardContent>
@@ -402,18 +404,34 @@ export default function AboutPage() {
                 Our <span className="text-watney-blue-primary">Objectives</span>
               </h2>
               <p className="text-xl text-black mx-auto max-w-3xl">
-                Guiding our mission to deliver high-quality, employer-aligned
-                education in line with UK Higher Education standards.
+                To provide practical, career-focused vocational education and
+                professional training that responds to the needs of learners,
+                employers and Dubai’s diverse economy.
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                "To be a recognized Institution to provide Higher Education as per the UK Higher Education regulator expected standards.",
-                "Offer programmes that address employer and economic needs by delivering targeted interventions to meet short to medium-term demand.",
-                "Deliver flexible short training programmes to employers based on sector 'in-demand' skills needs.",
-                "Build strong and inclusive communities to support local residents into employment and career progression.",
-                "Encourage collaboration between providers, employers, and stakeholders to create a cohesive approach to skills development and employment support.",
+                {
+                  title: "Educational Quality",
+                  text: "To provide an accessible and supportive learning environment with clear learning outcomes, appropriate quality assurance and continuous improvement.",
+                },
+                {
+                  title: "Employer Relevance",
+                  text: "To develop vocational learning opportunities that address emerging workplace skills, professional development and changing industry requirements.",
+                },
+                {
+                  title: "Professional Development",
+                  text: "To offer relevant short courses and professional training that support career growth, lifelong learning and workforce development.",
+                },
+                {
+                  title: "Inclusive Learning Community",
+                  text: "Build an inclusive learning community that welcomes learners from diverse backgrounds and supports their personal development, employability and career progression.",
+                },
+                {
+                  title: "Employer and Stakeholder Engagement",
+                  text: "Encourage collaboration with employers, education providers and stakeholders to understand skills needs and strengthen opportunities for practical learning and professional development.",
+                },
               ].map((objective, index) => (
                 <motion.div
                   key={index}
@@ -429,9 +447,14 @@ export default function AboutPage() {
                         <div className="mt-1 flex-shrink-0">
                           <CheckCircle className="w-5 h-5 text-watney-blue-primary" />
                         </div>
-                        <p className="text-black leading-relaxed">
-                          {objective}
-                        </p>
+                        <div>
+                          <h3 className="text-lg font-bold text-black mb-2">
+                            {objective.title}
+                          </h3>
+                          <p className="text-black leading-relaxed">
+                            {objective.text}
+                          </p>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
@@ -467,23 +490,24 @@ export default function AboutPage() {
 
                       <blockquote className="text-black leading-relaxed space-y-4 text-sm sm:text-base">
                         <p>
-                          On behalf of Watney College, I’d like to welcome all
-                          who are planning to enrich their professional and
-                          academic skills. We are committed to supporting
-                          ambitious learners in developing the knowledge and
-                          expertise needed to achieve their desired goals.
+                          Welcome to Watney College Dubai, the UAE branch of
+                          Watney College, United Kingdom. Our aim is to create
+                          an inclusive and academically supportive learning
+                          environment where students and professionals can
+                          strengthen their knowledge, develop practical skills
+                          and pursue meaningful career goals.
                         </p>
                         <p>
-                          We understand that returning to education can be a
-                          challenge — many people step away from learning due to
-                          circumstances beyond their control. Watney College is
-                          here to offer a supportive, inclusive platform that
-                          encourages students to re-engage with higher
-                          education, advance in their careers, or finally
-                          achieve that dream they’ve always held.
+                          Located in Dubai Knowledge Park, our College is
+                          committed to professional education that connects
+                          learning with the needs of an evolving international
+                          workforce. We look forward to supporting your
+                          learning journey.
                         </p>
-                        <p className="font-medium text-gray-800">
-                          — Dr S Alam, Principal, Watney College
+                        <p className="font-medium text-black">
+                          — Mahfuzur Rahman, PhD
+                          <br />
+                          Principal, Watney College Dubai
                         </p>
                         
                       </blockquote>
@@ -517,34 +541,34 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
+                  icon: <Building className="w-6 h-6" />,
+                  title: "Dubai Advantage",
+                  desc: "Study in Dubai Knowledge Park, an established education and professional development destination in one of the region’s most internationally connected cities.",
+                },
+                {
                   icon: <BookOpen className="w-6 h-6" />,
-                  title: "Career-Focused Curriculum",
-                  desc: "Programs designed with industry input to ensure relevance and employability.",
+                  title: "Career-Focused Learning",
+                  desc: "Our learning approach emphasises practical knowledge, workplace relevance and the skills needed for professional development.",
                 },
                 {
                   icon: <Users className="w-6 h-6" />,
-                  title: "Personalized Support",
-                  desc: "Dedicated advisors and mentors to guide you at every step of your journey.",
-                },
-                {
-                  icon: <Building className="w-6 h-6" />,
-                  title: "London Advantage",
-                  desc: "Study in one of the world’s most dynamic cities with endless opportunities.",
+                  title: "Personalised Academic Support",
+                  desc: "Learners receive guidance and support to help them make informed choices, build confidence and progress towards their learning goals.",
                 },
                 {
                   icon: <CheckCircle className="w-6 h-6" />,
                   title: "Flexible Learning",
-                  desc: "Online, hybrid, and in-person options to fit your lifestyle.",
+                  desc: "Face-to-face teaching and scheduled learning support designed around the requirements of each course. Additional delivery formats are offered only where available and approved.",
                 },
                 {
                   icon: <Star className="w-6 h-6" />,
-                  title: "High Success Rate",
-                  desc: "Strong success rate in student outcomes",
+                  title: "Learner Progress and Development",
+                  desc: "Our focus is on clear learning objectives, regular feedback and continuous improvement to support meaningful learner progress.",
                 },
                 {
                   icon: <GraduationCap className="w-6 h-6" />,
-                  title: "Progress to Degrees",
-                  desc: "Progress to bachelor's and master's programs through university links.",
+                  title: "Career and Further Study Pathways",
+                  desc: "Build foundational and professional skills that may support career development, further training or future study, subject to the entry requirements of receiving institutions.",
                 },
               ].map((feature, index) => (
                 <motion.div

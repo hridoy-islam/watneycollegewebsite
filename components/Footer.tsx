@@ -3,7 +3,7 @@ import {
   Mail,
   Phone,
   MapPin,
-  Globe,
+  Clock,
   Users,
   GraduationCap,
   BookOpen,
@@ -25,7 +25,7 @@ export default function Footer() {
     { name: "Student Protection Plan", href: "/student-protection-plan" },
     { name: "Governance and Management", href: "/governance-and-management" },
     { name: "Accident and Emergency Support", href: "/accident-and-emergency" },
-    { name: "Prevent Duty Statement", href: "/prevent-duty-statement" },
+    { name: "Learner Protection and Support", href: "/prevent-duty-statement" },
     { name: "Academic Calendar", href: "/academic-calendar" },
     { name: "Fire Safety", href: "fire-safety-statement" },
     // { name: "Student Handbook 2025–26", href: "/policies" },
@@ -48,8 +48,8 @@ export default function Footer() {
     // { name: "Student Finance", href: "/student-finance" },
     // { name: "Accommodation", href: "/accommodation" },
     { name: "Career & Employability", href: "/career-employability" },
-    { name: "Prospectus 2026-27", href: "/prospectus" },
-    { name: "Jobs", href: "/jobs" },
+    { name: "Prospectus 2026/27", href: "/prospectus" },
+    { name: "Careers and Employability", href: "/jobs" },
     // { name: "News & Insights", href: "/news-and-insights" },
   ];
 
@@ -197,17 +197,12 @@ export default function Footer() {
                 </a>
               </div>
 
-              {/* Website */}
+              {/* Opening Hours */}
               <div className="flex items-center space-x-3 justify-center lg:justify-start">
-                <Globe className="w-5 h-5 text-white flex-shrink-0" />
-                <a
-                  href="https://www.watneycollege.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-white transition-colors text-sm"
-                >
-                  www.watneycollege.com
-                </a>
+                <Clock className="w-5 h-5 text-white flex-shrink-0" />
+                <p className="text-white text-sm">
+                  Monday to Friday, 9:00am–6:00pm
+                </p>
               </div>
             </div>
           </div>
@@ -220,8 +215,8 @@ export default function Footer() {
               © {new Date().getFullYear()} Watney College. All rights reserved.
             </p>
             <p className="text-white text-xs mt-2">
-              UKPRN: 10087811 | Company Reg: 12858207 | Registered in England
-              and Wales
+              Dubai Development Authority Commercial Licence No. 108243 |
+              Branch of Watney College Limited, UK
             </p>
             <div className="flex items-center flex-row  space-x-6 text-sm ">
               {/* <Link

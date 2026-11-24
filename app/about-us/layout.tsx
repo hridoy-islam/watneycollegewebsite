@@ -1,40 +1,42 @@
 import type { Metadata } from "next";
 
+const title = "About Watney College Dubai | Dubai Knowledge Park";
+const description =
+  "Watney College Dubai is the UAE branch of Watney College Limited, UK, in Dubai Knowledge Park, offering vocational education, professional training and career-focused learning.";
+
 export const metadata: Metadata = {
-  title: "About Watney College | London Higher Education Provider",
-  description:
-    "Learn more about Watney College, our mission, vision, and values in London.",
+  title,
+  description,
   keywords: [
+    "Watney College Dubai",
     "Watney College",
-    "London college",
-    "higher education",
-    "courses in London",
-    "student accommodation",
-    "career support",
-    "alumni network",
+    "Dubai Knowledge Park",
+    "vocational education Dubai",
+    "professional training Dubai",
+    "career-focused learning UAE",
+    "English language courses Dubai",
+    "short courses Dubai",
   ],
   openGraph: {
-    title: "About",
-    description:
-      "Learn more about Watney College, our mission, vision, and values in London.",
+    title: "About Watney College Dubai",
+    description,
     url: "/about-us",
-    siteName: "Watney College",
+    siteName: "Watney College Dubai",
     images: [
       {
         url: "/about.jpg",
         width: 1200,
         height: 630,
-        alt: "Watney College | Higher Education in the UK",
+        alt: "Watney College Dubai | Vocational and Professional Education in the UAE",
       },
     ],
-    locale: "en_GB",
+    locale: "en_AE",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Us | Watney College",
-    description:
-      "Learn more about Watney College, our mission, vision, and values in London.",
+    title: "About Us | Watney College Dubai",
+    description,
     images: ["/about.jpg"],
   },
   alternates: {
