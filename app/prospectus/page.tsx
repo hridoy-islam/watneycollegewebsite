@@ -73,7 +73,7 @@ export default function ProspectusPage() {
                       <a
                         href="/Prospectus_Dubai_Watney.pdf"
                         className="text-gray-700 hover:text-primary text-lg hover:underline"
-                        download
+                        download='Watney_College_Prospectus_2026-2027.pdf'
                         
                       >
                         Download Prospectus 2026/2027 (PDF)
