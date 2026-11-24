@@ -103,7 +103,7 @@ export const jobs: Job[] = [
     jobId: "690f54d56e863e83bc69b6da",
     // 🆕 New fields
     hours: "Part time",
-    location: "80-82 Nelson Street, London, E1 2DY",
+    location: "Unit 121, Building B02, Dubai Knowledge Park, Al Bourooj Street, Al Safouh Second, Dubai, UAE",
     remoteWorking: "Hybrid - work remotely up to 2 days per week",
     // company: "WATNEY COLLEGE LIMITED"
   },
@@ -156,7 +156,7 @@ export const jobs: Job[] = [
 
     // 🆕 New fields
     hours: "Part time",
-    location: "80-82 Nelson Street, London, E1 2DY",
+    location: "Unit 121, Building B02, Dubai Knowledge Park, Al Bourooj Street, Al Safouh Second, Dubai, UAE",
     remoteWorking: "Hybrid - work remotely up to 2 days per week",
     // company: "WATNEY COLLEGE LIMITED"
   },{
@@ -210,7 +210,7 @@ export const jobs: Job[] = [
   link: "https://app.watneycollege.co.uk/jobs/apply/6a3aada6af946e5c9db69bdf",
   jobId: "6a3aada6af946e5c9db69bdf",
   hours: "Part time",
-  location: "London (Whitechapel)",
+  location: "Dubai Knowledge Park, Dubai, UAE",
   remoteWorking: "Flexible part-time working arrangements"
 }
 ];

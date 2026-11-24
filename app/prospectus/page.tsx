@@ -41,7 +41,7 @@ export default function ProspectusPage() {
           <div className="container mx-auto px-6 text-center z-50">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black z-50">
              Download the Watney College Prospectus{" "}
-              <span className="text-watney-blue-primary">2025/26</span>{" "}
+              <span className="text-watney-blue-primary">2026/27</span>{" "}
           
             </h1>
             <p className="text-lg mb-8 text-black leading-relaxed">
@@ -58,7 +58,7 @@ export default function ProspectusPage() {
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-2xl text-watney-blue-primary">
-                      Watney College Prospectus 2025/26
+                      Watney College Prospectus 2026/27
                     </CardTitle>
                     
                   </div>
@@ -71,12 +71,12 @@ export default function ProspectusPage() {
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <a
-                        href="/Watney College Prospect -vol2.pdf"
+                        href="/Prospectus_Dubai_Watney.pdf"
                         className="text-gray-700 hover:text-primary text-lg hover:underline"
                         download
                         
                       >
-                        Download Prospectus 2025/2026 (PDF)
+                        Download Prospectus 2026/2027 (PDF)
                       </a>
                       
                     </li>

@@ -447,10 +447,10 @@ export default function CareerEmployabilityPage() {
           <div className="inline-flex items-center gap-2 bg-white rounded-lg px-5 py-3">
             <Mail className="w-4 h-4 text-watney-blue-primary" />
             <a
-              href="mailto:info@watneycollege.co.uk"
+              href="mailto:info@watneycollege.com"
               className="text-[13px] transition-colors"
             >
-              info@watneycollege.co.uk
+              info@watneycollege.com
             </a>
           </div>
         </motion.div>

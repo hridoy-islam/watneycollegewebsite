@@ -224,9 +224,9 @@ export default function page() {
     },
     {
       icon: <MapPin className="w-8 h-8 text-primary" />,
-      title: "London Location",
+      title: "Dubai Knowledge Park Location",
       description:
-        "Study in one of the world's most vibrant educational and cultural cities.",
+        "Study at our campus in Dubai Knowledge Park, an established centre for education and professional development in Dubai.",
       bg: "bg-primary/10 text-primary",
     },
     {
@@ -303,14 +303,14 @@ export default function page() {
                 {
                   title: "Student Finance",
                   description:
-                    "All programmes at Watney College are currently self-funded or employer-sponsored. Funding options vary by qualification and individual circumstances. Please refer to your chosen course page for specific funding information, or contact us to discuss your options.",
+                    "Our learning opportunities are generally self-funded or employer-sponsored. Payment arrangements, where available, are confirmed before enrolment. Please contact our Admissions Team for further information.",
                   icon: <CreditCard className="w-6 h-6" />,
                   href: "/student-finance",
                 },
                 {
                   title: "Accommodation",
                   description:
-                    "We recommend that all students arrange accommodation before registering with Watney College. We can provide guidance and signposting to help you find safe, affordable housing in London. For support please contact us at support@watneycollege.co.uk.",
+                    "Students are responsible for arranging accommodation in Dubai. Watney College Dubai may provide general information about local accommodation options but does not arrange or guarantee housing. For enquiries, email info@watneycollege.com.",
                   icon: <MapPin className="w-6 h-6" />,
                   href: "",
                 },
@@ -324,7 +324,7 @@ export default function page() {
                 {
                   title: "Academic Calendar",
                   description:
-                    "Key dates for the academic year including term dates, assessment periods, submission deadlines and college closure days. Click here to see the 2025–2026 Academic Calendar.",
+                    "Academic Calendar 2026/27. Information about course start dates, teaching schedules, holidays and important academic dates is available from the Watney College Dubai Admissions Team.",
                   icon: <CalendarDays className="w-6 h-6" />,
                   href: "/academic-calendar",
                 },
@@ -344,19 +344,6 @@ export default function page() {
 
                     <p className="text-black leading-relaxed flex-grow text-lg">
                       {card.description}
-
-                      {/* ✅ Special link inside description (Academic Calendar) */}
-                      {card.title === "Academic Calendar" && (
-                        <>
-                          {" "}
-                          <Link
-                            href={card.href}
-                            className="text-primary font-medium hover:underline ml-1"
-                          >
-                            Click here to see the 2025–2026 Academic Calendar
-                          </Link>
-                        </>
-                      )}
                     </p>
 
                     {/* ✅ Only this triggers navigation */}
@@ -396,22 +383,23 @@ export default function page() {
                 <span className="text-gradient-watney">Offers</span>
               </h2>
               <p className="text-xl text-black ">
-                Quality education and student support across healthcare and
-                vocational programmes, designed to develop your skills and
-                advance your career.
+                Career-focused Business Studies, English-language and
+                professional development in Dubai, supported by personalised
+                academic guidance and practical learning.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 z-[1000]">
               {[
                 {
-                  title: "Healthcare Programmes",
+                  title: "Business Studies & English Language",
                   description:
-                    "Nationally recognised qualifications in adult health and social care, delivered by experienced practitioners.",
+                    "Develop business knowledge and communication skills through our Dubai-based learning opportunities. Course availability, schedules and entry requirements are provided by the Admissions Team.",
                   icon: <BookOpen className="w-8 h-8 text-primary" />,
                   points: [
-                    "NQual Level 2 Adult Social Care",
-                    "NQual Level 4 Diploma in Adult Care",
+                    "Business Studies",
+                    "General English Tuition",
+                    "Career-Focused Learning",
                   ],
                 },
                 {
@@ -426,48 +414,48 @@ export default function page() {
                   ],
                 },
                 {
-                  title: "Employer Partnerships",
+                  title: "Corporate & Employer Engagement",
                   description:
-                    "Strong links with healthcare employers supporting student progression and workforce development.",
+                    "We welcome enquiries from businesses and employers seeking professional development and workforce learning opportunities in Dubai. Contact our team to discuss your organisation's needs.",
                   icon: <Globe className="w-8 h-8 text-primary" />,
                   points: [
-                    "Healthcare Employer Network",
-                    "Industry Engagement",
-                    "Career Pathways",
+                    "Corporate Enquiries",
+                    "Professional Development",
+                    "Business Skills",
                   ],
                   href: "/employers-and-partners",
                 },
                 {
-                  title: "Professional Certifications",
+                  title: "Professional Development",
                   description:
-                    "Industry-recognised qualifications designed to develop your professional skills and support career advancement in health and social care.",
+                    "Career-focused learning designed to strengthen practical knowledge, business confidence and professional communication.",
                   icon: <Award className="w-8 h-8 text-primary" />,
                   points: [
-                    "Recognised Qualifications",
-                    "Skills Assessment",
-                    "Career Progression",
+                    "Business Skills",
+                    "Communication Skills",
+                    "Career Development",
                   ],
                 },
                 {
                   title: "Practical Skills Development",
                   description:
-                    "Hands-on learning designed to build the competencies required for professional practice in care.",
+                    "Practical learning activities, discussions and case studies help learners apply business and communication skills to professional situations.",
                   icon: <GraduationCap className="w-8 h-8 text-primary" />,
                   points: [
-                    "Practical Training",
-                    "Portfolio Assessment",
-                    "Work-Based Learning",
+                    "Practical Activities",
+                    "Case Studies",
+                    "Applied Learning",
                   ],
                 },
                 {
-                  title: "Work Placement (Healthcare)",
+                  title: "Career & Employability Development",
                   description:
-                    "Connecting students with real-world opportunities to apply their skills and gain industry experience.",
+                    "Strengthen the skills and confidence needed for professional growth and changing workplace expectations.",
                   icon: <Lightbulb className="w-8 h-8 text-primary" />,
                   points: [
-                    "Placements",
-                    "Industry Projects",
-                    "Professional Networking",
+                    "Career Guidance",
+                    "Professional Skills",
+                    "Industry Awareness",
                   ],
                 },
               ].map((card, index) => (

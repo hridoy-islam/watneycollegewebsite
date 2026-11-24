@@ -23,7 +23,7 @@ The cohort achieved an outstanding 100% success rate, with all 43 registered stu
 
 Student feedback has also been highly positive, particularly regarding the quality of teaching, academic support and flexible delivery of the programme. Ninety per cent of students reported that they were satisfied with the support and guidance provided by teaching staff. Watney College is proud of these results and remains committed to maintaining consistently high standards across future cohorts.
 
-Students should have received an email from the College Administration Team confirming their results. For further information or queries regarding results, please contact admissions@watneycollege.co.uk.
+Students should have received an email from the College Administration Team confirming their results. For further information or queries regarding results, please contact info@watneycollege.com.
 
 **Progression to Level 3**
 
@@ -31,7 +31,7 @@ A progression route to the Level 3 Diploma in Adult Social Care course is now av
 
 The Academic Team will soon provide further information about the Level 3 programme, including details of an online progression webinar. The webinar will cover the programme structure, entry requirements, progression opportunities and enrolment process.
 
-Students are advised to monitor their inboxes and the Watney College website for further updates. Those interested in progressing to Level 3 should email admissions@watneycollege.co.uk to register their interest.
+Students are advised to monitor their inboxes and the Watney College website for further updates. Those interested in progressing to Level 3 should email info@watneycollege.com to register their interest.
 
 We congratulate all students on their hard work, dedication and achievements throughout their studies. We look forward to welcoming many of our successful students back to Watney College for the Autumn 2026 term.`,
     image: "/watney.png",

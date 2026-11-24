@@ -122,8 +122,7 @@ export default function ContactPage() {
                         Our Location
                       </h3>
                       <p className="text-black">
-                        80-82 Nelson Street Whitechapel, London, E1 2DY, United
-                        Kingdom
+                        Unit 121, Building B02, Dubai Knowledge Park, Al Bourooj Street, Al Safouh Second, Dubai, UAE
                       </p>
                     </div>
                   </div>
@@ -135,8 +134,8 @@ export default function ContactPage() {
                       <h3 className="text-lg font-bold text-black mb-1">
                         Phone Support
                       </h3>
-                      <a href="tel:+44 (0) 2080046463" className="text-black">
-                        +44 (0) 2080046463
+                      <a href="tel:+971525906245" className="text-black">
+                        +971 (0) 52 590 6245
                       </a>
                     </div>
                   </div>
@@ -149,7 +148,7 @@ export default function ContactPage() {
                         Email Us
                       </h3>
                       <a
-                        href="mailto:info@watneycollege.co.uk"
+                        href="mailto:info@watneycollege.com"
                         className="text-watney-blue-primary hover:underline"
                       >
                         info@watneycollege.com
@@ -290,10 +289,10 @@ export default function ContactPage() {
        
       or email{" "}
       <a
-        href="mailto:info@watneycollege.co.uk"
+        href="mailto:info@watneycollege.com"
         className="text-watney-blue-primary font-medium underline"
       >
-        info@watneycollege.co.uk
+        info@watneycollege.com
       </a>{" "}
       with the subject line{" "}
       <span className="font-semibold">"Formal Complaint"</span>.

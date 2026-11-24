@@ -126,7 +126,7 @@ export default function SafeguardingPreventPolicyPage() {
                         Designated Safeguarding Lead (DSL)
                       </h3>
                       <p className="text-sm text-black leading-relaxed">
-                        Email: info@watneycollege.co.uk · Phone: 02080046463
+                        Email: info@watneycollege.com · Phone: +971 (0) 52 590 6245
                         <br />
                         Responsible for leading safeguarding practice,
                         coordinating responses and reporting to external

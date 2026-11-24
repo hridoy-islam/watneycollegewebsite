@@ -500,14 +500,14 @@ export default function CareerApplicationForm() {
                       <li>
                         📧 <strong>Email:</strong>{' '}
                         <a
-                          href="mailto:admissions@watneycollege.ac.uk"
+                          href="mailto:info@watneycollege.com"
                           className="underline"
                         >
-                          admissions@watneycollege.ac.uk
+                          info@watneycollege.com
                         </a>
                       </li>
                       <li>
-                        ☎ <strong>Phone:</strong> +44 (0)20 1234 5678
+                        ☎ <strong>Phone:</strong> +971 (0) 52 590 6245
                       </li>
                     </ul>
                   </div>

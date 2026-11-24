@@ -249,19 +249,19 @@ const affiliates = [
               <p>
                 📧{" "}
                 <a
-                  href="mailto:info@watneycollege.co.uk"
+                  href="mailto:info@watneycollege.com"
                   className="text-primary font-medium underline"
                 >
-                  info@watneycollege.co.uk
+                  info@watneycollege.com
                 </a>
               </p>
               <p>
                 📞{" "}
                 <a
-                  href="tel:+442080046463"
+                  href="tel:+971525906245"
                   className="text-primary font-medium underline"
                 >
-                  +44 (0)20 8004 6463
+                  +971 (0) 52 590 6245
                 </a>
               </p>
             </div>

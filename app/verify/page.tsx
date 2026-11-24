@@ -344,10 +344,10 @@ export default function VerifyPage() {
           <p className="text-black text-sm leading-relaxed max-w-2xl mx-auto">
             For formal verification requests, contact{" "}
             <a
-              href="mailto:admissions@watneycollege.co.uk"
+              href="mailto:info@watneycollege.com"
               className="text-watney-blue-primary hover:underline font-medium"
             >
-              admissions@watneycollege.co.uk
+              info@watneycollege.com
             </a>{" "}
             with the applicant's full name and any reference number.
             <br className="hidden md:block" />

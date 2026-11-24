@@ -134,12 +134,12 @@ export function TermsSubmitStep({
                 <p className="mb-2 text-sm">
                   If you have any queries please contact us on{' '}
                   <a
-                    href="mailto:admission@watneycollege.co.uk"
+                    href="mailto:info@watneycollege.com"
                     className="text-blue-600 underline"
                   >
-                    admission@watneycollege.co.uk
+                    info@watneycollege.com
                   </a>{' '}
-                  or telephone +44 (0)208 004 6463.
+                  or telephone +971 (0) 52 590 6245.
                 </p>
 
                 <Separator className="my-4" />

@@ -561,15 +561,14 @@ export function ContactDetails() {
         <li className="flex items-center gap-2.5 text-gray-700">
           📧 <strong className="text-gray-900">Email:</strong>{' '}
           <a
-            href="mailto:admissions@watneycollege.ac.uk"
+            href="mailto:info@watneycollege.com"
             className="text-watney underline underline-offset-2"
           >
-            admissions@watneycollege.ac.uk
+            info@watneycollege.com
           </a>
         </li>
         <li className="flex items-center gap-2.5 text-gray-700">
-          ☎ <strong className="text-gray-900">Phone:</strong> +44 (0)20 1234
-          5678
+          ☎ <strong className="text-gray-900">Phone:</strong> +971 (0) 52 590 6245
         </li>
       </ul>
     </div>

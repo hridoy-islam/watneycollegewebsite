@@ -3,7 +3,7 @@ import {
   Mail,
   Phone,
   MapPin,
-  Clock,
+  Globe,
   Users,
   GraduationCap,
   BookOpen,
@@ -48,7 +48,7 @@ export default function Footer() {
     // { name: "Student Finance", href: "/student-finance" },
     // { name: "Accommodation", href: "/accommodation" },
     { name: "Career & Employability", href: "/career-employability" },
-    { name: "Prospectus 2025-26", href: "/prospectus" },
+    { name: "Prospectus 2026-27", href: "/prospectus" },
     { name: "Jobs", href: "/jobs" },
     // { name: "News & Insights", href: "/news-and-insights" },
   ];
@@ -168,9 +168,9 @@ export default function Footer() {
                 <MapPin className="w-5 h-5 text-white mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-white text-sm leading-relaxed">
-                    80-82 Nelson Street, Whitechapel,
+                    Unit 121, Building B02, Dubai Knowledge Park,
                     <br />
-                    London, E1 2DY, United Kingdom
+                    Al Bourooj Street, Al Safouh Second, Dubai, UAE
                   </p>
                 </div>
               </div>
@@ -179,10 +179,10 @@ export default function Footer() {
               <div className="flex items-center space-x-3 justify-center lg:justify-start">
                 <Phone className="w-5 h-5 text-white flex-shrink-0" />
                 <a
-                  href="tel:+442080046463"
+                  href="tel:+971525906245"
                   className="text-white transition-colors text-sm"
                 >
-                  +44 (0) 2080046463
+                  +971 (0) 52 590 6245
                 </a>
               </div>
 
@@ -190,21 +190,24 @@ export default function Footer() {
               <div className="flex items-center space-x-3 justify-center lg:justify-start">
                 <Mail className="w-5 h-5 text-white flex-shrink-0" />
                 <a
-                  href="mailto:info@watneycollege.co.uk"
+                  href="mailto:info@watneycollege.com"
                   className="text-white hover:text-white transition-colors text-sm"
                 >
-                  info@watneycollege.co.uk
+                  info@watneycollege.com
                 </a>
               </div>
 
-              {/* Office Hours */}
-              <div className="flex items-start space-x-3 justify-center lg:justify-start">
-                <Clock className="w-5 h-5 text-white flex-shrink-0" />
-                <div className="text-white text-sm">
-                  <div className="text-white text-sm">
-                    <div>Monday to Friday, 9:00am – 6:00pm</div>
-                  </div>
-                </div>
+              {/* Website */}
+              <div className="flex items-center space-x-3 justify-center lg:justify-start">
+                <Globe className="w-5 h-5 text-white flex-shrink-0" />
+                <a
+                  href="https://www.watneycollege.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white transition-colors text-sm"
+                >
+                  www.watneycollege.com
+                </a>
               </div>
             </div>
           </div>

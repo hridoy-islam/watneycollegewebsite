@@ -209,8 +209,7 @@ export default function DataProtectionPolicyPage() {
                       <p className="text-sm text-black leading-relaxed">
                         The College has appointed a DPO responsible for overseeing
                         data protection compliance and monitoring adherence to UK
-                        GDPR. Contact the DPO at: info@watneycollege.co.uk or +44
-                        (0) 2080046463.
+                        GDPR. Contact the DPO at: info@watneycollege.com or +971 (0) 52 590 6245.
                       </p>
                     </div>
                     <div className="bg-destructive/20 border border-destructive rounded-2xl p-6">

@@ -63,11 +63,11 @@ export default function AccidentAndEmergencyPage() {
                 <div className="space-y-4 text-black">
                   <p className="flex items-center font-medium">
                     <Phone className="w-5 h-5 text-watney-blue-primary mr-3" />
-                    Then contact Watney College: +44 (0) 2080046463
+                    Then contact Watney College: +971 (0) 52 590 6245
                   </p>
                   <p className="flex items-center">
                     <FileText className="w-5 h-5 text-watney-blue-primary mr-3" />
-                    info@watneycollege.co.uk
+                    info@watneycollege.com
                   </p>
                   <p className="text-sm italic text-black ml-8">
                     Monday to Friday, 9:00am – 5:00pm
@@ -112,7 +112,7 @@ export default function AccidentAndEmergencyPage() {
                       Watney College
                     </h3>
                     <p className="text-black">
-                      80–82 Nelson Street, Whitechapel, London, E1 2DY
+                      Unit 121, Building B02, Dubai Knowledge Park, Al Bourooj Street, Al Safouh Second, Dubai, UAE
                     </p>
                   </div>
                   <div className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
@@ -320,7 +320,7 @@ export default function AccidentAndEmergencyPage() {
               </div>
               <p className="text-black text-left">
                 For non-emergency mental health support, speak to your Personal
-                Tutor or contact student support at support@watneycollege.co.uk.
+                Tutor or contact student support at info@watneycollege.com.
               </p>
             </motion.div>
           </div>
@@ -403,18 +403,18 @@ export default function AccidentAndEmergencyPage() {
                     <tr className="border-b border-gray-100">
                       <td className="p-4 font-medium">General enquiries</td>
                       <td className="p-4 text-watney-blue-primary">
-                        info@watneycollege.co.uk
+                        info@watneycollege.com
                       </td>
                     </tr>
                     <tr className="border-b border-gray-100 bg-gray-50/30">
                       <td className="p-4 font-medium">Student support</td>
                       <td className="p-4 text-watney-blue-primary">
-                        support@watneycollege.co.uk
+                        info@watneycollege.com
                       </td>
                     </tr>
                     <tr className="border-b border-gray-100">
                       <td className="p-4 font-medium">On-site emergency</td>
-                      <td className="p-4 font-bold">+44 (0) 2080046463</td>
+                      <td className="p-4 font-bold">+971 (0) 52 590 6245</td>
                     </tr>
                     <tr className="border-b border-gray-100 bg-gray-50/30">
                       <td className="p-4 font-medium">

@@ -57,9 +57,9 @@ type ActionType = 'accept' | 'decline';
 
 const COLLEGE = {
   name: 'Watney College',
-  address: '80-83 Long Lane, London, EC1A 9ET',
-  email: 'admissions@watneycollege.co.uk',
-  phone: '+44 (0) 20 4577 1400'
+  address: 'Unit 121, Building B02, Dubai Knowledge Park, Al Bourooj Street, Al Safouh Second, Dubai, UAE',
+  email: 'info@watneycollege.com',
+  phone: '+971 (0) 52 590 6245'
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
