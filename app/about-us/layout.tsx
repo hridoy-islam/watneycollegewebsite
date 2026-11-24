@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "About Watney College Dubai | Dubai Knowledge Park";
+const title = "About Us";
 const description =
   "Watney College Dubai is the UAE branch of Watney College Limited, UK, in Dubai Knowledge Park, offering vocational education, professional training and career-focused learning.";
 
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: "/about.jpg",
         width: 1200,
         height: 630,
-        alt: "Watney College Dubai | Vocational and Professional Education in the UAE",
+        alt: "Watney College Dubai, Dubai Knowledge Park, UAE",
       },
     ],
     locale: "en_AE",

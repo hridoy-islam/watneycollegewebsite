@@ -28,41 +28,45 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     default:
-      "Watney College | Higher Education Provider — London | UKPRN 10087811",
-    template: "%s | Watney College | Higher Education Provider — London | UKPRN 10087811",
+      "Watney College Dubai | Dubai Knowledge Park, UAE",
+    template: "%s | Watney College Dubai",
   },
-  description: "Higher Education in the UK",
+  description:
+    "Watney College Dubai, the UAE branch of Watney College Limited, UK, offers vocational education, professional training, English language learning and career-focused short courses in Dubai Knowledge Park.",
   keywords: [
-    "Higher Education in the UK",
-    "UK Professional Qualifications",
-    "International Students UK",
-    "English Language Courses UK",
-    "Healthcare Management Courses UK",
-    "ATHE Diplomas",
-    "UK Career-Focused Education",
+    "Watney College Dubai",
+    "Dubai Knowledge Park",
+    "vocational education Dubai",
+    "professional training Dubai",
+    "English language courses Dubai",
+    "short courses Dubai",
+    "career-focused learning UAE",
+    "professional development UAE",
   ],
   openGraph: {
     title:
-      "Study in the UK | Watney College – Higher Education & Professional Diplomas",
-    description: "Higher Education in the UK",
+      "Watney College Dubai | Dubai Knowledge Park, UAE",
+    description:
+      "Practical, career-focused vocational education and professional training at Watney College Dubai, Dubai Knowledge Park.",
     url: "/",
-    siteName: "Watney College",
+    siteName: "Watney College Dubai",
     images: [
       {
         url: "/watney.png",
         width: 1200,
         height: 630,
-        alt: "Watney College | Higher Education in the UK",
+        alt: "Watney College Dubai, Dubai Knowledge Park, UAE",
       },
     ],
-    locale: "en_GB",
+    locale: "en_AE",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Study in the UK | Watney College – Higher Education & Professional Diplomas",
-    description: "Higher Education in the UK.",
+      "Watney College Dubai | Dubai Knowledge Park, UAE",
+    description:
+      "Practical, career-focused vocational education and professional training at Watney College Dubai, Dubai Knowledge Park.",
     images: ["/watney.png"],
   },
   alternates: {
