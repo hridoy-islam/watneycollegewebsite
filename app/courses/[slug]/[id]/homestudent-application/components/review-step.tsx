@@ -228,17 +228,17 @@ export function ReviewStep({ formData, onBack, onSubmit }: ReviewStepProps) {
     if (rows.length === 0) return null;
 
     return (
-      <div className="mb-6">
+      <div className="flex h-full flex-col">
         {showTitle && <h3 className="mb-2 text-sm md:text-lg font-semibold">{title}</h3>}
-        <div className="rounded-md border border-gray-200 p-1 md:p-4">
+        <div className="flex-1 rounded-md border border-gray-200 p-1 md:p-4">
           <table className="min-w-full divide-y divide-gray-200">
             <tbody className="divide-y divide-gray-200">
               {rows.map(([label, value], index) => (
                 <tr key={index}>
-                  <td className="break-words px-2 md:px-6 py-4 text-sm font-medium text-black w-1/3">
+                  <td className="break-words px-2 md:px-6 py-4 align-top text-sm font-medium text-black w-1/2">
                     {label as string}
                   </td>
-                  <td className="break-words px-2 md:px-6 py-4 text-sm text-black w-2/3">
+                  <td className="break-words px-2 md:px-6 py-4 align-top text-sm text-black w-1/2">
                     {value as React.ReactNode}
                   </td>
                 </tr>
@@ -271,7 +271,7 @@ export function ReviewStep({ formData, onBack, onSubmit }: ReviewStepProps) {
       </div>
 
       <div className="max-h-[60vh] overflow-y-auto p-2 md:p-6">
-        <div className="space-y-4 sm:space-y-6">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
             {/* Personal Details */}
             {renderSection('Personal Details', {
               title: getDataValue('title'),
@@ -380,13 +380,13 @@ export function ReviewStep({ formData, onBack, onSubmit }: ReviewStepProps) {
             })}
 
             {getDataValue('hasPreviousEmployment') === 'yes' && (
-              <div>
+              <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:col-span-2 lg:grid-cols-2">
                 {(getDataValue('previousEmployments') || []).length > 0 ? (
                   getDataValue('previousEmployments').map(
                     (emp: any, index: number) => (
                       <div
                         key={`prevEmp-${index}`}
-                        className="mb-4 rounded-md border border-gray-200 bg-gray-50 p-4"
+                        className="rounded-md border border-gray-200 bg-gray-50 p-4"
                       >
                         {renderSection(
                           `Previous Employment #${index + 1}`,
@@ -453,8 +453,13 @@ export function ReviewStep({ formData, onBack, onSubmit }: ReviewStepProps) {
               ...(getDataValue('fundingType') === 'Bursary/Grant' && {
                 grantDetails: getDataValue('grantDetails')
               }),
+              ...(['Employer', 'Employer-sponsored'].includes(
+                getDataValue('fundingType')
+              ) && {
+                employerName: getDataValue('fundingCompanyName')
+              }),
+              // Older applications saved as "Employer-sponsored" also captured contact details.
               ...(getDataValue('fundingType') === 'Employer-sponsored' && {
-                fundingCompanyName: getDataValue('fundingCompanyName'),
                 fundingContactPerson: getDataValue('fundingContactPerson'),
                 fundingEmail: getDataValue('fundingEmail'),
                 fundingPhoneNumber: getDataValue('fundingPhoneNumber')

@@ -53,15 +53,15 @@ function renderSection(title: string, data: any, showTitle = true) {
   });
 
   return (
-    <div className="mb-6">
+    <div className="flex h-full flex-col">
       {showTitle && <h3 className="mb-2 text-sm md:text-lg font-semibold">{title}</h3>}
-      <div className="rounded-md border border-gray-200 p-1 md:p-4">
+      <div className="flex-1 rounded-md border border-gray-200 p-1 md:p-4">
         <table className="min-w-full divide-y divide-gray-200">
           <tbody className="divide-y divide-gray-200">
             {rows.map(([label, value], index) => (
               <tr key={index}>
-                <td className="break-words px-2 md:px-6 py-4 text-sm font-medium text-black">{label}</td>
-                <td className="break-words px-2 md:px-6 py-4 text-sm text-black">{value}</td>
+                <td className="w-1/2 break-words px-2 md:px-6 py-4 align-top text-sm font-medium text-black">{label}</td>
+                <td className="break-words px-2 md:px-6 py-4 align-top text-sm text-black">{value}</td>
               </tr>
             ))}
           </tbody>
@@ -101,6 +101,7 @@ export function ApplicationPreview({
         <p className="text-black text-sm sm:text-base">Review all your information before submitting</p>
       </CardHeader>
       <CardContent className="space-y-6">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {renderSection('Personal Details', {
           title: defaultValues.title,
           firstName: defaultValues.firstName,
@@ -167,13 +168,15 @@ export function ApplicationPreview({
         {renderSection('Current Employment', defaultValues.currentEmployment)}
 
         {defaultValues.previousEmployments && defaultValues.previousEmployments.length > 0 && (
-          <div>
+          <div className="lg:col-span-2">
             <h3 className="mb-2 text-lg font-medium text-black">Previous Employment</h3>
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {defaultValues.previousEmployments.map((employment: any, index: number) => (
-              <div key={index} className="mb-4 rounded-md border border-gray-200 bg-gray-50 p-4">
+              <div key={index} className="rounded-md border border-gray-200 bg-gray-50 p-4">
                 {renderSection('', employment, false)}
               </div>
             ))}
+            </div>
           </div>
         )}
 
@@ -202,6 +205,7 @@ export function ApplicationPreview({
         })}
 
         {renderSection('Consent & Permissions', summaryConsent)}
+        </div>
 
         <div className="flex flex-col sm:flex-row justify-between gap-4 pt-6">
           <Button
