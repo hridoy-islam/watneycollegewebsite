@@ -44,6 +44,19 @@ const nextConfig = {
         ],
       },
       {
+        // The referee reference form links (/referee/recruitment/<token>) -
+        // one-off and personal like the offer links, so handled the same way:
+        // never indexed, and the token never leaks out as a referrer.
+        source: "/referee/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow, noarchive, nosnippet",
+          },
+          { key: "Referrer-Policy", value: "no-referrer" },
+        ],
+      },
+      {
         // matching all API routes
         source: "/api/:path*",
         headers: [
